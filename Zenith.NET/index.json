@@ -1,0 +1,17 @@
+{
+  "docs/getting-started.html": {
+    "href": "docs/getting-started.html",
+    "title": "Getting Started | Zenith.NET Documentation",
+    "summary": "Getting Started"
+  },
+  "docs/introduction.html": {
+    "href": "docs/introduction.html",
+    "title": "Introduction | Zenith.NET Documentation",
+    "summary": "Introduction"
+  },
+  "index.html": {
+    "href": "index.html",
+    "title": "Zenith.NET | Zenith.NET Documentation",
+    "summary": "Zenith.NET Welcome to the Zenith.NET documentation."
+  }
+}
