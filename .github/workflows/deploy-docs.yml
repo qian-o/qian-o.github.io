@@ -36,8 +36,8 @@ jobs:
 
       - name: Copy Output
         run: |
-          rm -rf "${{ matrix.output_folder }}"
-          cp -r "source-repo/${{ matrix.docs_folder }}/_site" "${{ matrix.output_folder }}"
+          Remove-Item -Recurse -Force "${{ matrix.output_folder }}" -ErrorAction SilentlyContinue
+          Copy-Item -Recurse "source-repo/${{ matrix.docs_folder }}/_site" "${{ matrix.output_folder }}"
 
       - name: Commit and Push
         run: |
