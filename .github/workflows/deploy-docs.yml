@@ -39,6 +39,9 @@ jobs:
           Remove-Item -Recurse -Force "${{ matrix.output_folder }}" -ErrorAction SilentlyContinue
           Copy-Item -Recurse "source-repo/${{ matrix.docs_folder }}/_site" "${{ matrix.output_folder }}"
 
+      - name: Clean Up
+        run: Remove-Item -Recurse -Force "source-repo"
+
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v7
         with:
