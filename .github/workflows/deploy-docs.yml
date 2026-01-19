@@ -10,6 +10,7 @@ jobs:
       matrix:
         include:
           - repo_url: https://github.com/qian-o/Zenith.NET
+            branch: master
             docs_folder: documents
             output_folder: Zenith.NET
 
@@ -17,7 +18,7 @@ jobs:
       - uses: actions/checkout@v6
 
       - name: Clone Repository
-        run: git clone ${{ matrix.repo_url }} source-repo
+        run: git clone -b ${{ matrix.branch }} ${{ matrix.repo_url }} source-repo
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v5
@@ -33,6 +34,8 @@ jobs:
       - name: Build
         run: docfx source-repo/${{ matrix.docs_folder }}/docfx.json
         continue-on-error: true
+        env:
+          GITHUB_REF_NAME: ${{ matrix.branch }}
 
       - name: Copy Output
         run: |
