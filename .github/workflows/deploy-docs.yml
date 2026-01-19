@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
-      - name: Clone source repository
+      - name: Clone Repository
         run: git clone ${{ matrix.repo_url }} source-repo
 
       - name: Setup .NET
@@ -24,25 +24,21 @@ jobs:
         with:
           dotnet-version: 10.0.x
 
-      - name: Install dependencies
-        run: |
-          dotnet workload install maui
-          dotnet tool install -g docfx
+      - name: Install Workload
+        run: dotnet workload install maui
 
-      - name: Build documentation
-        run: |
-          cd source-repo/${{ matrix.docs_folder }}
-          docfx docfx.json
+      - name: Install DocFX
+        run: dotnet tool install -g docfx
 
-      - name: Copy built documentation
+      - name: Build
+        run: docfx source-repo/${{ matrix.docs_folder }}/docfx.json
+
+      - name: Copy Output
         run: |
-          # Remove existing folder if exists
           rm -rf "${{ matrix.output_folder }}"
-          # Copy built documentation
           cp -r "source-repo/${{ matrix.docs_folder }}/_site" "${{ matrix.output_folder }}"
-          echo "Documentation copied to ${{ matrix.output_folder }}/"
 
-      - name: Commit and push changes
+      - name: Commit and Push
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
