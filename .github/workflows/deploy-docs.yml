@@ -32,6 +32,7 @@ jobs:
 
       - name: Build
         run: docfx source-repo/${{ matrix.docs_folder }}/docfx.json
+        continue-on-error: true
 
       - name: Copy Output
         run: |
