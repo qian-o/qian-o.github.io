@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Introduction | Zenith.NET </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Introduction | Zenith.NET ">
+      
+      
+      <link rel="icon" href="../images/Zenith.NET.png">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/qian-o/Zenith.NET/blob/main/documents/docs/introduction.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/Zenith.NET.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="introduction">Introduction</h1>
+
+<p>Zenith.NET is a Rendering Hardware Interface (RHI) library built on Silk.NET, designed to simplify GPU programming.
+It provides a high-level abstraction layer that enables developers to easily interact with various graphics APIs (DirectX 12, Metal, and Vulkan) without needing to understand the underlying implementation details.</p>
+<h2 id="features">Features</h2>
+<h3 id="-modern-gpu-features">🎮 Modern GPU Features</h3>
+<ul>
+<li><strong>Programmable Pipelines</strong>: Full graphics pipeline support (Vertex, Hull, Domain, Geometry, Pixel) and compute pipelines.</li>
+<li><strong>Ray Tracing</strong>: Complete hardware-accelerated ray tracing support, including:
+<ul>
+<li>Acceleration structure (BLAS/TLAS) building and updating</li>
+<li>Ray tracing pipeline (RayGeneration, Miss, AnyHit, Intersection, ClosestHit)</li>
+<li>HitGroup configuration</li>
+</ul>
+</li>
+<li><strong>Mesh Shaders</strong>: Modern Mesh Shading pipeline support (Amplification + Mesh + Pixel).</li>
+<li><strong>GPU Queries</strong>: Occlusion Query and Timestamp Query support.</li>
+</ul>
+<h3 id="-cross-platform">🌍 Cross-Platform</h3>
+<p>You can run on any platform that supports .NET and the supported graphics APIs, except for the Web platform.</p>
+<table>
+<thead>
+<tr>
+<th>Backend</th>
+<th>Platform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DirectX 12</td>
+<td>Windows</td>
+</tr>
+<tr>
+<td>Metal</td>
+<td>macOS, iOS</td>
+</tr>
+<tr>
+<td>Vulkan</td>
+<td>Windows, Linux, Android</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-multiple-ui-framework-integration">🖼️ Multiple UI Framework Integration</h3>
+<p>Out-of-the-box view components supporting various mainstream UI frameworks:</p>
+<ul>
+<li><strong>Avalonia</strong> - Cross-platform XAML framework</li>
+<li><strong>MAUI</strong> - Cross-platform UI framework</li>
+<li><strong>WinForms</strong> - Windows Forms</li>
+<li><strong>WinUI</strong> - Windows App SDK (with Uno Platform support)</li>
+<li><strong>WPF</strong> - Windows Presentation Foundation</li>
+</ul>
+<h3 id="-extension-ecosystem">🔧 Extension Ecosystem</h3>
+<ul>
+<li><strong>ImageSharp Integration</strong>: Through the <code>Zenith.NET.Extensions.ImageSharp</code> extension, provides image loading and processing support.</li>
+<li><strong>ImGui Integration</strong>: Through the <code>Zenith.NET.Extensions.ImGui</code> extension, provides immediate mode GUI support for debugging and tool development.</li>
+<li><strong>SkiaSharp Integration</strong>: Through the <code>Zenith.NET.Extensions.Skia</code> extension, enables 2D rendering.</li>
+<li><strong>Slang Shader Compilation</strong>: Through the <code>Zenith.NET.Extensions.Slang</code> extension, write shaders in Slang language with automatic compilation to target backend formats (DXIL, SPIR-V, Metal).</li>
+</ul>
+<h3 id="-other-features">✨ Other Features</h3>
+<ul>
+<li><strong>Validation Layer</strong>: Built-in validation layer to help developers catch errors during development.</li>
+<li><strong>Resource Management</strong>: Unified resource creation and lifecycle management.</li>
+<li><strong>Command Queues</strong>: Support for Graphics, Compute, and Copy command queues to fully utilize GPU asynchronous execution capabilities.</li>
+<li><strong>Rich Pixel Formats</strong>: Support for multiple pixel formats to meet different rendering needs.</li>
+</ul>
+<h2 id="architecture">Architecture</h2>
+<pre><code>┌─────────────────────────────────────────────────────────────┐
+│                         Application                         │
+├─────────────────────────────────────────────────────────────┤
+│        Extensions (ImageSharp, ImGui, Skia, Slang)          │
+├─────────────────────────────────────────────────────────────┤
+│      Views (Avalonia, MAUI, WinForms, WinUI, WPF)           │
+├─────────────────────────────────────────────────────────────┤
+│                       Zenith.NET (RHI)                      │
+│  ┌───────────────────┬───────────────┬───────────────────┐  │
+│  │  GraphicsContext  │ CommandBuffer │     Pipeline      │  │
+│  │  Buffer, Texture  │  FrameBuffer  │   ResourceSet     │  │
+│  │     SwapChain     │    Sampler    │ AccelerationStruct│  │
+│  └───────────────────┴───────────────┴───────────────────┘  │
+├─────────────────────────────────────────────────────────────┤
+│      DirectX 12      │     Metal     │      Vulkan          │
+├─────────────────────────────────────────────────────────────┤
+│                          Silk.NET                           │
+└─────────────────────────────────────────────────────────────┘
+</code></pre>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/qian-o/Zenith.NET/blob/main/documents/docs/introduction.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
