@@ -1,0 +1,53 @@
+﻿name: Deploy Docs
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - repo_url: https://github.com/qian-o/Zenith.NET
+            branch: master
+            docs_folder: documents
+            output_folder: Zenith.NET
+    
+    steps:
+      - name: Checkout this repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Clone source repository
+        run: |
+          git clone --depth 1 --branch ${{ matrix.branch }} ${{ matrix.repo_url }} source-repo
+      
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+      
+      - name: Install DocFX
+        run: dotnet tool install -g docfx
+      
+      - name: Build documentation
+        run: |
+          cd source-repo/${{ matrix.docs_folder }}
+          docfx docfx.json
+      
+      - name: Copy built documentation
+        run: |
+          # Remove existing folder if exists
+          rm -rf "${{ matrix.output_folder }}"
+          # Copy built documentation
+          cp -r "source-repo/${{ matrix.docs_folder }}/_site" "${{ matrix.output_folder }}"
+          echo "Documentation copied to ${{ matrix.output_folder }}/"
+      
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add "${{ matrix.output_folder }}"
+          git diff --staged --quiet || (git commit -m "Update ${{ matrix.output_folder }} documentation" && git push)
