@@ -3,29 +3,151 @@
   "xrefmap": "xrefmap.yml",
   "files": [
     {
-      "type": "Resource",
-      "output": {
-        "resource": {
-          "relative_path": "index.json"
-        }
-      }
-    },
-    {
       "type": "Conceptual",
-      "source_relative_path": "docs/getting-started.md",
+      "source_relative_path": "api/index.md",
       "output": {
         ".html": {
-          "relative_path": "docs/getting-started.html"
+          "relative_path": "api/index.html"
         }
       },
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "docs/introduction.md",
+      "source_relative_path": "docs/best-practices.md",
       "output": {
         ".html": {
-          "relative_path": "docs/introduction.html"
+          "relative_path": "docs/best-practices.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/concepts/command-model.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/concepts/command-model.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/concepts/graphics-context.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/concepts/graphics-context.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/concepts/resource-binding.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/concepts/resource-binding.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/pipelines/compute.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/pipelines/compute.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/pipelines/graphics.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/pipelines/graphics.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/pipelines/mesh-shading.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/pipelines/mesh-shading.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/pipelines/ray-tracing.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/pipelines/ray-tracing.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/platform/backend-selection.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/platform/backend-selection.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/platform/ui-frameworks.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/platform/ui-frameworks.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/resources/buffers.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/resources/buffers.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/resources/samplers.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/resources/samplers.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/resources/textures.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/resources/textures.html"
         }
       },
       "version": ""
@@ -39,6 +161,26 @@
         },
         ".json": {
           "relative_path": "docs/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/Zenith.NET-Logo.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/Zenith.NET-Logo.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/Zenith.NET-Logo.svg",
+      "output": {
+        "resource": {
+          "relative_path": "images/Zenith.NET-Logo.svg"
         }
       },
       "version": ""
@@ -64,6 +206,86 @@
       "version": ""
     },
     {
+      "type": "Resource",
+      "source_relative_path": "images/compute-shader.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/compute-shader.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/hello-triangle.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/hello-triangle.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/indirect-drawing.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/indirect-drawing.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/mesh-shading.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/mesh-shading.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/ray-tracing.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/ray-tracing.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/shoko.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/shoko.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/spinning-cube.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/spinning-cube.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/textured-quad.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/textured-quad.png"
+        }
+      },
+      "version": ""
+    },
+    {
       "type": "Conceptual",
       "source_relative_path": "index.md",
       "output": {
@@ -82,6 +304,109 @@
         },
         ".json": {
           "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "tutorials/advanced/mesh-shading.md",
+      "output": {
+        ".html": {
+          "relative_path": "tutorials/advanced/mesh-shading.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "tutorials/advanced/ray-tracing.md",
+      "output": {
+        ".html": {
+          "relative_path": "tutorials/advanced/ray-tracing.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "tutorials/getting-started/hello-triangle.md",
+      "output": {
+        ".html": {
+          "relative_path": "tutorials/getting-started/hello-triangle.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "tutorials/getting-started/prerequisites.md",
+      "output": {
+        ".html": {
+          "relative_path": "tutorials/getting-started/prerequisites.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "tutorials/getting-started/spinning-cube.md",
+      "output": {
+        ".html": {
+          "relative_path": "tutorials/getting-started/spinning-cube.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "tutorials/getting-started/textured-quad.md",
+      "output": {
+        ".html": {
+          "relative_path": "tutorials/getting-started/textured-quad.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "tutorials/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "tutorials/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "tutorials/intermediate/compute-shader.md",
+      "output": {
+        ".html": {
+          "relative_path": "tutorials/intermediate/compute-shader.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "tutorials/intermediate/indirect-drawing.md",
+      "output": {
+        ".html": {
+          "relative_path": "tutorials/intermediate/indirect-drawing.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "tutorials/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "tutorials/toc.html"
+        },
+        ".json": {
+          "relative_path": "tutorials/toc.json"
         }
       },
       "version": ""

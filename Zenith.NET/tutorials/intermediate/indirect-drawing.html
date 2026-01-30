@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Indirect Drawing | Zenith.NET </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Indirect Drawing | Zenith.NET ">
+      
+      
+      <link rel="icon" href="../../images/Zenith.NET.png">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/qian-o/Zenith.NET/blob/master/documents/tutorials/intermediate/indirect-drawing.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/Zenith.NET-Logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="indirect-drawing">Indirect Drawing</h1>
+
+<p>In this tutorial, you'll learn how to use indirect drawing with Zenith.NET. Indirect drawing allows the GPU to control draw parameters, enabling GPU-driven rendering techniques.</p>
+<h2 id="overview">Overview</h2>
+<p>We'll create an <code>IndirectDrawingRenderer</code> class that:</p>
+<ul>
+<li>Creates multiple instances of geometry with different transforms</li>
+<li>Stores draw arguments in a GPU buffer</li>
+<li>Uses <code>DrawIndexedIndirect</code> to render all instances in a single call</li>
+<li>Demonstrates GPU-driven rendering patterns</li>
+</ul>
+<h2 id="the-renderer-class">The Renderer Class</h2>
+<p>Create a new file <code>Renderers/IndirectDrawingRenderer.cs</code>:</p>
+<pre><code class="lang-csharp">namespace ZenithTutorials.Renderers;
+
+internal unsafe class IndirectDrawingRenderer : IRenderer
+{
+    private const int InstanceCount = 25;  // 5x5 grid of cubes
+
+    private const string ShaderSource = &quot;&quot;&quot;
+        struct ViewConstants
+        {
+            float4x4 View;
+
+            float4x4 Projection;
+        };
+
+        struct InstanceData
+        {
+            float4x4 Model;
+
+            float4 Color;
+        };
+
+        struct VSInput
+        {
+            float3 Position : POSITION0;
+
+            float4 Color : COLOR0;
+
+            uint InstanceID : SV_InstanceID;
+        };
+
+        struct PSInput
+        {
+            float4 Position : SV_POSITION;
+
+            float4 Color : COLOR0;
+        };
+
+        ConstantBuffer&lt;ViewConstants&gt; view;
+        StructuredBuffer&lt;InstanceData&gt; instances;
+
+        PSInput VSMain(VSInput input)
+        {
+            InstanceData instance = instances[input.InstanceID];
+
+            float4 worldPos = mul(float4(input.Position, 1.0), instance.Model);
+            float4 viewPos = mul(worldPos, view.View);
+
+            PSInput output;
+            output.Position = mul(viewPos, view.Projection);
+            output.Color = input.Color * instance.Color;
+
+            return output;
+        }
+
+        float4 PSMain(PSInput input) : SV_TARGET
+        {
+            return input.Color;
+        }
+        &quot;&quot;&quot;;
+
+    private readonly Buffer vertexBuffer;
+    private readonly Buffer indexBuffer;
+    private readonly Buffer indirectBuffer;
+    private readonly Buffer viewConstantsBuffer;
+    private readonly Buffer instanceBuffer;
+    private readonly ResourceLayout resourceLayout;
+    private readonly ResourceSet resourceSet;
+    private readonly GraphicsPipeline pipeline;
+
+    private float rotationAngle;
+
+    public IndirectDrawingRenderer()
+    {
+        Vertex[] vertices =
+        [
+            // Front face
+            new(new(-0.5f, -0.5f,  0.5f), new(1.0f, 1.0f, 1.0f, 1.0f)),
+            new(new( 0.5f, -0.5f,  0.5f), new(1.0f, 1.0f, 1.0f, 1.0f)),
+            new(new( 0.5f,  0.5f,  0.5f), new(1.0f, 1.0f, 1.0f, 1.0f)),
+            new(new(-0.5f,  0.5f,  0.5f), new(1.0f, 1.0f, 1.0f, 1.0f)),
+            // Back face
+            new(new(-0.5f, -0.5f, -0.5f), new(1.0f, 1.0f, 1.0f, 1.0f)),
+            new(new( 0.5f, -0.5f, -0.5f), new(1.0f, 1.0f, 1.0f, 1.0f)),
+            new(new( 0.5f,  0.5f, -0.5f), new(1.0f, 1.0f, 1.0f, 1.0f)),
+            new(new(-0.5f,  0.5f, -0.5f), new(1.0f, 1.0f, 1.0f, 1.0f)),
+        ];
+
+        uint[] indices =
+        [
+            0, 1, 2, 0, 2, 3,
+            5, 4, 7, 5, 7, 6,
+            4, 0, 3, 4, 3, 7,
+            1, 5, 6, 1, 6, 2,
+            3, 2, 6, 3, 6, 7,
+            4, 5, 1, 4, 1, 0
+        ];
+
+        vertexBuffer = App.Context.CreateBuffer(new()
+        {
+            SizeInBytes = (uint)(sizeof(Vertex) * vertices.Length),
+            StrideInBytes = (uint)sizeof(Vertex),
+            Flags = BufferUsageFlags.Vertex | BufferUsageFlags.MapWrite
+        });
+        vertexBuffer.Upload(vertices, 0);
+
+        indexBuffer = App.Context.CreateBuffer(new()
+        {
+            SizeInBytes = (uint)(sizeof(uint) * indices.Length),
+            StrideInBytes = sizeof(uint),
+            Flags = BufferUsageFlags.Index | BufferUsageFlags.MapWrite
+        });
+        indexBuffer.Upload(indices, 0);
+
+        indirectBuffer = App.Context.CreateBuffer(new()
+        {
+            SizeInBytes = (uint)sizeof(IndirectDrawIndexedArgs),
+            StrideInBytes = (uint)sizeof(IndirectDrawIndexedArgs),
+            Flags = BufferUsageFlags.Indirect | BufferUsageFlags.MapWrite
+        });
+
+        indirectBuffer.Upload([new IndirectDrawIndexedArgs()
+        {
+            IndexCount = (uint)indices.Length,
+            InstanceCount = InstanceCount,
+            FirstIndex = 0,
+            VertexOffset = 0,
+            FirstInstance = 0
+        }], 0);
+
+        viewConstantsBuffer = App.Context.CreateBuffer(new()
+        {
+            SizeInBytes = (uint)sizeof(ViewConstants),
+            StrideInBytes = (uint)sizeof(ViewConstants),
+            Flags = BufferUsageFlags.Constant | BufferUsageFlags.MapWrite
+        });
+
+        instanceBuffer = App.Context.CreateBuffer(new()
+        {
+            SizeInBytes = (uint)(sizeof(InstanceData) * InstanceCount),
+            StrideInBytes = (uint)sizeof(InstanceData),
+            Flags = BufferUsageFlags.ShaderResource | BufferUsageFlags.MapWrite
+        });
+
+        resourceLayout = App.Context.CreateResourceLayout(new()
+        {
+            Bindings = BindingHelper.Bindings
+            (
+                new() { Type = ResourceType.ConstantBuffer, Count = 1, StageFlags = ShaderStageFlags.Vertex },
+                new() { Type = ResourceType.StructuredBuffer, Count = 1, StageFlags = ShaderStageFlags.Vertex }
+            )
+        });
+
+        resourceSet = App.Context.CreateResourceSet(new()
+        {
+            Layout = resourceLayout,
+            Resources = [viewConstantsBuffer, instanceBuffer]
+        });
+
+        InputLayout inputLayout = new();
+        inputLayout.Add(new() { Format = ElementFormat.Float3, Semantic = ElementSemantic.Position });
+        inputLayout.Add(new() { Format = ElementFormat.Float4, Semantic = ElementSemantic.Color });
+
+        using Shader vertexShader = App.Context.LoadShaderFromSource(ShaderSource, &quot;VSMain&quot;, ShaderStageFlags.Vertex);
+        using Shader pixelShader = App.Context.LoadShaderFromSource(ShaderSource, &quot;PSMain&quot;, ShaderStageFlags.Pixel);
+
+        // Create graphics pipeline
+        pipeline = App.Context.CreateGraphicsPipeline(new()
+        {
+            RenderStates = new()
+            {
+                RasterizerState = RasterizerStates.CullBack,
+                DepthStencilState = DepthStencilStates.Default,
+                BlendState = BlendStates.Opaque
+            },
+            Vertex = vertexShader,
+            Pixel = pixelShader,
+            ResourceLayouts = [resourceLayout],
+            InputLayouts = [inputLayout],
+            PrimitiveTopology = PrimitiveTopology.TriangleList,
+            Output = App.SwapChain.FrameBuffer.Output
+        });
+    }
+
+    public void Update(double deltaTime)
+    {
+        rotationAngle += (float)deltaTime;
+
+        InstanceData[] instances = new InstanceData[InstanceCount];
+        int index = 0;
+        int gridSize = (int)Math.Sqrt(InstanceCount);
+
+        for (int y = 0; y &lt; gridSize; y++)
+        {
+            for (int x = 0; x &lt; gridSize; x++)
+            {
+                float offsetX = (x - (gridSize / 2)) * 1.5f;
+                float offsetY = (y - (gridSize / 2)) * 1.5f;
+                float rotation = rotationAngle * (1.0f + (index * 0.1f));
+
+                instances[index] = new()
+                {
+                    Model = Matrix4x4.CreateScale(0.4f)
+                            * Matrix4x4.CreateRotationY(rotation)
+                            * Matrix4x4.CreateRotationX(rotation * 0.5f)
+                            * Matrix4x4.CreateTranslation(offsetX, offsetY, 0),
+                    Color = new((float)x / gridSize, (float)y / gridSize, 1.0f - ((float)x / gridSize), 1.0f)
+                };
+
+                index++;
+            }
+        }
+
+        instanceBuffer.Upload(instances, 0);
+    }
+
+    public void Render()
+    {
+        Matrix4x4 view = Matrix4x4.CreateLookAt(new(0, 0, 8), Vector3.Zero, Vector3.UnitY);
+        Matrix4x4 projection = Matrix4x4.CreatePerspectiveFieldOfView(float.DegreesToRadians(45.0f), (float)App.Width / App.Height, 0.1f, 100.0f);
+
+        viewConstantsBuffer.Upload([new ViewConstants() { View = view, Projection = projection }], 0);
+
+        CommandBuffer commandBuffer = App.Context.Graphics.CommandBuffer();
+
+        commandBuffer.BeginRenderPass(App.SwapChain.FrameBuffer, new()
+        {
+            ColorValues = [new(0.1f, 0.1f, 0.15f, 1.0f)],
+            Depth = 1.0f,
+            Stencil = 0,
+            Flags = ClearFlags.All
+        }, resourceSet);
+
+        commandBuffer.SetPipeline(pipeline);
+        commandBuffer.SetResourceSet(resourceSet, 0);
+        commandBuffer.SetVertexBuffer(vertexBuffer, 0, 0);
+        commandBuffer.SetIndexBuffer(indexBuffer, 0, IndexFormat.UInt32);
+        commandBuffer.DrawIndexedIndirect(indirectBuffer, 0, 1);
+
+        commandBuffer.EndRenderPass();
+
+        commandBuffer.Submit(waitForCompletion: true);
+    }
+
+    public void Resize(uint width, uint height)
+    {
+    }
+
+    public void Dispose()
+    {
+        pipeline.Dispose();
+        resourceSet.Dispose();
+        resourceLayout.Dispose();
+        instanceBuffer.Dispose();
+        viewConstantsBuffer.Dispose();
+        indirectBuffer.Dispose();
+        indexBuffer.Dispose();
+        vertexBuffer.Dispose();
+    }
+}
+
+/// &lt;summary&gt;
+/// Vertex structure with position and color data.
+/// &lt;/summary&gt;
+[StructLayout(LayoutKind.Sequential)]
+file struct Vertex(Vector3 position, Vector4 color)
+{
+    public Vector3 Position = position;
+
+    public Vector4 Color = color;
+}
+
+/// &lt;summary&gt;
+/// Per-instance transformation and color data.
+/// &lt;/summary&gt;
+[StructLayout(LayoutKind.Sequential)]
+file struct InstanceData
+{
+    public Matrix4x4 Model;
+
+    public Vector4 Color;
+}
+
+/// &lt;summary&gt;
+/// View and projection matrices.
+/// &lt;/summary&gt;
+[StructLayout(LayoutKind.Sequential)]
+file struct ViewConstants
+{
+    public Matrix4x4 View;
+
+    public Matrix4x4 Projection;
+}
+</code></pre>
+<h2 id="running-the-tutorial">Running the Tutorial</h2>
+<p>Update your <code>Program.cs</code> to run the <code>IndirectDrawingRenderer</code>:</p>
+<pre><code class="lang-csharp">using ZenithTutorials;
+using ZenithTutorials.Renderers;
+
+App.Run&lt;IndirectDrawingRenderer&gt;();
+
+App.Cleanup();
+</code></pre>
+<p>Run the application:</p>
+<pre><code class="lang-bash">dotnet run
+</code></pre>
+<h2 id="result">Result</h2>
+<p><img src="../../images/indirect-drawing.png" alt="indirect-drawing"></p>
+<h2 id="code-breakdown">Code Breakdown</h2>
+<h3 id="indirect-draw-arguments">Indirect Draw Arguments</h3>
+<pre><code class="lang-csharp">indirectBuffer.Upload([new IndirectDrawIndexedArgs()
+{
+    IndexCount = (uint)indices.Length,
+    InstanceCount = InstanceCount,
+    FirstIndex = 0,
+    VertexOffset = 0,
+    FirstInstance = 0
+}], 0);
+</code></pre>
+<p>The <code>IndirectDrawIndexedArgs</code> structure matches the GPU's expected format for indexed indirect draws:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>IndexCount</code></td>
+<td>Number of indices to draw per instance</td>
+</tr>
+<tr>
+<td><code>InstanceCount</code></td>
+<td>Number of instances to draw</td>
+</tr>
+<tr>
+<td><code>FirstIndex</code></td>
+<td>Starting index in the index buffer</td>
+</tr>
+<tr>
+<td><code>VertexOffset</code></td>
+<td>Value added to each index before fetching vertices</td>
+</tr>
+<tr>
+<td><code>FirstInstance</code></td>
+<td>Starting instance ID</td>
+</tr>
+</tbody>
+</table>
+<h3 id="indirect-buffer-creation">Indirect Buffer Creation</h3>
+<pre><code class="lang-csharp">indirectBuffer = App.Context.CreateBuffer(new()
+{
+    SizeInBytes = (uint)sizeof(IndirectDrawIndexedArgs),
+    StrideInBytes = (uint)sizeof(IndirectDrawIndexedArgs),
+    Flags = BufferUsageFlags.Indirect | BufferUsageFlags.MapWrite
+});
+</code></pre>
+<p><code>BufferUsageFlags.Indirect</code> is required for buffers used with indirect draw commands.</p>
+<h3 id="instance-data-buffer">Instance Data Buffer</h3>
+<pre><code class="lang-csharp">instanceBuffer = App.Context.CreateBuffer(new()
+{
+    SizeInBytes = (uint)(sizeof(InstanceData) * InstanceCount),
+    StrideInBytes = (uint)sizeof(InstanceData),
+    Flags = BufferUsageFlags.ShaderResource | BufferUsageFlags.MapWrite
+});
+</code></pre>
+<p>Instance data is stored in a <code>StructuredBuffer</code> accessed by the vertex shader using <code>SV_InstanceID</code>.</p>
+<h3 id="shader-instance-access">Shader Instance Access</h3>
+<pre><code class="lang-slang">StructuredBuffer&lt;InstanceData&gt; instances;
+
+PSInput VSMain(VSInput input)
+{
+    InstanceData instance = instances[input.InstanceID];
+
+    float4 worldPos = mul(float4(input.Position, 1.0), instance.Model);
+    // ...
+}
+</code></pre>
+<p>The shader reads per-instance data using <code>SV_InstanceID</code> as an index into the structured buffer.</p>
+<h3 id="indirect-draw-call">Indirect Draw Call</h3>
+<pre><code class="lang-csharp">commandBuffer.DrawIndexedIndirect(indirectBuffer, 0, 1);
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>indirectBuffer</code></td>
+<td>Buffer containing draw arguments</td>
+</tr>
+<tr>
+<td><code>offsetInBytes</code></td>
+<td>Byte offset into the buffer</td>
+</tr>
+<tr>
+<td><code>drawCount</code></td>
+<td>Number of draw commands to execute</td>
+</tr>
+</tbody>
+</table>
+<h3 id="available-indirect-commands">Available Indirect Commands</h3>
+<p>Zenith.NET provides several indirect drawing methods:</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DrawIndirect</code></td>
+<td>Non-indexed indirect draw</td>
+</tr>
+<tr>
+<td><code>DrawIndexedIndirect</code></td>
+<td>Indexed indirect draw</td>
+</tr>
+<tr>
+<td><code>DispatchIndirect</code></td>
+<td>Indirect compute dispatch</td>
+</tr>
+<tr>
+<td><code>DispatchMeshIndirect</code></td>
+<td>Indirect mesh shading dispatch</td>
+</tr>
+</tbody>
+</table>
+<h3 id="gpu-driven-rendering">GPU-Driven Rendering</h3>
+<p>Indirect drawing enables GPU-driven rendering where the GPU itself generates draw parameters:</p>
+<ol>
+<li>A compute shader performs culling and generates visible instance list</li>
+<li>Another compute shader writes <code>IndirectDrawIndexedArgs</code> to the indirect buffer</li>
+<li><code>DrawIndexedIndirect</code> renders only visible instances</li>
+</ol>
+<p>This eliminates CPU-GPU synchronization for visibility determination.</p>
+<h2 id="next-steps">Next Steps</h2>
+<p>Continue with advanced GPU features:</p>
+<ul>
+<li><a href="../advanced/ray-tracing.html">Ray Tracing</a> - Build acceleration structures, trace rays, and implement shadows</li>
+</ul>
+<h2 id="source-code">Source Code</h2>
+<div class="TIP">
+<h5>Tip</h5>
+<p>View the complete source code on GitHub: <a href="https://github.com/qian-o/ZenithTutorials/blob/master/ZenithTutorials/Renderers/IndirectDrawingRenderer.cs">IndirectDrawingRenderer.cs</a></p>
+</div>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/qian-o/Zenith.NET/blob/master/documents/tutorials/intermediate/indirect-drawing.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
