@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Prerequisites | Zenith.NET </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Prerequisites | Zenith.NET ">
+      
+      
+      <link rel="icon" href="../../images/Zenith.NET.png">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/qian-o/Zenith.NET/blob/master/documents/tutorials/getting-started/prerequisites.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/Zenith.NET-Logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="prerequisites">Prerequisites</h1>
+
+<p>This guide covers the environment setup required before working with Zenith.NET.</p>
+<h2 id="system-requirements">System Requirements</h2>
+<h3 id="hardware">Hardware</h3>
+<p>Zenith.NET supports multiple graphics backends across platforms:</p>
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th style="text-align: center;">DirectX 12</th>
+<th style="text-align: center;">Metal 4</th>
+<th style="text-align: center;">Vulkan 1.4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Windows</td>
+<td style="text-align: center;"><span class="status-yes">Yes</span></td>
+<td style="text-align: center;"><span class="status-no">No</span></td>
+<td style="text-align: center;"><span class="status-yes">Yes</span></td>
+</tr>
+<tr>
+<td>Linux</td>
+<td style="text-align: center;"><span class="status-no">No</span></td>
+<td style="text-align: center;"><span class="status-no">No</span></td>
+<td style="text-align: center;"><span class="status-yes">Yes</span></td>
+</tr>
+<tr>
+<td>Android</td>
+<td style="text-align: center;"><span class="status-no">No</span></td>
+<td style="text-align: center;"><span class="status-no">No</span></td>
+<td style="text-align: center;"><span class="status-yes">Yes</span></td>
+</tr>
+<tr>
+<td>macOS</td>
+<td style="text-align: center;"><span class="status-no">No</span></td>
+<td style="text-align: center;"><span class="status-yes">Yes</span></td>
+<td style="text-align: center;"><span class="status-yes">Yes</span></td>
+</tr>
+<tr>
+<td>iOS</td>
+<td style="text-align: center;"><span class="status-no">No</span></td>
+<td style="text-align: center;"><span class="status-yes">Yes</span></td>
+<td style="text-align: center;"><span class="status-yes">Yes</span></td>
+</tr>
+</tbody>
+</table>
+<div class="NOTE">
+<h5>Note</h5>
+<p>These tutorials are designed for desktop platforms (Windows, Linux, and macOS).</p>
+</div>
+<h3 id="software">Software</h3>
+<ul>
+<li><strong>.NET SDK</strong>: 10.0 or later</li>
+<li><strong>IDE</strong>: Visual Studio 2026, VS Code, or JetBrains Rider</li>
+</ul>
+<h2 id="building-the-tutorials">Building the Tutorials</h2>
+<p>The example code in these tutorials is designed to be extensible. We'll create a base project structure that all tutorials will share.</p>
+<h3 id="creating-the-project">Creating the Project</h3>
+<pre><code class="lang-bash">dotnet new console -n ZenithTutorials
+cd ZenithTutorials
+</code></pre>
+<h3 id="required-packages">Required Packages</h3>
+<p>Install the following NuGet packages:</p>
+<pre><code class="lang-bash">dotnet add package Zenith.NET.DirectX12
+dotnet add package Zenith.NET.Metal
+dotnet add package Zenith.NET.Vulkan
+dotnet add package Zenith.NET.Extensions.Slang
+dotnet add package Silk.NET.Windowing
+dotnet add package Silk.NET.Input
+</code></pre>
+<h3 id="project-configuration">Project Configuration</h3>
+<p>Update your <code>.csproj</code> file:</p>
+<pre><code class="lang-xml">&lt;Project Sdk=&quot;Microsoft.NET.Sdk&quot;&gt;
+
+  &lt;PropertyGroup&gt;
+    &lt;OutputType&gt;Exe&lt;/OutputType&gt;
+    &lt;TargetFramework&gt;net10.0&lt;/TargetFramework&gt;
+    &lt;Nullable&gt;enable&lt;/Nullable&gt;
+    &lt;ImplicitUsings&gt;enable&lt;/ImplicitUsings&gt;
+    &lt;AllowUnsafeBlocks&gt;true&lt;/AllowUnsafeBlocks&gt;
+  &lt;/PropertyGroup&gt;
+
+  &lt;ItemGroup&gt;
+    &lt;PackageReference Include=&quot;Zenith.NET.DirectX12&quot; Version=&quot;*&quot; /&gt;
+    &lt;PackageReference Include=&quot;Zenith.NET.Metal&quot; Version=&quot;*&quot; /&gt;
+    &lt;PackageReference Include=&quot;Zenith.NET.Vulkan&quot; Version=&quot;*&quot; /&gt;
+    &lt;PackageReference Include=&quot;Zenith.NET.Extensions.Slang&quot; Version=&quot;*&quot; /&gt;
+    &lt;PackageReference Include=&quot;Silk.NET.Windowing&quot; Version=&quot;*&quot; /&gt;
+    &lt;PackageReference Include=&quot;Silk.NET.Input&quot; Version=&quot;*&quot; /&gt;
+  &lt;/ItemGroup&gt;
+
+&lt;/Project&gt;
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p><code>AllowUnsafeBlocks</code> is required because the tutorials use <code>sizeof</code> with custom structs for GPU buffer sizing.</p>
+</div>
+<h2 id="project-structure">Project Structure</h2>
+<p>Organize your project with the following directory structure:</p>
+<pre><code>ZenithTutorials/
+├── Program.cs         # Application entry point
+├── App.cs             # Application framework
+├── IRenderer.cs       # Renderer interface
+├── BindingHelper.cs   # Cross-platform resource binding helper
+├── CocoaHelper.cs     # macOS CAMetalLayer helper
+├── Usings.cs          # Global using statements
+└── Renderers/         # All tutorial renderers
+</code></pre>
+<h2 id="global-usings">Global Usings</h2>
+<p>Create <code>Usings.cs</code> for shared using statements across all files:</p>
+<pre><code class="lang-csharp">global using System.Numerics;
+global using System.Runtime.InteropServices;
+global using Zenith.NET;
+global using Zenith.NET.Extensions.Slang;
+global using Buffer = Zenith.NET.Buffer;
+</code></pre>
+<p>This eliminates repetitive using statements in each renderer file.</p>
+<h2 id="renderer-interface">Renderer Interface</h2>
+<p>All tutorial renderers implement a common interface. Create <code>IRenderer.cs</code>:</p>
+<pre><code class="lang-csharp">namespace ZenithTutorials;
+
+internal interface IRenderer : IDisposable
+{
+    void Update(double deltaTime);
+
+    void Render();
+
+    void Resize(uint width, uint height);
+}
+</code></pre>
+<p>This interface ensures all renderers follow a consistent pattern:</p>
+<ul>
+<li><code>Update</code> - Called each frame for logic updates (animations, input handling)</li>
+<li><code>Render</code> - Called each frame to record and submit draw commands</li>
+<li><code>Resize</code> - Called when the window size changes</li>
+<li><code>Dispose</code> - Cleanup GPU resources</li>
+</ul>
+<h2 id="binding-helper">Binding Helper</h2>
+<p>Different graphics backends use different indexing schemes for resource bindings:</p>
+<table>
+<thead>
+<tr>
+<th>Backend</th>
+<th>Index Scheme</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DirectX 12</td>
+<td>Per-type: CBV, SRV, UAV, Sampler each start at 0</td>
+</tr>
+<tr>
+<td>Vulkan</td>
+<td>Global: All resources share index space (0, 1, 2, ...)</td>
+</tr>
+<tr>
+<td>Metal</td>
+<td>Per-category: Buffer, Texture, Sampler each start at 0</td>
+</tr>
+</tbody>
+</table>
+<p>Create <code>BindingHelper.cs</code> to handle these differences automatically:</p>
+<pre><code class="lang-csharp">namespace ZenithTutorials;
+
+internal static class BindingHelper
+{
+    public static ResourceBinding[] Bindings(params ResourceBinding[] bindings)
+    {
+        switch (App.Context.Backend)
+        {
+            case Backend.DirectX12:
+                {
+                    uint cbvIndex = 0;
+                    uint srvIndex = 0;
+                    uint uavIndex = 0;
+                    uint samplerIndex = 0;
+
+                    for (int i = 0; i &lt; bindings.Length; i++)
+                    {
+                        ref ResourceBinding binding = ref bindings[i];
+
+                        binding = binding with
+                        {
+                            Index = binding.Type switch
+                            {
+                                ResourceType.ConstantBuffer =&gt; cbvIndex++,
+
+                                ResourceType.StructuredBuffer or
+                                ResourceType.Texture or
+                                ResourceType.AccelerationStructure =&gt; srvIndex++,
+
+                                ResourceType.StructuredBufferReadWrite or
+                                ResourceType.TextureReadWrite =&gt; uavIndex++,
+
+                                ResourceType.Sampler =&gt; samplerIndex++,
+
+                                _ =&gt; binding.Index
+                            }
+                        };
+                    }
+                }
+                break;
+
+            case Backend.Vulkan:
+                {
+                    for (int i = 0; i &lt; bindings.Length; i++)
+                    {
+                        ref ResourceBinding binding = ref bindings[i];
+
+                        binding = binding with { Index = (uint)i };
+                    }
+                }
+                break;
+
+            case Backend.Metal:
+                {
+                    uint bufferIndex = 0;
+                    uint textureIndex = 0;
+                    uint samplerIndex = 0;
+
+                    for (int i = 0; i &lt; bindings.Length; i++)
+                    {
+                        ref ResourceBinding binding = ref bindings[i];
+
+                        binding = binding with
+                        {
+                            Index = binding.Type switch
+                            {
+                                ResourceType.ConstantBuffer or
+                                ResourceType.StructuredBuffer or
+                                ResourceType.StructuredBufferReadWrite =&gt; bufferIndex++,
+
+                                ResourceType.Texture or
+                                ResourceType.TextureReadWrite =&gt; textureIndex++,
+
+                                ResourceType.Sampler =&gt; samplerIndex++,
+
+                                _ =&gt; binding.Index
+                            }
+                        };
+                    }
+                }
+                break;
+        }
+
+        return bindings;
+    }
+}
+</code></pre>
+<p>Usage example:</p>
+<pre><code class="lang-csharp">resourceLayout = App.Context.CreateResourceLayout(new()
+{
+    Bindings = BindingHelper.Bindings
+    (
+        new() { Type = ResourceType.Texture, Count = 1, StageFlags = ShaderStageFlags.Pixel },
+        new() { Type = ResourceType.Sampler, Count = 1, StageFlags = ShaderStageFlags.Pixel }
+    )
+});
+</code></pre>
+<p>The helper automatically assigns the correct <code>Index</code> values based on the current backend, so you don't need to specify them manually.</p>
+<h2 id="cocoa-helper">Cocoa Helper</h2>
+<p>On macOS, creating a rendering surface requires a <code>CAMetalLayer</code>. Silk.NET.Windowing doesn't expose this directly, so we need a helper to create it using Objective-C runtime interop.</p>
+<p>Create <code>CocoaHelper.cs</code>:</p>
+<pre><code class="lang-csharp">namespace ZenithTutorials;
+
+internal static partial class CocoaHelper
+{
+    private const string LibObjC = &quot;/usr/lib/libobjc.A.dylib&quot;;
+
+    [LibraryImport(LibObjC, EntryPoint = &quot;objc_getClass&quot;)]
+    private static partial nint GetClass([MarshalAs(UnmanagedType.LPUTF8Str)] string name);
+
+    [LibraryImport(LibObjC, EntryPoint = &quot;sel_registerName&quot;)]
+    private static partial nint Selector([MarshalAs(UnmanagedType.LPUTF8Str)] string name);
+
+    [LibraryImport(LibObjC, EntryPoint = &quot;objc_msgSend&quot;)]
+    private static partial nint Send(nint receiver, nint selector);
+
+    [LibraryImport(LibObjC, EntryPoint = &quot;objc_msgSend&quot;)]
+    private static partial nint Send(nint receiver, nint selector, [MarshalAs(UnmanagedType.I1)] bool arg);
+
+    [LibraryImport(LibObjC, EntryPoint = &quot;objc_msgSend&quot;)]
+    private static partial nint Send(nint receiver, nint selector, nint arg);
+
+    public static nint CreateLayer(nint cocoa)
+    {
+        nint layer = Send(GetClass(&quot;CAMetalLayer&quot;), Selector(&quot;layer&quot;));
+        Send(layer, Selector(&quot;retain&quot;));
+
+        nint view = Send(cocoa, Selector(&quot;contentView&quot;));
+        Send(view, Selector(&quot;setWantsLayer:&quot;), true);
+        Send(view, Selector(&quot;setLayer:&quot;), layer);
+
+        return layer;
+    }
+}
+</code></pre>
+<p>The <code>CAMetalLayer</code> can be used with both Metal and Vulkan backends on macOS.</p>
+<h2 id="application-framework">Application Framework</h2>
+<p>All tutorials share a common application framework that handles window creation, graphics context initialization, and the main loop.</p>
+<h3 id="appcs">App.cs</h3>
+<p>Create <code>App.cs</code> as the reusable application framework:</p>
+<pre><code class="lang-csharp">using Silk.NET.Windowing;
+using Zenith.NET.DirectX12;
+using Zenith.NET.Metal;
+using Zenith.NET.Vulkan;
+
+namespace ZenithTutorials;
+
+internal static class App
+{
+    private static readonly IWindow window;
+
+    static App()
+    {
+        // Ensure platform is supported
+        if (!OperatingSystem.IsWindows() &amp;&amp; !OperatingSystem.IsLinux() &amp;&amp; !OperatingSystem.IsMacOS())
+        {
+            throw new PlatformNotSupportedException(&quot;This tutorial only supports Windows, Linux, and macOS.&quot;);
+        }
+
+        // Create window with no graphics API (we manage rendering ourselves)
+        window = Window.Create(WindowOptions.Default with
+        {
+            API = GraphicsAPI.None,
+            Title = &quot;Zenith.NET Tutorial&quot;,
+            Size = new(1280, 720)
+        });
+
+        window.Initialize();
+
+        // Create graphics context and surface based on platform
+        Surface surface;
+        if (OperatingSystem.IsWindows())
+        {
+            Context = GraphicsContext.CreateDirectX12(useValidationLayer: true);
+
+            surface = Surface.Win32(window.Native!.Win32!.Value.Hwnd, Width, Height);
+        }
+        else if (OperatingSystem.IsLinux())
+        {
+            Context = GraphicsContext.CreateVulkan(useValidationLayer: true);
+
+            surface = Surface.Xlib(window.Native!.X11!.Value.Display, (nint)window.Native.X11.Value.Window, Width, Height);
+        }
+        else
+        {
+            Context = GraphicsContext.CreateMetal(useValidationLayer: true);
+
+            surface = Surface.Apple(CocoaHelper.CreateLayer(window.Native!.Cocoa!.Value), Width, Height);
+        }
+
+        // Log validation messages for debugging
+        Context.ValidationMessage += (sender, args) =&gt;
+        {
+            Console.WriteLine($&quot;[{args.Source} - {args.Severity}] {args.Message}&quot;);
+        };
+
+        // Create swap chain for double-buffered rendering
+        SwapChain = Context.CreateSwapChain(new()
+        {
+            Surface = surface,
+            ColorTargetFormat = PixelFormat.B8G8R8A8UNorm,
+            DepthStencilTargetFormat = PixelFormat.D32FloatS8UInt
+        });
+    }
+
+    public static GraphicsContext Context { get; }
+
+    public static SwapChain SwapChain { get; }
+
+    public static uint Width =&gt; (uint)window.Size.X;
+
+    public static uint Height =&gt; (uint)window.Size.Y;
+
+    public static void Run&lt;TRenderer&gt;() where TRenderer : IRenderer, new()
+    {
+        using TRenderer renderer = new();
+
+        window.Update += renderer.Update;
+
+        window.Render += delta =&gt;
+        {
+            // Skip rendering when window is minimized
+            if (Width &lt;= 0 || Height &lt;= 0)
+            {
+                return;
+            }
+
+            renderer.Render();
+            SwapChain.Present();
+        };
+
+        window.Resize += size =&gt;
+        {
+            if (Width &lt;= 0 || Height &lt;= 0)
+            {
+                return;
+            }
+
+            // Notify renderer first, then resize swap chain
+            renderer.Resize(Width, Height);
+            SwapChain.Resize(Width, Height);
+        };
+
+        window.Run();
+    }
+
+    public static void Cleanup()
+    {
+        SwapChain.Dispose();
+        Context.Dispose();
+        window.Dispose();
+    }
+}
+</code></pre>
+<h3 id="programcs">Program.cs</h3>
+<p>Create <code>Program.cs</code> as the simple entry point:</p>
+<pre><code class="lang-csharp">using ZenithTutorials;
+using ZenithTutorials.Renderers;
+
+App.Run&lt;HelloTriangleRenderer&gt;();
+
+App.Cleanup();
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p><code>HelloTriangleRenderer</code> will be created in the <a href="hello-triangle.html">next tutorial</a>.</p>
+</div>
+<p>This framework provides:</p>
+<ul>
+<li><strong>Platform validation</strong> - Ensures only supported platforms (Windows, Linux, macOS) are used</li>
+<li><strong>Window creation</strong> with Silk.NET (1280×720 default size)</li>
+<li><strong>Cross-platform backend selection</strong> (DirectX 12 on Windows, Vulkan on Linux, Metal on macOS)</li>
+<li><strong>SwapChain management</strong> for presenting frames</li>
+<li><strong>Resize handling</strong> for responsive rendering</li>
+<li><strong>Generic renderer pattern</strong> using <code>App.Run&lt;TRenderer&gt;()</code> for easy tutorial switching</li>
+<li><strong>Static access</strong> to <code>App.Context</code> and <code>App.SwapChain</code> from renderers</li>
+</ul>
+<h2 id="verify-installation">Verify Installation</h2>
+<p>Before continuing, verify your setup compiles correctly:</p>
+<pre><code class="lang-bash">dotnet build
+</code></pre>
+<p>If the build succeeds, you're ready to start <a href="hello-triangle.html">Hello Triangle</a>!</p>
+<h2 id="source-code">Source Code</h2>
+<div class="TIP">
+<h5>Tip</h5>
+<p>The complete source code for all tutorials is available on GitHub: <a href="https://github.com/qian-o/ZenithTutorials">ZenithTutorials</a></p>
+</div>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/qian-o/Zenith.NET/blob/master/documents/tutorials/getting-started/prerequisites.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -13,10 +13,10 @@
       <meta name="docfx:navrel" content="toc.html">
       <meta name="docfx:tocrel" content="toc.html">
       
-      <meta name="docfx:rel" content="">
       
       
-      <meta name="docfx:docurl" content="https://github.com/qian-o/Zenith.NET/blob/main/documents/index.md/#L1">
+      
+      <meta name="docfx:docurl" content="https://github.com/qian-o/Zenith.NET/blob/master/documents/index.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -39,12 +39,12 @@
 
   </head>
 
-  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+  <body class="tex2jax_ignore" data-layout="landing" data-yaml-mime="">
     <header class="bg-body border-bottom">
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
           <a class="navbar-brand" href="index.html">
-            <img id="logo" class="svg" src="images/Zenith.NET.svg" alt="">
+            <img id="logo" class="svg" src="images/Zenith.NET-Logo.svg" alt="">
             
           </a>
           <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
@@ -52,10 +52,6 @@
           </button>
           <div class="collapse navbar-collapse" id="navpanel">
             <div id="navbar">
-              <form class="search" role="search" id="search">
-                <i class="bi bi-search"></i>
-                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
-              </form>
             </div>
           </div>
         </div>
@@ -71,14 +67,140 @@
         </div>
 
         <article data-uid="">
-<h1 id="zenithnet">Zenith.NET</h1>
 
-<p>Welcome to the Zenith.NET documentation.</p>
+<div class="hero">
+    <div class="hero-content">
+        <img src="images/Zenith.NET.svg" alt="Zenith.NET Logo" class="hero-logo">
+        <h1>Zenith.NET</h1>
+        <p class="hero-tagline">Unified Cross-Platform GPU Programming for .NET</p>
+        <p class="hero-description">A modern graphics and compute library that provides a single API for DirectX 12, Metal, and Vulkan. Build high-performance rendering and GPU compute applications with ease.</p>
+        <div class="hero-buttons">
+            <a href="tutorials/index.html" class="btn btn-primary">Get Started</a>
+            <a href="api/index.html" class="btn btn-secondary">API Reference</a>
+        </div>
+        <div class="hero-badges">
+            <a href="https://github.com/qian-o/Zenith.NET"><img src="https://img.shields.io/github/stars/qian-o/Zenith.NET?style=flat-square&logo=github&label=Stars" alt="GitHub Stars"></a>
+            <a href="https://www.nuget.org/packages/Zenith.NET"><img src="https://img.shields.io/nuget/v/Zenith.NET?style=flat-square&logo=nuget&label=NuGet" alt="NuGet Version"></a>
+            <a href="https://github.com/qian-o/Zenith.NET/blob/master/LICENSE"><img src="https://img.shields.io/github/license/qian-o/Zenith.NET?style=flat-square&label=License" alt="License"></a>
+        </div>
+    </div>
+</div>
+<hr>
+<div class="tech-bar">
+    <div class="tech-bar-group">
+        <span class="tech-bar-label">Graphics APIs</span>
+        <span class="tech-bar-items">DirectX 12 · Metal · Vulkan</span>
+    </div>
+    <div class="tech-bar-divider"></div>
+    <div class="tech-bar-group">
+        <span class="tech-bar-label">Platforms</span>
+        <span class="tech-bar-items">Windows · Linux · macOS · iOS · Android</span>
+    </div>
+</div>
+<hr>
+<h2 id="why-zenithnet">Why Zenith.NET?</h2>
+<div class="highlight-grid">
+    <div class="highlight-item">
+        <div class="highlight-icon">🎯</div>
+        <div class="highlight-text">
+            <strong>Unified API</strong> — Write once, run everywhere. A single API abstracts DirectX 12, Metal, and Vulkan.
+        </div>
+    </div>
+    <div class="highlight-item">
+        <div class="highlight-icon">⚡</div>
+        <div class="highlight-text">
+            <strong>High Performance</strong> — Direct access to ray tracing, mesh shading, and compute pipelines.
+        </div>
+    </div>
+    <div class="highlight-item">
+        <div class="highlight-icon">🔌</div>
+        <div class="highlight-text">
+            <strong>Framework Integration</strong> — Works with Avalonia, MAUI, WinForms, WinUI, WPF, and Uno Platform.
+        </div>
+    </div>
+    <div class="highlight-item">
+        <div class="highlight-icon">🚀</div>
+        <div class="highlight-text">
+            <strong>Modern .NET</strong> — Built for .NET 10.0+ with nullable types, spans, and the latest C# features.
+        </div>
+    </div>
+</div>
+<hr>
+<h2 id="gpu-features-at-a-glance">GPU Features at a Glance</h2>
+<div class="feature-list">
+    <div class="feature-list-item">
+        <span class="feature-list-title">Graphics Pipeline</span>
+        <span class="feature-list-desc">Vertex, hull, domain, geometry, and pixel shaders with custom render states.</span>
+    </div>
+    <div class="feature-list-item">
+        <span class="feature-list-title">Compute Pipeline</span>
+        <span class="feature-list-desc">General-purpose GPU computing for image processing, simulations, and more.</span>
+    </div>
+    <div class="feature-list-item">
+        <span class="feature-list-title">Ray Tracing</span>
+        <span class="feature-list-desc">Hardware-accelerated BLAS/TLAS, hit groups, and inline ray queries.</span>
+    </div>
+    <div class="feature-list-item">
+        <span class="feature-list-title">Mesh Shading</span>
+        <span class="feature-list-desc">GPU-driven geometry with mesh and amplification shaders for meshlet processing.</span>
+    </div>
+</div>
+<hr>
+<h2 id="how-it-works">How It Works</h2>
+<div class="workflow">
+    <div class="workflow-step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+            <h4>Initialize</h4>
+            <p>Create a graphics context with your preferred backend (DirectX 12, Metal, or Vulkan).</p>
+        </div>
+    </div>
+    <div class="workflow-step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+            <h4>Create Resources</h4>
+            <p>Define buffers, textures, shaders, and pipelines.</p>
+        </div>
+    </div>
+    <div class="workflow-step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+            <h4>Record Commands</h4>
+            <p>Build command buffers with draw, compute, or ray tracing calls.</p>
+        </div>
+    </div>
+    <div class="workflow-step">
+        <div class="step-number">4</div>
+        <div class="step-content">
+            <h4>Submit & Present</h4>
+            <p>Execute on GPU and present to screen or export to textures.</p>
+        </div>
+    </div>
+</div>
+<hr>
+<h2 id="get-started">Get Started</h2>
+<div class="cta-section">
+    <div class="cta-main">
+        <h3>Ready to build?</h3>
+        <p>Follow our step-by-step tutorials from Hello Triangle to advanced ray tracing and mesh shading.</p>
+        <a href="tutorials/index.html" class="btn btn-primary">Start Learning →</a>
+    </div>
+    <div class="cta-links">
+        <a href="api/index.html" class="cta-link">
+            <span class="cta-link-icon">📖</span>
+            <span class="cta-link-text">API Reference</span>
+        </a>
+        <a href="https://github.com/qian-o/Zenith.NET" class="cta-link">
+            <span class="cta-link-icon">💻</span>
+            <span class="cta-link-text">Source Code</span>
+        </a>
+    </div>
+</div>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/qian-o/Zenith.NET/blob/main/documents/index.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/qian-o/Zenith.NET/blob/master/documents/index.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>
@@ -90,7 +212,6 @@
       </div>
     </main>
 
-    <div class="container-xxl search-results" id="search-results"></div>
 
     <footer class="border-top text-secondary">
       <div class="container-xxl">
