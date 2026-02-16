@@ -160,7 +160,7 @@ internal unsafe class IndirectDrawingRenderer : IRenderer
     private readonly Buffer viewConstantsBuffer;
     private readonly Buffer instanceBuffer;
     private readonly ResourceLayout resourceLayout;
-    private readonly ResourceSet resourceSet;
+    private readonly ResourceTable resourceTable;
     private readonly GraphicsPipeline pipeline;
 
     private float rotationAngle;
@@ -178,7 +178,7 @@ internal unsafe class IndirectDrawingRenderer : IRenderer
             new(new(-0.5f, -0.5f, -0.5f), new(1.0f, 1.0f, 1.0f, 1.0f)),
             new(new( 0.5f, -0.5f, -0.5f), new(1.0f, 1.0f, 1.0f, 1.0f)),
             new(new( 0.5f,  0.5f, -0.5f), new(1.0f, 1.0f, 1.0f, 1.0f)),
-            new(new(-0.5f,  0.5f, -0.5f), new(1.0f, 1.0f, 1.0f, 1.0f)),
+            new(new(-0.5f,  0.5f, -0.5f), new(1.0f, 1.0f, 1.0f, 1.0f))
         ];
 
         uint[] indices =
@@ -246,7 +246,7 @@ internal unsafe class IndirectDrawingRenderer : IRenderer
             )
         });
 
-        resourceSet = App.Context.CreateResourceSet(new()
+        resourceTable = App.Context.CreateResourceTable(new()
         {
             Layout = resourceLayout,
             Resources = [viewConstantsBuffer, instanceBuffer]
@@ -270,7 +270,7 @@ internal unsafe class IndirectDrawingRenderer : IRenderer
             },
             Vertex = vertexShader,
             Pixel = pixelShader,
-            ResourceLayouts = [resourceLayout],
+            ResourceLayout = resourceLayout,
             InputLayouts = [inputLayout],
             PrimitiveTopology = PrimitiveTopology.TriangleList,
             Output = App.SwapChain.FrameBuffer.Output
@@ -324,10 +324,10 @@ internal unsafe class IndirectDrawingRenderer : IRenderer
             Depth = 1.0f,
             Stencil = 0,
             Flags = ClearFlags.All
-        }, resourceSet);
+        }, resourceTable);
 
         commandBuffer.SetPipeline(pipeline);
-        commandBuffer.SetResourceSet(resourceSet, 0);
+        commandBuffer.SetResourceTable(resourceTable);
         commandBuffer.SetVertexBuffer(vertexBuffer, 0, 0);
         commandBuffer.SetIndexBuffer(indexBuffer, 0, IndexFormat.UInt32);
         commandBuffer.DrawIndexedIndirect(indirectBuffer, 0, 1);
@@ -344,7 +344,7 @@ internal unsafe class IndirectDrawingRenderer : IRenderer
     public void Dispose()
     {
         pipeline.Dispose();
-        resourceSet.Dispose();
+        resourceTable.Dispose();
         resourceLayout.Dispose();
         instanceBuffer.Dispose();
         viewConstantsBuffer.Dispose();
@@ -537,7 +537,7 @@ PSInput VSMain(VSInput input)
 <h2 id="next-steps">Next Steps</h2>
 <p>Continue with advanced GPU features:</p>
 <ul>
-<li><a href="../advanced/ray-tracing.html">Ray Tracing</a> - Build acceleration structures, trace rays, and implement shadows</li>
+<li><a href="../advanced/ray-tracing.html">Ray Tracing</a> - Build acceleration structures, trace rays with <code>RayQuery</code>, and implement shadows</li>
 </ul>
 <h2 id="source-code">Source Code</h2>
 <div class="TIP">

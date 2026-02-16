@@ -335,6 +335,12 @@ internal static class BindingHelper
         new() { Type = ResourceType.Sampler, Count = 1, StageFlags = ShaderStageFlags.Pixel }
     )
 });
+
+resourceTable = App.Context.CreateResourceTable(new()
+{
+    Layout = resourceLayout,
+    Resources = [texture, sampler]
+});
 </code></pre>
 <p>The helper automatically assigns the correct <code>Index</code> values based on the current backend, so you don't need to specify them manually.</p>
 <h2 id="cocoa-helper">Cocoa Helper</h2>

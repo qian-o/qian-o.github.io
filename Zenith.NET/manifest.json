@@ -54,50 +54,50 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "docs/features/compute.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/features/compute.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/features/graphics.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/features/graphics.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/features/mesh-shading.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/features/mesh-shading.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/features/ray-tracing.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/features/ray-tracing.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "docs/index.md",
       "output": {
         ".html": {
           "relative_path": "docs/index.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "docs/pipelines/compute.md",
-      "output": {
-        ".html": {
-          "relative_path": "docs/pipelines/compute.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "docs/pipelines/graphics.md",
-      "output": {
-        ".html": {
-          "relative_path": "docs/pipelines/graphics.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "docs/pipelines/mesh-shading.md",
-      "output": {
-        ".html": {
-          "relative_path": "docs/pipelines/mesh-shading.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "docs/pipelines/ray-tracing.md",
-      "output": {
-        ".html": {
-          "relative_path": "docs/pipelines/ray-tracing.html"
         }
       },
       "version": ""

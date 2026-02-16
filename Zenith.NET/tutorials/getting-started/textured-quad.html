@@ -90,7 +90,7 @@
 <li>Uses an index buffer to draw a quad with 4 vertices</li>
 <li>Loads an image and uploads it to a GPU texture</li>
 <li>Creates a sampler for texture filtering</li>
-<li>Binds texture and sampler using <code>ResourceLayout</code> and <code>ResourceSet</code></li>
+<li>Binds texture and sampler using <code>ResourceLayout</code> and <code>ResourceTable</code></li>
 </ul>
 <h2 id="project-setup">Project Setup</h2>
 <h3 id="required-package">Required Package</h3>
@@ -162,7 +162,7 @@ internal unsafe class TexturedQuadRenderer : IRenderer
     private readonly Texture texture;
     private readonly Sampler sampler;
     private readonly ResourceLayout resourceLayout;
-    private readonly ResourceSet resourceSet;
+    private readonly ResourceTable resourceTable;
     private readonly GraphicsPipeline pipeline;
 
     public TexturedQuadRenderer()
@@ -173,7 +173,7 @@ internal unsafe class TexturedQuadRenderer : IRenderer
             new(new(-0.5f,  0.5f, 0.0f), new(0.0f, 0.0f)),
             new(new( 0.5f,  0.5f, 0.0f), new(1.0f, 0.0f)),
             new(new( 0.5f, -0.5f, 0.0f), new(1.0f, 1.0f)),
-            new(new(-0.5f, -0.5f, 0.0f), new(0.0f, 1.0f)),
+            new(new(-0.5f, -0.5f, 0.0f), new(0.0f, 1.0f))
         ];
 
         uint[] indices = [0, 1, 2, 0, 2, 3];
@@ -214,7 +214,7 @@ internal unsafe class TexturedQuadRenderer : IRenderer
             )
         });
 
-        resourceSet = App.Context.CreateResourceSet(new()
+        resourceTable = App.Context.CreateResourceTable(new()
         {
             Layout = resourceLayout,
             Resources = [texture, sampler]
@@ -237,7 +237,7 @@ internal unsafe class TexturedQuadRenderer : IRenderer
             },
             Vertex = vertexShader,
             Pixel = pixelShader,
-            ResourceLayouts = [resourceLayout],
+            ResourceLayout = resourceLayout,
             InputLayouts = [inputLayout],
             PrimitiveTopology = PrimitiveTopology.TriangleList,
             Output = App.SwapChain.FrameBuffer.Output
@@ -258,10 +258,10 @@ internal unsafe class TexturedQuadRenderer : IRenderer
             Depth = 1.0f,
             Stencil = 0,
             Flags = ClearFlags.All
-        }, resourceSet);
+        }, resourceTable);
 
         commandBuffer.SetPipeline(pipeline);
-        commandBuffer.SetResourceSet(resourceSet, 0);
+        commandBuffer.SetResourceTable(resourceTable);
         commandBuffer.SetVertexBuffer(vertexBuffer, 0, 0);
         commandBuffer.SetIndexBuffer(indexBuffer, 0, IndexFormat.UInt32);
         commandBuffer.DrawIndexed(6, 1, 0, 0, 0);
@@ -278,7 +278,7 @@ internal unsafe class TexturedQuadRenderer : IRenderer
     public void Dispose()
     {
         pipeline.Dispose();
-        resourceSet.Dispose();
+        resourceTable.Dispose();
         resourceLayout.Dispose();
         sampler.Dispose();
         texture.Dispose();
@@ -382,34 +382,34 @@ resourceLayout = App.Context.CreateResourceLayout(new()
     )
 });
 
-// 2. Create the set (bind actual resources)
-resourceSet = App.Context.CreateResourceSet(new()
+// 2. Create the table (bind actual resources)
+resourceTable = App.Context.CreateResourceTable(new()
 {
     Layout = resourceLayout,
     Resources = [texture, sampler]
 });
 
 // 3. Bind during rendering
-commandBuffer.SetResourceSet(resourceSet, 0);
+commandBuffer.SetResourceTable(resourceTable);
 </code></pre>
 <p>This three-step process connects your GPU resources to shader variables:</p>
 <ol>
 <li><strong>ResourceLayout</strong> - Describes the structure (types and binding slots)</li>
-<li><strong>ResourceSet</strong> - Binds actual resources to the layout</li>
-<li><strong>SetResourceSet</strong> - Activates the binding during rendering</li>
+<li><strong>ResourceTable</strong> - Binds actual resources to the layout</li>
+<li><strong>SetResourceTable</strong> - Activates the binding during rendering</li>
 </ol>
 <p>The <code>BindingHelper.Bindings()</code> method (defined in <a href="prerequisites.html">Prerequisites</a>) automatically assigns the correct <code>Index</code> values based on the current backend, so you don't need to specify them manually.</p>
 <h3 id="resource-preprocessing">Resource Preprocessing</h3>
-<p>When beginning a render pass, you can pass resource sets to the <code>preprocessResourceSets</code> parameter:</p>
+<p>When beginning a render pass, you can pass resource tables to the <code>preprocessResourceTables</code> parameter:</p>
 <pre><code class="lang-csharp">commandBuffer.BeginRenderPass(App.SwapChain.FrameBuffer, new()
 {
     ColorValues = [new(0.1f, 0.1f, 0.1f, 1.0f)],
     Depth = 1.0f,
     Stencil = 0,
     Flags = ClearFlags.All
-}, resourceSet);
+}, resourceTable);
 </code></pre>
-<p>This allows Zenith.NET to optimize the resources in the set for shader access before the render pass begins, eliminating the need for manual resource management.</p>
+<p>This allows Zenith.NET to optimize the resources in the table for shader access before the render pass begins, eliminating the need for manual resource management.</p>
 <h3 id="shader-texture-sampling">Shader Texture Sampling</h3>
 <pre><code class="lang-slang">Texture2D shaderTexture;
 SamplerState samplerState;

@@ -125,35 +125,35 @@
 <td>Declares <em>what</em> resources a shader expects (binding slots, types)</td>
 </tr>
 <tr>
-<td><code>ResourceSet</code></td>
+<td><code>ResourceTable</code></td>
 <td>Provides <em>actual</em> resources matching a layout</td>
 </tr>
 </tbody>
 </table>
-<p>Pipelines reference one or more <code>ResourceLayout</code> objects, and you bind corresponding <code>ResourceSet</code> objects before draw/dispatch calls.</p>
-<h2 id="pipeline-types">Pipeline Types</h2>
+<p>Pipelines reference a single <code>ResourceLayout</code>, and you bind a corresponding <code>ResourceTable</code> before draw/dispatch calls.</p>
+<h2 id="features">Features</h2>
 <table>
 <thead>
 <tr>
-<th>Pipeline</th>
+<th>Feature</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>GraphicsPipeline</code></td>
+<td><strong>Graphics</strong></td>
 <td>Traditional rasterization with vertex and pixel shaders</td>
 </tr>
 <tr>
-<td><code>ComputePipeline</code></td>
+<td><strong>Compute</strong></td>
 <td>General-purpose GPU compute with compute shaders</td>
 </tr>
 <tr>
-<td><code>RayTracingPipeline</code></td>
-<td>Hardware ray tracing with ray generation, hit, and miss shaders</td>
+<td><strong>Ray Tracing</strong></td>
+<td>Hardware-accelerated BLAS/TLAS with <code>RayQuery</code> in any shader stage</td>
 </tr>
 <tr>
-<td><code>MeshShadingPipeline</code></td>
+<td><strong>Mesh Shading</strong></td>
 <td>Modern GPU-driven geometry with mesh and amplification shaders</td>
 </tr>
 </tbody>
@@ -204,7 +204,7 @@
 </ul>
 <h3 id="command-recording">Command Recording</h3>
 <ul>
-<li><strong>Batch similar operations</strong> to reduce pipeline and resource set switches</li>
+<li><strong>Batch similar operations</strong> to reduce pipeline and resource table switches</li>
 <li><strong>Minimize render pass switches</strong> by grouping draws with the same targets</li>
 <li>Call <code>queue.WaitIdle()</code> only when synchronization is required</li>
 </ul>
