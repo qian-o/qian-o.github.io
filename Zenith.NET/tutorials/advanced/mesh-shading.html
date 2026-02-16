@@ -185,6 +185,8 @@
 
 internal unsafe class MeshShadingRenderer : IRenderer
 {
+    private const uint MaxPrimitives = 126;
+
     private const string ShaderSource = &quot;&quot;&quot;
         static const uint MaxVertices = 64;
         static const uint MaxPrimitives = 126;
@@ -421,7 +423,10 @@ internal unsafe class MeshShadingRenderer : IRenderer
             Pixel = pixelShader,
             ResourceLayout = resourceLayout,
             PrimitiveTopology = PrimitiveTopology.TriangleList,
-            Output = App.SwapChain.FrameBuffer.Output
+            Output = App.SwapChain.FrameBuffer.Output,
+            MeshThreadGroupSizeX = MaxPrimitives,
+            MeshThreadGroupSizeY = 1,
+            MeshThreadGroupSizeZ = 1
         });
     }
 
@@ -606,14 +611,26 @@ void MSMain(in uint groupId : SV_GroupID,
 <pre><code class="lang-csharp">pipeline = App.Context.CreateMeshShadingPipeline(new()
 {
     RenderStates = new() { ... },
-    Amplification = null,           // Optional amplification shader
-    Mesh = meshShader,              // Required
-    Pixel = pixelShader,            // Required
+    Amplification = null,
+    Mesh = meshShader,
+    Pixel = pixelShader,
     ResourceLayout = resourceLayout,
     PrimitiveTopology = PrimitiveTopology.TriangleList,
-    Output = App.SwapChain.FrameBuffer.Output
+    Output = App.SwapChain.FrameBuffer.Output,
+    MeshThreadGroupSizeX = MaxPrimitives,
+    MeshThreadGroupSizeY = 1,
+    MeshThreadGroupSizeZ = 1
 });
 </code></pre>
+<p>The <code>MeshShadingPipelineDesc</code> requires:</p>
+<ul>
+<li><code>Amplification</code> - The compiled amplification shader (optional)</li>
+<li><code>Mesh</code> - The compiled mesh shader</li>
+<li><code>Pixel</code> - The compiled pixel shader</li>
+<li><code>ResourceLayout</code> - Resource bindings (same as graphics pipelines)</li>
+<li><code>ObjectThreadGroupSizeX/Y/Z</code> - Must match <code>[numthreads()]</code> in the amplification shader (if used)</li>
+<li><code>MeshThreadGroupSizeX/Y/Z</code> - Must match <code>[numthreads()]</code> in the mesh shader</li>
+</ul>
 <h2 id="amplification-shader-optional">Amplification Shader (Optional)</h2>
 <p>For more advanced scenarios, you can add an amplification shader to dynamically control meshlet dispatch:</p>
 <pre><code class="lang-slang">struct AmplificationPayload
