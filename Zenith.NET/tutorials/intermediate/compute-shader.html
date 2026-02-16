@@ -131,7 +131,7 @@ internal unsafe class ComputeShaderRenderer : IRenderer
     private readonly Texture inputTexture;
     private readonly Texture outputTexture;
     private readonly ResourceLayout resourceLayout;
-    private readonly ResourceSet resourceSet;
+    private readonly ResourceTable resourceTable;
     private readonly ComputePipeline pipeline;
 
     private bool processed;
@@ -162,7 +162,7 @@ internal unsafe class ComputeShaderRenderer : IRenderer
             )
         });
 
-        resourceSet = App.Context.CreateResourceSet(new()
+        resourceTable = App.Context.CreateResourceTable(new()
         {
             Layout = resourceLayout,
             Resources = [inputTexture, outputTexture]
@@ -173,7 +173,7 @@ internal unsafe class ComputeShaderRenderer : IRenderer
         pipeline = App.Context.CreateComputePipeline(new()
         {
             Compute = computeShader,
-            ResourceLayouts = [resourceLayout],
+            ResourceLayout = resourceLayout,
             ThreadGroupSizeX = ThreadGroupSize,
             ThreadGroupSizeY = ThreadGroupSize,
             ThreadGroupSizeZ = 1
@@ -194,7 +194,7 @@ internal unsafe class ComputeShaderRenderer : IRenderer
             uint dispatchY = (inputTexture.Desc.Height + ThreadGroupSize - 1) / ThreadGroupSize;
 
             commandBuffer.SetPipeline(pipeline);
-            commandBuffer.SetResourceSet(resourceSet, 0);
+            commandBuffer.SetResourceTable(resourceTable);
             commandBuffer.Dispatch(dispatchX, dispatchY, 1);
 
             processed = true;
@@ -231,7 +231,7 @@ internal unsafe class ComputeShaderRenderer : IRenderer
     public void Dispose()
     {
         pipeline.Dispose();
-        resourceSet.Dispose();
+        resourceTable.Dispose();
         resourceLayout.Dispose();
         outputTexture.Dispose();
         inputTexture.Dispose();
@@ -336,7 +336,7 @@ void CSMain(uint3 dispatchThreadID : SV_DispatchThreadID)
 <pre><code class="lang-csharp">pipeline = App.Context.CreateComputePipeline(new()
 {
     Compute = computeShader,
-    ResourceLayouts = [resourceLayout],
+    ResourceLayout = resourceLayout,
     ThreadGroupSizeX = ThreadGroupSize,
     ThreadGroupSizeY = ThreadGroupSize,
     ThreadGroupSizeZ = 1
@@ -345,7 +345,7 @@ void CSMain(uint3 dispatchThreadID : SV_DispatchThreadID)
 <p>The <code>ComputePipelineDesc</code> requires:</p>
 <ul>
 <li><code>Compute</code> - The compiled compute shader</li>
-<li><code>ResourceLayouts</code> - Resource bindings (same as graphics pipelines)</li>
+<li><code>ResourceLayout</code> - Resource bindings (same as graphics pipelines)</li>
 <li><code>ThreadGroupSizeX/Y/Z</code> - Must match <code>[numthreads()]</code> in the shader</li>
 </ul>
 <h3 id="dispatching-compute-work">Dispatching Compute Work</h3>
@@ -353,7 +353,7 @@ void CSMain(uint3 dispatchThreadID : SV_DispatchThreadID)
 uint dispatchY = (inputTexture.Desc.Height + ThreadGroupSize - 1) / ThreadGroupSize;
 
 commandBuffer.SetPipeline(pipeline);
-commandBuffer.SetResourceSet(resourceSet, 0);
+commandBuffer.SetResourceTable(resourceTable);
 commandBuffer.Dispatch(dispatchX, dispatchY, 1);
 </code></pre>
 <p>The <code>Dispatch</code> call executes the compute shader:</p>
