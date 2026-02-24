@@ -1,0 +1,2668 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class CommandBuffer | Zenith.NET </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class CommandBuffer | Zenith.NET ">
+      
+      
+      <link rel="icon" href="../images/Zenith.NET.png">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/qian-o/Zenith.NET/new/master/apiSpec/new?filename=Zenith_NET_CommandBuffer.md&amp;value=---%0Auid%3A%20Zenith.NET.CommandBuffer%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/Zenith.NET-Logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Zenith.NET.CommandBuffer">
+
+
+
+  <h1 id="Zenith_NET_CommandBuffer" data-uid="Zenith.NET.CommandBuffer" class="text-break">
+Class CommandBuffer  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L5"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Zenith.html">Zenith</a>.<a class="xref" href="Zenith.NET.html">NET</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Zenith.NET.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class CommandBuffer : GraphicsResource, IDisposableObject, IDisposable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="Zenith.NET.DisposableObject.html">DisposableObject</a></div>
+      <div><a class="xref" href="Zenith.NET.GraphicsResource.html">GraphicsResource</a></div>
+      <div><span class="xref">CommandBuffer</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="Zenith.NET.IDisposableObject.html">IDisposableObject</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Zenith.NET.GraphicsResource.html#Zenith_NET_GraphicsResource_Name">GraphicsResource.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="Zenith.NET.GraphicsResource.html#Zenith_NET_GraphicsResource_Context">GraphicsResource.Context</a>
+    </div>
+    <div>
+      <a class="xref" href="Zenith.NET.GraphicsResource.html#Zenith_NET_GraphicsResource_SetResourceName_System_String_">GraphicsResource.SetResourceName(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Zenith.NET.DisposableObject.html#Zenith_NET_DisposableObject_IsDisposed">DisposableObject.IsDisposed</a>
+    </div>
+    <div>
+      <a class="xref" href="Zenith.NET.DisposableObject.html#Zenith_NET_DisposableObject_Dispose">DisposableObject.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Zenith_NET_CommandBuffer__ctor_" data-uid="Zenith.NET.CommandBuffer.#ctor*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer__ctor_Zenith_NET_GraphicsContext_Zenith_NET_CommandQueue_" data-uid="Zenith.NET.CommandBuffer.#ctor(Zenith.NET.GraphicsContext,Zenith.NET.CommandQueue)">
+  CommandBuffer(GraphicsContext, CommandQueue)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L5"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected CommandBuffer(GraphicsContext context, CommandQueue queue)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="Zenith.NET.GraphicsContext.html">GraphicsContext</a></dt>
+    <dd></dd>
+    <dt><code>queue</code> <a class="xref" href="Zenith.NET.CommandQueue.html">CommandQueue</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Zenith_NET_CommandBuffer_BeginDebugEvent_" data-uid="Zenith.NET.CommandBuffer.BeginDebugEvent*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_BeginDebugEvent_System_String_" data-uid="Zenith.NET.CommandBuffer.BeginDebugEvent(System.String)">
+  BeginDebugEvent(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L340"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void BeginDebugEvent(string label)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>label</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_BeginDebugEventImpl_" data-uid="Zenith.NET.CommandBuffer.BeginDebugEventImpl*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_BeginDebugEventImpl_System_String_" data-uid="Zenith.NET.CommandBuffer.BeginDebugEventImpl(System.String)">
+  BeginDebugEventImpl(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L451"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void BeginDebugEventImpl(string label)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>label</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_BeginImpl_" data-uid="Zenith.NET.CommandBuffer.BeginImpl*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_BeginImpl" data-uid="Zenith.NET.CommandBuffer.BeginImpl">
+  BeginImpl()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L457"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void BeginImpl()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_BeginQuery_" data-uid="Zenith.NET.CommandBuffer.BeginQuery*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_BeginQuery_Zenith_NET_QueryHeap_System_UInt32_" data-uid="Zenith.NET.CommandBuffer.BeginQuery(Zenith.NET.QueryHeap,System.UInt32)">
+  BeginQuery(QueryHeap, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L310"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void BeginQuery(QueryHeap queryHeap, uint index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>queryHeap</code> <a class="xref" href="Zenith.NET.QueryHeap.html">QueryHeap</a></dt>
+    <dd></dd>
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_BeginQueryImpl_" data-uid="Zenith.NET.CommandBuffer.BeginQueryImpl*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_BeginQueryImpl_Zenith_NET_QueryHeap_System_UInt32_" data-uid="Zenith.NET.CommandBuffer.BeginQueryImpl(Zenith.NET.QueryHeap,System.UInt32)">
+  BeginQueryImpl(QueryHeap, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L445"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void BeginQueryImpl(QueryHeap queryHeap, uint index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>queryHeap</code> <a class="xref" href="Zenith.NET.QueryHeap.html">QueryHeap</a></dt>
+    <dd></dd>
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_BeginRenderPass_" data-uid="Zenith.NET.CommandBuffer.BeginRenderPass*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_BeginRenderPass_Zenith_NET_FrameBuffer_Zenith_NET_ClearValue_System_Collections_Generic_IEnumerable_Zenith_NET_ResourceTable__" data-uid="Zenith.NET.CommandBuffer.BeginRenderPass(Zenith.NET.FrameBuffer,Zenith.NET.ClearValue,System.Collections.Generic.IEnumerable{Zenith.NET.ResourceTable})">
+  BeginRenderPass(FrameBuffer, ClearValue, params IEnumerable&lt;ResourceTable&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L121"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void BeginRenderPass(FrameBuffer frameBuffer, ClearValue clearValue, params IEnumerable&lt;ResourceTable&gt; preprocessResourceTables)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>frameBuffer</code> <a class="xref" href="Zenith.NET.FrameBuffer.html">FrameBuffer</a></dt>
+    <dd></dd>
+    <dt><code>clearValue</code> <a class="xref" href="Zenith.NET.ClearValue.html">ClearValue</a></dt>
+    <dd></dd>
+    <dt><code>preprocessResourceTables</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Zenith.NET.ResourceTable.html">ResourceTable</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_BeginRenderPassImpl_" data-uid="Zenith.NET.CommandBuffer.BeginRenderPassImpl*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_BeginRenderPassImpl_Zenith_NET_FrameBuffer_Zenith_NET_ClearValue_" data-uid="Zenith.NET.CommandBuffer.BeginRenderPassImpl(Zenith.NET.FrameBuffer,Zenith.NET.ClearValue)">
+  BeginRenderPassImpl(FrameBuffer, ClearValue)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L409"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void BeginRenderPassImpl(FrameBuffer frameBuffer, ClearValue clearValue)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>frameBuffer</code> <a class="xref" href="Zenith.NET.FrameBuffer.html">FrameBuffer</a></dt>
+    <dd></dd>
+    <dt><code>clearValue</code> <a class="xref" href="Zenith.NET.ClearValue.html">ClearValue</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_BuildAccelerationStructure_" data-uid="Zenith.NET.CommandBuffer.BuildAccelerationStructure*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_BuildAccelerationStructure_Zenith_NET_BottomLevelAccelerationStructureDesc_" data-uid="Zenith.NET.CommandBuffer.BuildAccelerationStructure(Zenith.NET.BottomLevelAccelerationStructureDesc)">
+  BuildAccelerationStructure(BottomLevelAccelerationStructureDesc)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L98"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BottomLevelAccelerationStructure BuildAccelerationStructure(BottomLevelAccelerationStructureDesc desc)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>desc</code> <a class="xref" href="Zenith.NET.BottomLevelAccelerationStructureDesc.html">BottomLevelAccelerationStructureDesc</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Zenith.NET.BottomLevelAccelerationStructure.html">BottomLevelAccelerationStructure</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_BuildAccelerationStructure_" data-uid="Zenith.NET.CommandBuffer.BuildAccelerationStructure*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_BuildAccelerationStructure_Zenith_NET_TopLevelAccelerationStructureDesc_" data-uid="Zenith.NET.CommandBuffer.BuildAccelerationStructure(Zenith.NET.TopLevelAccelerationStructureDesc)">
+  BuildAccelerationStructure(TopLevelAccelerationStructureDesc)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TopLevelAccelerationStructure BuildAccelerationStructure(TopLevelAccelerationStructureDesc desc)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>desc</code> <a class="xref" href="Zenith.NET.TopLevelAccelerationStructureDesc.html">TopLevelAccelerationStructureDesc</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Zenith.NET.TopLevelAccelerationStructure.html">TopLevelAccelerationStructure</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_BuildAccelerationStructureImpl_" data-uid="Zenith.NET.CommandBuffer.BuildAccelerationStructureImpl*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_BuildAccelerationStructureImpl_Zenith_NET_BottomLevelAccelerationStructureDesc_" data-uid="Zenith.NET.CommandBuffer.BuildAccelerationStructureImpl(Zenith.NET.BottomLevelAccelerationStructureDesc)">
+  BuildAccelerationStructureImpl(BottomLevelAccelerationStructureDesc)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L403"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract BottomLevelAccelerationStructure BuildAccelerationStructureImpl(BottomLevelAccelerationStructureDesc desc)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>desc</code> <a class="xref" href="Zenith.NET.BottomLevelAccelerationStructureDesc.html">BottomLevelAccelerationStructureDesc</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Zenith.NET.BottomLevelAccelerationStructure.html">BottomLevelAccelerationStructure</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_BuildAccelerationStructureImpl_" data-uid="Zenith.NET.CommandBuffer.BuildAccelerationStructureImpl*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_BuildAccelerationStructureImpl_Zenith_NET_TopLevelAccelerationStructureDesc_" data-uid="Zenith.NET.CommandBuffer.BuildAccelerationStructureImpl(Zenith.NET.TopLevelAccelerationStructureDesc)">
+  BuildAccelerationStructureImpl(TopLevelAccelerationStructureDesc)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L405"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract TopLevelAccelerationStructure BuildAccelerationStructureImpl(TopLevelAccelerationStructureDesc desc)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>desc</code> <a class="xref" href="Zenith.NET.TopLevelAccelerationStructureDesc.html">TopLevelAccelerationStructureDesc</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Zenith.NET.TopLevelAccelerationStructure.html">TopLevelAccelerationStructure</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_CopyBuffer_" data-uid="Zenith.NET.CommandBuffer.CopyBuffer*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_CopyBuffer_Zenith_NET_Buffer_System_UInt32_Zenith_NET_Buffer_System_UInt32_System_UInt32_" data-uid="Zenith.NET.CommandBuffer.CopyBuffer(Zenith.NET.Buffer,System.UInt32,Zenith.NET.Buffer,System.UInt32,System.UInt32)">
+  CopyBuffer(Buffer, uint, Buffer, uint, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L73"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CopyBuffer(Buffer src, uint srcOffsetInBytes, Buffer dest, uint destOffsetInBytes, uint sizeInBytes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>src</code> <a class="xref" href="Zenith.NET.Buffer.html">Buffer</a></dt>
+    <dd></dd>
+    <dt><code>srcOffsetInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>dest</code> <a class="xref" href="Zenith.NET.Buffer.html">Buffer</a></dt>
+    <dd></dd>
+    <dt><code>destOffsetInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>sizeInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_CopyBufferImpl_" data-uid="Zenith.NET.CommandBuffer.CopyBufferImpl*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_CopyBufferImpl_Zenith_NET_Buffer_System_UInt32_Zenith_NET_Buffer_System_UInt32_System_UInt32_" data-uid="Zenith.NET.CommandBuffer.CopyBufferImpl(Zenith.NET.Buffer,System.UInt32,Zenith.NET.Buffer,System.UInt32,System.UInt32)">
+  CopyBufferImpl(Buffer, uint, Buffer, uint, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L393"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void CopyBufferImpl(Buffer src, uint srcOffsetInBytes, Buffer dest, uint destOffsetInBytes, uint sizeInBytes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>src</code> <a class="xref" href="Zenith.NET.Buffer.html">Buffer</a></dt>
+    <dd></dd>
+    <dt><code>srcOffsetInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>dest</code> <a class="xref" href="Zenith.NET.Buffer.html">Buffer</a></dt>
+    <dd></dd>
+    <dt><code>destOffsetInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>sizeInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_CopyBufferToTexture_" data-uid="Zenith.NET.CommandBuffer.CopyBufferToTexture*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_CopyBufferToTexture_Zenith_NET_Buffer_System_UInt32_Zenith_NET_Texture_Zenith_NET_TextureSlice_Zenith_NET_TextureOffset_Zenith_NET_TextureExtent_" data-uid="Zenith.NET.CommandBuffer.CopyBufferToTexture(Zenith.NET.Buffer,System.UInt32,Zenith.NET.Texture,Zenith.NET.TextureSlice,Zenith.NET.TextureOffset,Zenith.NET.TextureExtent)">
+  CopyBufferToTexture(Buffer, uint, Texture, TextureSlice, TextureOffset, TextureExtent)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L78"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CopyBufferToTexture(Buffer src, uint srcOffsetInBytes, Texture dest, TextureSlice destSlice, TextureOffset destOffset, TextureExtent destExtent)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>src</code> <a class="xref" href="Zenith.NET.Buffer.html">Buffer</a></dt>
+    <dd></dd>
+    <dt><code>srcOffsetInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>dest</code> <a class="xref" href="Zenith.NET.Texture.html">Texture</a></dt>
+    <dd></dd>
+    <dt><code>destSlice</code> <a class="xref" href="Zenith.NET.TextureSlice.html">TextureSlice</a></dt>
+    <dd></dd>
+    <dt><code>destOffset</code> <a class="xref" href="Zenith.NET.TextureOffset.html">TextureOffset</a></dt>
+    <dd></dd>
+    <dt><code>destExtent</code> <a class="xref" href="Zenith.NET.TextureExtent.html">TextureExtent</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_CopyBufferToTextureImpl_" data-uid="Zenith.NET.CommandBuffer.CopyBufferToTextureImpl*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_CopyBufferToTextureImpl_Zenith_NET_Buffer_System_UInt32_Zenith_NET_Texture_Zenith_NET_TextureSlice_Zenith_NET_TextureOffset_Zenith_NET_TextureExtent_" data-uid="Zenith.NET.CommandBuffer.CopyBufferToTextureImpl(Zenith.NET.Buffer,System.UInt32,Zenith.NET.Texture,Zenith.NET.TextureSlice,Zenith.NET.TextureOffset,Zenith.NET.TextureExtent)">
+  CopyBufferToTextureImpl(Buffer, uint, Texture, TextureSlice, TextureOffset, TextureExtent)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L395"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void CopyBufferToTextureImpl(Buffer src, uint srcOffsetInBytes, Texture dest, TextureSlice destSlice, TextureOffset destOffset, TextureExtent destExtent)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>src</code> <a class="xref" href="Zenith.NET.Buffer.html">Buffer</a></dt>
+    <dd></dd>
+    <dt><code>srcOffsetInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>dest</code> <a class="xref" href="Zenith.NET.Texture.html">Texture</a></dt>
+    <dd></dd>
+    <dt><code>destSlice</code> <a class="xref" href="Zenith.NET.TextureSlice.html">TextureSlice</a></dt>
+    <dd></dd>
+    <dt><code>destOffset</code> <a class="xref" href="Zenith.NET.TextureOffset.html">TextureOffset</a></dt>
+    <dd></dd>
+    <dt><code>destExtent</code> <a class="xref" href="Zenith.NET.TextureExtent.html">TextureExtent</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_CopyTexture_" data-uid="Zenith.NET.CommandBuffer.CopyTexture*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_CopyTexture_Zenith_NET_Texture_Zenith_NET_TextureSlice_Zenith_NET_TextureOffset_Zenith_NET_Texture_Zenith_NET_TextureSlice_Zenith_NET_TextureOffset_Zenith_NET_TextureExtent_" data-uid="Zenith.NET.CommandBuffer.CopyTexture(Zenith.NET.Texture,Zenith.NET.TextureSlice,Zenith.NET.TextureOffset,Zenith.NET.Texture,Zenith.NET.TextureSlice,Zenith.NET.TextureOffset,Zenith.NET.TextureExtent)">
+  CopyTexture(Texture, TextureSlice, TextureOffset, Texture, TextureSlice, TextureOffset, TextureExtent)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L83"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CopyTexture(Texture src, TextureSlice srcSlice, TextureOffset srcOffset, Texture dest, TextureSlice destSlice, TextureOffset destOffset, TextureExtent extent)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>src</code> <a class="xref" href="Zenith.NET.Texture.html">Texture</a></dt>
+    <dd></dd>
+    <dt><code>srcSlice</code> <a class="xref" href="Zenith.NET.TextureSlice.html">TextureSlice</a></dt>
+    <dd></dd>
+    <dt><code>srcOffset</code> <a class="xref" href="Zenith.NET.TextureOffset.html">TextureOffset</a></dt>
+    <dd></dd>
+    <dt><code>dest</code> <a class="xref" href="Zenith.NET.Texture.html">Texture</a></dt>
+    <dd></dd>
+    <dt><code>destSlice</code> <a class="xref" href="Zenith.NET.TextureSlice.html">TextureSlice</a></dt>
+    <dd></dd>
+    <dt><code>destOffset</code> <a class="xref" href="Zenith.NET.TextureOffset.html">TextureOffset</a></dt>
+    <dd></dd>
+    <dt><code>extent</code> <a class="xref" href="Zenith.NET.TextureExtent.html">TextureExtent</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_CopyTextureImpl_" data-uid="Zenith.NET.CommandBuffer.CopyTextureImpl*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_CopyTextureImpl_Zenith_NET_Texture_Zenith_NET_TextureSlice_Zenith_NET_TextureOffset_Zenith_NET_Texture_Zenith_NET_TextureSlice_Zenith_NET_TextureOffset_Zenith_NET_TextureExtent_" data-uid="Zenith.NET.CommandBuffer.CopyTextureImpl(Zenith.NET.Texture,Zenith.NET.TextureSlice,Zenith.NET.TextureOffset,Zenith.NET.Texture,Zenith.NET.TextureSlice,Zenith.NET.TextureOffset,Zenith.NET.TextureExtent)">
+  CopyTextureImpl(Texture, TextureSlice, TextureOffset, Texture, TextureSlice, TextureOffset, TextureExtent)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L397"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void CopyTextureImpl(Texture src, TextureSlice srcSlice, TextureOffset srcOffset, Texture dest, TextureSlice destSlice, TextureOffset destOffset, TextureExtent extent)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>src</code> <a class="xref" href="Zenith.NET.Texture.html">Texture</a></dt>
+    <dd></dd>
+    <dt><code>srcSlice</code> <a class="xref" href="Zenith.NET.TextureSlice.html">TextureSlice</a></dt>
+    <dd></dd>
+    <dt><code>srcOffset</code> <a class="xref" href="Zenith.NET.TextureOffset.html">TextureOffset</a></dt>
+    <dd></dd>
+    <dt><code>dest</code> <a class="xref" href="Zenith.NET.Texture.html">Texture</a></dt>
+    <dd></dd>
+    <dt><code>destSlice</code> <a class="xref" href="Zenith.NET.TextureSlice.html">TextureSlice</a></dt>
+    <dd></dd>
+    <dt><code>destOffset</code> <a class="xref" href="Zenith.NET.TextureOffset.html">TextureOffset</a></dt>
+    <dd></dd>
+    <dt><code>extent</code> <a class="xref" href="Zenith.NET.TextureExtent.html">TextureExtent</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_CopyTextureToBuffer_" data-uid="Zenith.NET.CommandBuffer.CopyTextureToBuffer*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_CopyTextureToBuffer_Zenith_NET_Texture_Zenith_NET_TextureSlice_Zenith_NET_TextureOffset_Zenith_NET_TextureExtent_Zenith_NET_Buffer_System_UInt32_" data-uid="Zenith.NET.CommandBuffer.CopyTextureToBuffer(Zenith.NET.Texture,Zenith.NET.TextureSlice,Zenith.NET.TextureOffset,Zenith.NET.TextureExtent,Zenith.NET.Buffer,System.UInt32)">
+  CopyTextureToBuffer(Texture, TextureSlice, TextureOffset, TextureExtent, Buffer, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L88"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CopyTextureToBuffer(Texture src, TextureSlice srcSlice, TextureOffset srcOffset, TextureExtent srcExtent, Buffer dest, uint destOffsetInBytes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>src</code> <a class="xref" href="Zenith.NET.Texture.html">Texture</a></dt>
+    <dd></dd>
+    <dt><code>srcSlice</code> <a class="xref" href="Zenith.NET.TextureSlice.html">TextureSlice</a></dt>
+    <dd></dd>
+    <dt><code>srcOffset</code> <a class="xref" href="Zenith.NET.TextureOffset.html">TextureOffset</a></dt>
+    <dd></dd>
+    <dt><code>srcExtent</code> <a class="xref" href="Zenith.NET.TextureExtent.html">TextureExtent</a></dt>
+    <dd></dd>
+    <dt><code>dest</code> <a class="xref" href="Zenith.NET.Buffer.html">Buffer</a></dt>
+    <dd></dd>
+    <dt><code>destOffsetInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_CopyTextureToBufferImpl_" data-uid="Zenith.NET.CommandBuffer.CopyTextureToBufferImpl*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_CopyTextureToBufferImpl_Zenith_NET_Texture_Zenith_NET_TextureSlice_Zenith_NET_TextureOffset_Zenith_NET_TextureExtent_Zenith_NET_Buffer_System_UInt32_" data-uid="Zenith.NET.CommandBuffer.CopyTextureToBufferImpl(Zenith.NET.Texture,Zenith.NET.TextureSlice,Zenith.NET.TextureOffset,Zenith.NET.TextureExtent,Zenith.NET.Buffer,System.UInt32)">
+  CopyTextureToBufferImpl(Texture, TextureSlice, TextureOffset, TextureExtent, Buffer, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L399"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void CopyTextureToBufferImpl(Texture src, TextureSlice srcSlice, TextureOffset srcOffset, TextureExtent srcExtent, Buffer dest, uint destOffsetInBytes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>src</code> <a class="xref" href="Zenith.NET.Texture.html">Texture</a></dt>
+    <dd></dd>
+    <dt><code>srcSlice</code> <a class="xref" href="Zenith.NET.TextureSlice.html">TextureSlice</a></dt>
+    <dd></dd>
+    <dt><code>srcOffset</code> <a class="xref" href="Zenith.NET.TextureOffset.html">TextureOffset</a></dt>
+    <dd></dd>
+    <dt><code>srcExtent</code> <a class="xref" href="Zenith.NET.TextureExtent.html">TextureExtent</a></dt>
+    <dd></dd>
+    <dt><code>dest</code> <a class="xref" href="Zenith.NET.Buffer.html">Buffer</a></dt>
+    <dd></dd>
+    <dt><code>destOffsetInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_Destroy_" data-uid="Zenith.NET.CommandBuffer.Destroy*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_Destroy" data-uid="Zenith.NET.CommandBuffer.Destroy">
+  Destroy()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L385"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void Destroy()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_Dispatch_" data-uid="Zenith.NET.CommandBuffer.Dispatch*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_Dispatch_System_UInt32_System_UInt32_System_UInt32_" data-uid="Zenith.NET.CommandBuffer.Dispatch(System.UInt32,System.UInt32,System.UInt32)">
+  Dispatch(uint, uint, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L270"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispatch(uint groupCountX, uint groupCountY, uint groupCountZ)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>groupCountX</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>groupCountY</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>groupCountZ</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_DispatchImpl_" data-uid="Zenith.NET.CommandBuffer.DispatchImpl*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_DispatchImpl_Zenith_NET_ComputePipeline_System_UInt32_System_UInt32_System_UInt32_" data-uid="Zenith.NET.CommandBuffer.DispatchImpl(Zenith.NET.ComputePipeline,System.UInt32,System.UInt32,System.UInt32)">
+  DispatchImpl(ComputePipeline, uint, uint, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L437"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void DispatchImpl(ComputePipeline pipeline, uint groupCountX, uint groupCountY, uint groupCountZ)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pipeline</code> <a class="xref" href="Zenith.NET.ComputePipeline.html">ComputePipeline</a></dt>
+    <dd></dd>
+    <dt><code>groupCountX</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>groupCountY</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>groupCountZ</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_DispatchIndirect_" data-uid="Zenith.NET.CommandBuffer.DispatchIndirect*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_DispatchIndirect_Zenith_NET_Buffer_System_UInt32_" data-uid="Zenith.NET.CommandBuffer.DispatchIndirect(Zenith.NET.Buffer,System.UInt32)">
+  DispatchIndirect(Buffer, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L280"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DispatchIndirect(Buffer indirectBuffer, uint offsetInBytes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>indirectBuffer</code> <a class="xref" href="Zenith.NET.Buffer.html">Buffer</a></dt>
+    <dd></dd>
+    <dt><code>offsetInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_DispatchIndirectImpl_" data-uid="Zenith.NET.CommandBuffer.DispatchIndirectImpl*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_DispatchIndirectImpl_Zenith_NET_ComputePipeline_Zenith_NET_Buffer_System_UInt32_" data-uid="Zenith.NET.CommandBuffer.DispatchIndirectImpl(Zenith.NET.ComputePipeline,Zenith.NET.Buffer,System.UInt32)">
+  DispatchIndirectImpl(ComputePipeline, Buffer, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L439"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void DispatchIndirectImpl(ComputePipeline pipeline, Buffer indirectBuffer, uint offsetInBytes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pipeline</code> <a class="xref" href="Zenith.NET.ComputePipeline.html">ComputePipeline</a></dt>
+    <dd></dd>
+    <dt><code>indirectBuffer</code> <a class="xref" href="Zenith.NET.Buffer.html">Buffer</a></dt>
+    <dd></dd>
+    <dt><code>offsetInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_DispatchMesh_" data-uid="Zenith.NET.CommandBuffer.DispatchMesh*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_DispatchMesh_System_UInt32_System_UInt32_System_UInt32_" data-uid="Zenith.NET.CommandBuffer.DispatchMesh(System.UInt32,System.UInt32,System.UInt32)">
+  DispatchMesh(uint, uint, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L290"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DispatchMesh(uint groupCountX, uint groupCountY, uint groupCountZ)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>groupCountX</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>groupCountY</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>groupCountZ</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_DispatchMeshImpl_" data-uid="Zenith.NET.CommandBuffer.DispatchMeshImpl*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_DispatchMeshImpl_Zenith_NET_MeshShadingPipeline_System_UInt32_System_UInt32_System_UInt32_" data-uid="Zenith.NET.CommandBuffer.DispatchMeshImpl(Zenith.NET.MeshShadingPipeline,System.UInt32,System.UInt32,System.UInt32)">
+  DispatchMeshImpl(MeshShadingPipeline, uint, uint, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L441"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void DispatchMeshImpl(MeshShadingPipeline pipeline, uint groupCountX, uint groupCountY, uint groupCountZ)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pipeline</code> <a class="xref" href="Zenith.NET.MeshShadingPipeline.html">MeshShadingPipeline</a></dt>
+    <dd></dd>
+    <dt><code>groupCountX</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>groupCountY</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>groupCountZ</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_DispatchMeshIndirect_" data-uid="Zenith.NET.CommandBuffer.DispatchMeshIndirect*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_DispatchMeshIndirect_Zenith_NET_Buffer_System_UInt32_System_UInt32_" data-uid="Zenith.NET.CommandBuffer.DispatchMeshIndirect(Zenith.NET.Buffer,System.UInt32,System.UInt32)">
+  DispatchMeshIndirect(Buffer, uint, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L300"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DispatchMeshIndirect(Buffer indirectBuffer, uint offsetInBytes, uint dispatchCount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>indirectBuffer</code> <a class="xref" href="Zenith.NET.Buffer.html">Buffer</a></dt>
+    <dd></dd>
+    <dt><code>offsetInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>dispatchCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_DispatchMeshIndirectImpl_" data-uid="Zenith.NET.CommandBuffer.DispatchMeshIndirectImpl*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_DispatchMeshIndirectImpl_Zenith_NET_MeshShadingPipeline_Zenith_NET_Buffer_System_UInt32_System_UInt32_" data-uid="Zenith.NET.CommandBuffer.DispatchMeshIndirectImpl(Zenith.NET.MeshShadingPipeline,Zenith.NET.Buffer,System.UInt32,System.UInt32)">
+  DispatchMeshIndirectImpl(MeshShadingPipeline, Buffer, uint, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L443"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void DispatchMeshIndirectImpl(MeshShadingPipeline pipeline, Buffer indirectBuffer, uint offsetInBytes, uint dispatchCount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pipeline</code> <a class="xref" href="Zenith.NET.MeshShadingPipeline.html">MeshShadingPipeline</a></dt>
+    <dd></dd>
+    <dt><code>indirectBuffer</code> <a class="xref" href="Zenith.NET.Buffer.html">Buffer</a></dt>
+    <dd></dd>
+    <dt><code>offsetInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>dispatchCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_Draw_" data-uid="Zenith.NET.CommandBuffer.Draw*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_Draw_System_UInt32_System_UInt32_System_UInt32_System_UInt32_" data-uid="Zenith.NET.CommandBuffer.Draw(System.UInt32,System.UInt32,System.UInt32,System.UInt32)">
+  Draw(uint, uint, uint, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L230"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Draw(uint vertexCount, uint instanceCount, uint firstVertex, uint firstInstance)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>vertexCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>instanceCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>firstVertex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>firstInstance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_DrawImpl_" data-uid="Zenith.NET.CommandBuffer.DrawImpl*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_DrawImpl_Zenith_NET_GraphicsPipeline_System_UInt32_System_UInt32_System_UInt32_System_UInt32_" data-uid="Zenith.NET.CommandBuffer.DrawImpl(Zenith.NET.GraphicsPipeline,System.UInt32,System.UInt32,System.UInt32,System.UInt32)">
+  DrawImpl(GraphicsPipeline, uint, uint, uint, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L429"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void DrawImpl(GraphicsPipeline pipeline, uint vertexCount, uint instanceCount, uint firstVertex, uint firstInstance)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pipeline</code> <a class="xref" href="Zenith.NET.GraphicsPipeline.html">GraphicsPipeline</a></dt>
+    <dd></dd>
+    <dt><code>vertexCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>instanceCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>firstVertex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>firstInstance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_DrawIndexed_" data-uid="Zenith.NET.CommandBuffer.DrawIndexed*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_DrawIndexed_System_UInt32_System_UInt32_System_UInt32_System_Int32_System_UInt32_" data-uid="Zenith.NET.CommandBuffer.DrawIndexed(System.UInt32,System.UInt32,System.UInt32,System.Int32,System.UInt32)">
+  DrawIndexed(uint, uint, uint, int, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L250"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DrawIndexed(uint indexCount, uint instanceCount, uint firstIndex, int vertexOffset, uint firstInstance)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>indexCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>instanceCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>firstIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>vertexOffset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>firstInstance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_DrawIndexedImpl_" data-uid="Zenith.NET.CommandBuffer.DrawIndexedImpl*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_DrawIndexedImpl_Zenith_NET_GraphicsPipeline_System_UInt32_System_UInt32_System_UInt32_System_Int32_System_UInt32_" data-uid="Zenith.NET.CommandBuffer.DrawIndexedImpl(Zenith.NET.GraphicsPipeline,System.UInt32,System.UInt32,System.UInt32,System.Int32,System.UInt32)">
+  DrawIndexedImpl(GraphicsPipeline, uint, uint, uint, int, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L433"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void DrawIndexedImpl(GraphicsPipeline pipeline, uint indexCount, uint instanceCount, uint firstIndex, int vertexOffset, uint firstInstance)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pipeline</code> <a class="xref" href="Zenith.NET.GraphicsPipeline.html">GraphicsPipeline</a></dt>
+    <dd></dd>
+    <dt><code>indexCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>instanceCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>firstIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>vertexOffset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>firstInstance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_DrawIndexedIndirect_" data-uid="Zenith.NET.CommandBuffer.DrawIndexedIndirect*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_DrawIndexedIndirect_Zenith_NET_Buffer_System_UInt32_System_UInt32_" data-uid="Zenith.NET.CommandBuffer.DrawIndexedIndirect(Zenith.NET.Buffer,System.UInt32,System.UInt32)">
+  DrawIndexedIndirect(Buffer, uint, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L260"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DrawIndexedIndirect(Buffer indirectBuffer, uint offsetInBytes, uint drawCount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>indirectBuffer</code> <a class="xref" href="Zenith.NET.Buffer.html">Buffer</a></dt>
+    <dd></dd>
+    <dt><code>offsetInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>drawCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_DrawIndexedIndirectImpl_" data-uid="Zenith.NET.CommandBuffer.DrawIndexedIndirectImpl*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_DrawIndexedIndirectImpl_Zenith_NET_GraphicsPipeline_Zenith_NET_Buffer_System_UInt32_System_UInt32_" data-uid="Zenith.NET.CommandBuffer.DrawIndexedIndirectImpl(Zenith.NET.GraphicsPipeline,Zenith.NET.Buffer,System.UInt32,System.UInt32)">
+  DrawIndexedIndirectImpl(GraphicsPipeline, Buffer, uint, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L435"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void DrawIndexedIndirectImpl(GraphicsPipeline pipeline, Buffer indirectBuffer, uint offsetInBytes, uint drawCount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pipeline</code> <a class="xref" href="Zenith.NET.GraphicsPipeline.html">GraphicsPipeline</a></dt>
+    <dd></dd>
+    <dt><code>indirectBuffer</code> <a class="xref" href="Zenith.NET.Buffer.html">Buffer</a></dt>
+    <dd></dd>
+    <dt><code>offsetInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>drawCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_DrawIndirect_" data-uid="Zenith.NET.CommandBuffer.DrawIndirect*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_DrawIndirect_Zenith_NET_Buffer_System_UInt32_System_UInt32_" data-uid="Zenith.NET.CommandBuffer.DrawIndirect(Zenith.NET.Buffer,System.UInt32,System.UInt32)">
+  DrawIndirect(Buffer, uint, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L240"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DrawIndirect(Buffer indirectBuffer, uint offsetInBytes, uint drawCount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>indirectBuffer</code> <a class="xref" href="Zenith.NET.Buffer.html">Buffer</a></dt>
+    <dd></dd>
+    <dt><code>offsetInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>drawCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_DrawIndirectImpl_" data-uid="Zenith.NET.CommandBuffer.DrawIndirectImpl*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_DrawIndirectImpl_Zenith_NET_GraphicsPipeline_Zenith_NET_Buffer_System_UInt32_System_UInt32_" data-uid="Zenith.NET.CommandBuffer.DrawIndirectImpl(Zenith.NET.GraphicsPipeline,Zenith.NET.Buffer,System.UInt32,System.UInt32)">
+  DrawIndirectImpl(GraphicsPipeline, Buffer, uint, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L431"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void DrawIndirectImpl(GraphicsPipeline pipeline, Buffer indirectBuffer, uint offsetInBytes, uint drawCount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pipeline</code> <a class="xref" href="Zenith.NET.GraphicsPipeline.html">GraphicsPipeline</a></dt>
+    <dd></dd>
+    <dt><code>indirectBuffer</code> <a class="xref" href="Zenith.NET.Buffer.html">Buffer</a></dt>
+    <dd></dd>
+    <dt><code>offsetInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>drawCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_EndDebugEvent_" data-uid="Zenith.NET.CommandBuffer.EndDebugEvent*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_EndDebugEvent" data-uid="Zenith.NET.CommandBuffer.EndDebugEvent">
+  EndDebugEvent()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L350"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void EndDebugEvent()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_EndDebugEventImpl_" data-uid="Zenith.NET.CommandBuffer.EndDebugEventImpl*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_EndDebugEventImpl" data-uid="Zenith.NET.CommandBuffer.EndDebugEventImpl">
+  EndDebugEventImpl()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L453"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void EndDebugEventImpl()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_EndImpl_" data-uid="Zenith.NET.CommandBuffer.EndImpl*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_EndImpl" data-uid="Zenith.NET.CommandBuffer.EndImpl">
+  EndImpl()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L459"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void EndImpl()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_EndQuery_" data-uid="Zenith.NET.CommandBuffer.EndQuery*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_EndQuery_Zenith_NET_QueryHeap_System_UInt32_" data-uid="Zenith.NET.CommandBuffer.EndQuery(Zenith.NET.QueryHeap,System.UInt32)">
+  EndQuery(QueryHeap, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L320"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void EndQuery(QueryHeap queryHeap, uint index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>queryHeap</code> <a class="xref" href="Zenith.NET.QueryHeap.html">QueryHeap</a></dt>
+    <dd></dd>
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_EndQueryImpl_" data-uid="Zenith.NET.CommandBuffer.EndQueryImpl*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_EndQueryImpl_Zenith_NET_QueryHeap_System_UInt32_" data-uid="Zenith.NET.CommandBuffer.EndQueryImpl(Zenith.NET.QueryHeap,System.UInt32)">
+  EndQueryImpl(QueryHeap, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L447"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void EndQueryImpl(QueryHeap queryHeap, uint index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>queryHeap</code> <a class="xref" href="Zenith.NET.QueryHeap.html">QueryHeap</a></dt>
+    <dd></dd>
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_EndRenderPass_" data-uid="Zenith.NET.CommandBuffer.EndRenderPass*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_EndRenderPass" data-uid="Zenith.NET.CommandBuffer.EndRenderPass">
+  EndRenderPass()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L142"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void EndRenderPass()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_EndRenderPassImpl_" data-uid="Zenith.NET.CommandBuffer.EndRenderPassImpl*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_EndRenderPassImpl_Zenith_NET_FrameBuffer_" data-uid="Zenith.NET.CommandBuffer.EndRenderPassImpl(Zenith.NET.FrameBuffer)">
+  EndRenderPassImpl(FrameBuffer)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L411"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void EndRenderPassImpl(FrameBuffer frameBuffer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>frameBuffer</code> <a class="xref" href="Zenith.NET.FrameBuffer.html">FrameBuffer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_InsertDebugMarker_" data-uid="Zenith.NET.CommandBuffer.InsertDebugMarker*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_InsertDebugMarker_System_String_" data-uid="Zenith.NET.CommandBuffer.InsertDebugMarker(System.String)">
+  InsertDebugMarker(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L355"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void InsertDebugMarker(string label)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>label</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_InsertDebugMarkerImpl_" data-uid="Zenith.NET.CommandBuffer.InsertDebugMarkerImpl*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_InsertDebugMarkerImpl_System_String_" data-uid="Zenith.NET.CommandBuffer.InsertDebugMarkerImpl(System.String)">
+  InsertDebugMarkerImpl(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L455"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void InsertDebugMarkerImpl(string label)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>label</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_ResetImpl_" data-uid="Zenith.NET.CommandBuffer.ResetImpl*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_ResetImpl" data-uid="Zenith.NET.CommandBuffer.ResetImpl">
+  ResetImpl()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L461"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void ResetImpl()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_ResolveTexture_" data-uid="Zenith.NET.CommandBuffer.ResolveTexture*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_ResolveTexture_Zenith_NET_Texture_Zenith_NET_TextureSlice_Zenith_NET_Texture_Zenith_NET_TextureSlice_" data-uid="Zenith.NET.CommandBuffer.ResolveTexture(Zenith.NET.Texture,Zenith.NET.TextureSlice,Zenith.NET.Texture,Zenith.NET.TextureSlice)">
+  ResolveTexture(Texture, TextureSlice, Texture, TextureSlice)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L93"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ResolveTexture(Texture src, TextureSlice srcSlice, Texture dest, TextureSlice destSlice)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>src</code> <a class="xref" href="Zenith.NET.Texture.html">Texture</a></dt>
+    <dd></dd>
+    <dt><code>srcSlice</code> <a class="xref" href="Zenith.NET.TextureSlice.html">TextureSlice</a></dt>
+    <dd></dd>
+    <dt><code>dest</code> <a class="xref" href="Zenith.NET.Texture.html">Texture</a></dt>
+    <dd></dd>
+    <dt><code>destSlice</code> <a class="xref" href="Zenith.NET.TextureSlice.html">TextureSlice</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_ResolveTextureImpl_" data-uid="Zenith.NET.CommandBuffer.ResolveTextureImpl*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_ResolveTextureImpl_Zenith_NET_Texture_Zenith_NET_TextureSlice_Zenith_NET_Texture_Zenith_NET_TextureSlice_" data-uid="Zenith.NET.CommandBuffer.ResolveTextureImpl(Zenith.NET.Texture,Zenith.NET.TextureSlice,Zenith.NET.Texture,Zenith.NET.TextureSlice)">
+  ResolveTextureImpl(Texture, TextureSlice, Texture, TextureSlice)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L401"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void ResolveTextureImpl(Texture src, TextureSlice srcSlice, Texture dest, TextureSlice destSlice)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>src</code> <a class="xref" href="Zenith.NET.Texture.html">Texture</a></dt>
+    <dd></dd>
+    <dt><code>srcSlice</code> <a class="xref" href="Zenith.NET.TextureSlice.html">TextureSlice</a></dt>
+    <dd></dd>
+    <dt><code>dest</code> <a class="xref" href="Zenith.NET.Texture.html">Texture</a></dt>
+    <dd></dd>
+    <dt><code>destSlice</code> <a class="xref" href="Zenith.NET.TextureSlice.html">TextureSlice</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_SetIndexBuffer_" data-uid="Zenith.NET.CommandBuffer.SetIndexBuffer*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_SetIndexBuffer_Zenith_NET_Buffer_System_UInt32_Zenith_NET_IndexFormat_" data-uid="Zenith.NET.CommandBuffer.SetIndexBuffer(Zenith.NET.Buffer,System.UInt32,Zenith.NET.IndexFormat)">
+  SetIndexBuffer(Buffer, uint, IndexFormat)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L205"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetIndexBuffer(Buffer buffer, uint offsetInBytes, IndexFormat format)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>buffer</code> <a class="xref" href="Zenith.NET.Buffer.html">Buffer</a></dt>
+    <dd></dd>
+    <dt><code>offsetInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>format</code> <a class="xref" href="Zenith.NET.IndexFormat.html">IndexFormat</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_SetIndexBufferImpl_" data-uid="Zenith.NET.CommandBuffer.SetIndexBufferImpl*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_SetIndexBufferImpl_Zenith_NET_GraphicsPipeline_Zenith_NET_Buffer_System_UInt32_Zenith_NET_IndexFormat_" data-uid="Zenith.NET.CommandBuffer.SetIndexBufferImpl(Zenith.NET.GraphicsPipeline,Zenith.NET.Buffer,System.UInt32,Zenith.NET.IndexFormat)">
+  SetIndexBufferImpl(GraphicsPipeline, Buffer, uint, IndexFormat)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L425"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void SetIndexBufferImpl(GraphicsPipeline pipeline, Buffer buffer, uint offsetInBytes, IndexFormat format)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pipeline</code> <a class="xref" href="Zenith.NET.GraphicsPipeline.html">GraphicsPipeline</a></dt>
+    <dd></dd>
+    <dt><code>buffer</code> <a class="xref" href="Zenith.NET.Buffer.html">Buffer</a></dt>
+    <dd></dd>
+    <dt><code>offsetInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>format</code> <a class="xref" href="Zenith.NET.IndexFormat.html">IndexFormat</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_SetPipeline_" data-uid="Zenith.NET.CommandBuffer.SetPipeline*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_SetPipeline_Zenith_NET_ComputePipeline_" data-uid="Zenith.NET.CommandBuffer.SetPipeline(Zenith.NET.ComputePipeline)">
+  SetPipeline(ComputePipeline)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L181"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetPipeline(ComputePipeline pipeline)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pipeline</code> <a class="xref" href="Zenith.NET.ComputePipeline.html">ComputePipeline</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_SetPipeline_" data-uid="Zenith.NET.CommandBuffer.SetPipeline*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_SetPipeline_Zenith_NET_GraphicsPipeline_" data-uid="Zenith.NET.CommandBuffer.SetPipeline(Zenith.NET.GraphicsPipeline)">
+  SetPipeline(GraphicsPipeline)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L174"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetPipeline(GraphicsPipeline pipeline)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pipeline</code> <a class="xref" href="Zenith.NET.GraphicsPipeline.html">GraphicsPipeline</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_SetPipeline_" data-uid="Zenith.NET.CommandBuffer.SetPipeline*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_SetPipeline_Zenith_NET_MeshShadingPipeline_" data-uid="Zenith.NET.CommandBuffer.SetPipeline(Zenith.NET.MeshShadingPipeline)">
+  SetPipeline(MeshShadingPipeline)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L188"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetPipeline(MeshShadingPipeline pipeline)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pipeline</code> <a class="xref" href="Zenith.NET.MeshShadingPipeline.html">MeshShadingPipeline</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_SetPipelineImpl_" data-uid="Zenith.NET.CommandBuffer.SetPipelineImpl*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_SetPipelineImpl_Zenith_NET_ComputePipeline_" data-uid="Zenith.NET.CommandBuffer.SetPipelineImpl(Zenith.NET.ComputePipeline)">
+  SetPipelineImpl(ComputePipeline)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L419"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void SetPipelineImpl(ComputePipeline pipeline)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pipeline</code> <a class="xref" href="Zenith.NET.ComputePipeline.html">ComputePipeline</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_SetPipelineImpl_" data-uid="Zenith.NET.CommandBuffer.SetPipelineImpl*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_SetPipelineImpl_Zenith_NET_GraphicsPipeline_" data-uid="Zenith.NET.CommandBuffer.SetPipelineImpl(Zenith.NET.GraphicsPipeline)">
+  SetPipelineImpl(GraphicsPipeline)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L417"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void SetPipelineImpl(GraphicsPipeline pipeline)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pipeline</code> <a class="xref" href="Zenith.NET.GraphicsPipeline.html">GraphicsPipeline</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_SetPipelineImpl_" data-uid="Zenith.NET.CommandBuffer.SetPipelineImpl*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_SetPipelineImpl_Zenith_NET_MeshShadingPipeline_" data-uid="Zenith.NET.CommandBuffer.SetPipelineImpl(Zenith.NET.MeshShadingPipeline)">
+  SetPipelineImpl(MeshShadingPipeline)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L421"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void SetPipelineImpl(MeshShadingPipeline pipeline)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pipeline</code> <a class="xref" href="Zenith.NET.MeshShadingPipeline.html">MeshShadingPipeline</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_SetResourceTable_" data-uid="Zenith.NET.CommandBuffer.SetResourceTable*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_SetResourceTable_Zenith_NET_ResourceTable_" data-uid="Zenith.NET.CommandBuffer.SetResourceTable(Zenith.NET.ResourceTable)">
+  SetResourceTable(ResourceTable)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L215"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetResourceTable(ResourceTable resourceTable)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>resourceTable</code> <a class="xref" href="Zenith.NET.ResourceTable.html">ResourceTable</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_SetResourceTableImpl_" data-uid="Zenith.NET.CommandBuffer.SetResourceTableImpl*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_SetResourceTableImpl_Zenith_NET_Pipeline_Zenith_NET_ResourceTable_" data-uid="Zenith.NET.CommandBuffer.SetResourceTableImpl(Zenith.NET.Pipeline,Zenith.NET.ResourceTable)">
+  SetResourceTableImpl(Pipeline, ResourceTable)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L427"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void SetResourceTableImpl(Pipeline pipeline, ResourceTable resourceTable)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pipeline</code> <a class="xref" href="Zenith.NET.Pipeline.html">Pipeline</a></dt>
+    <dd></dd>
+    <dt><code>resourceTable</code> <a class="xref" href="Zenith.NET.ResourceTable.html">ResourceTable</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_SetScissors_" data-uid="Zenith.NET.CommandBuffer.SetScissors*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_SetScissors_Zenith_NET_Scissor___" data-uid="Zenith.NET.CommandBuffer.SetScissors(Zenith.NET.Scissor[])">
+  SetScissors(Scissor[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L154"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetScissors(Scissor[] scissors)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>scissors</code> <a class="xref" href="Zenith.NET.Scissor.html">Scissor</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_SetScissorsImpl_" data-uid="Zenith.NET.CommandBuffer.SetScissorsImpl*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_SetScissorsImpl_Zenith_NET_Scissor___" data-uid="Zenith.NET.CommandBuffer.SetScissorsImpl(Zenith.NET.Scissor[])">
+  SetScissorsImpl(Scissor[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L413"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void SetScissorsImpl(Scissor[] scissors)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>scissors</code> <a class="xref" href="Zenith.NET.Scissor.html">Scissor</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_SetVertexBuffer_" data-uid="Zenith.NET.CommandBuffer.SetVertexBuffer*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_SetVertexBuffer_Zenith_NET_Buffer_System_UInt32_System_UInt32_" data-uid="Zenith.NET.CommandBuffer.SetVertexBuffer(Zenith.NET.Buffer,System.UInt32,System.UInt32)">
+  SetVertexBuffer(Buffer, uint, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L195"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetVertexBuffer(Buffer buffer, uint offsetInBytes, uint index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>buffer</code> <a class="xref" href="Zenith.NET.Buffer.html">Buffer</a></dt>
+    <dd></dd>
+    <dt><code>offsetInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_SetVertexBufferImpl_" data-uid="Zenith.NET.CommandBuffer.SetVertexBufferImpl*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_SetVertexBufferImpl_Zenith_NET_GraphicsPipeline_Zenith_NET_Buffer_System_UInt32_System_UInt32_" data-uid="Zenith.NET.CommandBuffer.SetVertexBufferImpl(Zenith.NET.GraphicsPipeline,Zenith.NET.Buffer,System.UInt32,System.UInt32)">
+  SetVertexBufferImpl(GraphicsPipeline, Buffer, uint, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L423"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void SetVertexBufferImpl(GraphicsPipeline pipeline, Buffer buffer, uint offsetInBytes, uint index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pipeline</code> <a class="xref" href="Zenith.NET.GraphicsPipeline.html">GraphicsPipeline</a></dt>
+    <dd></dd>
+    <dt><code>buffer</code> <a class="xref" href="Zenith.NET.Buffer.html">Buffer</a></dt>
+    <dd></dd>
+    <dt><code>offsetInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_SetViewports_" data-uid="Zenith.NET.CommandBuffer.SetViewports*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_SetViewports_Zenith_NET_Viewport___" data-uid="Zenith.NET.CommandBuffer.SetViewports(Zenith.NET.Viewport[])">
+  SetViewports(Viewport[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L164"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetViewports(Viewport[] viewports)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>viewports</code> <a class="xref" href="Zenith.NET.Viewport.html">Viewport</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_SetViewportsImpl_" data-uid="Zenith.NET.CommandBuffer.SetViewportsImpl*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_SetViewportsImpl_Zenith_NET_Viewport___" data-uid="Zenith.NET.CommandBuffer.SetViewportsImpl(Zenith.NET.Viewport[])">
+  SetViewportsImpl(Viewport[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L415"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void SetViewportsImpl(Viewport[] viewports)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>viewports</code> <a class="xref" href="Zenith.NET.Viewport.html">Viewport</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_Submit_" data-uid="Zenith.NET.CommandBuffer.Submit*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_Submit_System_Boolean_" data-uid="Zenith.NET.CommandBuffer.Submit(System.Boolean)">
+  Submit(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L10"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Submit(bool waitForCompletion = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>waitForCompletion</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_UpdateAccelerationStructure_" data-uid="Zenith.NET.CommandBuffer.UpdateAccelerationStructure*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_UpdateAccelerationStructure_Zenith_NET_TopLevelAccelerationStructure_Zenith_NET_TopLevelAccelerationStructureDesc_" data-uid="Zenith.NET.CommandBuffer.UpdateAccelerationStructure(Zenith.NET.TopLevelAccelerationStructure,Zenith.NET.TopLevelAccelerationStructureDesc)">
+  UpdateAccelerationStructure(TopLevelAccelerationStructure, TopLevelAccelerationStructureDesc)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L112"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UpdateAccelerationStructure(TopLevelAccelerationStructure accelerationStructure, TopLevelAccelerationStructureDesc newDesc)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>accelerationStructure</code> <a class="xref" href="Zenith.NET.TopLevelAccelerationStructure.html">TopLevelAccelerationStructure</a></dt>
+    <dd></dd>
+    <dt><code>newDesc</code> <a class="xref" href="Zenith.NET.TopLevelAccelerationStructureDesc.html">TopLevelAccelerationStructureDesc</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_UpdateAccelerationStructureImpl_" data-uid="Zenith.NET.CommandBuffer.UpdateAccelerationStructureImpl*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_UpdateAccelerationStructureImpl_Zenith_NET_TopLevelAccelerationStructure_Zenith_NET_TopLevelAccelerationStructureDesc_" data-uid="Zenith.NET.CommandBuffer.UpdateAccelerationStructureImpl(Zenith.NET.TopLevelAccelerationStructure,Zenith.NET.TopLevelAccelerationStructureDesc)">
+  UpdateAccelerationStructureImpl(TopLevelAccelerationStructure, TopLevelAccelerationStructureDesc)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L407"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void UpdateAccelerationStructureImpl(TopLevelAccelerationStructure accelerationStructure, TopLevelAccelerationStructureDesc newDesc)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>accelerationStructure</code> <a class="xref" href="Zenith.NET.TopLevelAccelerationStructure.html">TopLevelAccelerationStructure</a></dt>
+    <dd></dd>
+    <dt><code>newDesc</code> <a class="xref" href="Zenith.NET.TopLevelAccelerationStructureDesc.html">TopLevelAccelerationStructureDesc</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_Upload_" data-uid="Zenith.NET.CommandBuffer.Upload*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_Upload__1_Zenith_NET_Buffer_System_UInt32_System_ReadOnlySpan___0__" data-uid="Zenith.NET.CommandBuffer.Upload``1(Zenith.NET.Buffer,System.UInt32,System.ReadOnlySpan{``0})">
+  Upload&lt;T&gt;(Buffer, uint, ReadOnlySpan&lt;T&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Upload&lt;T&gt;(Buffer buffer, uint offsetInBytes, ReadOnlySpan&lt;T&gt; data) where T : unmanaged</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>buffer</code> <a class="xref" href="Zenith.NET.Buffer.html">Buffer</a></dt>
+    <dd></dd>
+    <dt><code>offsetInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>data</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_Upload_" data-uid="Zenith.NET.CommandBuffer.Upload*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_Upload__1_Zenith_NET_Texture_Zenith_NET_TextureSlice_Zenith_NET_TextureOffset_Zenith_NET_TextureExtent_System_ReadOnlySpan___0__" data-uid="Zenith.NET.CommandBuffer.Upload``1(Zenith.NET.Texture,Zenith.NET.TextureSlice,Zenith.NET.TextureOffset,Zenith.NET.TextureExtent,System.ReadOnlySpan{``0})">
+  Upload&lt;T&gt;(Texture, TextureSlice, TextureOffset, TextureExtent, ReadOnlySpan&lt;T&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Upload&lt;T&gt;(Texture texture, TextureSlice slice, TextureOffset offset, TextureExtent extent, ReadOnlySpan&lt;T&gt; pixels) where T : unmanaged</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>texture</code> <a class="xref" href="Zenith.NET.Texture.html">Texture</a></dt>
+    <dd></dd>
+    <dt><code>slice</code> <a class="xref" href="Zenith.NET.TextureSlice.html">TextureSlice</a></dt>
+    <dd></dd>
+    <dt><code>offset</code> <a class="xref" href="Zenith.NET.TextureOffset.html">TextureOffset</a></dt>
+    <dd></dd>
+    <dt><code>extent</code> <a class="xref" href="Zenith.NET.TextureExtent.html">TextureExtent</a></dt>
+    <dd></dd>
+    <dt><code>pixels</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_WriteTimestamp_" data-uid="Zenith.NET.CommandBuffer.WriteTimestamp*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_WriteTimestamp_Zenith_NET_QueryHeap_System_UInt32_" data-uid="Zenith.NET.CommandBuffer.WriteTimestamp(Zenith.NET.QueryHeap,System.UInt32)">
+  WriteTimestamp(QueryHeap, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L330"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void WriteTimestamp(QueryHeap queryHeap, uint index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>queryHeap</code> <a class="xref" href="Zenith.NET.QueryHeap.html">QueryHeap</a></dt>
+    <dd></dd>
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_CommandBuffer_WriteTimestampImpl_" data-uid="Zenith.NET.CommandBuffer.WriteTimestampImpl*"></a>
+
+  <h3 id="Zenith_NET_CommandBuffer_WriteTimestampImpl_Zenith_NET_QueryHeap_System_UInt32_" data-uid="Zenith.NET.CommandBuffer.WriteTimestampImpl(Zenith.NET.QueryHeap,System.UInt32)">
+  WriteTimestampImpl(QueryHeap, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L449"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void WriteTimestampImpl(QueryHeap queryHeap, uint index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>queryHeap</code> <a class="xref" href="Zenith.NET.QueryHeap.html">QueryHeap</a></dt>
+    <dd></dd>
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Zenith.NET/CommandBuffer.cs/#L5" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

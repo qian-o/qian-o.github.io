@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ImGuiController | Zenith.NET </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ImGuiController | Zenith.NET ">
+      
+      
+      <link rel="icon" href="../images/Zenith.NET.png">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/qian-o/Zenith.NET/new/master/apiSpec/new?filename=Zenith_NET_Extensions_ImGui_ImGuiController.md&amp;value=---%0Auid%3A%20Zenith.NET.Extensions.ImGui.ImGuiController%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/Zenith.NET-Logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Zenith.NET.Extensions.ImGui.ImGuiController">
+
+
+
+  <h1 id="Zenith_NET_Extensions_ImGui_ImGuiController" data-uid="Zenith.NET.Extensions.ImGui.ImGuiController" class="text-break">
+Class ImGuiController  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Extensions/Zenith.NET.Extensions.ImGui/ImGuiController.cs/#L8"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Zenith.html">Zenith</a>.<a class="xref" href="Zenith.NET.html">NET</a>.<a class="xref" href="Zenith.NET.Extensions.html">Extensions</a>.<a class="xref" href="Zenith.NET.Extensions.ImGui.html">ImGui</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Zenith.NET.Extensions.ImGui.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class ImGuiController : DisposableObject, IDisposableObject, IDisposable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="Zenith.NET.DisposableObject.html">DisposableObject</a></div>
+      <div><span class="xref">ImGuiController</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="Zenith.NET.IDisposableObject.html">IDisposableObject</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Zenith.NET.DisposableObject.html#Zenith_NET_DisposableObject_IsDisposed">DisposableObject.IsDisposed</a>
+    </div>
+    <div>
+      <a class="xref" href="Zenith.NET.DisposableObject.html#Zenith_NET_DisposableObject_Dispose">DisposableObject.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Zenith_NET_Extensions_ImGui_ImGuiController__ctor_" data-uid="Zenith.NET.Extensions.ImGui.ImGuiController.#ctor*"></a>
+
+  <h3 id="Zenith_NET_Extensions_ImGui_ImGuiController__ctor_Zenith_NET_GraphicsContext_Zenith_NET_Output_Zenith_NET_Extensions_ImGui_ImGuiColorSpace_System_String_System_Action_Hexa_NET_ImGui_ImGuiIOPtr__" data-uid="Zenith.NET.Extensions.ImGui.ImGuiController.#ctor(Zenith.NET.GraphicsContext,Zenith.NET.Output,Zenith.NET.Extensions.ImGui.ImGuiColorSpace,System.String,System.Action{Hexa.NET.ImGui.ImGuiIOPtr})">
+  ImGuiController(GraphicsContext, Output, ImGuiColorSpace, string?, Action&lt;ImGuiIOPtr&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Extensions/Zenith.NET.Extensions.ImGui/ImGuiController.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImGuiController(GraphicsContext context, Output output, ImGuiColorSpace colorSpace, string? fontPath = null, Action&lt;ImGuiIOPtr&gt;? otherSetup = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="Zenith.NET.GraphicsContext.html">GraphicsContext</a></dt>
+    <dd></dd>
+    <dt><code>output</code> <a class="xref" href="Zenith.NET.Output.html">Output</a></dt>
+    <dd></dd>
+    <dt><code>colorSpace</code> <a class="xref" href="Zenith.NET.Extensions.ImGui.ImGuiColorSpace.html">ImGuiColorSpace</a></dt>
+    <dd></dd>
+    <dt><code>fontPath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>otherSetup</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<span class="xref">ImGuiIOPtr</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Zenith_NET_Extensions_ImGui_ImGuiController_Context_" data-uid="Zenith.NET.Extensions.ImGui.ImGuiController.Context*"></a>
+
+  <h3 id="Zenith_NET_Extensions_ImGui_ImGuiController_Context" data-uid="Zenith.NET.Extensions.ImGui.ImGuiController.Context">
+  Context
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Extensions/Zenith.NET.Extensions.ImGui/ImGuiController.cs/#L65"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImGuiContextPtr Context { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ImGuiContextPtr</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_Extensions_ImGui_ImGuiController_PlatformBindings_" data-uid="Zenith.NET.Extensions.ImGui.ImGuiController.PlatformBindings*"></a>
+
+  <h3 id="Zenith_NET_Extensions_ImGui_ImGuiController_PlatformBindings" data-uid="Zenith.NET.Extensions.ImGui.ImGuiController.PlatformBindings">
+  PlatformBindings
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Extensions/Zenith.NET.Extensions.ImGui/ImGuiController.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IImGuiPlatformBindings? PlatformBindings { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Zenith.NET.Extensions.ImGui.IImGuiPlatformBindings.html">IImGuiPlatformBindings</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Zenith_NET_Extensions_ImGui_ImGuiController_Binding_" data-uid="Zenith.NET.Extensions.ImGui.ImGuiController.Binding*"></a>
+
+  <h3 id="Zenith_NET_Extensions_ImGui_ImGuiController_Binding_Zenith_NET_Texture_" data-uid="Zenith.NET.Extensions.ImGui.ImGuiController.Binding(Zenith.NET.Texture)">
+  Binding(Texture)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Extensions/Zenith.NET.Extensions.ImGui/ImGuiController.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImTextureRef Binding(Texture texture)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>texture</code> <a class="xref" href="Zenith.NET.Texture.html">Texture</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ImTextureRef</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_Extensions_ImGui_ImGuiController_Binding_" data-uid="Zenith.NET.Extensions.ImGui.ImGuiController.Binding*"></a>
+
+  <h3 id="Zenith_NET_Extensions_ImGui_ImGuiController_Binding_Zenith_NET_TextureView_" data-uid="Zenith.NET.Extensions.ImGui.ImGuiController.Binding(Zenith.NET.TextureView)">
+  Binding(TextureView)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Extensions/Zenith.NET.Extensions.ImGui/ImGuiController.cs/#L74"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImTextureRef Binding(TextureView textureView)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>textureView</code> <a class="xref" href="Zenith.NET.TextureView.html">TextureView</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ImTextureRef</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_Extensions_ImGui_ImGuiController_Destroy_" data-uid="Zenith.NET.Extensions.ImGui.ImGuiController.Destroy*"></a>
+
+  <h3 id="Zenith_NET_Extensions_ImGui_ImGuiController_Destroy" data-uid="Zenith.NET.Extensions.ImGui.ImGuiController.Destroy">
+  Destroy()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Extensions/Zenith.NET.Extensions.ImGui/ImGuiController.cs/#L192"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void Destroy()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_Extensions_ImGui_ImGuiController_KeyChar_" data-uid="Zenith.NET.Extensions.ImGui.ImGuiController.KeyChar*"></a>
+
+  <h3 id="Zenith_NET_Extensions_ImGui_ImGuiController_KeyChar_System_Char_" data-uid="Zenith.NET.Extensions.ImGui.ImGuiController.KeyChar(System.Char)">
+  KeyChar(char)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Extensions/Zenith.NET.Extensions.ImGui/ImGuiController.cs/#L187"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void KeyChar(char c)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>c</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_Extensions_ImGui_ImGuiController_KeyDown_" data-uid="Zenith.NET.Extensions.ImGui.ImGuiController.KeyDown*"></a>
+
+  <h3 id="Zenith_NET_Extensions_ImGui_ImGuiController_KeyDown_Hexa_NET_ImGui_ImGuiKey_" data-uid="Zenith.NET.Extensions.ImGui.ImGuiController.KeyDown(Hexa.NET.ImGui.ImGuiKey)">
+  KeyDown(ImGuiKey)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Extensions/Zenith.NET.Extensions.ImGui/ImGuiController.cs/#L177"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void KeyDown(ImGuiKey key)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <span class="xref">ImGuiKey</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_Extensions_ImGui_ImGuiController_KeyUp_" data-uid="Zenith.NET.Extensions.ImGui.ImGuiController.KeyUp*"></a>
+
+  <h3 id="Zenith_NET_Extensions_ImGui_ImGuiController_KeyUp_Hexa_NET_ImGui_ImGuiKey_" data-uid="Zenith.NET.Extensions.ImGui.ImGuiController.KeyUp(Hexa.NET.ImGui.ImGuiKey)">
+  KeyUp(ImGuiKey)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Extensions/Zenith.NET.Extensions.ImGui/ImGuiController.cs/#L182"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void KeyUp(ImGuiKey key)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <span class="xref">ImGuiKey</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_Extensions_ImGui_ImGuiController_MouseDown_" data-uid="Zenith.NET.Extensions.ImGui.ImGuiController.MouseDown*"></a>
+
+  <h3 id="Zenith_NET_Extensions_ImGui_ImGuiController_MouseDown_Hexa_NET_ImGui_ImGuiMouseButton_" data-uid="Zenith.NET.Extensions.ImGui.ImGuiController.MouseDown(Hexa.NET.ImGui.ImGuiMouseButton)">
+  MouseDown(ImGuiMouseButton)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Extensions/Zenith.NET.Extensions.ImGui/ImGuiController.cs/#L157"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void MouseDown(ImGuiMouseButton button)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>button</code> <span class="xref">ImGuiMouseButton</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_Extensions_ImGui_ImGuiController_MouseMove_" data-uid="Zenith.NET.Extensions.ImGui.ImGuiController.MouseMove*"></a>
+
+  <h3 id="Zenith_NET_Extensions_ImGui_ImGuiController_MouseMove_System_Numerics_Vector2_" data-uid="Zenith.NET.Extensions.ImGui.ImGuiController.MouseMove(System.Numerics.Vector2)">
+  MouseMove(Vector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Extensions/Zenith.NET.Extensions.ImGui/ImGuiController.cs/#L167"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void MouseMove(Vector2 position)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>position</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector2">Vector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_Extensions_ImGui_ImGuiController_MouseUp_" data-uid="Zenith.NET.Extensions.ImGui.ImGuiController.MouseUp*"></a>
+
+  <h3 id="Zenith_NET_Extensions_ImGui_ImGuiController_MouseUp_Hexa_NET_ImGui_ImGuiMouseButton_" data-uid="Zenith.NET.Extensions.ImGui.ImGuiController.MouseUp(Hexa.NET.ImGui.ImGuiMouseButton)">
+  MouseUp(ImGuiMouseButton)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Extensions/Zenith.NET.Extensions.ImGui/ImGuiController.cs/#L162"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void MouseUp(ImGuiMouseButton button)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>button</code> <span class="xref">ImGuiMouseButton</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_Extensions_ImGui_ImGuiController_MouseWheel_" data-uid="Zenith.NET.Extensions.ImGui.ImGuiController.MouseWheel*"></a>
+
+  <h3 id="Zenith_NET_Extensions_ImGui_ImGuiController_MouseWheel_System_Numerics_Vector2_" data-uid="Zenith.NET.Extensions.ImGui.ImGuiController.MouseWheel(System.Numerics.Vector2)">
+  MouseWheel(Vector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Extensions/Zenith.NET.Extensions.ImGui/ImGuiController.cs/#L172"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void MouseWheel(Vector2 offset)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>offset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector2">Vector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_Extensions_ImGui_ImGuiController_Render_" data-uid="Zenith.NET.Extensions.ImGui.ImGuiController.Render*"></a>
+
+  <h3 id="Zenith_NET_Extensions_ImGui_ImGuiController_Render_Zenith_NET_CommandBuffer_Zenith_NET_FrameBuffer_Zenith_NET_ClearValue_" data-uid="Zenith.NET.Extensions.ImGui.ImGuiController.Render(Zenith.NET.CommandBuffer,Zenith.NET.FrameBuffer,Zenith.NET.ClearValue)">
+  Render(CommandBuffer, FrameBuffer, ClearValue)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Extensions/Zenith.NET.Extensions.ImGui/ImGuiController.cs/#L143"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Render(CommandBuffer commandBuffer, FrameBuffer frameBuffer, ClearValue clearValue)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>commandBuffer</code> <a class="xref" href="Zenith.NET.CommandBuffer.html">CommandBuffer</a></dt>
+    <dd></dd>
+    <dt><code>frameBuffer</code> <a class="xref" href="Zenith.NET.FrameBuffer.html">FrameBuffer</a></dt>
+    <dd></dd>
+    <dt><code>clearValue</code> <a class="xref" href="Zenith.NET.ClearValue.html">ClearValue</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_Extensions_ImGui_ImGuiController_Update_" data-uid="Zenith.NET.Extensions.ImGui.ImGuiController.Update*"></a>
+
+  <h3 id="Zenith_NET_Extensions_ImGui_ImGuiController_Update_System_Double_System_UInt32_System_UInt32_" data-uid="Zenith.NET.Extensions.ImGui.ImGuiController.Update(System.Double,System.UInt32,System.UInt32)">
+  Update(double, uint, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Extensions/Zenith.NET.Extensions.ImGui/ImGuiController.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Update(double delta, uint width, uint height)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>delta</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/qian-o/Zenith.NET/blob/main/sources/Extensions/Zenith.NET.Extensions.ImGui/ImGuiController.cs/#L8" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
