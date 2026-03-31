@@ -307,13 +307,16 @@ file struct Vertex(Vector3 position, Vector4 color)
 /// &lt;summary&gt;
 /// MVP transformation matrices.
 /// &lt;/summary&gt;
-[StructLayout(LayoutKind.Sequential)]
+[StructLayout(LayoutKind.Explicit, Size = 192)]
 file struct MVPConstants
 {
+    [FieldOffset(0)]
     public Matrix4x4 Model;
 
+    [FieldOffset(64)]
     public Matrix4x4 View;
 
+    [FieldOffset(128)]
     public Matrix4x4 Projection;
 }
 </code></pre>
@@ -333,13 +336,16 @@ App.Cleanup();
 <p><img src="../../images/spinning-cube.png" alt="spinning-cube"></p>
 <h2 id="code-breakdown">Code Breakdown</h2>
 <h3 id="mvp-constants-structure">MVP Constants Structure</h3>
-<pre><code class="lang-csharp">[StructLayout(LayoutKind.Sequential)]
+<pre><code class="lang-csharp">[StructLayout(LayoutKind.Explicit, Size = 192)]
 file struct MVPConstants
 {
+    [FieldOffset(0)]
     public Matrix4x4 Model;
 
+    [FieldOffset(64)]
     public Matrix4x4 View;
 
+    [FieldOffset(128)]
     public Matrix4x4 Projection;
 }
 </code></pre>

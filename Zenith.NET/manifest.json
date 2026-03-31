@@ -3,11 +3,2040 @@
   "xrefmap": "xrefmap.yml",
   "files": [
     {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.AccelerationStructureBuildFlags.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.AccelerationStructureBuildFlags.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.AccelerationStructureBuildFlags",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.AddressMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.AddressMode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.AddressMode",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Backend.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Backend.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Backend",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Blend.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Blend.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Blend",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.BlendOp.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.BlendOp.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.BlendOp",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.BlendState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.BlendState.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.BlendState",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.BlendStateRenderTarget.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.BlendStateRenderTarget.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.BlendStateRenderTarget",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.BlendStates.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.BlendStates.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.BlendStates",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.BorderColor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.BorderColor.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.BorderColor",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.BottomLevelAccelerationStructure.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.BottomLevelAccelerationStructure.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.BottomLevelAccelerationStructure",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.BottomLevelAccelerationStructureDesc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.BottomLevelAccelerationStructureDesc.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.BottomLevelAccelerationStructureDesc",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Buffer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Buffer.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Buffer",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.BufferDesc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.BufferDesc.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.BufferDesc",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.BufferUsageFlags.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.BufferUsageFlags.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.BufferUsageFlags",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.BufferView.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.BufferView.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.BufferView",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.BufferViewDesc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.BufferViewDesc.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.BufferViewDesc",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Capabilities.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Capabilities.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Capabilities",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.ClearFlags.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.ClearFlags.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.ClearFlags",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.ClearValue.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.ClearValue.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.ClearValue",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.ClearValues.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.ClearValues.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.ClearValues",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.ColorComponentFlags.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.ColorComponentFlags.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.ColorComponentFlags",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.CommandBuffer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.CommandBuffer.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.CommandBuffer",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.CommandQueue.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.CommandQueue.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.CommandQueue",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.CommandQueueType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.CommandQueueType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.CommandQueueType",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.ComparisonFunc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.ComparisonFunc.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.ComparisonFunc",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.ComputePipeline.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.ComputePipeline.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.ComputePipeline",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.ComputePipelineDesc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.ComputePipelineDesc.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.ComputePipelineDesc",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.CullMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.CullMode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.CullMode",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.DepthStencilState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.DepthStencilState.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.DepthStencilState",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.DepthStencilStateOp.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.DepthStencilStateOp.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.DepthStencilStateOp",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.DepthStencilStates.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.DepthStencilStates.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.DepthStencilStates",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.DirectX12.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.DirectX12.Extensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.DirectX12.Extensions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.DirectX12.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.DirectX12.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.DirectX12",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.DisposableObject.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.DisposableObject.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.DisposableObject",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.ElementFormat.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.ElementFormat.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.ElementFormat",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.ElementSemantic.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.ElementSemantic.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.ElementSemantic",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Extensions.ImGui.IImGuiPlatformBindings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Extensions.ImGui.IImGuiPlatformBindings.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Extensions.ImGui.IImGuiPlatformBindings",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Extensions.ImGui.ImGuiColorSpace.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Extensions.ImGui.ImGuiColorSpace.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Extensions.ImGui.ImGuiColorSpace",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Extensions.ImGui.ImGuiController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Extensions.ImGui.ImGuiController.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Extensions.ImGui.ImGuiController",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Extensions.ImGui.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Extensions.ImGui.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Extensions.ImGui",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Extensions.ImageSharp.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Extensions.ImageSharp.Extensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Extensions.ImageSharp.Extensions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Extensions.ImageSharp.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Extensions.ImageSharp.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Extensions.ImageSharp",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Extensions.Slang.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Extensions.Slang.Extensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Extensions.Slang.Extensions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Extensions.Slang.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Extensions.Slang.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Extensions.Slang",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.FillMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.FillMode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.FillMode",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Filter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Filter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Filter",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.FrameBuffer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.FrameBuffer.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.FrameBuffer",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.FrameBufferAttachment.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.FrameBufferAttachment.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.FrameBufferAttachment",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.FrameBufferDesc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.FrameBufferDesc.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.FrameBufferDesc",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.FrontFace.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.FrontFace.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.FrontFace",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.GraphicsContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.GraphicsContext.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.GraphicsContext",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.GraphicsPipeline.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.GraphicsPipeline.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.GraphicsPipeline",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.GraphicsPipelineDesc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.GraphicsPipelineDesc.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.GraphicsPipelineDesc",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.GraphicsResource.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.GraphicsResource.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.GraphicsResource",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.IBindableResource.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.IBindableResource.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.IBindableResource",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.IDisposableObject.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.IDisposableObject.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.IDisposableObject",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.IndexFormat.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.IndexFormat.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.IndexFormat",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.IndirectDispatchArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.IndirectDispatchArgs.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.IndirectDispatchArgs",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.IndirectDispatchMeshArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.IndirectDispatchMeshArgs.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.IndirectDispatchMeshArgs",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.IndirectDrawArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.IndirectDrawArgs.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.IndirectDrawArgs",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.IndirectDrawIndexedArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.IndirectDrawIndexedArgs.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.IndirectDrawIndexedArgs",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.InputElement.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.InputElement.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.InputElement",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.InputLayout.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.InputLayout.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.InputLayout",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.MappedMemory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.MappedMemory.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.MappedMemory",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.MeshShadingPipeline.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.MeshShadingPipeline.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.MeshShadingPipeline",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.MeshShadingPipelineDesc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.MeshShadingPipelineDesc.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.MeshShadingPipelineDesc",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.MessageSeverity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.MessageSeverity.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.MessageSeverity",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.MessageSource.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.MessageSource.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.MessageSource",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Metal.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Metal.Extensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Metal.Extensions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Metal.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Metal.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Metal",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Output.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Output.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Output",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Pipeline.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Pipeline.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Pipeline",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.PixelFormat.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.PixelFormat.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.PixelFormat",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.PrimitiveTopology.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.PrimitiveTopology.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.PrimitiveTopology",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.QueryHeap.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.QueryHeap.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.QueryHeap",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.QueryHeapDesc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.QueryHeapDesc.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.QueryHeapDesc",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.QueryType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.QueryType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.QueryType",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.RasterizerState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.RasterizerState.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.RasterizerState",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.RasterizerStates.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.RasterizerStates.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.RasterizerStates",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.RayTracingAABBs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.RayTracingAABBs.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.RayTracingAABBs",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.RayTracingGeometry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.RayTracingGeometry.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.RayTracingGeometry",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.RayTracingGeometryFlags.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.RayTracingGeometryFlags.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.RayTracingGeometryFlags",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.RayTracingGeometryType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.RayTracingGeometryType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.RayTracingGeometryType",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.RayTracingInstance.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.RayTracingInstance.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.RayTracingInstance",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.RayTracingInstanceFlags.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.RayTracingInstanceFlags.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.RayTracingInstanceFlags",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.RayTracingTriangles.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.RayTracingTriangles.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.RayTracingTriangles",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.RenderStates.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.RenderStates.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.RenderStates",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.ResourceBinding.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.ResourceBinding.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.ResourceBinding",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.ResourceLayout.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.ResourceLayout.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.ResourceLayout",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.ResourceLayoutDesc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.ResourceLayoutDesc.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.ResourceLayoutDesc",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.ResourceTable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.ResourceTable.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.ResourceTable",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.ResourceTableDesc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.ResourceTableDesc.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.ResourceTableDesc",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.ResourceType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.ResourceType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.ResourceType",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.SampleCount.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.SampleCount.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.SampleCount",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Sampler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Sampler.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Sampler",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.SamplerDesc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.SamplerDesc.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.SamplerDesc",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Scissor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Scissor.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Scissor",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Shader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Shader.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Shader",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.ShaderDesc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.ShaderDesc.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.ShaderDesc",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.ShaderStageFlags.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.ShaderStageFlags.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.ShaderStageFlags",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.StencilOp.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.StencilOp.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.StencilOp",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.StringEncoding.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.StringEncoding.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.StringEncoding",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Surface.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Surface.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Surface",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.SurfaceType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.SurfaceType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.SurfaceType",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.SwapChain.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.SwapChain.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.SwapChain",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.SwapChainDesc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.SwapChainDesc.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.SwapChainDesc",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Texture.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Texture.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Texture",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.TextureDesc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.TextureDesc.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.TextureDesc",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.TextureExtent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.TextureExtent.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.TextureExtent",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.TextureOffset.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.TextureOffset.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.TextureOffset",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.TextureSlice.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.TextureSlice.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.TextureSlice",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.TextureType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.TextureType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.TextureType",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.TextureUsageFlags.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.TextureUsageFlags.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.TextureUsageFlags",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.TextureView.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.TextureView.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.TextureView",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.TextureViewDesc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.TextureViewDesc.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.TextureViewDesc",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.TopLevelAccelerationStructure.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.TopLevelAccelerationStructure.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.TopLevelAccelerationStructure",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.TopLevelAccelerationStructureDesc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.TopLevelAccelerationStructureDesc.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.TopLevelAccelerationStructureDesc",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.ValidationLayer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.ValidationLayer.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.ValidationLayer",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.ValidationMessageArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.ValidationMessageArgs.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.ValidationMessageArgs",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Viewport.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Viewport.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Viewport",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Views.Avalonia.ZenithView.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Views.Avalonia.ZenithView.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Views.Avalonia.ZenithView",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Views.Avalonia.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Views.Avalonia.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Views.Avalonia",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Views.FrameScheduler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Views.FrameScheduler.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Views.FrameScheduler",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Views.IZenithView.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Views.IZenithView.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Views.IZenithView",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Views.Maui.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Views.Maui.Extensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Views.Maui.Extensions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Views.Maui.Resource.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Views.Maui.Resource.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Views.Maui.Resource",
+      "Summary": "<p sourcefile=\"api/Zenith.NET.Views.Maui.Resource.yml\" sourcestartlinenumber=\"1\">Android Resource Designer class.\nExposes the Android Resource designer assembly into the project Namespace.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Views.Maui.ZenithView.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Views.Maui.ZenithView.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Views.Maui.ZenithView",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Views.Maui.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Views.Maui.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Views.Maui",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Views.RenderEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Views.RenderEventArgs.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Views.RenderEventArgs",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Views.UpdateEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Views.UpdateEventArgs.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Views.UpdateEventArgs",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Views.WPF.ZenithView.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Views.WPF.ZenithView.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Views.WPF.ZenithView",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Views.WPF.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Views.WPF.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Views.WPF",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Views.WinForms.ZenithView.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Views.WinForms.ZenithView.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Views.WinForms.ZenithView",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Views.WinForms.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Views.WinForms.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Views.WinForms",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Views.WinUI.ZenithView.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Views.WinUI.ZenithView.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Views.WinUI.ZenithView",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Views.WinUI.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Views.WinUI.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Views.WinUI",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Views.ZenithViewHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Views.ZenithViewHelper.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Views.ZenithViewHelper",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Views.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Views.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Views",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Vulkan.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Vulkan.Extensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Vulkan.Extensions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Vulkan.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Vulkan.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Vulkan",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.ZenithHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.ZenithHelper.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.ZenithHelper",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.ZenithMarshal.Scope.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.ZenithMarshal.Scope.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.ZenithMarshal.Scope",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.ZenithMarshal.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.ZenithMarshal.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.ZenithMarshal",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET",
+      "Summary": null
+    },
+    {
       "type": "Conceptual",
       "source_relative_path": "api/index.md",
       "output": {
         ".html": {
           "relative_path": "api/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
         }
       },
       "version": ""
