@@ -13,7 +13,7 @@
       <meta name="docfx:navrel" content="../../toc.html">
       <meta name="docfx:tocrel" content="../toc.html">
       
-      
+      <meta name="docfx:rel" content="../../">
       
       
       <meta name="docfx:docurl" content="https://github.com/qian-o/Zenith.NET/blob/master/documents/tutorials/getting-started/prerequisites.md/#L1">
@@ -52,6 +52,10 @@
           </button>
           <div class="collapse navbar-collapse" id="navpanel">
             <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
             </div>
           </div>
         </div>
@@ -104,12 +108,6 @@
 <td style="text-align: center;"><span class="status-yes">Yes</span></td>
 </tr>
 <tr>
-<td>Linux</td>
-<td style="text-align: center;"><span class="status-no">No</span></td>
-<td style="text-align: center;"><span class="status-no">No</span></td>
-<td style="text-align: center;"><span class="status-yes">Yes</span></td>
-</tr>
-<tr>
 <td>Apple</td>
 <td style="text-align: center;"><span class="status-no">No</span></td>
 <td style="text-align: center;"><span class="status-yes">Yes</span></td>
@@ -121,11 +119,17 @@
 <td style="text-align: center;"><span class="status-no">No</span></td>
 <td style="text-align: center;"><span class="status-yes">Yes</span></td>
 </tr>
+<tr>
+<td>Linux</td>
+<td style="text-align: center;"><span class="status-no">No</span></td>
+<td style="text-align: center;"><span class="status-no">No</span></td>
+<td style="text-align: center;"><span class="status-yes">Yes</span></td>
+</tr>
 </tbody>
 </table>
 <div class="NOTE">
 <h5>Note</h5>
-<p>These tutorials are designed for desktop platforms (Windows, Linux, and macOS).</p>
+<p>These tutorials are designed for desktop platforms (Windows, macOS, and Linux).</p>
 </div>
 <h3 id="software">Software</h3>
 <ul>
@@ -225,20 +229,19 @@ internal interface IRenderer : IDisposable
 </thead>
 <tbody>
 <tr>
-<td>DirectX 12</td>
+<td>DirectX12</td>
 <td>Per-type: CBV, SRV, UAV, Sampler each start at 0</td>
-</tr>
-<tr>
-<td>Vulkan</td>
-<td>Global: All resources share index space (0, 1, 2, ...)</td>
 </tr>
 <tr>
 <td>Metal</td>
 <td>Per-category: Buffer, Texture, Sampler each start at 0</td>
 </tr>
+<tr>
+<td>Vulkan</td>
+<td>Global: All resources share index space (0, 1, 2, ...)</td>
+</tr>
 </tbody>
 </table>
-<p>Create <code>BindingHelper.cs</code> to handle these differences automatically:</p>
 <pre><code class="lang-csharp">namespace ZenithTutorials;
 
 internal static class BindingHelper
@@ -280,17 +283,6 @@ internal static class BindingHelper
                 }
                 break;
 
-            case Backend.Vulkan:
-                {
-                    for (int i = 0; i &lt; bindings.Length; i++)
-                    {
-                        ref ResourceBinding binding = ref bindings[i];
-
-                        binding = binding with { Index = (uint)i };
-                    }
-                }
-                break;
-
             case Backend.Metal:
                 {
                     uint bufferIndex = 0;
@@ -317,6 +309,17 @@ internal static class BindingHelper
                                 _ =&gt; binding.Index
                             }
                         };
+                    }
+                }
+                break;
+
+            case Backend.Vulkan:
+                {
+                    for (int i = 0; i &lt; bindings.Length; i++)
+                    {
+                        ref ResourceBinding binding = ref bindings[i];
+
+                        binding = binding with { Index = (uint)i };
                     }
                 }
                 break;
@@ -399,9 +402,9 @@ internal static class App
     static App()
     {
         // Ensure platform is supported
-        if (!OperatingSystem.IsWindows() &amp;&amp; !OperatingSystem.IsLinux() &amp;&amp; !OperatingSystem.IsMacOS())
+        if (!OperatingSystem.IsWindows() &amp;&amp; !OperatingSystem.IsMacOS() &amp;&amp; !OperatingSystem.IsLinux())
         {
-            throw new PlatformNotSupportedException(&quot;This tutorial only supports Windows, Linux, and macOS.&quot;);
+            throw new PlatformNotSupportedException(&quot;This tutorial only supports Windows, macOS, and Linux.&quot;);
         }
 
         // Create window with no graphics API (we manage rendering ourselves)
@@ -422,17 +425,17 @@ internal static class App
 
             surface = Surface.Win32(window.Native!.Win32!.Value.Hwnd, Width, Height);
         }
-        else if (OperatingSystem.IsLinux())
-        {
-            Context = GraphicsContext.CreateVulkan(useValidationLayer: true);
-
-            surface = Surface.Xlib(window.Native!.X11!.Value.Display, (nint)window.Native.X11.Value.Window, Width, Height);
-        }
-        else
+        else if (OperatingSystem.IsMacOS())
         {
             Context = GraphicsContext.CreateMetal(useValidationLayer: true);
 
             surface = Surface.Apple(CocoaHelper.CreateLayer(window.Native!.Cocoa!.Value), Width, Height);
+        }
+        else
+        {
+            Context = GraphicsContext.CreateVulkan(useValidationLayer: true);
+
+            surface = Surface.Xlib(window.Native!.X11!.Value.Display, (nint)window.Native.X11.Value.Window, Width, Height);
         }
 
         // Log validation messages for debugging
@@ -514,9 +517,9 @@ App.Cleanup();
 </div>
 <p>This framework provides:</p>
 <ul>
-<li><strong>Platform validation</strong> - Ensures only supported platforms (Windows, Linux, macOS) are used</li>
+<li><strong>Platform validation</strong> - Ensures only supported platforms (Windows, macOS, Linux) are used</li>
 <li><strong>Window creation</strong> with Silk.NET (1280×720 default size)</li>
-<li><strong>Cross-platform backend selection</strong> (DirectX 12 on Windows, Vulkan on Linux, Metal on macOS)</li>
+<li><strong>Cross-platform backend selection</strong> (DirectX12 on Windows, Metal on macOS, Vulkan on Linux)</li>
 <li><strong>SwapChain management</strong> for presenting frames</li>
 <li><strong>Resize handling</strong> for responsive rendering</li>
 <li><strong>Generic renderer pattern</strong> using <code>App.Run&lt;TRenderer&gt;()</code> for easy tutorial switching</li>
@@ -548,6 +551,7 @@ App.Cleanup();
       </div>
     </main>
 
+    <div class="container-xxl search-results" id="search-results"></div>
 
     <footer class="border-top text-secondary">
       <div class="container-xxl">

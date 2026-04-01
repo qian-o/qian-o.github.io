@@ -1,7 +1,18 @@
 {
+  "sitemap": {
+    "baseUrl": "https://qian-o.github.io/Zenith.NET/"
+  },
   "source_base_path": "D:/a/qian-o.github.io/qian-o.github.io/source-repo/documents",
   "xrefmap": "xrefmap.yml",
   "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Zenith.NET.AccelerationStructureBuildFlags.yml",

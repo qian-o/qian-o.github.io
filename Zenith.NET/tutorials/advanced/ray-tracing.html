@@ -13,7 +13,7 @@
       <meta name="docfx:navrel" content="../../toc.html">
       <meta name="docfx:tocrel" content="../toc.html">
       
-      
+      <meta name="docfx:rel" content="../../">
       
       
       <meta name="docfx:docurl" content="https://github.com/qian-o/Zenith.NET/blob/master/documents/tutorials/advanced/ray-tracing.md/#L1">
@@ -52,6 +52,10 @@
           </button>
           <div class="collapse navbar-collapse" id="navpanel">
             <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
             </div>
           </div>
         </div>
@@ -749,10 +753,15 @@ while (query.Proceed())
         uint sphereIndex = query.CandidatePrimitiveIndex();
         Sphere sphere = spheres[sphereIndex];
 
+        float3 ro = query.CandidateObjectRayOrigin();
+        float3 rd = query.CandidateObjectRayDirection();
+
         float t = IntersectSphere(ro, rd, sphere);
 
         if (t &gt;= query.RayTMin() &amp;&amp; t &lt;= query.CommittedRayT())
         {
+            float3 hitPoint = ro + rd * t;
+
             sphereHitNormal = normalize(hitPoint - sphere.Center);
             sphereHitColor = sphere.Color;
 
@@ -830,6 +839,9 @@ else if (query.CommittedStatus() == COMMITTED_PROCEDURAL_PRIMITIVE_HIT)
             uint sphereIndex = shadowQuery.CandidatePrimitiveIndex();
             Sphere sphere = spheres[sphereIndex];
 
+            float3 ro = shadowQuery.CandidateObjectRayOrigin();
+            float3 rd = shadowQuery.CandidateObjectRayDirection();
+
             float t = IntersectSphere(ro, rd, sphere);
 
             if (t &gt;= shadowQuery.RayTMin() &amp;&amp; t &lt;= shadowQuery.CommittedRayT())
@@ -898,6 +910,7 @@ commandBuffer.Dispatch(dispatchX, dispatchY, 1);
       </div>
     </main>
 
+    <div class="container-xxl search-results" id="search-results"></div>
 
     <footer class="border-top text-secondary">
       <div class="container-xxl">
