@@ -13,7 +13,7 @@
       <meta name="docfx:navrel" content="../toc.html">
       <meta name="docfx:tocrel" content="toc.html">
       
-      
+      <meta name="docfx:rel" content="../">
       
       
       <meta name="docfx:docurl" content="https://github.com/qian-o/Zenith.NET/new/master/apiSpec/new?filename=Zenith_NET_ElementFormat.md&amp;value=---%0Auid%3A%20Zenith.NET.ElementFormat%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
@@ -52,6 +52,10 @@
           </button>
           <div class="collapse navbar-collapse" id="navpanel">
             <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
             </div>
           </div>
         </div>
@@ -112,22 +116,85 @@ Enum ElementFormat  <a class="header-action link-secondary" title="View source" 
   <h2 id="fields">Fields
 </h2>
   <dl class="parameters">
-    <dt id="Zenith_NET_ElementFormat_Byte1"><code>Byte1 = 3</code></dt>
+    <dt id="Zenith_NET_ElementFormat_UByte1"><code>UByte1 = 0</code></dt>
   
   <dd></dd>
-    <dt id="Zenith_NET_ElementFormat_Byte1Normalized"><code>Byte1Normalized = 9</code></dt>
+    <dt id="Zenith_NET_ElementFormat_UByte2"><code>UByte2 = 1</code></dt>
+  
+  <dd></dd>
+    <dt id="Zenith_NET_ElementFormat_UByte4"><code>UByte4 = 2</code></dt>
+  
+  <dd></dd>
+    <dt id="Zenith_NET_ElementFormat_Byte1"><code>Byte1 = 3</code></dt>
   
   <dd></dd>
     <dt id="Zenith_NET_ElementFormat_Byte2"><code>Byte2 = 4</code></dt>
   
   <dd></dd>
-    <dt id="Zenith_NET_ElementFormat_Byte2Normalized"><code>Byte2Normalized = 10</code></dt>
-  
-  <dd></dd>
     <dt id="Zenith_NET_ElementFormat_Byte4"><code>Byte4 = 5</code></dt>
   
   <dd></dd>
+    <dt id="Zenith_NET_ElementFormat_UByte1Normalized"><code>UByte1Normalized = 6</code></dt>
+  
+  <dd></dd>
+    <dt id="Zenith_NET_ElementFormat_UByte2Normalized"><code>UByte2Normalized = 7</code></dt>
+  
+  <dd></dd>
+    <dt id="Zenith_NET_ElementFormat_UByte4Normalized"><code>UByte4Normalized = 8</code></dt>
+  
+  <dd></dd>
+    <dt id="Zenith_NET_ElementFormat_Byte1Normalized"><code>Byte1Normalized = 9</code></dt>
+  
+  <dd></dd>
+    <dt id="Zenith_NET_ElementFormat_Byte2Normalized"><code>Byte2Normalized = 10</code></dt>
+  
+  <dd></dd>
     <dt id="Zenith_NET_ElementFormat_Byte4Normalized"><code>Byte4Normalized = 11</code></dt>
+  
+  <dd></dd>
+    <dt id="Zenith_NET_ElementFormat_UShort1"><code>UShort1 = 12</code></dt>
+  
+  <dd></dd>
+    <dt id="Zenith_NET_ElementFormat_UShort2"><code>UShort2 = 13</code></dt>
+  
+  <dd></dd>
+    <dt id="Zenith_NET_ElementFormat_UShort4"><code>UShort4 = 14</code></dt>
+  
+  <dd></dd>
+    <dt id="Zenith_NET_ElementFormat_Short1"><code>Short1 = 15</code></dt>
+  
+  <dd></dd>
+    <dt id="Zenith_NET_ElementFormat_Short2"><code>Short2 = 16</code></dt>
+  
+  <dd></dd>
+    <dt id="Zenith_NET_ElementFormat_Short4"><code>Short4 = 17</code></dt>
+  
+  <dd></dd>
+    <dt id="Zenith_NET_ElementFormat_UShort1Normalized"><code>UShort1Normalized = 18</code></dt>
+  
+  <dd></dd>
+    <dt id="Zenith_NET_ElementFormat_UShort2Normalized"><code>UShort2Normalized = 19</code></dt>
+  
+  <dd></dd>
+    <dt id="Zenith_NET_ElementFormat_UShort4Normalized"><code>UShort4Normalized = 20</code></dt>
+  
+  <dd></dd>
+    <dt id="Zenith_NET_ElementFormat_Short1Normalized"><code>Short1Normalized = 21</code></dt>
+  
+  <dd></dd>
+    <dt id="Zenith_NET_ElementFormat_Short2Normalized"><code>Short2Normalized = 22</code></dt>
+  
+  <dd></dd>
+    <dt id="Zenith_NET_ElementFormat_Short4Normalized"><code>Short4Normalized = 23</code></dt>
+  
+  <dd></dd>
+    <dt id="Zenith_NET_ElementFormat_Half1"><code>Half1 = 24</code></dt>
+  
+  <dd></dd>
+    <dt id="Zenith_NET_ElementFormat_Half2"><code>Half2 = 25</code></dt>
+  
+  <dd></dd>
+    <dt id="Zenith_NET_ElementFormat_Half4"><code>Half4 = 26</code></dt>
   
   <dd></dd>
     <dt id="Zenith_NET_ElementFormat_Float1"><code>Float1 = 27</code></dt>
@@ -142,63 +209,6 @@ Enum ElementFormat  <a class="header-action link-secondary" title="View source" 
     <dt id="Zenith_NET_ElementFormat_Float4"><code>Float4 = 30</code></dt>
   
   <dd></dd>
-    <dt id="Zenith_NET_ElementFormat_Half1"><code>Half1 = 24</code></dt>
-  
-  <dd></dd>
-    <dt id="Zenith_NET_ElementFormat_Half2"><code>Half2 = 25</code></dt>
-  
-  <dd></dd>
-    <dt id="Zenith_NET_ElementFormat_Half4"><code>Half4 = 26</code></dt>
-  
-  <dd></dd>
-    <dt id="Zenith_NET_ElementFormat_Int1"><code>Int1 = 35</code></dt>
-  
-  <dd></dd>
-    <dt id="Zenith_NET_ElementFormat_Int2"><code>Int2 = 36</code></dt>
-  
-  <dd></dd>
-    <dt id="Zenith_NET_ElementFormat_Int3"><code>Int3 = 37</code></dt>
-  
-  <dd></dd>
-    <dt id="Zenith_NET_ElementFormat_Int4"><code>Int4 = 38</code></dt>
-  
-  <dd></dd>
-    <dt id="Zenith_NET_ElementFormat_Short1"><code>Short1 = 15</code></dt>
-  
-  <dd></dd>
-    <dt id="Zenith_NET_ElementFormat_Short1Normalized"><code>Short1Normalized = 21</code></dt>
-  
-  <dd></dd>
-    <dt id="Zenith_NET_ElementFormat_Short2"><code>Short2 = 16</code></dt>
-  
-  <dd></dd>
-    <dt id="Zenith_NET_ElementFormat_Short2Normalized"><code>Short2Normalized = 22</code></dt>
-  
-  <dd></dd>
-    <dt id="Zenith_NET_ElementFormat_Short4"><code>Short4 = 17</code></dt>
-  
-  <dd></dd>
-    <dt id="Zenith_NET_ElementFormat_Short4Normalized"><code>Short4Normalized = 23</code></dt>
-  
-  <dd></dd>
-    <dt id="Zenith_NET_ElementFormat_UByte1"><code>UByte1 = 0</code></dt>
-  
-  <dd></dd>
-    <dt id="Zenith_NET_ElementFormat_UByte1Normalized"><code>UByte1Normalized = 6</code></dt>
-  
-  <dd></dd>
-    <dt id="Zenith_NET_ElementFormat_UByte2"><code>UByte2 = 1</code></dt>
-  
-  <dd></dd>
-    <dt id="Zenith_NET_ElementFormat_UByte2Normalized"><code>UByte2Normalized = 7</code></dt>
-  
-  <dd></dd>
-    <dt id="Zenith_NET_ElementFormat_UByte4"><code>UByte4 = 2</code></dt>
-  
-  <dd></dd>
-    <dt id="Zenith_NET_ElementFormat_UByte4Normalized"><code>UByte4Normalized = 8</code></dt>
-  
-  <dd></dd>
     <dt id="Zenith_NET_ElementFormat_UInt1"><code>UInt1 = 31</code></dt>
   
   <dd></dd>
@@ -211,22 +221,16 @@ Enum ElementFormat  <a class="header-action link-secondary" title="View source" 
     <dt id="Zenith_NET_ElementFormat_UInt4"><code>UInt4 = 34</code></dt>
   
   <dd></dd>
-    <dt id="Zenith_NET_ElementFormat_UShort1"><code>UShort1 = 12</code></dt>
+    <dt id="Zenith_NET_ElementFormat_Int1"><code>Int1 = 35</code></dt>
   
   <dd></dd>
-    <dt id="Zenith_NET_ElementFormat_UShort1Normalized"><code>UShort1Normalized = 18</code></dt>
+    <dt id="Zenith_NET_ElementFormat_Int2"><code>Int2 = 36</code></dt>
   
   <dd></dd>
-    <dt id="Zenith_NET_ElementFormat_UShort2"><code>UShort2 = 13</code></dt>
+    <dt id="Zenith_NET_ElementFormat_Int3"><code>Int3 = 37</code></dt>
   
   <dd></dd>
-    <dt id="Zenith_NET_ElementFormat_UShort2Normalized"><code>UShort2Normalized = 19</code></dt>
-  
-  <dd></dd>
-    <dt id="Zenith_NET_ElementFormat_UShort4"><code>UShort4 = 14</code></dt>
-  
-  <dd></dd>
-    <dt id="Zenith_NET_ElementFormat_UShort4Normalized"><code>UShort4Normalized = 20</code></dt>
+    <dt id="Zenith_NET_ElementFormat_Int4"><code>Int4 = 38</code></dt>
   
   <dd></dd>
   </dl>
@@ -247,6 +251,7 @@ Enum ElementFormat  <a class="header-action link-secondary" title="View source" 
       </div>
     </main>
 
+    <div class="container-xxl search-results" id="search-results"></div>
 
     <footer class="border-top text-secondary">
       <div class="container-xxl">

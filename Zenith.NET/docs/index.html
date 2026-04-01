@@ -13,7 +13,7 @@
       <meta name="docfx:navrel" content="../toc.html">
       <meta name="docfx:tocrel" content="toc.html">
       
-      
+      <meta name="docfx:rel" content="../">
       
       
       <meta name="docfx:docurl" content="https://github.com/qian-o/Zenith.NET/blob/master/documents/docs/index.md/#L1">
@@ -52,6 +52,10 @@
           </button>
           <div class="collapse navbar-collapse" id="navpanel">
             <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
             </div>
           </div>
         </div>
@@ -88,6 +92,32 @@
 <h5>Note</h5>
 <p>Looking for step-by-step coding guides? Check out the <a href="../tutorials/index.html">Tutorials</a> section.</p>
 </div>
+<h2 id="design-philosophy">Design Philosophy</h2>
+<p>Zenith.NET abstracts DirectX 12, Metal 4, and Vulkan 1.4 under a unified API. The design follows a clear principle: <strong>adopt the latest API versions and expose only the capabilities shared across all three backends</strong>. This means platform-specific features are intentionally excluded to maintain a consistent cross-platform experience.</p>
+<p>Each backend targets real-world device coverage:</p>
+<table>
+<thead>
+<tr>
+<th>Backend</th>
+<th>Strategy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DirectX 12</strong></td>
+<td>Targets mainstream Windows 10 and above, covering the vast majority of Windows devices</td>
+</tr>
+<tr>
+<td><strong>Metal 4</strong></td>
+<td>Supports Apple Silicon (M-series) Macs and compatible iPhone/iPad models. Intel-based Macs are not supported</td>
+</tr>
+<tr>
+<td><strong>Vulkan 1.4</strong></td>
+<td>Serves as the cross-platform fallback. While Vulkan has evolved rapidly with many extensions, mobile and Linux driver support remains uneven — so adaptation is driven by actual device capabilities rather than spec version alone</td>
+</tr>
+</tbody>
+</table>
+<p>For detailed backend selection guidance, see <a href="platform/backend-selection.html">Backend Selection</a>.</p>
 <h2 id="core-concepts">Core Concepts</h2>
 <h3 id="graphics-context">Graphics Context</h3>
 <p>The <code>GraphicsContext</code> is the central hub of Zenith.NET. It abstracts the underlying graphics API and provides:</p>
@@ -164,20 +194,14 @@
 <tr>
 <th>Platform</th>
 <th style="text-align: center;">DirectX 12</th>
-<th style="text-align: center;">Metal</th>
-<th style="text-align: center;">Vulkan</th>
+<th style="text-align: center;">Metal 4</th>
+<th style="text-align: center;">Vulkan 1.4</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Windows</td>
 <td style="text-align: center;"><span class="status-yes">Yes</span></td>
-<td style="text-align: center;"><span class="status-no">No</span></td>
-<td style="text-align: center;"><span class="status-yes">Yes</span></td>
-</tr>
-<tr>
-<td>Linux</td>
-<td style="text-align: center;"><span class="status-no">No</span></td>
 <td style="text-align: center;"><span class="status-no">No</span></td>
 <td style="text-align: center;"><span class="status-yes">Yes</span></td>
 </tr>
@@ -189,6 +213,12 @@
 </tr>
 <tr>
 <td>Android</td>
+<td style="text-align: center;"><span class="status-no">No</span></td>
+<td style="text-align: center;"><span class="status-no">No</span></td>
+<td style="text-align: center;"><span class="status-yes">Yes</span></td>
+</tr>
+<tr>
+<td>Linux</td>
 <td style="text-align: center;"><span class="status-no">No</span></td>
 <td style="text-align: center;"><span class="status-no">No</span></td>
 <td style="text-align: center;"><span class="status-yes">Yes</span></td>
@@ -257,6 +287,7 @@
       </div>
     </main>
 
+    <div class="container-xxl search-results" id="search-results"></div>
 
     <footer class="border-top text-secondary">
       <div class="container-xxl">
