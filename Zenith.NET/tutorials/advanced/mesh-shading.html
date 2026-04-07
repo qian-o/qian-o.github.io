@@ -87,113 +87,81 @@
         <article data-uid="">
 <h1 id="mesh-shading">Mesh Shading</h1>
 
-<p>In this tutorial, you'll learn how to use mesh shading with Zenith.NET. We'll render a simple cube using the mesh shading pipeline, demonstrating the modern GPU-driven geometry processing approach.</p>
+<p>In this tutorial, you'll render 1,000 procedural UV spheres using the mesh shader pipeline with GPU-driven frustum culling. This demonstrates the modern mesh shading approach where geometry is generated and culled entirely on the GPU.</p>
 <div class="NOTE">
 <h5>Note</h5>
-<p>This tutorial requires a GPU with mesh shading support. Check <code>Context.Capabilities.MeshShadingSupported</code> before using mesh shading features.</p>
+<p>This tutorial requires a GPU with mesh shading support (e.g., NVIDIA Turing+, AMD RDNA 2+, or Apple M3+).</p>
 </div>
 <h2 id="overview">Overview</h2>
-<p>We'll create a <code>MeshShadingRenderer</code> class that:</p>
+<p>This tutorial covers:</p>
 <ul>
-<li>Defines vertex and meshlet data structures</li>
-<li>Creates structured buffers for vertices, indices, and meshlets</li>
-<li>Builds a mesh shading pipeline with mesh and pixel shaders</li>
-<li>Dispatches mesh shading workgroups to render geometry</li>
+<li>Creating a <strong>mesh shading pipeline</strong> with amplification, mesh, and pixel stages</li>
+<li>Generating <strong>procedural sphere geometry</strong> (vertices and triangles) on the CPU</li>
+<li>Implementing <strong>GPU-driven frustum culling</strong> in the amplification shader</li>
+<li>Using <code>groupshared</code> memory and atomic operations for visible instance compaction</li>
+<li>Extracting <strong>frustum planes</strong> from the view-projection matrix</li>
+<li>Dispatching mesh groups with <code>DispatchMesh</code></li>
 </ul>
 <h2 id="key-concepts">Key Concepts</h2>
-<h3 id="what-is-mesh-shading">What is Mesh Shading?</h3>
-<p>Mesh shading replaces the traditional vertex processing pipeline (Input Assembler → Vertex Shader → optional tessellation/geometry) with a more flexible compute-like model:</p>
+<h3 id="mesh-shader-pipeline">Mesh Shader Pipeline</h3>
+<p>The mesh shader pipeline replaces the traditional vertex/geometry pipeline:</p>
 <table>
 <thead>
 <tr>
-<th>Traditional Pipeline</th>
-<th>Mesh Shading Pipeline</th>
+<th>Stage</th>
+<th>Role</th>
+<th>Thread Group Size</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Input Assembler</td>
-<td>(removed)</td>
-</tr>
-<tr>
-<td>Vertex Shader</td>
-<td>(removed)</td>
-</tr>
-<tr>
-<td>Hull/Domain Shader</td>
-<td>(removed)</td>
-</tr>
-<tr>
-<td>Geometry Shader</td>
-<td>(removed)</td>
-</tr>
-<tr>
-<td>-</td>
-<td>Amplification Shader (optional)</td>
-</tr>
-<tr>
-<td>-</td>
-<td>Mesh Shader</td>
-</tr>
-<tr>
-<td>Rasterizer</td>
-<td>Rasterizer</td>
-</tr>
-<tr>
-<td>Pixel Shader</td>
-<td>Pixel Shader</td>
-</tr>
-</tbody>
-</table>
-<h3 id="meshlet-architecture">Meshlet Architecture</h3>
-<p>The mesh shading pipeline works with <strong>meshlets</strong> - small chunks of geometry that can be processed independently:</p>
-<pre><code>Mesh
-├── Meshlet 0 (up to 64-256 vertices, 64-256 primitives)
-├── Meshlet 1
-├── Meshlet 2
-└── ...
-</code></pre>
-<p>Each meshlet contains:</p>
-<ul>
-<li><strong>VertexOffset</strong>: Starting index in the vertex buffer</li>
-<li><strong>VertexCount</strong>: Number of vertices in this meshlet</li>
-<li><strong>PrimitiveOffset</strong>: Starting index in the index buffer</li>
-<li><strong>PrimitiveCount</strong>: Number of triangles in this meshlet</li>
-</ul>
-<h3 id="pipeline-stages">Pipeline Stages</h3>
-<table>
-<thead>
-<tr>
-<th>Shader Stage</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Amplification</strong> (optional)</td>
-<td>Determines how many mesh shading workgroups to spawn (LOD, culling)</td>
+<td><strong>Amplification</strong></td>
+<td>Decides which mesh groups to spawn (culling)</td>
+<td>32</td>
 </tr>
 <tr>
 <td><strong>Mesh</strong></td>
-<td>Outputs vertices and primitives directly to the rasterizer</td>
+<td>Outputs vertices and triangles per group</td>
+<td>120</td>
 </tr>
 <tr>
 <td><strong>Pixel</strong></td>
 <td>Standard fragment shading</td>
+<td>—</td>
 </tr>
 </tbody>
 </table>
+<h3 id="frustum-culling">Frustum Culling</h3>
+<p>The amplification shader tests each instance's bounding sphere against 6 frustum planes. Only visible instances are passed to mesh shader groups via a payload:</p>
+<pre><code>Payload { InstanceIndices[ASGroupSize] }
+
+// Amplification:
+visible = !IsFrustumCulled(position, radius)
+if (visible) payload.InstanceIndices[atomicAdd(count)] = instanceIndex
+DispatchMesh(visibleCount, 1, 1, payload)
+</code></pre>
 <h2 id="the-renderer-class">The Renderer Class</h2>
-<p>Create a new file <code>Renderers/MeshShadingRenderer.cs</code>:</p>
+<p>Create the file <code>Renderers/MeshShadingRenderer.cs</code>:</p>
 <pre><code class="lang-csharp">namespace ZenithTutorials.Renderers;
 
 internal unsafe class MeshShadingRenderer : IRenderer
 {
-    private const uint MaxPrimitives = 126;
+    private const uint ASGroupSize = 32;
+    private const uint MeshGroupSize = 120;
+    private const uint GridSize = 10;
+    private const uint TotalInstances = GridSize * GridSize * GridSize;
+    private const uint DispatchGroupCount = (TotalInstances + ASGroupSize - 1) / ASGroupSize;
 
     private const string ShaderSource = &quot;&quot;&quot;
-        static const uint MaxVertices = 64;
-        static const uint MaxPrimitives = 126;
+        static const uint GridSize = 10;
+        static const uint TotalInstances = GridSize * GridSize * GridSize;
+        static const float InstanceSpacing = 2.5;
+        static const uint ASGroupSize = 32;
+        static const float BoundingSphereRadius = 0.5;
+
+        static const uint SphereVertexCount = 62;
+        static const uint SphereTriangleCount = 120;
+        static const float GridOffset = float(GridSize - 1) * 0.5 * InstanceSpacing;
 
         struct Vertex
         {
@@ -201,97 +169,183 @@ internal unsafe class MeshShadingRenderer : IRenderer
 
             private float4 NormalAndPadding;
 
-            float2 TexCoord;
+            property float3 Position
+            {
+                get {
+                    return PositionAndPadding.xyz;
+                }
+            }
 
-            private float padding0;
-
-            private float padding1;
-
-            property float3 Position { get { return PositionAndPadding.xyz; } }
-
-            property float3 Normal { get { return NormalAndPadding.xyz; } }
-        };
-
-        struct Meshlet
-        {
-            uint VertexOffset;
-
-            uint VertexCount;
-
-            uint PrimitiveOffset;
-
-            uint PrimitiveCount;
+            property float3 Normal
+            {
+                get {
+                    return NormalAndPadding.xyz;
+                }
+            }
         };
 
         struct Triangle
         {
             private uint4 IndicesAndPadding;
 
-            property uint3 Indices { get { return IndicesAndPadding.xyz; } }
+            property uint3 Indices
+            {
+                get {
+                    return IndicesAndPadding.xyz;
+                }
+            }
         };
 
-        struct TransformConstants
+        struct Payload
         {
-            float4x4 MVP;
+            uint InstanceIndices[ASGroupSize];
         };
 
         struct VertexOutput
         {
-            float4 Position : SV_Position;
+            float4 Position : SV_POSITION;
 
-            float3 Normal : NORMAL;
+            float3 WorldNormal : WORLDNORMAL;
 
-            float2 TexCoord : TEXCOORD0;
+            float3 Color : COLOR;
         };
 
-        ConstantBuffer&lt;TransformConstants&gt; transform;
+        struct Constants
+        {
+            float4x4 ViewProjection;
+
+            float4 FrustumPlanes[6];
+
+            private float4 TimeAndLightDirection;
+
+            property float Time
+            {
+                get {
+                    return TimeAndLightDirection.x;
+                }
+            }
+
+            property float3 LightDirection
+            {
+                get {
+                    return TimeAndLightDirection.yzw;
+                }
+            }
+        };
+
+        void DecomposeInstanceID(uint id, out uint x, out uint y, out uint z)
+        {
+            x = id % GridSize;
+            y = (id / GridSize) % GridSize;
+            z = id / (GridSize * GridSize);
+        }
+
+        float3 InstancePosition(uint id)
+        {
+            uint x, y, z;
+            DecomposeInstanceID(id, x, y, z);
+            return float3(x, y, z) * InstanceSpacing - GridOffset;
+        }
+
+        float3 InstanceColor(uint id)
+        {
+            uint x, y, z;
+            DecomposeInstanceID(id, x, y, z);
+            return float3(x, y, z) / float(GridSize - 1);
+        }
+
+        bool IsFrustumCulled(float3 center, float radius)
+        {
+            for (uint i = 0; i &lt; 6; i++)
+            {
+                float4 plane = constants.FrustumPlanes[i];
+                if (dot(plane.xyz, center) + plane.w &lt; -radius)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        ConstantBuffer&lt;Constants&gt; constants;
         StructuredBuffer&lt;Vertex&gt; vertices;
         StructuredBuffer&lt;Triangle&gt; indices;
-        StructuredBuffer&lt;Meshlet&gt; meshlets;
+
+        groupshared Payload s_payload;
+        groupshared uint s_visibleCount;
+
+        [shader(&quot;amplification&quot;)]
+        [numthreads(ASGroupSize, 1, 1)]
+        void ASMain(uint groupID: SV_GroupID, uint groupThreadID: SV_GroupThreadID)
+        {
+            uint instanceIndex = groupID * ASGroupSize + groupThreadID;
+
+            bool visible = false;
+            if (instanceIndex &lt; TotalInstances)
+            {
+                float3 worldPos = InstancePosition(instanceIndex);
+                visible = !IsFrustumCulled(worldPos, BoundingSphereRadius);
+            }
+
+            if (groupThreadID == 0)
+            {
+                s_visibleCount = 0;
+            }
+
+            GroupMemoryBarrierWithGroupSync();
+
+            if (visible)
+            {
+                uint offset;
+                InterlockedAdd(s_visibleCount, 1, offset);
+                s_payload.InstanceIndices[offset] = instanceIndex;
+            }
+
+            GroupMemoryBarrierWithGroupSync();
+
+            DispatchMesh(s_visibleCount, 1, 1, s_payload);
+        }
 
         [shader(&quot;mesh&quot;)]
-        [numthreads(MaxPrimitives, 1, 1)]
+        [numthreads(120, 1, 1)]
         [outputtopology(&quot;triangle&quot;)]
-        void MSMain(in uint groupID : SV_GroupID,
-                    in uint groupThreadID : SV_GroupThreadID,
-                    OutputVertices&lt;VertexOutput, MaxVertices&gt; outVertices,
-                    OutputIndices&lt;uint3, MaxPrimitives&gt; outIndices)
+        void MSMain(uint groupID: SV_GroupID, uint groupThreadID: SV_GroupThreadID, in payload Payload meshPayload,
+                    OutputVertices&lt;VertexOutput, 62&gt; outVertices, OutputIndices&lt;uint3, 120&gt; outIndices)
         {
-            Meshlet meshlet = meshlets[groupID];
+            uint instanceIndex = meshPayload.InstanceIndices[groupID];
+            float3 instancePos = InstancePosition(instanceIndex);
+            float3 color = InstanceColor(instanceIndex);
 
-            SetMeshOutputCounts(meshlet.VertexCount, meshlet.PrimitiveCount);
+            SetMeshOutputCounts(SphereVertexCount, SphereTriangleCount);
 
-            if (groupThreadID &lt; meshlet.VertexCount)
+            if (groupThreadID &lt; SphereVertexCount)
             {
-                Vertex vertex = vertices[meshlet.VertexOffset + groupThreadID];
+                Vertex v = vertices[groupThreadID];
+                float3 worldPos = v.Position + instancePos;
 
                 VertexOutput output;
-                output.Position = mul(float4(vertex.Position, 1.0), transform.MVP);
-                output.Normal = vertex.Normal;
-                output.TexCoord = vertex.TexCoord;
+                output.Position = mul(float4(worldPos, 1.0), constants.ViewProjection);
+                output.WorldNormal = v.Normal;
+                output.Color = color;
 
                 outVertices[groupThreadID] = output;
             }
 
-            if (groupThreadID &lt; meshlet.PrimitiveCount)
+            if (groupThreadID &lt; SphereTriangleCount)
             {
-                outIndices[groupThreadID] = indices[meshlet.PrimitiveOffset + groupThreadID].Indices;
+                outIndices[groupThreadID] = indices[groupThreadID].Indices;
             }
         }
 
         [shader(&quot;pixel&quot;)]
-        float4 PSMain(VertexOutput input) : SV_Target
+        float4 PSMain(VertexOutput input) : SV_TARGET
         {
-            // Simple directional lighting
-            float3 lightDir = normalize(float3(1.0, 1.0, -1.0));
-            float ndotl = max(dot(normalize(input.Normal), lightDir), 0.0);
+            float3 lightDir = normalize(constants.LightDirection);
+            float3 normal = normalize(input.WorldNormal);
+            float ndotl = max(dot(normal, lightDir), 0.0);
 
-            // Base color from texture coordinates
-            float3 baseColor = float3(input.TexCoord, 0.5);
-
-            // Ambient + diffuse lighting
-            float3 ambient = baseColor * 0.2;
-            float3 diffuse = baseColor * ndotl * 0.8;
+            float3 ambient = input.Color * 0.15;
+            float3 diffuse = input.Color * ndotl * 0.85;
 
             return float4(ambient + diffuse, 1.0);
         }
@@ -299,14 +353,12 @@ internal unsafe class MeshShadingRenderer : IRenderer
 
     private readonly Buffer vertexBuffer;
     private readonly Buffer indexBuffer;
-    private readonly Buffer meshletBuffer;
-    private readonly Buffer constantBuffer;
+    private readonly Buffer constantsBuffer;
     private readonly ResourceLayout resourceLayout;
     private readonly ResourceTable resourceTable;
     private readonly MeshShadingPipeline pipeline;
 
-    private readonly uint meshletCount;
-    private float rotationAngle;
+    private float totalTime;
 
     public MeshShadingRenderer()
     {
@@ -315,109 +367,87 @@ internal unsafe class MeshShadingRenderer : IRenderer
             throw new NotSupportedException(&quot;Mesh shading is not supported on this device.&quot;);
         }
 
-        Vertex[] cubeVertices =
-        [
-            // Front face
-            new() { Position = new(-0.5f, -0.5f,  0.5f), Normal = new( 0,  0,  1), TexCoord = new(0, 1) },
-            new() { Position = new( 0.5f, -0.5f,  0.5f), Normal = new( 0,  0,  1), TexCoord = new(1, 1) },
-            new() { Position = new( 0.5f,  0.5f,  0.5f), Normal = new( 0,  0,  1), TexCoord = new(1, 0) },
-            new() { Position = new(-0.5f,  0.5f,  0.5f), Normal = new( 0,  0,  1), TexCoord = new(0, 0) },
+        const int lonSegments = 12;
+        const int latSegments = 6;
+        const float radius = 0.5f;
 
-            // Back face
-            new() { Position = new( 0.5f, -0.5f, -0.5f), Normal = new( 0,  0, -1), TexCoord = new(0, 1) },
-            new() { Position = new(-0.5f, -0.5f, -0.5f), Normal = new( 0,  0, -1), TexCoord = new(1, 1) },
-            new() { Position = new(-0.5f,  0.5f, -0.5f), Normal = new( 0,  0, -1), TexCoord = new(1, 0) },
-            new() { Position = new( 0.5f,  0.5f, -0.5f), Normal = new( 0,  0, -1), TexCoord = new(0, 0) },
+        List&lt;Vertex&gt; sphereVertices = [];
+        List&lt;Triangle&gt; sphereTriangles = [];
 
-            // Left face
-            new() { Position = new(-0.5f, -0.5f, -0.5f), Normal = new(-1,  0,  0), TexCoord = new(0, 1) },
-            new() { Position = new(-0.5f, -0.5f,  0.5f), Normal = new(-1,  0,  0), TexCoord = new(1, 1) },
-            new() { Position = new(-0.5f,  0.5f,  0.5f), Normal = new(-1,  0,  0), TexCoord = new(1, 0) },
-            new() { Position = new(-0.5f,  0.5f, -0.5f), Normal = new(-1,  0,  0), TexCoord = new(0, 0) },
+        sphereVertices.Add(new() { Position = new(0, radius, 0), Normal = Vector3.UnitY });
 
-            // Right face
-            new() { Position = new( 0.5f, -0.5f,  0.5f), Normal = new( 1,  0,  0), TexCoord = new(0, 1) },
-            new() { Position = new( 0.5f, -0.5f, -0.5f), Normal = new( 1,  0,  0), TexCoord = new(1, 1) },
-            new() { Position = new( 0.5f,  0.5f, -0.5f), Normal = new( 1,  0,  0), TexCoord = new(1, 0) },
-            new() { Position = new( 0.5f,  0.5f,  0.5f), Normal = new( 1,  0,  0), TexCoord = new(0, 0) },
+        for (int lat = 1; lat &lt; latSegments; lat++)
+        {
+            float phi = MathF.PI * lat / latSegments;
+            float sinPhi = MathF.Sin(phi);
+            float cosPhi = MathF.Cos(phi);
 
-            // Top face
-            new() { Position = new(-0.5f,  0.5f,  0.5f), Normal = new( 0,  1,  0), TexCoord = new(0, 1) },
-            new() { Position = new( 0.5f,  0.5f,  0.5f), Normal = new( 0,  1,  0), TexCoord = new(1, 1) },
-            new() { Position = new( 0.5f,  0.5f, -0.5f), Normal = new( 0,  1,  0), TexCoord = new(1, 0) },
-            new() { Position = new(-0.5f,  0.5f, -0.5f), Normal = new( 0,  1,  0), TexCoord = new(0, 0) },
-
-            // Bottom face
-            new() { Position = new(-0.5f, -0.5f, -0.5f), Normal = new( 0, -1,  0), TexCoord = new(0, 1) },
-            new() { Position = new( 0.5f, -0.5f, -0.5f), Normal = new( 0, -1,  0), TexCoord = new(1, 1) },
-            new() { Position = new( 0.5f, -0.5f,  0.5f), Normal = new( 0, -1,  0), TexCoord = new(1, 0) },
-            new() { Position = new(-0.5f, -0.5f,  0.5f), Normal = new( 0, -1,  0), TexCoord = new(0, 0) }
-        ];
-
-        Triangle[] cubeTriangles =
-        [
-            // Front face
-            new() { I0 = 0, I1 = 1, I2 = 2 },
-            new() { I0 = 0, I1 = 2, I2 = 3 },
-            // Back face
-            new() { I0 = 4, I1 = 5, I2 = 6 },
-            new() { I0 = 4, I1 = 6, I2 = 7 },
-            // Left face
-            new() { I0 = 8, I1 = 9, I2 = 10 },
-            new() { I0 = 8, I1 = 10, I2 = 11 },
-            // Right face
-            new() { I0 = 12, I1 = 13, I2 = 14 },
-            new() { I0 = 12, I1 = 14, I2 = 15 },
-            // Top face
-            new() { I0 = 16, I1 = 17, I2 = 18 },
-            new() { I0 = 16, I1 = 18, I2 = 19 },
-            // Bottom face
-            new() { I0 = 20, I1 = 21, I2 = 22 },
-            new() { I0 = 20, I1 = 22, I2 = 23 }
-        ];
-
-        Meshlet[] meshlets =
-        [
-            new()
+            for (int lon = 0; lon &lt; lonSegments; lon++)
             {
-                VertexOffset = 0,
-                VertexCount = (uint)cubeVertices.Length,
-                PrimitiveOffset = 0,
-                PrimitiveCount = (uint)cubeTriangles.Length
-            }
-        ];
-        meshletCount = (uint)meshlets.Length;
+                float theta = 2.0f * MathF.PI * lon / lonSegments;
+                Vector3 normal = new(sinPhi * MathF.Cos(theta), cosPhi, sinPhi * MathF.Sin(theta));
 
-        // Create vertex buffer
+                sphereVertices.Add(new() { Position = normal * radius, Normal = normal });
+            }
+        }
+
+        sphereVertices.Add(new() { Position = new(0, -radius, 0), Normal = -Vector3.UnitY });
+
+        for (int lon = 0; lon &lt; lonSegments; lon++)
+        {
+            uint next = (uint)((lon + 1) % lonSegments);
+
+            sphereTriangles.Add(new() { Index0 = 0, Index1 = (uint)(1 + lon), Index2 = 1 + next });
+        }
+
+        for (int lat = 0; lat &lt; latSegments - 2; lat++)
+        {
+            for (int lon = 0; lon &lt; lonSegments; lon++)
+            {
+                uint next = (uint)((lon + 1) % lonSegments);
+                uint tl = (uint)(1 + (lat * lonSegments) + lon);
+                uint tr = (uint)(1 + (lat * lonSegments)) + next;
+                uint bl = (uint)(1 + ((lat + 1) * lonSegments) + lon);
+                uint br = (uint)(1 + ((lat + 1) * lonSegments)) + next;
+
+                sphereTriangles.Add(new() { Index0 = tl, Index1 = bl, Index2 = tr });
+                sphereTriangles.Add(new() { Index0 = tr, Index1 = bl, Index2 = br });
+            }
+        }
+
+        uint bottomPole = (uint)(sphereVertices.Count - 1);
+        uint lastRing = 1 + ((latSegments - 2) * lonSegments);
+
+        for (int lon = 0; lon &lt; lonSegments; lon++)
+        {
+            uint next = (uint)((lon + 1) % lonSegments);
+
+            sphereTriangles.Add(new() { Index0 = bottomPole, Index1 = lastRing + next, Index2 = lastRing + (uint)lon });
+        }
+
+        Vertex[] vertexData = [.. sphereVertices];
+        Triangle[] triangleData = [.. sphereTriangles];
+
         vertexBuffer = App.Context.CreateBuffer(new()
         {
-            SizeInBytes = (uint)(sizeof(Vertex) * cubeVertices.Length),
+            SizeInBytes = (uint)(sizeof(Vertex) * vertexData.Length),
             StrideInBytes = (uint)sizeof(Vertex),
             Flags = BufferUsageFlags.ShaderResource
         });
-        vertexBuffer.Upload(cubeVertices, 0);
+        vertexBuffer.Upload(vertexData, 0);
 
-        // Create index buffer (Triangle struct per triangle)
         indexBuffer = App.Context.CreateBuffer(new()
         {
-            SizeInBytes = (uint)(sizeof(Triangle) * cubeTriangles.Length),
+            SizeInBytes = (uint)(sizeof(Triangle) * triangleData.Length),
             StrideInBytes = (uint)sizeof(Triangle),
             Flags = BufferUsageFlags.ShaderResource
         });
-        indexBuffer.Upload(cubeTriangles, 0);
+        indexBuffer.Upload(triangleData, 0);
 
-        meshletBuffer = App.Context.CreateBuffer(new()
+        constantsBuffer = App.Context.CreateBuffer(new()
         {
-            SizeInBytes = (uint)(sizeof(Meshlet) * meshlets.Length),
-            StrideInBytes = (uint)sizeof(Meshlet),
-            Flags = BufferUsageFlags.ShaderResource
-        });
-        meshletBuffer.Upload(meshlets, 0);
-
-        constantBuffer = App.Context.CreateBuffer(new()
-        {
-            SizeInBytes = (uint)sizeof(TransformConstants),
-            StrideInBytes = (uint)sizeof(TransformConstants),
+            SizeInBytes = (uint)sizeof(Constants),
+            StrideInBytes = (uint)sizeof(Constants),
             Flags = BufferUsageFlags.Constant | BufferUsageFlags.MapWrite
         });
 
@@ -425,8 +455,7 @@ internal unsafe class MeshShadingRenderer : IRenderer
         {
             Bindings = BindingHelper.Bindings
             (
-                new() { Type = ResourceType.ConstantBuffer, Count = 1, StageFlags = ShaderStageFlags.Mesh },
-                new() { Type = ResourceType.StructuredBuffer, Count = 1, StageFlags = ShaderStageFlags.Mesh },
+                new() { Type = ResourceType.ConstantBuffer, Count = 1, StageFlags = ShaderStageFlags.Amplification | ShaderStageFlags.Mesh | ShaderStageFlags.Pixel },
                 new() { Type = ResourceType.StructuredBuffer, Count = 1, StageFlags = ShaderStageFlags.Mesh },
                 new() { Type = ResourceType.StructuredBuffer, Count = 1, StageFlags = ShaderStageFlags.Mesh }
             )
@@ -435,9 +464,10 @@ internal unsafe class MeshShadingRenderer : IRenderer
         resourceTable = App.Context.CreateResourceTable(new()
         {
             Layout = resourceLayout,
-            Resources = [constantBuffer, vertexBuffer, indexBuffer, meshletBuffer]
+            Resources = [constantsBuffer, vertexBuffer, indexBuffer]
         });
 
+        using Shader ampShader = App.Context.LoadShaderFromSource(ShaderSource, &quot;ASMain&quot;, ShaderStageFlags.Amplification);
         using Shader meshShader = App.Context.LoadShaderFromSource(ShaderSource, &quot;MSMain&quot;, ShaderStageFlags.Mesh);
         using Shader pixelShader = App.Context.LoadShaderFromSource(ShaderSource, &quot;PSMain&quot;, ShaderStageFlags.Pixel);
 
@@ -449,13 +479,16 @@ internal unsafe class MeshShadingRenderer : IRenderer
                 DepthStencilState = DepthStencilStates.Default,
                 BlendState = BlendStates.Opaque
             },
-            Amplification = null,
+            Amplification = ampShader,
             Mesh = meshShader,
             Pixel = pixelShader,
             ResourceLayout = resourceLayout,
             PrimitiveTopology = PrimitiveTopology.TriangleList,
-            Output = App.SwapChain.FrameBuffer.Output,
-            MeshThreadGroupSizeX = MaxPrimitives,
+            Output = App.FrameBuffer.Output,
+            AmplificationThreadGroupSizeX = ASGroupSize,
+            AmplificationThreadGroupSizeY = 1,
+            AmplificationThreadGroupSizeZ = 1,
+            MeshThreadGroupSizeX = MeshGroupSize,
             MeshThreadGroupSizeY = 1,
             MeshThreadGroupSizeZ = 1
         });
@@ -463,22 +496,37 @@ internal unsafe class MeshShadingRenderer : IRenderer
 
     public void Update(double deltaTime)
     {
-        rotationAngle += (float)deltaTime;
+        totalTime += (float)deltaTime;
+
+        float angle = totalTime * 0.3f;
+
+        Vector3 cameraPos = new(35.0f * MathF.Sin(angle), 20.0f * MathF.Sin(totalTime * 0.2f), 35.0f * MathF.Cos(angle));
+
+        Matrix4x4 view = Matrix4x4.CreateLookAt(cameraPos, Vector3.Zero, Vector3.UnitY);
+        Matrix4x4 projection = Matrix4x4.CreatePerspectiveFieldOfView(float.DegreesToRadians(45.0f), (float)App.Width / App.Height, 0.1f, 200.0f);
+        Matrix4x4 viewProjection = view * projection;
+
+        constantsBuffer.Upload([new Constants()
+        {
+            ViewProjection = viewProjection,
+            FrustumPlane0 = NormalizePlane(new(viewProjection.M11 + viewProjection.M14, viewProjection.M21 + viewProjection.M24, viewProjection.M31 + viewProjection.M34, viewProjection.M41 + viewProjection.M44)),
+            FrustumPlane1 = NormalizePlane(new(viewProjection.M14 - viewProjection.M11, viewProjection.M24 - viewProjection.M21, viewProjection.M34 - viewProjection.M31, viewProjection.M44 - viewProjection.M41)),
+            FrustumPlane2 = NormalizePlane(new(viewProjection.M12 + viewProjection.M14, viewProjection.M22 + viewProjection.M24, viewProjection.M32 + viewProjection.M34, viewProjection.M42 + viewProjection.M44)),
+            FrustumPlane3 = NormalizePlane(new(viewProjection.M14 - viewProjection.M12, viewProjection.M24 - viewProjection.M22, viewProjection.M34 - viewProjection.M32, viewProjection.M44 - viewProjection.M42)),
+            FrustumPlane4 = NormalizePlane(new(viewProjection.M13, viewProjection.M23, viewProjection.M33, viewProjection.M43)),
+            FrustumPlane5 = NormalizePlane(new(viewProjection.M14 - viewProjection.M13, viewProjection.M24 - viewProjection.M23, viewProjection.M34 - viewProjection.M33, viewProjection.M44 - viewProjection.M43)),
+            Time = totalTime,
+            LightDirection = -Vector3.Normalize(cameraPos)
+        }], 0);
     }
 
     public void Render()
     {
-        Matrix4x4 model = Matrix4x4.CreateRotationY(rotationAngle) * Matrix4x4.CreateRotationX(rotationAngle * 0.5f);
-        Matrix4x4 view = Matrix4x4.CreateLookAt(new(0, 0, 3), Vector3.Zero, Vector3.UnitY);
-        Matrix4x4 projection = Matrix4x4.CreatePerspectiveFieldOfView(float.DegreesToRadians(45.0f), (float)App.Width / App.Height, 0.1f, 100.0f);
-
-        constantBuffer.Upload([new TransformConstants() { MVP = model * view * projection }], 0);
-
         CommandBuffer commandBuffer = App.Context.Graphics.CommandBuffer();
 
-        commandBuffer.BeginRenderPass(App.SwapChain.FrameBuffer, new()
+        commandBuffer.BeginRenderPass(App.FrameBuffer, new()
         {
-            ColorValues = [new(0.1f, 0.1f, 0.1f, 1.0f)],
+            ColorValues = [new(0.05f, 0.05f, 0.08f, 1.0f)],
             Depth = 1.0f,
             Stencil = 0,
             Flags = ClearFlags.All
@@ -486,7 +534,7 @@ internal unsafe class MeshShadingRenderer : IRenderer
 
         commandBuffer.SetPipeline(pipeline);
         commandBuffer.SetResourceTable(resourceTable);
-        commandBuffer.DispatchMesh(meshletCount, 1, 1);
+        commandBuffer.DispatchMesh(DispatchGroupCount, 1, 1);
 
         commandBuffer.EndRenderPass();
 
@@ -502,17 +550,18 @@ internal unsafe class MeshShadingRenderer : IRenderer
         pipeline.Dispose();
         resourceTable.Dispose();
         resourceLayout.Dispose();
-        constantBuffer.Dispose();
-        meshletBuffer.Dispose();
+        constantsBuffer.Dispose();
         indexBuffer.Dispose();
         vertexBuffer.Dispose();
     }
+
+    private static Vector4 NormalizePlane(Vector4 plane)
+    {
+        return plane / new Vector3(plane.X, plane.Y, plane.Z).Length();
+    }
 }
 
-/// &lt;summary&gt;
-/// Vertex structure with position and normal.
-/// &lt;/summary&gt;
-[StructLayout(LayoutKind.Explicit, Size = 48)]
+[StructLayout(LayoutKind.Explicit, Size = 32)]
 file struct Vertex
 {
     [FieldOffset(0)]
@@ -520,211 +569,217 @@ file struct Vertex
 
     [FieldOffset(16)]
     public Vector3 Normal;
-
-    [FieldOffset(32)]
-    public Vector2 TexCoord;
 }
 
-/// &lt;summary&gt;
-/// Triangle indices for mesh shading.
-/// &lt;/summary&gt;
 [StructLayout(LayoutKind.Explicit, Size = 16)]
 file struct Triangle
 {
     [FieldOffset(0)]
-    public uint I0;
+    public uint Index0;
 
     [FieldOffset(4)]
-    public uint I1;
+    public uint Index1;
 
     [FieldOffset(8)]
-    public uint I2;
+    public uint Index2;
 }
 
-/// &lt;summary&gt;
-/// Meshlet structure defining a chunk of geometry.
-/// &lt;/summary&gt;
-[StructLayout(LayoutKind.Explicit, Size = 16)]
-file struct Meshlet
+[StructLayout(LayoutKind.Explicit, Size = 176)]
+file struct Constants
 {
     [FieldOffset(0)]
-    public uint VertexOffset;
+    public Matrix4x4 ViewProjection;
 
-    [FieldOffset(4)]
-    public uint VertexCount;
+    [FieldOffset(64)]
+    public Vector4 FrustumPlane0;
 
-    [FieldOffset(8)]
-    public uint PrimitiveOffset;
+    [FieldOffset(80)]
+    public Vector4 FrustumPlane1;
 
-    [FieldOffset(12)]
-    public uint PrimitiveCount;
-}
+    [FieldOffset(96)]
+    public Vector4 FrustumPlane2;
 
-/// &lt;summary&gt;
-/// Transform constants for the mesh.
-/// &lt;/summary&gt;
-[StructLayout(LayoutKind.Explicit, Size = 64)]
-file struct TransformConstants
-{
-    [FieldOffset(0)]
-    public Matrix4x4 MVP;
+    [FieldOffset(112)]
+    public Vector4 FrustumPlane3;
+
+    [FieldOffset(128)]
+    public Vector4 FrustumPlane4;
+
+    [FieldOffset(144)]
+    public Vector4 FrustumPlane5;
+
+    [FieldOffset(160)]
+    public float Time;
+
+    [FieldOffset(164)]
+    public Vector3 LightDirection;
 }
 </code></pre>
 <h2 id="running-the-tutorial">Running the Tutorial</h2>
-<p>Update your <code>Program.cs</code> to run the <code>MeshShadingRenderer</code>:</p>
-<pre><code class="lang-csharp">using ZenithTutorials;
-using ZenithTutorials.Renderers;
-
-App.Run&lt;MeshShadingRenderer&gt;();
-
-App.Cleanup();
-</code></pre>
-<p>Run the application:</p>
+<p>Run the application and select <strong>7. Mesh Shading</strong> from the menu:</p>
 <pre><code class="lang-bash">dotnet run
 </code></pre>
 <h2 id="result">Result</h2>
-<p><img src="../../images/mesh-shading.png" alt="mesh-shading"></p>
+<p><img src="../../images/mesh-shading.png" alt="Mesh Shading"></p>
 <h2 id="code-breakdown">Code Breakdown</h2>
-<h3 id="checking-mesh-shading-support">Checking Mesh Shading Support</h3>
-<pre><code class="lang-csharp">if (!App.Context.Capabilities.MeshShadingSupported)
+<h3 id="procedural-sphere-geometry">Procedural Sphere Geometry</h3>
+<p>The sphere is generated as a UV sphere with 12 longitude and 6 latitude segments, producing 62 vertices and 120 triangles:</p>
+<pre><code class="lang-csharp">sphereVertices.Add(new() { Position = new(0, radius, 0), Normal = Vector3.UnitY });
+
+for (int lat = 1; lat &lt; latSegments; lat++)
 {
-    throw new NotSupportedException(&quot;Mesh shading is not supported on this device.&quot;);
+    float phi = MathF.PI * lat / latSegments;
+    float sinPhi = MathF.Sin(phi);
+    float cosPhi = MathF.Cos(phi);
+
+    for (int lon = 0; lon &lt; lonSegments; lon++)
+    {
+        float theta = 2.0f * MathF.PI * lon / lonSegments;
+        Vector3 normal = new(sinPhi * MathF.Cos(theta), cosPhi, sinPhi * MathF.Sin(theta));
+
+        sphereVertices.Add(new() { Position = normal * radius, Normal = normal });
+    }
 }
-</code></pre>
-<p>Always check <code>Capabilities.MeshShadingSupported</code> before using mesh shading features.</p>
-<h3 id="meshlet-data-structure">Meshlet Data Structure</h3>
-<pre><code class="lang-csharp">[StructLayout(LayoutKind.Explicit, Size = 16)]
-file struct Meshlet
-{
-    [FieldOffset(0)]
-    public uint VertexOffset;
 
-    [FieldOffset(4)]
-    public uint VertexCount;
-
-    [FieldOffset(8)]
-    public uint PrimitiveOffset;
-
-    [FieldOffset(12)]
-    public uint PrimitiveCount;
-}
+sphereVertices.Add(new() { Position = new(0, -radius, 0), Normal = -Vector3.UnitY });
 </code></pre>
-<p>Each meshlet describes a chunk of geometry:</p>
-<ul>
-<li><strong>VertexOffset/Count</strong>: Range of vertices in the vertex buffer</li>
-<li><strong>PrimitiveOffset/Count</strong>: Range of triangles in the index buffer</li>
-</ul>
-<h3 id="mesh-shader-entry-point">Mesh Shader Entry Point</h3>
-<pre><code class="lang-slang">[shader(&quot;mesh&quot;)]
-[numthreads(MaxPrimitives, 1, 1)]
-[outputtopology(&quot;triangle&quot;)]
-void MSMain(in uint groupID : SV_GroupID,
-            in uint groupThreadID : SV_GroupThreadID,
-            OutputVertices&lt;VertexOutput, MaxVertices&gt; outVertices,
-            OutputIndices&lt;uint3, MaxPrimitives&gt; outIndices)
-</code></pre>
-<p>Key attributes:</p>
-<table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>[shader(&quot;mesh&quot;)]</code></td>
-<td>Marks this as a mesh shader entry point</td>
-</tr>
-<tr>
-<td><code>[numthreads(X,Y,Z)]</code></td>
-<td>Thread group size (typically MaxPrimitives threads)</td>
-</tr>
-<tr>
-<td><code>[outputtopology(&quot;triangle&quot;)]</code></td>
-<td>Output primitive type</td>
-</tr>
-<tr>
-<td><code>OutputVertices&lt;T, N&gt;</code></td>
-<td>Output vertex array (max N vertices)</td>
-</tr>
-<tr>
-<td><code>OutputIndices&lt;uint3, N&gt;</code></td>
-<td>Output index array (max N triangles)</td>
-</tr>
-</tbody>
-</table>
-<h3 id="setting-output-counts">Setting Output Counts</h3>
-<pre><code class="lang-slang">SetMeshOutputCounts(meshlet.VertexCount, meshlet.PrimitiveCount);
-</code></pre>
-<p>This must be called once per workgroup to declare how many vertices and primitives will be output.</p>
-<h3 id="dispatching-mesh-shading">Dispatching Mesh Shading</h3>
-<pre><code class="lang-csharp">commandBuffer.DispatchMesh(meshletCount, 1, 1);
-</code></pre>
-<p>Unlike traditional <code>Draw</code> calls, mesh shading uses <code>DispatchMesh(X, Y, Z)</code> to launch workgroups:</p>
-<ul>
-<li>Each workgroup processes one meshlet</li>
-<li>Total workgroups = <code>meshletCount × 1 × 1</code></li>
-</ul>
-<h3 id="creating-the-pipeline">Creating the Pipeline</h3>
+<p>The vertex and index data are stored in <code>StructuredBuffer</code> resources (not vertex/index buffers), since mesh shaders read geometry data directly.</p>
+<h3 id="mesh-shading-pipeline">Mesh Shading Pipeline</h3>
+<p>The pipeline configuration specifies thread group sizes for both amplification and mesh stages:</p>
 <pre><code class="lang-csharp">pipeline = App.Context.CreateMeshShadingPipeline(new()
 {
-    RenderStates = new() { ... },
-    Amplification = null,
+    RenderStates = new()
+    {
+        RasterizerState = RasterizerStates.CullBack,
+        DepthStencilState = DepthStencilStates.Default,
+        BlendState = BlendStates.Opaque
+    },
+    Amplification = ampShader,
     Mesh = meshShader,
     Pixel = pixelShader,
     ResourceLayout = resourceLayout,
     PrimitiveTopology = PrimitiveTopology.TriangleList,
-    Output = App.SwapChain.FrameBuffer.Output,
-    MeshThreadGroupSizeX = MaxPrimitives,
+    Output = App.FrameBuffer.Output,
+    AmplificationThreadGroupSizeX = ASGroupSize,
+    AmplificationThreadGroupSizeY = 1,
+    AmplificationThreadGroupSizeZ = 1,
+    MeshThreadGroupSizeX = MeshGroupSize,
     MeshThreadGroupSizeY = 1,
     MeshThreadGroupSizeZ = 1
 });
 </code></pre>
-<p>The <code>MeshShadingPipelineDesc</code> requires:</p>
-<ul>
-<li><code>Amplification</code> - The compiled amplification shader (optional)</li>
-<li><code>Mesh</code> - The compiled mesh shader</li>
-<li><code>Pixel</code> - The compiled pixel shader</li>
-<li><code>ResourceLayout</code> - Resource bindings (same as graphics pipelines)</li>
-<li><code>AmplificationThreadGroupSizeX/Y/Z</code> - Must match <code>[numthreads()]</code> in the amplification shader (if used)</li>
-<li><code>MeshThreadGroupSizeX/Y/Z</code> - Must match <code>[numthreads()]</code> in the mesh shader</li>
-</ul>
-<h2 id="amplification-shader-optional">Amplification Shader (Optional)</h2>
-<p>For more advanced scenarios, you can add an amplification shader to dynamically control meshlet dispatch:</p>
-<pre><code class="lang-slang">struct AmplificationPayload
+<h3 id="amplification-shader-culling">Amplification Shader (Culling)</h3>
+<p>The amplification shader tests each instance against the camera frustum and only dispatches mesh groups for visible instances:</p>
+<pre><code class="lang-csharp">[shader(&quot;amplification&quot;)]
+[numthreads(ASGroupSize, 1, 1)]
+void ASMain(uint groupID: SV_GroupID, uint groupThreadID: SV_GroupThreadID)
 {
-    uint MeshletIndices[32];
-};
+    uint instanceIndex = groupID * ASGroupSize + groupThreadID;
 
-[shader(&quot;amplification&quot;)]
-[numthreads(32, 1, 1)]
-void ASMain(in uint groupID : SV_GroupID,
-            in uint groupThreadID : SV_GroupThreadID)
-{
-    // Frustum culling, LOD selection, etc.
-    bool visible = /* culling logic */;
+    bool visible = false;
+    if (instanceIndex &lt; TotalInstances)
+    {
+        float3 worldPos = InstancePosition(instanceIndex);
+        visible = !IsFrustumCulled(worldPos, BoundingSphereRadius);
+    }
+
+    if (groupThreadID == 0)
+    {
+        s_visibleCount = 0;
+    }
+
+    GroupMemoryBarrierWithGroupSync();
 
     if (visible)
     {
-        AmplificationPayload payload;
-        payload.MeshletIndices[groupThreadID] = groupID * 32 + groupThreadID;
-
-        // Dispatch mesh shading workgroups
-        DispatchMesh(visibleCount, 1, 1, payload);
+        uint offset;
+        InterlockedAdd(s_visibleCount, 1, offset);
+        s_payload.InstanceIndices[offset] = instanceIndex;
     }
+
+    GroupMemoryBarrierWithGroupSync();
+
+    DispatchMesh(s_visibleCount, 1, 1, s_payload);
 }
 </code></pre>
-<h2 id="best-practices">Best Practices</h2>
+<p><strong>Key steps:</strong></p>
 <ol>
-<li><strong>Meshlet Size</strong>: Keep meshlets within hardware limits (typically 64-256 vertices, 64-126 primitives)</li>
-<li><strong>Thread Utilization</strong>: Size <code>numthreads</code> to match your maximum primitive count</li>
-<li><strong>Early Out</strong>: Check thread bounds before writing to output arrays</li>
-<li><strong>Preprocessing</strong>: Generate meshlets offline for complex models</li>
-<li><strong>Culling</strong>: Use amplification shaders for GPU-driven culling</li>
+<li>Each thread checks one instance against 6 frustum planes</li>
+<li>Visible instances are compacted into a <code>groupshared</code> payload using <code>InterlockedAdd</code></li>
+<li><code>DispatchMesh</code> spawns only as many mesh groups as there are visible instances</li>
 </ol>
-<h2 id="next-steps">Next Steps</h2>
-<p>Congratulations! You've completed all Zenith.NET tutorials.</p>
+<h3 id="frustum-plane-extraction">Frustum Plane Extraction</h3>
+<p>Frustum planes are extracted from the view-projection matrix on the CPU:</p>
+<pre><code class="lang-csharp">FrustumPlane0 = NormalizePlane(new(viewProjection.M11 + viewProjection.M14, viewProjection.M21 + viewProjection.M24, viewProjection.M31 + viewProjection.M34, viewProjection.M41 + viewProjection.M44)),
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Plane</th>
+<th>Extraction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Left</td>
+<td>Row 4 + Row 1</td>
+</tr>
+<tr>
+<td>Right</td>
+<td>Row 4 - Row 1</td>
+</tr>
+<tr>
+<td>Bottom</td>
+<td>Row 4 + Row 2</td>
+</tr>
+<tr>
+<td>Top</td>
+<td>Row 4 - Row 2</td>
+</tr>
+<tr>
+<td>Near</td>
+<td>Row 3</td>
+</tr>
+<tr>
+<td>Far</td>
+<td>Row 4 - Row 3</td>
+</tr>
+</tbody>
+</table>
+<h3 id="constants-layout">Constants Layout</h3>
+<p>The <code>Constants</code> struct packs all per-frame data into 176 bytes:</p>
+<pre><code class="lang-csharp">[StructLayout(LayoutKind.Explicit, Size = 176)]
+file struct Constants
+{
+    [FieldOffset(0)]
+    public Matrix4x4 ViewProjection;
+
+    [FieldOffset(64)]
+    public Vector4 FrustumPlane0;
+
+    [FieldOffset(80)]
+    public Vector4 FrustumPlane1;
+
+    [FieldOffset(96)]
+    public Vector4 FrustumPlane2;
+
+    [FieldOffset(112)]
+    public Vector4 FrustumPlane3;
+
+    [FieldOffset(128)]
+    public Vector4 FrustumPlane4;
+
+    [FieldOffset(144)]
+    public Vector4 FrustumPlane5;
+
+    [FieldOffset(160)]
+    public float Time;
+
+    [FieldOffset(164)]
+    public Vector3 LightDirection;
+}
+</code></pre>
+<p>The constant buffer is shared across all three shader stages (<code>Amplification | Mesh | Pixel</code>), so the amplification shader can read frustum planes while the pixel shader reads the light direction.</p>
 <h2 id="source-code">Source Code</h2>
 <div class="TIP">
 <h5>Tip</h5>

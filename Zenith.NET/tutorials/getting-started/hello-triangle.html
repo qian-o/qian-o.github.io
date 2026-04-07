@@ -87,18 +87,18 @@
         <article data-uid="">
 <h1 id="hello-triangle">Hello Triangle</h1>
 
-<p>In this tutorial, you'll learn how to render a colored triangle using Zenith.NET. This is the classic &quot;Hello World&quot; of graphics programming.</p>
+<p>In this tutorial, you'll create a renderer that draws a single colored triangle on screen. This is the classic starting point for graphics programming — establishing the graphics pipeline, defining vertex data, and issuing a draw call.</p>
 <h2 id="overview">Overview</h2>
-<p>We'll create a <code>HelloTriangleRenderer</code> class that:</p>
+<p>This tutorial covers:</p>
 <ul>
-<li>Creates vertex data and uploads it to a GPU buffer</li>
-<li>Compiles vertex and pixel shaders using Slang</li>
-<li>Builds a graphics pipeline</li>
-<li>Records and submits draw commands</li>
+<li>Defining a <strong>Slang shader</strong> with vertex and pixel stages</li>
+<li>Creating a <strong>vertex buffer</strong> with position and color data</li>
+<li>Configuring an <strong>input layout</strong> to describe vertex attributes</li>
+<li>Building a <strong>graphics pipeline</strong> with render states</li>
+<li>Recording and submitting <strong>command buffers</strong> to render a frame</li>
 </ul>
-<p>This class-based approach makes it easy to extend for future tutorials.</p>
 <h2 id="the-renderer-class">The Renderer Class</h2>
-<p>Create a new file <code>Renderers/HelloTriangleRenderer.cs</code>:</p>
+<p>Create the file <code>Renderers/HelloTriangleRenderer.cs</code>:</p>
 <pre><code class="lang-csharp">namespace ZenithTutorials.Renderers;
 
 internal unsafe class HelloTriangleRenderer : IRenderer
@@ -108,14 +108,14 @@ internal unsafe class HelloTriangleRenderer : IRenderer
         {
             float3 Position : POSITION0;
 
-            float4 Color    : COLOR0;
+            float4 Color : COLOR0;
         };
 
         struct PSInput
         {
             float4 Position : SV_POSITION;
 
-            float4 Color    : COLOR0;
+            float4 Color : COLOR;
         };
 
         PSInput VSMain(VSInput input)
@@ -138,12 +138,11 @@ internal unsafe class HelloTriangleRenderer : IRenderer
 
     public HelloTriangleRenderer()
     {
-        // Define triangle vertices (NDC coordinates: -1 to 1)
         Vertex[] vertices =
         [
-            new(new( 0.0f,  0.5f, 0.0f), new(1.0f, 0.0f, 0.0f, 1.0f)), // Top    - Red
-            new(new( 0.5f, -0.5f, 0.0f), new(0.0f, 1.0f, 0.0f, 1.0f)), // Right  - Green
-            new(new(-0.5f, -0.5f, 0.0f), new(0.0f, 0.0f, 1.0f, 1.0f)), // Left   - Blue
+            new(new( 0.0f,  0.5f, 0.0f), new(1.0f, 0.0f, 0.0f, 1.0f)),
+            new(new( 0.5f, -0.5f, 0.0f), new(0.0f, 1.0f, 0.0f, 1.0f)),
+            new(new(-0.5f, -0.5f, 0.0f), new(0.0f, 0.0f, 1.0f, 1.0f)),
         ];
 
         vertexBuffer = App.Context.CreateBuffer(new()
@@ -154,7 +153,6 @@ internal unsafe class HelloTriangleRenderer : IRenderer
         });
         vertexBuffer.Upload(vertices, 0);
 
-        // Define vertex input layout (must match shader VSInput)
         InputLayout inputLayout = new();
         inputLayout.Add(new() { Format = ElementFormat.Float3, Semantic = ElementSemantic.Position });
         inputLayout.Add(new() { Format = ElementFormat.Float4, Semantic = ElementSemantic.Color });
@@ -166,16 +164,16 @@ internal unsafe class HelloTriangleRenderer : IRenderer
         {
             RenderStates = new()
             {
-                RasterizerState = RasterizerStates.CullNone,     // Disable back-face culling
-                DepthStencilState = DepthStencilStates.Default,  // Enable depth testing
-                BlendState = BlendStates.Opaque                  // No alpha blending
+                RasterizerState = RasterizerStates.CullNone,
+                DepthStencilState = DepthStencilStates.Default,
+                BlendState = BlendStates.Opaque
             },
             Vertex = vertexShader,
             Pixel = pixelShader,
             ResourceLayout = null,
             InputLayouts = [inputLayout],
             PrimitiveTopology = PrimitiveTopology.TriangleList,
-            Output = App.SwapChain.FrameBuffer.Output
+            Output = App.FrameBuffer.Output
         });
     }
 
@@ -187,7 +185,7 @@ internal unsafe class HelloTriangleRenderer : IRenderer
     {
         CommandBuffer commandBuffer = App.Context.Graphics.CommandBuffer();
 
-        commandBuffer.BeginRenderPass(App.SwapChain.FrameBuffer, new()
+        commandBuffer.BeginRenderPass(App.FrameBuffer, new()
         {
             ColorValues = [new(0.1f, 0.1f, 0.1f, 1.0f)],
             Depth = 1.0f,
@@ -215,9 +213,6 @@ internal unsafe class HelloTriangleRenderer : IRenderer
     }
 }
 
-/// &lt;summary&gt;
-/// Vertex structure with position and color data.
-/// &lt;/summary&gt;
 [StructLayout(LayoutKind.Sequential)]
 file struct Vertex(Vector3 position, Vector4 color)
 {
@@ -227,21 +222,58 @@ file struct Vertex(Vector3 position, Vector4 color)
 }
 </code></pre>
 <h2 id="running-the-tutorial">Running the Tutorial</h2>
-<p>Update your <code>Program.cs</code> to run the <code>HelloTriangleRenderer</code>:</p>
-<pre><code class="lang-csharp">using ZenithTutorials;
-using ZenithTutorials.Renderers;
-
-App.Run&lt;HelloTriangleRenderer&gt;();
-
-App.Cleanup();
-</code></pre>
-<p>Run the application:</p>
+<p>Run the application and select <strong>1. Hello Triangle</strong> from the menu:</p>
 <pre><code class="lang-bash">dotnet run
 </code></pre>
 <h2 id="result">Result</h2>
-<p><img src="../../images/hello-triangle.png" alt="hello-triangle"></p>
+<p><img src="../../images/hello-triangle.png" alt="Hello Triangle"></p>
 <h2 id="code-breakdown">Code Breakdown</h2>
-<h3 id="vertex-structure">Vertex Structure</h3>
+<h3 id="shader">Shader</h3>
+<p>The shader is written inline as a Slang source string. It defines two stages:</p>
+<pre><code class="lang-csharp">private const string ShaderSource = &quot;&quot;&quot;
+    struct VSInput
+    {
+        float3 Position : POSITION0;
+
+        float4 Color : COLOR0;
+    };
+
+    struct PSInput
+    {
+        float4 Position : SV_POSITION;
+
+        float4 Color : COLOR;
+    };
+
+    PSInput VSMain(VSInput input)
+    {
+        PSInput output;
+        output.Position = float4(input.Position, 1.0);
+        output.Color = input.Color;
+
+        return output;
+    }
+
+    float4 PSMain(PSInput input) : SV_TARGET
+    {
+        return input.Color;
+    }
+    &quot;&quot;&quot;;
+</code></pre>
+<ul>
+<li><strong>VSMain</strong>: Converts the 3D position to clip space and passes the color through</li>
+<li><strong>PSMain</strong>: Outputs the interpolated vertex color</li>
+</ul>
+<h3 id="vertex-data">Vertex Data</h3>
+<p>Three vertices define the triangle with red, green, and blue colors:</p>
+<pre><code class="lang-csharp">Vertex[] vertices =
+[
+    new(new( 0.0f,  0.5f, 0.0f), new(1.0f, 0.0f, 0.0f, 1.0f)),
+    new(new( 0.5f, -0.5f, 0.0f), new(0.0f, 1.0f, 0.0f, 1.0f)),
+    new(new(-0.5f, -0.5f, 0.0f), new(0.0f, 0.0f, 1.0f, 1.0f)),
+];
+</code></pre>
+<p>The <code>Vertex</code> struct is defined as a <code>file</code>-scoped type with sequential layout:</p>
 <pre><code class="lang-csharp">[StructLayout(LayoutKind.Sequential)]
 file struct Vertex(Vector3 position, Vector4 color)
 {
@@ -250,71 +282,109 @@ file struct Vertex(Vector3 position, Vector4 color)
     public Vector4 Color = color;
 }
 </code></pre>
-<p>The <code>Vertex</code> struct uses the <code>file</code> keyword to limit its visibility to the current source file. It uses a primary constructor and <code>LayoutKind.Sequential</code> ensures the memory layout matches what the GPU expects.</p>
 <h3 id="vertex-buffer">Vertex Buffer</h3>
+<p>The buffer is created with <code>Vertex | MapWrite</code> flags. <code>MapWrite</code> enables CPU-side uploads:</p>
 <pre><code class="lang-csharp">vertexBuffer = App.Context.CreateBuffer(new()
 {
     SizeInBytes = (uint)(sizeof(Vertex) * vertices.Length),
     StrideInBytes = (uint)sizeof(Vertex),
     Flags = BufferUsageFlags.Vertex | BufferUsageFlags.MapWrite
 });
-
 vertexBuffer.Upload(vertices, 0);
 </code></pre>
-<p>Create a GPU buffer to hold vertex data using <code>App.Context</code>. <code>BufferUsageFlags.Vertex</code> indicates it will be used as a vertex buffer.</p>
-<h3 id="shaders">Shaders</h3>
-<p>The Slang shader defines:</p>
-<ul>
-<li><strong>Vertex Shader (<code>VSMain</code>)</strong>: Transforms vertex positions and passes colors to the pixel shader</li>
-<li><strong>Pixel Shader (<code>PSMain</code>)</strong>: Outputs the interpolated color for each pixel</li>
-</ul>
+<h3 id="input-layout">Input Layout</h3>
+<p>The input layout tells the pipeline how to interpret vertex data. The order must match the shader's <code>VSInput</code>:</p>
+<pre><code class="lang-csharp">InputLayout inputLayout = new();
+inputLayout.Add(new() { Format = ElementFormat.Float3, Semantic = ElementSemantic.Position });
+inputLayout.Add(new() { Format = ElementFormat.Float4, Semantic = ElementSemantic.Color });
+</code></pre>
 <h3 id="graphics-pipeline">Graphics Pipeline</h3>
+<p>The pipeline binds everything together — shaders, render states, input layout, and output format:</p>
 <pre><code class="lang-csharp">pipeline = App.Context.CreateGraphicsPipeline(new()
 {
-    RenderStates = new() { ... },
+    RenderStates = new()
+    {
+        RasterizerState = RasterizerStates.CullNone,
+        DepthStencilState = DepthStencilStates.Default,
+        BlendState = BlendStates.Opaque
+    },
     Vertex = vertexShader,
     Pixel = pixelShader,
     ResourceLayout = null,
     InputLayouts = [inputLayout],
     PrimitiveTopology = PrimitiveTopology.TriangleList,
-    Output = App.SwapChain.FrameBuffer.Output
+    Output = App.FrameBuffer.Output
 });
 </code></pre>
-<p>The pipeline combines shaders, render states, and input layout into a complete rendering configuration.</p>
-<h3 id="render-method">Render Method</h3>
-<pre><code class="lang-csharp">public void Render()
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>RasterizerState</code></td>
+<td><code>CullNone</code></td>
+<td>No face culling (both sides visible)</td>
+</tr>
+<tr>
+<td><code>DepthStencilState</code></td>
+<td><code>Default</code></td>
+<td>Standard depth testing</td>
+</tr>
+<tr>
+<td><code>BlendState</code></td>
+<td><code>Opaque</code></td>
+<td>No transparency</td>
+</tr>
+<tr>
+<td><code>ResourceLayout</code></td>
+<td><code>null</code></td>
+<td>No bound resources needed</td>
+</tr>
+<tr>
+<td><code>PrimitiveTopology</code></td>
+<td><code>TriangleList</code></td>
+<td>Every 3 vertices form a triangle</td>
+</tr>
+</tbody>
+</table>
+<h3 id="rendering">Rendering</h3>
+<p>Each frame, a command buffer records the draw commands:</p>
+<pre><code class="lang-csharp">CommandBuffer commandBuffer = App.Context.Graphics.CommandBuffer();
+
+commandBuffer.BeginRenderPass(App.FrameBuffer, new()
 {
-    CommandBuffer commandBuffer = App.Context.Graphics.CommandBuffer();
+    ColorValues = [new(0.1f, 0.1f, 0.1f, 1.0f)],
+    Depth = 1.0f,
+    Stencil = 0,
+    Flags = ClearFlags.All
+});
 
-    commandBuffer.BeginRenderPass(App.SwapChain.FrameBuffer, new()
-    {
-        ColorValues = [new(0.1f, 0.1f, 0.1f, 1.0f)],
-        Depth = 1.0f,
-        Stencil = 0,
-        Flags = ClearFlags.All
-    });
+commandBuffer.SetPipeline(pipeline);
+commandBuffer.SetVertexBuffer(vertexBuffer, 0, 0);
+commandBuffer.Draw(3, 1, 0, 0);
 
-    commandBuffer.SetPipeline(pipeline);
-    commandBuffer.SetVertexBuffer(vertexBuffer, 0, 0);
-    commandBuffer.Draw(3, 1, 0, 0);
+commandBuffer.EndRenderPass();
 
-    commandBuffer.EndRenderPass();
-
-    commandBuffer.Submit(waitForCompletion: true);
+commandBuffer.Submit(waitForCompletion: true);
+</code></pre>
+<p><code>Draw(3, 1, 0, 0)</code> draws 3 vertices, 1 instance, starting at vertex 0 and instance 0.</p>
+<p>Note that <code>BeginRenderPass</code> does not pass a <code>ResourceTable</code> because this renderer has no bound resources.</p>
+<h3 id="resource-cleanup">Resource Cleanup</h3>
+<p>All GPU resources must be disposed in reverse order of creation:</p>
+<pre><code class="lang-csharp">public void Dispose()
+{
+    pipeline.Dispose();
+    vertexBuffer.Dispose();
 }
 </code></pre>
-<p>Each frame:</p>
-<ol>
-<li><code>CommandBuffer()</code> - Get a command buffer from the graphics queue</li>
-<li><code>BeginRenderPass</code> - Clear and prepare for rendering (using <code>ColorValues</code> array and <code>ClearFlags</code>)</li>
-<li><code>SetPipeline</code> / <code>SetVertexBuffer</code> / <code>Draw</code> - Record draw commands</li>
-<li><code>EndRenderPass</code> - Finish the render pass</li>
-<li><code>Submit</code> - Submit commands to the GPU</li>
-</ol>
 <h2 id="next-steps">Next Steps</h2>
-<p>Congratulations! You've rendered your first triangle with Zenith.NET.</p>
 <ul>
-<li><a href="textured-quad.html">Textured Quad</a> - Load textures, create samplers, and use resource binding</li>
+<li><a href="textured-quad.html">Textured Quad</a> - Add textures, index buffers, and samplers</li>
 </ul>
 <h2 id="source-code">Source Code</h2>
 <div class="TIP">
