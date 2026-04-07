@@ -149,12 +149,12 @@
 <tbody>
 <tr>
 <td><a href="advanced/ray-tracing.html">Ray Tracing</a></td>
-<td>Build acceleration structures (BLAS/TLAS), use <code>RayQuery</code> for ray tracing, and implement hard shadows</td>
+<td>Build acceleration structures (BLAS/TLAS), use <code>RayQuery</code> for ray tracing with soft shadows, reflections, and ACES tonemapping</td>
 <td><code>RayTracingSupported</code></td>
 </tr>
 <tr>
 <td><a href="advanced/mesh-shading.html">Mesh Shading</a></td>
-<td>Use meshlet-based geometry processing with mesh shading pipelines</td>
+<td>Render 1,000 sphere instances with amplification shader frustum culling and mesh shading pipeline</td>
 <td><code>MeshShadingSupported</code></td>
 </tr>
 </tbody>
@@ -169,7 +169,7 @@
 <li><strong>Result</strong> - Screenshot of the expected output</li>
 <li><strong>Code Breakdown</strong> - Step-by-step explanation of important code sections</li>
 </ol>
-<p>All tutorials share the same <code>App</code> framework, making it easy to switch between examples by changing a single line in <code>Program.cs</code>.</p>
+<p>All tutorials share the same <code>App</code> framework. Run <code>dotnet run</code> and select a tutorial from the interactive menu in <code>Program.cs</code>.</p>
 <h2 id="learning-path">Learning Path</h2>
 <table>
 <thead>
@@ -205,11 +205,11 @@
 </tr>
 <tr>
 <td><strong>Ray Tracing</strong></td>
-<td>Build acceleration structures, trace rays with <code>RayQuery</code>, handle intersections, and implement shadows</td>
+<td>Build acceleration structures, trace rays with <code>RayQuery</code>, implement soft shadows, reflections, Fresnel, and ACES tonemapping</td>
 </tr>
 <tr>
 <td><strong>Mesh Shading</strong></td>
-<td>Process geometry in meshlets using the modern mesh shading pipeline</td>
+<td>Use amplification shaders for GPU-driven frustum culling with mesh shading at scale (1,000 instances)</td>
 </tr>
 </tbody>
 </table>

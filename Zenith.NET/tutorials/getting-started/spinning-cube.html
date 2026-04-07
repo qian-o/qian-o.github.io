@@ -87,31 +87,22 @@
         <article data-uid="">
 <h1 id="spinning-cube">Spinning Cube</h1>
 
-<p>In this tutorial, you'll learn how to render a rotating 3D cube using Zenith.NET. We'll introduce constant buffers for passing transformation matrices to the GPU.</p>
+<p>In this tutorial, you'll render a spinning 3D cube with per-vertex colors. This introduces constant buffers for uploading transformation matrices, and per-frame updates for animation.</p>
 <h2 id="overview">Overview</h2>
-<p>We'll create a <code>SpinningCubeRenderer</code> class that:</p>
+<p>This tutorial covers:</p>
 <ul>
-<li>Defines 3D cube geometry with vertex and index buffers</li>
-<li>Creates a constant buffer for MVP (Model-View-Projection) matrices</li>
-<li>Updates the rotation every frame</li>
-<li>Uses depth testing for correct 3D rendering</li>
+<li>Building <strong>Model/View/Projection</strong> transformation matrices</li>
+<li>Creating and updating a <strong>constant buffer</strong> each frame</li>
+<li>Using <strong>back-face culling</strong> and <strong>depth testing</strong> for 3D rendering</li>
+<li>Animating object rotation over time in the <code>Update</code> loop</li>
 </ul>
 <h2 id="the-renderer-class">The Renderer Class</h2>
-<p>Create a new file <code>Renderers/SpinningCubeRenderer.cs</code>:</p>
+<p>Create the file <code>Renderers/SpinningCubeRenderer.cs</code>:</p>
 <pre><code class="lang-csharp">namespace ZenithTutorials.Renderers;
 
 internal unsafe class SpinningCubeRenderer : IRenderer
 {
     private const string ShaderSource = &quot;&quot;&quot;
-        struct MVPConstants
-        {
-            float4x4 Model;
-
-            float4x4 View;
-
-            float4x4 Projection;
-        };
-
         struct VSInput
         {
             float3 Position : POSITION0;
@@ -123,18 +114,26 @@ internal unsafe class SpinningCubeRenderer : IRenderer
         {
             float4 Position : SV_POSITION;
 
-            float4 Color : COLOR0;
+            float4 Color : COLOR;
         };
 
-        ConstantBuffer&lt;MVPConstants&gt; mvp;
+        struct Constants
+        {
+            float4x4 Model;
+
+            float4x4 View;
+
+            float4x4 Projection;
+        };
+
+        ConstantBuffer&lt;Constants&gt; constants;
 
         PSInput VSMain(VSInput input)
         {
-            float4 worldPos = mul(float4(input.Position, 1.0), mvp.Model);
-            float4 viewPos = mul(worldPos, mvp.View);
-        
+            float4x4 mvp = mul(mul(constants.Model, constants.View), constants.Projection);
+
             PSInput output;
-            output.Position = mul(viewPos, mvp.Projection);
+            output.Position = mul(float4(input.Position, 1.0), mvp);
             output.Color = input.Color;
 
             return output;
@@ -148,7 +147,7 @@ internal unsafe class SpinningCubeRenderer : IRenderer
 
     private readonly Buffer vertexBuffer;
     private readonly Buffer indexBuffer;
-    private readonly Buffer constantBuffer;
+    private readonly Buffer constantsBuffer;
     private readonly ResourceLayout resourceLayout;
     private readonly ResourceTable resourceTable;
     private readonly GraphicsPipeline pipeline;
@@ -159,12 +158,10 @@ internal unsafe class SpinningCubeRenderer : IRenderer
     {
         Vertex[] vertices =
         [
-            // Front face
             new(new(-0.5f, -0.5f,  0.5f), new(1.0f, 0.0f, 0.0f, 1.0f)),
             new(new( 0.5f, -0.5f,  0.5f), new(0.0f, 1.0f, 0.0f, 1.0f)),
             new(new( 0.5f,  0.5f,  0.5f), new(0.0f, 0.0f, 1.0f, 1.0f)),
             new(new(-0.5f,  0.5f,  0.5f), new(1.0f, 1.0f, 0.0f, 1.0f)),
-            // Back face
             new(new(-0.5f, -0.5f, -0.5f), new(1.0f, 0.0f, 1.0f, 1.0f)),
             new(new( 0.5f, -0.5f, -0.5f), new(0.0f, 1.0f, 1.0f, 1.0f)),
             new(new( 0.5f,  0.5f, -0.5f), new(1.0f, 1.0f, 1.0f, 1.0f)),
@@ -173,17 +170,11 @@ internal unsafe class SpinningCubeRenderer : IRenderer
 
         uint[] indices =
         [
-            // Front
             0, 1, 2, 0, 2, 3,
-            // Back
             5, 4, 7, 5, 7, 6,
-            // Left
             4, 0, 3, 4, 3, 7,
-            // Right
             1, 5, 6, 1, 6, 2,
-            // Top
             3, 2, 6, 3, 6, 7,
-            // Bottom
             4, 5, 1, 4, 1, 0
         ];
 
@@ -203,10 +194,10 @@ internal unsafe class SpinningCubeRenderer : IRenderer
         });
         indexBuffer.Upload(indices, 0);
 
-        constantBuffer = App.Context.CreateBuffer(new()
+        constantsBuffer = App.Context.CreateBuffer(new()
         {
-            SizeInBytes = (uint)sizeof(MVPConstants),
-            StrideInBytes = (uint)sizeof(MVPConstants),
+            SizeInBytes = (uint)sizeof(Constants),
+            StrideInBytes = (uint)sizeof(Constants),
             Flags = BufferUsageFlags.Constant | BufferUsageFlags.MapWrite
         });
 
@@ -221,7 +212,7 @@ internal unsafe class SpinningCubeRenderer : IRenderer
         resourceTable = App.Context.CreateResourceTable(new()
         {
             Layout = resourceLayout,
-            Resources = [constantBuffer]
+            Resources = [constantsBuffer]
         });
 
         InputLayout inputLayout = new();
@@ -244,26 +235,26 @@ internal unsafe class SpinningCubeRenderer : IRenderer
             ResourceLayout = resourceLayout,
             InputLayouts = [inputLayout],
             PrimitiveTopology = PrimitiveTopology.TriangleList,
-            Output = App.SwapChain.FrameBuffer.Output
+            Output = App.FrameBuffer.Output
         });
     }
 
     public void Update(double deltaTime)
     {
         rotationAngle += (float)deltaTime;
-    }
 
-    public void Render()
-    {
         Matrix4x4 model = Matrix4x4.CreateRotationY(rotationAngle) * Matrix4x4.CreateRotationX(rotationAngle * 0.5f);
         Matrix4x4 view = Matrix4x4.CreateLookAt(new(0, 0, 3), Vector3.Zero, Vector3.UnitY);
         Matrix4x4 projection = Matrix4x4.CreatePerspectiveFieldOfView(float.DegreesToRadians(45.0f), (float)App.Width / App.Height, 0.1f, 100.0f);
 
-        constantBuffer.Upload([new MVPConstants() { Model = model, View = view, Projection = projection }], 0);
+        constantsBuffer.Upload([new Constants() { Model = model, View = view, Projection = projection }], 0);
+    }
 
+    public void Render()
+    {
         CommandBuffer commandBuffer = App.Context.Graphics.CommandBuffer();
 
-        commandBuffer.BeginRenderPass(App.SwapChain.FrameBuffer, new()
+        commandBuffer.BeginRenderPass(App.FrameBuffer, new()
         {
             ColorValues = [new(0.1f, 0.1f, 0.1f, 1.0f)],
             Depth = 1.0f,
@@ -291,15 +282,12 @@ internal unsafe class SpinningCubeRenderer : IRenderer
         pipeline.Dispose();
         resourceTable.Dispose();
         resourceLayout.Dispose();
-        constantBuffer.Dispose();
+        constantsBuffer.Dispose();
         indexBuffer.Dispose();
         vertexBuffer.Dispose();
     }
 }
 
-/// &lt;summary&gt;
-/// Vertex structure with position and color data.
-/// &lt;/summary&gt;
 [StructLayout(LayoutKind.Sequential)]
 file struct Vertex(Vector3 position, Vector4 color)
 {
@@ -308,11 +296,8 @@ file struct Vertex(Vector3 position, Vector4 color)
     public Vector4 Color = color;
 }
 
-/// &lt;summary&gt;
-/// MVP transformation matrices.
-/// &lt;/summary&gt;
 [StructLayout(LayoutKind.Explicit, Size = 192)]
-file struct MVPConstants
+file struct Constants
 {
     [FieldOffset(0)]
     public Matrix4x4 Model;
@@ -325,23 +310,51 @@ file struct MVPConstants
 }
 </code></pre>
 <h2 id="running-the-tutorial">Running the Tutorial</h2>
-<p>Update your <code>Program.cs</code> to run the <code>SpinningCubeRenderer</code>:</p>
-<pre><code class="lang-csharp">using ZenithTutorials;
-using ZenithTutorials.Renderers;
-
-App.Run&lt;SpinningCubeRenderer&gt;();
-
-App.Cleanup();
-</code></pre>
-<p>Run the application:</p>
+<p>Run the application and select <strong>3. Spinning Cube</strong> from the menu:</p>
 <pre><code class="lang-bash">dotnet run
 </code></pre>
 <h2 id="result">Result</h2>
-<p><img src="../../images/spinning-cube.png" alt="spinning-cube"></p>
+<p><img src="../../images/spinning-cube.png" alt="Spinning Cube"></p>
 <h2 id="code-breakdown">Code Breakdown</h2>
-<h3 id="mvp-constants-structure">MVP Constants Structure</h3>
+<h3 id="shader">Shader</h3>
+<p>The vertex shader computes the Model-View-Projection transform:</p>
+<pre><code class="lang-csharp">private const string ShaderSource = &quot;&quot;&quot;
+    struct Constants
+    {
+        float4x4 Model;
+
+        float4x4 View;
+
+        float4x4 Projection;
+    };
+
+    ConstantBuffer&lt;Constants&gt; constants;
+
+    PSInput VSMain(VSInput input)
+    {
+        float4x4 mvp = mul(mul(constants.Model, constants.View), constants.Projection);
+
+        PSInput output;
+        output.Position = mul(float4(input.Position, 1.0), mvp);
+        output.Color = input.Color;
+
+        return output;
+    }
+    &quot;&quot;&quot;;
+</code></pre>
+<p><code>ConstantBuffer&lt;Constants&gt;</code> gives the shader access to the CPU-uploaded matrices.</p>
+<h3 id="constant-buffer">Constant Buffer</h3>
+<p>A constant buffer is created for the MVP matrices, updated every frame:</p>
+<pre><code class="lang-csharp">constantsBuffer = App.Context.CreateBuffer(new()
+{
+    SizeInBytes = (uint)sizeof(Constants),
+    StrideInBytes = (uint)sizeof(Constants),
+    Flags = BufferUsageFlags.Constant | BufferUsageFlags.MapWrite
+});
+</code></pre>
+<p>The <code>Constants</code> struct uses explicit layout to match HLSL/Slang packing rules:</p>
 <pre><code class="lang-csharp">[StructLayout(LayoutKind.Explicit, Size = 192)]
-file struct MVPConstants
+file struct Constants
 {
     [FieldOffset(0)]
     public Matrix4x4 Model;
@@ -353,7 +366,20 @@ file struct MVPConstants
     public Matrix4x4 Projection;
 }
 </code></pre>
-<p>The MVP (Model-View-Projection) matrices transform vertices from object space to screen space:</p>
+<p>Each <code>Matrix4x4</code> is 64 bytes (4x4 floats), giving a total size of 192 bytes.</p>
+<h3 id="animation">Animation</h3>
+<p>The <code>Update</code> method accumulates time and builds transformation matrices:</p>
+<pre><code class="lang-csharp">public void Update(double deltaTime)
+{
+    rotationAngle += (float)deltaTime;
+
+    Matrix4x4 model = Matrix4x4.CreateRotationY(rotationAngle) * Matrix4x4.CreateRotationX(rotationAngle * 0.5f);
+    Matrix4x4 view = Matrix4x4.CreateLookAt(new(0, 0, 3), Vector3.Zero, Vector3.UnitY);
+    Matrix4x4 projection = Matrix4x4.CreatePerspectiveFieldOfView(float.DegreesToRadians(45.0f), (float)App.Width / App.Height, 0.1f, 100.0f);
+
+    constantsBuffer.Upload([new Constants() { Model = model, View = view, Projection = projection }], 0);
+}
+</code></pre>
 <table>
 <thead>
 <tr>
@@ -364,111 +390,27 @@ file struct MVPConstants
 <tbody>
 <tr>
 <td><strong>Model</strong></td>
-<td>Object rotation, scale, and position in the world</td>
+<td>Combined Y and X rotation, creating a tumbling effect</td>
 </tr>
 <tr>
 <td><strong>View</strong></td>
-<td>Camera position and orientation</td>
+<td>Camera at <code>(0, 0, 3)</code> looking at the origin</td>
 </tr>
 <tr>
 <td><strong>Projection</strong></td>
-<td>3D to 2D projection (perspective or orthographic)</td>
+<td>Perspective with 45-degree FOV</td>
 </tr>
 </tbody>
 </table>
-<h3 id="constant-buffer">Constant Buffer</h3>
-<pre><code class="lang-csharp">constantBuffer = App.Context.CreateBuffer(new()
-{
-    SizeInBytes = (uint)sizeof(MVPConstants),
-    StrideInBytes = (uint)sizeof(MVPConstants),
-    Flags = BufferUsageFlags.Constant | BufferUsageFlags.MapWrite
-});
+<h3 id="render-states">Render States</h3>
+<p>The pipeline now uses <code>CullBack</code> instead of <code>CullNone</code>:</p>
+<pre><code class="lang-csharp">RasterizerState = RasterizerStates.CullBack,
+DepthStencilState = DepthStencilStates.Default,
 </code></pre>
-<p>Constant buffers pass data from the CPU to shaders. Use <code>BufferUsageFlags.Constant</code> and upload new data each frame as needed.</p>
-<h3 id="cube-geometry">Cube Geometry</h3>
-<pre><code class="lang-csharp">// 8 vertices for the cube corners
-Vertex[] vertices = [ ... ];
-
-// 36 indices (6 faces × 2 triangles × 3 vertices)
-uint[] indices =
-[
-    // Front
-    0, 1, 2, 0, 2, 3,
-    // Back
-    5, 4, 7, 5, 7, 6,
-    // ... remaining faces
-];
-</code></pre>
-<p>A cube has 8 unique vertices and 6 faces. Each face is made of 2 triangles, requiring 6 indices per face (36 total).</p>
-<h3 id="shader-mvp-transformation">Shader MVP Transformation</h3>
-<pre><code class="lang-slang">ConstantBuffer&lt;MVPConstants&gt; mvp;
-
-PSInput VSMain(VSInput input)
-{
-    float4 worldPos = mul(float4(input.Position, 1.0), mvp.Model);
-    float4 viewPos = mul(worldPos, mvp.View);
-
-    PSInput output;
-    output.Position = mul(viewPos, mvp.Projection);
-    output.Color = input.Color;
-
-    return output;
-}
-</code></pre>
-<p>C# <code>Matrix4x4</code> and Slang (with <code>-matrix-layout-row-major</code>) both use row-major layout, so the multiplication order is <code>vector * matrix</code>. The vertex shader applies transformations in order: Model → View → Projection. Use <code>ConstantBuffer&lt;T&gt;</code> in Slang to access structured constant data.</p>
-<h3 id="frame-update">Frame Update</h3>
-<pre><code class="lang-csharp">public void Update(double deltaTime)
-{
-    rotationAngle += (float)deltaTime;
-}
-</code></pre>
-<p>The <code>Update</code> method is called each frame with the elapsed time. Accumulating <code>deltaTime</code> creates smooth, frame-rate-independent rotation.</p>
-<h3 id="creating-matrices">Creating Matrices</h3>
-<pre><code class="lang-csharp">Matrix4x4 model = Matrix4x4.CreateRotationY(rotationAngle) * Matrix4x4.CreateRotationX(rotationAngle * 0.5f);
-Matrix4x4 view = Matrix4x4.CreateLookAt(new(0, 0, 3), Vector3.Zero, Vector3.UnitY);
-Matrix4x4 projection = Matrix4x4.CreatePerspectiveFieldOfView(float.DegreesToRadians(45.0f), (float)App.Width / App.Height, 0.1f, 100.0f);
-</code></pre>
-<table>
-<thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>CreateRotationY/X</code></td>
-<td>Rotate around an axis</td>
-</tr>
-<tr>
-<td><code>CreateLookAt</code></td>
-<td>Position camera at (0,0,3) looking at origin</td>
-</tr>
-<tr>
-<td><code>CreatePerspectiveFieldOfView</code></td>
-<td>45° FOV perspective projection</td>
-</tr>
-</tbody>
-</table>
-<h3 id="back-face-culling">Back-Face Culling</h3>
-<pre><code class="lang-csharp">RasterizerState = RasterizerStates.CullBack
-</code></pre>
-<p>For closed 3D objects, enable back-face culling to skip rendering triangles facing away from the camera, improving performance.</p>
-<h2 id="what-youve-learned">What You've Learned</h2>
-<p>Congratulations! You've completed the Getting Started tutorials. You now understand:</p>
-<ul>
-<li>Creating vertex and index buffers</li>
-<li>Compiling shaders with Slang</li>
-<li>Building graphics pipelines</li>
-<li>Loading textures and creating samplers</li>
-<li>Resource binding with layouts and tables</li>
-<li>Using constant buffers for per-frame data</li>
-<li>MVP transformations for 3D rendering</li>
-</ul>
+<p>Back-face culling discards triangles facing away from the camera, which is essential for 3D rendering performance.</p>
 <h2 id="next-steps">Next Steps</h2>
-<p>Continue with intermediate topics:</p>
 <ul>
-<li><a href="../intermediate/compute-shader.html">Compute Shader</a> - Run general-purpose GPU computations for image processing</li>
+<li><a href="../intermediate/compute-shader.html">Compute Shader</a> - Process textures on the GPU with compute pipelines</li>
 </ul>
 <h2 id="source-code">Source Code</h2>
 <div class="TIP">
