@@ -35,7 +35,7 @@ jobs:
         run: docfx source-repo/${{ matrix.docs_folder }}/docfx.json
         continue-on-error: true
         env:
-          GITHUB_REF_NAME: ${{ matrix.branch }}
+          DOCFX_SOURCE_BRANCH_NAME: ${{ matrix.branch }}
 
       - name: Copy Output
         run: |
