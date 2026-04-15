@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Compute Shader | Zenith.NET </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Compute Shader | Zenith.NET ">
+      
+      
+      <link rel="icon" href="../../images/Zenith.NET.png">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/qian-o/Zenith.NET/blob/master/documents/tutorials/intermediate/compute-shader.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/Zenith.NET-Logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="compute-shader">Compute Shader</h1>
+
+<p>In this tutorial, you'll use a compute pipeline to process an image on the GPU — converting it from color to grayscale. This introduces compute shaders, read/write textures, and dispatching work groups.</p>
+<h2 id="overview">Overview</h2>
+<p>This tutorial covers:</p>
+<ul>
+<li>Creating a <strong>compute pipeline</strong> with thread group configuration</li>
+<li>Using <code>Texture2D</code> (read-only) and <code>RWTexture2D</code> (read-write) resources</li>
+<li><strong>Dispatching</strong> compute work groups based on texture dimensions</li>
+<li>Performing <strong>linearize → grayscale → gamma</strong> color conversion</li>
+<li>Copying the processed texture to the frame buffer with centered placement</li>
+</ul>
+<h2 id="the-renderer-class">The Renderer Class</h2>
+<p>Create the file <code>Renderers/ComputeShaderRenderer.cs</code>:</p>
+<pre><code class="lang-csharp">namespace ZenithTutorials.Renderers;
+
+internal class ComputeShaderRenderer : IRenderer
+{
+    private const uint ThreadGroupSize = 16;
+
+    private const string ShaderSource = &quot;&quot;&quot;
+        Texture2D inputTexture;
+        RWTexture2D outputTexture;
+
+        [numthreads(16, 16, 1)]
+        void CSMain(uint3 dispatchThreadID: SV_DispatchThreadID)
+        {
+            uint width, height;
+            outputTexture.GetDimensions(width, height);
+
+            if (dispatchThreadID.x &gt;= width || dispatchThreadID.y &gt;= height)
+            {
+                return;
+            }
+
+            float4 color = inputTexture[dispatchThreadID.xy];
+
+            float3 linear = pow(color.rgb, 2.2);
+            float gray = dot(linear, float3(0.2126, 0.7152, 0.0722));
+            gray = pow(gray, 1.0 / 2.2);
+
+            outputTexture[dispatchThreadID.xy] = float4(gray, gray, gray, color.a);
+        }
+        &quot;&quot;&quot;;
+
+    private readonly Texture inputTexture;
+    private readonly Texture outputTexture;
+    private readonly ResourceLayout resourceLayout;
+    private readonly ResourceTable resourceTable;
+    private readonly ComputePipeline pipeline;
+
+    private bool processed;
+
+    public ComputeShaderRenderer()
+    {
+        inputTexture = App.Context.LoadTextureFromFile(Path.Combine(AppContext.BaseDirectory, &quot;Assets&quot;, &quot;shoko.png&quot;), generateMipMaps: false);
+
+        outputTexture = App.Context.CreateTexture(new()
+        {
+            Type = TextureType.Texture2D,
+            Format = PixelFormat.B8G8R8A8UNorm,
+            Width = inputTexture.Desc.Width,
+            Height = inputTexture.Desc.Height,
+            Depth = 1,
+            MipLevels = 1,
+            ArrayLayers = 1,
+            SampleCount = SampleCount.Count1,
+            Flags = TextureUsageFlags.ShaderResource | TextureUsageFlags.UnorderedAccess
+        });
+
+        resourceLayout = App.Context.CreateResourceLayout(new()
+        {
+            Bindings = BindingHelper.Bindings
+            (
+                new() { Type = ResourceType.Texture, Count = 1, StageFlags = ShaderStageFlags.Compute },
+                new() { Type = ResourceType.TextureReadWrite, Count = 1, StageFlags = ShaderStageFlags.Compute }
+            )
+        });
+
+        resourceTable = App.Context.CreateResourceTable(new()
+        {
+            Layout = resourceLayout,
+            Resources = [inputTexture, outputTexture]
+        });
+
+        using Shader computeShader = App.Context.LoadShaderFromSource(ShaderSource, &quot;CSMain&quot;, ShaderStageFlags.Compute);
+
+        pipeline = App.Context.CreateComputePipeline(new()
+        {
+            Compute = computeShader,
+            ResourceLayout = resourceLayout,
+            ThreadGroupSizeX = ThreadGroupSize,
+            ThreadGroupSizeY = ThreadGroupSize,
+            ThreadGroupSizeZ = 1
+        });
+    }
+
+    public void Update(double deltaTime)
+    {
+    }
+
+    public void Render()
+    {
+        CommandBuffer commandBuffer = App.Context.Graphics.CommandBuffer();
+
+        if (!processed)
+        {
+            uint dispatchX = (inputTexture.Desc.Width + ThreadGroupSize - 1) / ThreadGroupSize;
+            uint dispatchY = (inputTexture.Desc.Height + ThreadGroupSize - 1) / ThreadGroupSize;
+
+            commandBuffer.SetPipeline(pipeline);
+            commandBuffer.SetResourceTable(resourceTable);
+            commandBuffer.Dispatch(dispatchX, dispatchY, 1);
+
+            processed = true;
+        }
+
+        Texture colorTarget = App.FrameBuffer.Desc.ColorAttachments[0].Target;
+
+        uint copyWidth = Math.Min(outputTexture.Desc.Width, App.Width);
+        uint copyHeight = Math.Min(outputTexture.Desc.Height, App.Height);
+
+        uint srcX = (outputTexture.Desc.Width - copyWidth) / 2;
+        uint srcY = (outputTexture.Desc.Height - copyHeight) / 2;
+        uint destX = (App.Width - copyWidth) / 2;
+        uint destY = (App.Height - copyHeight) / 2;
+
+        commandBuffer.CopyTexture(outputTexture,
+                                  default,
+                                  new() { X = srcX, Y = srcY, Z = 0 },
+                                  colorTarget,
+                                  default,
+                                  new() { X = destX, Y = destY, Z = 0 },
+                                  new() { Width = copyWidth, Height = copyHeight, Depth = 1 });
+
+        commandBuffer.Submit(waitForCompletion: true);
+    }
+
+    public void Resize(uint width, uint height)
+    {
+    }
+
+    public void Dispose()
+    {
+        pipeline.Dispose();
+        resourceTable.Dispose();
+        resourceLayout.Dispose();
+        outputTexture.Dispose();
+        inputTexture.Dispose();
+    }
+}
+</code></pre>
+<h2 id="running-the-tutorial">Running the Tutorial</h2>
+<p>Run the application and select <strong>4. Compute Shader</strong> from the menu:</p>
+<pre><code class="lang-bash">dotnet run
+</code></pre>
+<h2 id="result">Result</h2>
+<p><img src="../../images/compute-shader.png" alt="Compute Shader"></p>
+<h2 id="code-breakdown">Code Breakdown</h2>
+<h3 id="shader">Shader</h3>
+<p>The compute shader processes each pixel independently in 16×16 thread groups:</p>
+<pre><code class="lang-csharp">private const string ShaderSource = &quot;&quot;&quot;
+    Texture2D inputTexture;
+    RWTexture2D outputTexture;
+
+    [numthreads(16, 16, 1)]
+    void CSMain(uint3 dispatchThreadID: SV_DispatchThreadID)
+    {
+        uint width, height;
+        outputTexture.GetDimensions(width, height);
+
+        if (dispatchThreadID.x &gt;= width || dispatchThreadID.y &gt;= height)
+        {
+            return;
+        }
+
+        float4 color = inputTexture[dispatchThreadID.xy];
+
+        float3 linear = pow(color.rgb, 2.2);
+        float gray = dot(linear, float3(0.2126, 0.7152, 0.0722));
+        gray = pow(gray, 1.0 / 2.2);
+
+        outputTexture[dispatchThreadID.xy] = float4(gray, gray, gray, color.a);
+    }
+    &quot;&quot;&quot;;
+</code></pre>
+<p>The grayscale conversion follows three steps:</p>
+<ol>
+<li><strong>Linearize</strong>: <code>pow(color.rgb, 2.2)</code> removes sRGB gamma</li>
+<li><strong>Luminance</strong>: <code>dot(linear, float3(0.2126, 0.7152, 0.0722))</code> computes perceptual brightness using Rec. 709 coefficients</li>
+<li><strong>Re-encode</strong>: <code>pow(gray, 1.0 / 2.2)</code> applies gamma correction</li>
+</ol>
+<h3 id="compute-pipeline">Compute Pipeline</h3>
+<p>Unlike the graphics pipeline, a compute pipeline has no vertex/pixel stages or render states:</p>
+<pre><code class="lang-csharp">pipeline = App.Context.CreateComputePipeline(new()
+{
+    Compute = computeShader,
+    ResourceLayout = resourceLayout,
+    ThreadGroupSizeX = ThreadGroupSize,
+    ThreadGroupSizeY = ThreadGroupSize,
+    ThreadGroupSizeZ = 1
+});
+</code></pre>
+<p>The thread group size (16×16×1) defines how many threads run per group. This must match the <code>[numthreads]</code> attribute in the shader.</p>
+<h3 id="output-texture">Output Texture</h3>
+<p>The output texture is created with <code>UnorderedAccess</code> to allow compute shader writes:</p>
+<pre><code class="lang-csharp">outputTexture = App.Context.CreateTexture(new()
+{
+    Type = TextureType.Texture2D,
+    Format = PixelFormat.B8G8R8A8UNorm,
+    Width = inputTexture.Desc.Width,
+    Height = inputTexture.Desc.Height,
+    Depth = 1,
+    MipLevels = 1,
+    ArrayLayers = 1,
+    SampleCount = SampleCount.Count1,
+    Flags = TextureUsageFlags.ShaderResource | TextureUsageFlags.UnorderedAccess
+});
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ShaderResource</code></td>
+<td>Can be read as <code>Texture2D</code> in shaders</td>
+</tr>
+<tr>
+<td><code>UnorderedAccess</code></td>
+<td>Can be written as <code>RWTexture2D</code> in compute shaders</td>
+</tr>
+</tbody>
+</table>
+<h3 id="dispatch-and-copy">Dispatch and Copy</h3>
+<p>The compute shader runs once, then the result is copied centered to the frame buffer each frame:</p>
+<pre><code class="lang-csharp">if (!processed)
+{
+    uint dispatchX = (inputTexture.Desc.Width + ThreadGroupSize - 1) / ThreadGroupSize;
+    uint dispatchY = (inputTexture.Desc.Height + ThreadGroupSize - 1) / ThreadGroupSize;
+
+    commandBuffer.SetPipeline(pipeline);
+    commandBuffer.SetResourceTable(resourceTable);
+    commandBuffer.Dispatch(dispatchX, dispatchY, 1);
+
+    processed = true;
+}
+</code></pre>
+<p>The dispatch count is computed as <code>ceil(dimension / threadGroupSize)</code> to ensure all pixels are covered.</p>
+<p>The <code>CopyTexture</code> call copies the result centered within the swap chain's color target, handling cases where the image and window have different sizes.</p>
+<h2 id="next-steps">Next Steps</h2>
+<ul>
+<li><a href="indirect-drawing.html">Indirect Drawing</a> - Draw multiple instances with GPU-driven indirect commands</li>
+</ul>
+<h2 id="source-code">Source Code</h2>
+<div class="TIP">
+<h5>Tip</h5>
+<p>View the complete source code on GitHub: <a href="https://github.com/qian-o/ZenithTutorials/blob/master/ZenithTutorials/Renderers/ComputeShaderRenderer.cs">ComputeShaderRenderer.cs</a></p>
+</div>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/qian-o/Zenith.NET/blob/master/documents/tutorials/intermediate/compute-shader.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
