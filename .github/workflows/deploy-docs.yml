@@ -6,19 +6,9 @@ on:
 jobs:
   build:
     runs-on: windows-latest
-    strategy:
-      matrix:
-        include:
-          - repo_url: https://github.com/qian-o/Zenith.NET
-            branch: master
-            docs_folder: documents
-            output_folder: Zenith.NET
 
     steps:
       - uses: actions/checkout@v6
-
-      - name: Clone Repository
-        run: git clone -b ${{ matrix.branch }} ${{ matrix.repo_url }} source-repo
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v5
@@ -31,25 +21,27 @@ jobs:
       - name: Install DocFX
         run: dotnet tool install -g docfx
 
-      - name: Build
-        run: docfx source-repo/${{ matrix.docs_folder }}/docfx.json
-        continue-on-error: true
-        env:
-          DOCFX_SOURCE_BRANCH_NAME: ${{ matrix.branch }}
-
-      - name: Copy Output
+      - name: Build Docs
         run: |
-          Remove-Item -Recurse -Force "${{ matrix.output_folder }}" -ErrorAction SilentlyContinue
-          Copy-Item -Recurse "source-repo/${{ matrix.docs_folder }}/_site" "${{ matrix.output_folder }}"
+          $repos = @(
+            @{ Url = "https://github.com/qian-o/Zenith.NET"; Branch = "master"; DocsFolder = "documents"; OutputFolder = "Zenith.NET" }
+          )
 
-      - name: Clean Up
-        run: Remove-Item -Recurse -Force "source-repo"
+          foreach ($repo in $repos) {
+            Write-Host "Building $($repo.OutputFolder) docs..."
+            git clone -b $repo.Branch $repo.Url source-repo
+            $env:DOCFX_SOURCE_BRANCH_NAME = $repo.Branch
+            docfx source-repo/$($repo.DocsFolder)/docfx.json
+            Remove-Item -Recurse -Force $repo.OutputFolder -ErrorAction SilentlyContinue
+            Copy-Item -Recurse "source-repo/$($repo.DocsFolder)/_site" $repo.OutputFolder
+            Remove-Item -Recurse -Force "source-repo"
+          }
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v7
         with:
-          branch: update-${{ matrix.output_folder }}-docs
-          commit-message: "Update ${{ matrix.output_folder }} documentation"
-          title: "Update ${{ matrix.output_folder }} documentation"
-          body: "This PR updates the ${{ matrix.output_folder }} documentation."
+          branch: update-docs
+          commit-message: "Update documentation"
+          title: "Update documentation"
+          body: "This PR updates the documentation."
           labels: "documentation"
