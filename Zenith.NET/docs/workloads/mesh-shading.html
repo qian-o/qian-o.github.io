@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Mesh Shading | Zenith.NET </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Mesh Shading | Zenith.NET ">
+      
+      
+      <link rel="icon" href="../../images/Zenith.NET.svg">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/qian-o/Zenith.NET/blob/master/documents/docs/workloads/mesh-shading.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/Zenith.NET-Logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="mesh-shading">Mesh Shading</h1>
+
+<p>Mesh shading is an optional graphics path that uses mesh shader workgroups instead of vertex and index input.</p>
+<h2 id="check-support">Check Support</h2>
+<p>Check <code>context.Capabilities.MeshShadingSupported</code> before creating a mesh shading pipeline.</p>
+<h2 id="create-the-pipeline">Create the Pipeline</h2>
+<p>Compile the mesh and fragment entry points for the active context. Compile a task entry point only when the workload uses a task stage. See <a href="../fundamentals/shaders.html">Shaders</a> for the shared compilation workflow.</p>
+<p>Create a pipeline from a description whose attachment formats match the render pass:</p>
+<pre><code class="lang-csharp">MeshShadingPipelineDesc desc = new()
+{
+    TaskShader = null,
+    MeshShader = meshShader,
+    FragmentShader = fragmentShader,
+    PrimitiveTopology = PrimitiveTopology.TriangleList,
+    AttachmentFormats = attachmentFormats,
+    RenderState = renderState
+};
+
+MeshShadingPipeline pipeline = context.CreateMeshShadingPipeline(desc);
+</code></pre>
+<p>Set <code>TaskShader</code> to a compiled task entry point when the workload uses a task stage.</p>
+<h2 id="dispatch-mesh-work">Dispatch Mesh Work</h2>
+<p>Mesh dispatch runs inside a render pass:</p>
+<pre><code class="lang-csharp">commandBuffer.Transition(texture, default, TextureLayout.Undefined, TextureLayout.ColorAttachment);
+commandBuffer.BeginRenderPass([ColorAttachment.Clear(texture, default)], null);
+
+commandBuffer.SetPipeline(pipeline);
+commandBuffer.DispatchMesh(groupCountX, groupCountY, groupCountZ);
+
+commandBuffer.EndRenderPass();
+</code></pre>
+<p>Without a task stage, the dispatch counts select mesh shader workgroups directly. When <code>TaskShader</code> is present, they select task shader workgroups, and each task workgroup determines how many mesh shader workgroups to launch. Each mesh shader workgroup determines how many vertices and primitives it emits.</p>
+<h2 id="dispatch-indirectly">Dispatch Indirectly</h2>
+<p><code>DispatchMeshIndirect</code> reads one or more <code>IndirectDispatchMeshArgs</code> records. Its counts follow the same task-versus-mesh workgroup interpretation as <code>DispatchMesh</code>.</p>
+<p>Create the argument buffer with <code>BufferUsages.Indirect</code>. If earlier GPU work writes the arguments, also add the matching storage usage and record a barrier before dispatch.</p>
+<p>See <a href="../fundamentals/bindless-resources.html">Bindless Resources</a> for shader-visible mesh data and <a href="../fundamentals/synchronization.html">Synchronization</a> when GPU work produces mesh data or indirect arguments.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/qian-o/Zenith.NET/blob/master/documents/docs/workloads/mesh-shading.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Zenith.NET is a modern rendering hardware interface for .NET.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Views | Zenith.NET </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Views | Zenith.NET ">
+      
+      
+      <link rel="icon" href="../../images/Zenith.NET.svg">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/qian-o/Zenith.NET/blob/master/documents/docs/presentation/views.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/Zenith.NET-Logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="views">Views</h1>
+
+<p>Zenith.NET provides controls for supported .NET UI frameworks. Each control implements <code>IZenithView</code> and manages its own frame presentation.</p>
+<h2 id="framework-packages">Framework Packages</h2>
+<table>
+<thead>
+<tr>
+<th>Package</th>
+<th>Framework</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Zenith.NET.Views.WinForms</code></td>
+<td>Windows Forms</td>
+</tr>
+<tr>
+<td><code>Zenith.NET.Views.WPF</code></td>
+<td>WPF</td>
+</tr>
+<tr>
+<td><code>Zenith.NET.Views.WinUI</code></td>
+<td>WinUI 3 and Uno</td>
+</tr>
+<tr>
+<td><code>Zenith.NET.Views.Maui</code></td>
+<td>.NET MAUI</td>
+</tr>
+<tr>
+<td><code>Zenith.NET.Views.Avalonia</code></td>
+<td>Avalonia</td>
+</tr>
+</tbody>
+</table>
+<p>Add the package for the framework used by the application.</p>
+<h2 id="connect-a-view">Connect a View</h2>
+<p>Assign a <code>GraphicsContext</code>, then subscribe to updates and rendering:</p>
+<pre><code class="lang-csharp">view.GraphicsContext = context;
+
+view.RenderRequested += (_, args) =&gt;
+{
+    args.CommandBuffer.BeginRenderPass([ColorAttachment.Clear(args.Drawable, default)], null);
+
+    args.CommandBuffer.SetPipeline(pipeline);
+    args.CommandBuffer.Draw(vertexCount, 1, 0, 0);
+
+    args.CommandBuffer.EndRenderPass();
+};
+</code></pre>
+<p>Both event argument types provide <code>DeltaSeconds</code> and <code>TotalSeconds</code>. <code>RenderEventArgs</code> also provides the current <code>CommandBuffer</code> and <code>Drawable</code>.</p>
+<h2 id="follow-the-callback-contract">Follow the Callback Contract</h2>
+<p>The command buffer and drawable are borrowed for the duration of the synchronous <code>RenderRequested</code> callback. Within the callback:</p>
+<ul>
+<li>Record commands into <code>args.CommandBuffer</code>.</li>
+<li>Treat <code>args.Drawable</code> as a <code>ColorAttachment</code>.</li>
+<li>End every render pass before returning.</li>
+<li>Do not submit, wait, dispose, or retain either object.</li>
+</ul>
+<p>The View completes and presents the frame after the callback returns. Dispose application-owned pipelines and resources separately, and keep the assigned context alive until the control has released its rendering resources.</p>
+<p>For graphics API selection, see <a href="../fundamentals/runtime.html">Runtime</a>. Use <a href="swap-chains.html">Swap Chains</a> when the application manages a window without a View integration.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/qian-o/Zenith.NET/blob/master/documents/docs/presentation/views.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Zenith.NET is a modern rendering hardware interface for .NET.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

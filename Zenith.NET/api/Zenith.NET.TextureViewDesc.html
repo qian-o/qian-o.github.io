@@ -7,7 +7,7 @@
       <meta name="title" content="Struct TextureViewDesc | Zenith.NET ">
       
       
-      <link rel="icon" href="../images/Zenith.NET.png">
+      <link rel="icon" href="../images/Zenith.NET.svg">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
       <meta name="docfx:navrel" content="../toc.html">
@@ -93,7 +93,7 @@ Struct TextureViewDesc  <a class="header-action link-secondary" title="View sour
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="Zenith.html">Zenith</a>.<a class="xref" href="Zenith.NET.html">NET</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Zenith.NET.html">Zenith.NET</a></dd></dl>
   <dl><dt>Assembly</dt><dd>Zenith.NET.dll</dd></dl>
   </div>
 
@@ -101,19 +101,13 @@ Struct TextureViewDesc  <a class="header-action link-secondary" title="View sour
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public record struct TextureViewDesc : IEquatable&lt;TextureViewDesc&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public struct TextureViewDesc</code></pre>
   </div>
 
 
 
 
 
-  <dl class="typelist implements">
-    <dt>Implements</dt>
-    <dd>
-      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="Zenith.NET.TextureViewDesc.html">TextureViewDesc</a>&gt;</div>
-    </dd>
-  </dl>
 
 
   <dl class="typelist inheritedMembers">
@@ -149,98 +143,8 @@ Struct TextureViewDesc  <a class="header-action link-secondary" title="View sour
 
 
 
-  <h3 id="Zenith_NET_TextureViewDesc_ArrayLayerCount" data-uid="Zenith.NET.TextureViewDesc.ArrayLayerCount">
-  ArrayLayerCount
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Structs/TextureViewDesc.cs/#L13"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public uint ArrayLayerCount</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <h3 id="Zenith_NET_TextureViewDesc_FirstArrayLayer" data-uid="Zenith.NET.TextureViewDesc.FirstArrayLayer">
-  FirstArrayLayer
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Structs/TextureViewDesc.cs/#L11"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public uint FirstArrayLayer</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <h3 id="Zenith_NET_TextureViewDesc_FirstMipLevel" data-uid="Zenith.NET.TextureViewDesc.FirstMipLevel">
-  FirstMipLevel
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Structs/TextureViewDesc.cs/#L7"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public uint FirstMipLevel</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <h3 id="Zenith_NET_TextureViewDesc_MipLevelCount" data-uid="Zenith.NET.TextureViewDesc.MipLevelCount">
-  MipLevelCount
+  <h3 id="Zenith_NET_TextureViewDesc_Format" data-uid="Zenith.NET.TextureViewDesc.Format">
+  Format
   <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Structs/TextureViewDesc.cs/#L9"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -248,7 +152,7 @@ Struct TextureViewDesc  <a class="header-action link-secondary" title="View sour
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public uint MipLevelCount</code></pre>
+    <pre><code class="lang-csharp hljs">public PixelFormat Format</code></pre>
   </div>
 
 
@@ -256,7 +160,37 @@ Struct TextureViewDesc  <a class="header-action link-secondary" title="View sour
 
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dt><a class="xref" href="Zenith.NET.PixelFormat.html">PixelFormat</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Zenith_NET_TextureViewDesc_Range" data-uid="Zenith.NET.TextureViewDesc.Range">
+  Range
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Structs/TextureViewDesc.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextureSubresourceRange Range</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Zenith.NET.TextureSubresourceRange.html">TextureSubresourceRange</a></dt>
     <dd></dd>
   </dl>
 
@@ -299,6 +233,348 @@ Struct TextureViewDesc  <a class="header-action link-secondary" title="View sour
 
 
 
+  <h3 id="Zenith_NET_TextureViewDesc_Type" data-uid="Zenith.NET.TextureViewDesc.Type">
+  Type
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Structs/TextureViewDesc.cs/#L7"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextureType Type</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Zenith.NET.TextureType.html">TextureType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Zenith_NET_TextureViewDesc_Texture1D_" data-uid="Zenith.NET.TextureViewDesc.Texture1D*"></a>
+
+  <h3 id="Zenith_NET_TextureViewDesc_Texture1D_Zenith_NET_Texture_Zenith_NET_PixelFormat_System_UInt32_System_UInt32_" data-uid="Zenith.NET.TextureViewDesc.Texture1D(Zenith.NET.Texture,Zenith.NET.PixelFormat,System.UInt32,System.UInt32)">
+  Texture1D(Texture, PixelFormat, uint, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Structs/TextureViewDesc.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TextureViewDesc Texture1D(Texture texture, PixelFormat format, uint baseMipLevel, uint mipLevelCount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>texture</code> <a class="xref" href="Zenith.NET.Texture.html">Texture</a></dt>
+    <dd></dd>
+    <dt><code>format</code> <a class="xref" href="Zenith.NET.PixelFormat.html">PixelFormat</a></dt>
+    <dd></dd>
+    <dt><code>baseMipLevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>mipLevelCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Zenith.NET.TextureViewDesc.html">TextureViewDesc</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_TextureViewDesc_Texture1DArray_" data-uid="Zenith.NET.TextureViewDesc.Texture1DArray*"></a>
+
+  <h3 id="Zenith_NET_TextureViewDesc_Texture1DArray_Zenith_NET_Texture_Zenith_NET_PixelFormat_System_UInt32_System_UInt32_System_UInt32_System_UInt32_" data-uid="Zenith.NET.TextureViewDesc.Texture1DArray(Zenith.NET.Texture,Zenith.NET.PixelFormat,System.UInt32,System.UInt32,System.UInt32,System.UInt32)">
+  Texture1DArray(Texture, PixelFormat, uint, uint, uint, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Structs/TextureViewDesc.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TextureViewDesc Texture1DArray(Texture texture, PixelFormat format, uint baseArrayLayer, uint layerCount, uint baseMipLevel, uint mipLevelCount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>texture</code> <a class="xref" href="Zenith.NET.Texture.html">Texture</a></dt>
+    <dd></dd>
+    <dt><code>format</code> <a class="xref" href="Zenith.NET.PixelFormat.html">PixelFormat</a></dt>
+    <dd></dd>
+    <dt><code>baseArrayLayer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>layerCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>baseMipLevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>mipLevelCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Zenith.NET.TextureViewDesc.html">TextureViewDesc</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_TextureViewDesc_Texture2D_" data-uid="Zenith.NET.TextureViewDesc.Texture2D*"></a>
+
+  <h3 id="Zenith_NET_TextureViewDesc_Texture2D_Zenith_NET_Texture_Zenith_NET_PixelFormat_System_UInt32_System_UInt32_" data-uid="Zenith.NET.TextureViewDesc.Texture2D(Zenith.NET.Texture,Zenith.NET.PixelFormat,System.UInt32,System.UInt32)">
+  Texture2D(Texture, PixelFormat, uint, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Structs/TextureViewDesc.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TextureViewDesc Texture2D(Texture texture, PixelFormat format, uint baseMipLevel, uint mipLevelCount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>texture</code> <a class="xref" href="Zenith.NET.Texture.html">Texture</a></dt>
+    <dd></dd>
+    <dt><code>format</code> <a class="xref" href="Zenith.NET.PixelFormat.html">PixelFormat</a></dt>
+    <dd></dd>
+    <dt><code>baseMipLevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>mipLevelCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Zenith.NET.TextureViewDesc.html">TextureViewDesc</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_TextureViewDesc_Texture2DArray_" data-uid="Zenith.NET.TextureViewDesc.Texture2DArray*"></a>
+
+  <h3 id="Zenith_NET_TextureViewDesc_Texture2DArray_Zenith_NET_Texture_Zenith_NET_PixelFormat_System_UInt32_System_UInt32_System_UInt32_System_UInt32_" data-uid="Zenith.NET.TextureViewDesc.Texture2DArray(Zenith.NET.Texture,Zenith.NET.PixelFormat,System.UInt32,System.UInt32,System.UInt32,System.UInt32)">
+  Texture2DArray(Texture, PixelFormat, uint, uint, uint, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Structs/TextureViewDesc.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TextureViewDesc Texture2DArray(Texture texture, PixelFormat format, uint baseArrayLayer, uint layerCount, uint baseMipLevel, uint mipLevelCount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>texture</code> <a class="xref" href="Zenith.NET.Texture.html">Texture</a></dt>
+    <dd></dd>
+    <dt><code>format</code> <a class="xref" href="Zenith.NET.PixelFormat.html">PixelFormat</a></dt>
+    <dd></dd>
+    <dt><code>baseArrayLayer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>layerCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>baseMipLevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>mipLevelCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Zenith.NET.TextureViewDesc.html">TextureViewDesc</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_TextureViewDesc_Texture3D_" data-uid="Zenith.NET.TextureViewDesc.Texture3D*"></a>
+
+  <h3 id="Zenith_NET_TextureViewDesc_Texture3D_Zenith_NET_Texture_Zenith_NET_PixelFormat_System_UInt32_System_UInt32_" data-uid="Zenith.NET.TextureViewDesc.Texture3D(Zenith.NET.Texture,Zenith.NET.PixelFormat,System.UInt32,System.UInt32)">
+  Texture3D(Texture, PixelFormat, uint, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Structs/TextureViewDesc.cs/#L81"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TextureViewDesc Texture3D(Texture texture, PixelFormat format, uint baseMipLevel, uint mipLevelCount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>texture</code> <a class="xref" href="Zenith.NET.Texture.html">Texture</a></dt>
+    <dd></dd>
+    <dt><code>format</code> <a class="xref" href="Zenith.NET.PixelFormat.html">PixelFormat</a></dt>
+    <dd></dd>
+    <dt><code>baseMipLevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>mipLevelCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Zenith.NET.TextureViewDesc.html">TextureViewDesc</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_TextureViewDesc_TextureCube_" data-uid="Zenith.NET.TextureViewDesc.TextureCube*"></a>
+
+  <h3 id="Zenith_NET_TextureViewDesc_TextureCube_Zenith_NET_Texture_Zenith_NET_PixelFormat_System_UInt32_System_UInt32_System_UInt32_" data-uid="Zenith.NET.TextureViewDesc.TextureCube(Zenith.NET.Texture,Zenith.NET.PixelFormat,System.UInt32,System.UInt32,System.UInt32)">
+  TextureCube(Texture, PixelFormat, uint, uint, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Structs/TextureViewDesc.cs/#L98"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TextureViewDesc TextureCube(Texture texture, PixelFormat format, uint baseCubeIndex, uint baseMipLevel, uint mipLevelCount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>texture</code> <a class="xref" href="Zenith.NET.Texture.html">Texture</a></dt>
+    <dd></dd>
+    <dt><code>format</code> <a class="xref" href="Zenith.NET.PixelFormat.html">PixelFormat</a></dt>
+    <dd></dd>
+    <dt><code>baseCubeIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>baseMipLevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>mipLevelCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Zenith.NET.TextureViewDesc.html">TextureViewDesc</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_TextureViewDesc_TextureCubeArray_" data-uid="Zenith.NET.TextureViewDesc.TextureCubeArray*"></a>
+
+  <h3 id="Zenith_NET_TextureViewDesc_TextureCubeArray_Zenith_NET_Texture_Zenith_NET_PixelFormat_System_UInt32_System_UInt32_System_UInt32_System_UInt32_" data-uid="Zenith.NET.TextureViewDesc.TextureCubeArray(Zenith.NET.Texture,Zenith.NET.PixelFormat,System.UInt32,System.UInt32,System.UInt32,System.UInt32)">
+  TextureCubeArray(Texture, PixelFormat, uint, uint, uint, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Structs/TextureViewDesc.cs/#L115"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TextureViewDesc TextureCubeArray(Texture texture, PixelFormat format, uint baseCubeIndex, uint cubeCount, uint baseMipLevel, uint mipLevelCount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>texture</code> <a class="xref" href="Zenith.NET.Texture.html">Texture</a></dt>
+    <dd></dd>
+    <dt><code>format</code> <a class="xref" href="Zenith.NET.PixelFormat.html">PixelFormat</a></dt>
+    <dd></dd>
+    <dt><code>baseCubeIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>cubeCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>baseMipLevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>mipLevelCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Zenith.NET.TextureViewDesc.html">TextureViewDesc</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
 </article>
 
         <div class="contribution d-print-none">
@@ -318,7 +594,7 @@ Struct TextureViewDesc  <a class="header-action link-secondary" title="View sour
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+          Zenith.NET is a modern rendering hardware interface for .NET.
         </div>
       </div>
     </footer>

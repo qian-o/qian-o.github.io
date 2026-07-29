@@ -7,7 +7,7 @@
       <meta name="title" content="Class ImGuiController | Zenith.NET ">
       
       
-      <link rel="icon" href="../images/Zenith.NET.png">
+      <link rel="icon" href="../images/Zenith.NET.svg">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
       <meta name="docfx:navrel" content="../toc.html">
@@ -93,7 +93,7 @@ Class ImGuiController  <a class="header-action link-secondary" title="View sourc
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="Zenith.html">Zenith</a>.<a class="xref" href="Zenith.NET.html">NET</a>.<a class="xref" href="Zenith.NET.Extensions.html">Extensions</a>.<a class="xref" href="Zenith.NET.Extensions.ImGui.html">ImGui</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Zenith.NET.Extensions.ImGui.html">Zenith.NET.Extensions.ImGui</a></dd></dl>
   <dl><dt>Assembly</dt><dd>Zenith.NET.Extensions.ImGui.dll</dd></dl>
   </div>
 
@@ -101,7 +101,7 @@ Class ImGuiController  <a class="header-action link-secondary" title="View sourc
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class ImGuiController : DisposableObject, IDisposableObject, IDisposable</code></pre>
+    <pre><code class="lang-csharp hljs">public class ImGuiController : DisposableObject, IDisposable</code></pre>
   </div>
 
 
@@ -119,7 +119,6 @@ Class ImGuiController  <a class="header-action link-secondary" title="View sourc
   <dl class="typelist implements">
     <dt>Implements</dt>
     <dd>
-      <div><a class="xref" href="Zenith.NET.IDisposableObject.html">IDisposableObject</a></div>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
     </dd>
   </dl>
@@ -168,8 +167,8 @@ Class ImGuiController  <a class="header-action link-secondary" title="View sourc
 
   <a id="Zenith_NET_Extensions_ImGui_ImGuiController__ctor_" data-uid="Zenith.NET.Extensions.ImGui.ImGuiController.#ctor*"></a>
 
-  <h3 id="Zenith_NET_Extensions_ImGui_ImGuiController__ctor_Zenith_NET_GraphicsContext_Zenith_NET_Output_Zenith_NET_Extensions_ImGui_ImGuiColorSpace_System_String_System_Action_Hexa_NET_ImGui_ImGuiIOPtr__" data-uid="Zenith.NET.Extensions.ImGui.ImGuiController.#ctor(Zenith.NET.GraphicsContext,Zenith.NET.Output,Zenith.NET.Extensions.ImGui.ImGuiColorSpace,System.String,System.Action{Hexa.NET.ImGui.ImGuiIOPtr})">
-  ImGuiController(GraphicsContext, Output, ImGuiColorSpace, string?, Action&lt;ImGuiIOPtr&gt;?)
+  <h3 id="Zenith_NET_Extensions_ImGui_ImGuiController__ctor_Zenith_NET_GraphicsContext_Zenith_NET_AttachmentFormats_Zenith_NET_Extensions_ImGui_ImGuiColorSpace_System_String_System_Action_Hexa_NET_ImGui_ImGuiIOPtr__" data-uid="Zenith.NET.Extensions.ImGui.ImGuiController.#ctor(Zenith.NET.GraphicsContext,Zenith.NET.AttachmentFormats,Zenith.NET.Extensions.ImGui.ImGuiColorSpace,System.String,System.Action{Hexa.NET.ImGui.ImGuiIOPtr})">
+  ImGuiController(GraphicsContext, AttachmentFormats, ImGuiColorSpace, string?, Action&lt;ImGuiIOPtr&gt;?)
   <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Extensions/Zenith.NET.Extensions.ImGui/ImGuiController.cs/#L28"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -177,14 +176,14 @@ Class ImGuiController  <a class="header-action link-secondary" title="View sourc
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ImGuiController(GraphicsContext context, Output output, ImGuiColorSpace colorSpace, string? fontPath = null, Action&lt;ImGuiIOPtr&gt;? otherSetup = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public ImGuiController(GraphicsContext context, AttachmentFormats attachmentFormats, ImGuiColorSpace colorSpace, string? fontPath = null, Action&lt;ImGuiIOPtr&gt;? otherSetup = null)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>context</code> <a class="xref" href="Zenith.NET.GraphicsContext.html">GraphicsContext</a></dt>
     <dd></dd>
-    <dt><code>output</code> <a class="xref" href="Zenith.NET.Output.html">Output</a></dt>
+    <dt><code>attachmentFormats</code> <a class="xref" href="Zenith.NET.AttachmentFormats.html">AttachmentFormats</a></dt>
     <dd></dd>
     <dt><code>colorSpace</code> <a class="xref" href="Zenith.NET.Extensions.ImGui.ImGuiColorSpace.html">ImGuiColorSpace</a></dt>
     <dd></dd>
@@ -592,8 +591,8 @@ Class ImGuiController  <a class="header-action link-secondary" title="View sourc
 
   <a id="Zenith_NET_Extensions_ImGui_ImGuiController_Render_" data-uid="Zenith.NET.Extensions.ImGui.ImGuiController.Render*"></a>
 
-  <h3 id="Zenith_NET_Extensions_ImGui_ImGuiController_Render_Zenith_NET_CommandBuffer_Zenith_NET_FrameBuffer_Zenith_NET_ClearValue_" data-uid="Zenith.NET.Extensions.ImGui.ImGuiController.Render(Zenith.NET.CommandBuffer,Zenith.NET.FrameBuffer,Zenith.NET.ClearValue)">
-  Render(CommandBuffer, FrameBuffer, ClearValue)
+  <h3 id="Zenith_NET_Extensions_ImGui_ImGuiController_Render_Zenith_NET_CommandBuffer_Zenith_NET_ColorAttachment_" data-uid="Zenith.NET.Extensions.ImGui.ImGuiController.Render(Zenith.NET.CommandBuffer,Zenith.NET.ColorAttachment)">
+  Render(CommandBuffer, ColorAttachment)
   <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Extensions/Zenith.NET.Extensions.ImGui/ImGuiController.cs/#L143"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -601,16 +600,14 @@ Class ImGuiController  <a class="header-action link-secondary" title="View sourc
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Render(CommandBuffer commandBuffer, FrameBuffer frameBuffer, ClearValue clearValue)</code></pre>
+    <pre><code class="lang-csharp hljs">public void Render(CommandBuffer commandBuffer, ColorAttachment colorAttachment)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>commandBuffer</code> <a class="xref" href="Zenith.NET.CommandBuffer.html">CommandBuffer</a></dt>
     <dd></dd>
-    <dt><code>frameBuffer</code> <a class="xref" href="Zenith.NET.FrameBuffer.html">FrameBuffer</a></dt>
-    <dd></dd>
-    <dt><code>clearValue</code> <a class="xref" href="Zenith.NET.ClearValue.html">ClearValue</a></dt>
+    <dt><code>colorAttachment</code> <a class="xref" href="Zenith.NET.ColorAttachment.html">ColorAttachment</a></dt>
     <dd></dd>
   </dl>
 
@@ -680,7 +677,7 @@ Class ImGuiController  <a class="header-action link-secondary" title="View sourc
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+          Zenith.NET is a modern rendering hardware interface for .NET.
         </div>
       </div>
     </footer>

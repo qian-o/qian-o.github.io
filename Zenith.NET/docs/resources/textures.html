@@ -7,7 +7,7 @@
       <meta name="title" content="Textures | Zenith.NET ">
       
       
-      <link rel="icon" href="../../images/Zenith.NET.png">
+      <link rel="icon" href="../../images/Zenith.NET.svg">
       <link rel="stylesheet" href="../../public/docfx.min.css">
       <link rel="stylesheet" href="../../public/main.css">
       <meta name="docfx:navrel" content="../../toc.html">
@@ -87,18 +87,59 @@
         <article data-uid="">
 <h1 id="textures">Textures</h1>
 
-<div class="NOTE">
-<h5>Note</h5>
-<p>This page is under construction.</p>
-</div>
-<p>This topic covers:</p>
-<ul>
-<li>Texture types: 2D, 3D, Cube, Array</li>
-<li>Creating and using <code>TextureView</code></li>
-<li>Pixel formats and sample counts</li>
-<li>MipMaps generation</li>
-<li>Uploading texture data</li>
-</ul>
+<p>Textures store formatted one-, two-, or three-dimensional data. A <code>TextureDesc</code> defines the shape, format, sample count, and permitted uses. Each texture subresource has a layout supplied by the application when recording commands.</p>
+<h2 id="create-a-standalone-texture">Create a Standalone Texture</h2>
+<p>When explicit heap placement is unnecessary, create a standalone texture from the context:</p>
+<pre><code class="lang-csharp">TextureDesc desc = new()
+{
+    Type = TextureType.Texture2D,
+    Format = PixelFormat.R8G8B8A8UNorm,
+    Width = width,
+    Height = height,
+    Depth = 1,
+    MipLevels = mipLevels,
+    ArrayLayers = 1,
+    SampleCount = SampleCount.Count1,
+    Usages = TextureUsages.Sampled | TextureUsages.TransferDst
+};
+
+Texture texture = context.CreateTexture(desc);
+</code></pre>
+<p>Other dimensional helpers include <code>Texture1D</code>, <code>Texture3D</code>, and <code>TextureCube</code>. They create sampled textures with <code>TransferDst</code> usage. Attachment helpers create sampled color or depth/stencil render targets.</p>
+<p>Add usages to the description before creation when a texture needs another role. For example, add <code>TextureUsages.Storage</code> before creating a storage texture.</p>
+<p>Usage declares what the texture may do. Layout describes how one subresource is used by recorded commands.</p>
+<h2 id="create-attachments">Create Attachments</h2>
+<p>Use <code>TextureDesc.ColorAttachment</code> and <code>TextureDesc.DepthStencilAttachment</code> for render targets. Transition each attachment to its matching layout before beginning a render pass.</p>
+<h2 id="upload-texture-data">Upload Texture Data</h2>
+<p>Provide the source pointer together with row and slice strides:</p>
+<pre><code class="lang-csharp">texture.Upload(default, TextureLayout.Undefined, TextureLayout.Sampled, default, extent, data);
+</code></pre>
+<p><code>Texture.Upload</code> completes before returning. Supply the known current layout and required final layout; on return, the uploaded subresource is in that final layout.</p>
+<p>Use <code>CommandBuffer.Upload</code> with explicit transitions when several transfers should share one submission.</p>
+<h2 id="load-an-image">Load an Image</h2>
+<p><code>Zenith.NET.Extensions.ImageSharp</code> loads an image into a sampled texture with <code>LoadTextureFromFile</code> or <code>LoadTextureFromStream</code>.</p>
+<p>Enable <code>generateMipMaps</code> when the texture should contain a complete mip chain.</p>
+<h2 id="select-a-subresource">Select a Subresource</h2>
+<p>A <code>TextureSubresource</code> selects one mip level and array layer. Use <code>default</code> for mip level zero and array layer zero, or initialize both fields for another subresource.</p>
+<p>Track the current layout of every subresource used by the application. See <a href="../fundamentals/synchronization.html#transition-a-texture">Synchronization</a> for layout rules.</p>
+<h2 id="create-a-texture-view">Create a Texture View</h2>
+<p>A <code>TextureView</code> selects a type, format, mip range, or array range. Create it from the context with the matching <code>TextureViewDesc</code> helper.</p>
+<p>The selected range and format must be compatible with the source texture. Views do not own their source texture.</p>
+<h2 id="create-a-sampler">Create a Sampler</h2>
+<p>Samplers define filtering and addressing independently from textures. Use a <code>SamplerDesc</code> preset when it matches the required behavior.</p>
+<p>Other presets include <code>LinearClamp</code>, <code>PointWrap</code>, <code>PointClamp</code>, and <code>Anisotropic(maxAnisotropy)</code>. Create a custom <code>SamplerDesc</code> for comparison sampling, border colors, or a specific LOD range.</p>
+<p>Pass <code>sampler.Handle</code> beside the sampled texture handle and declare matching <code>DescriptorHandle&lt;Texture2D&gt;</code> and <code>DescriptorHandle&lt;SamplerState&gt;</code> fields in Slang.</p>
+<h2 id="resolve-and-read-back">Resolve and Read Back</h2>
+<p>Resolve a multisampled texture into a compatible single-sampled texture:</p>
+<pre><code class="lang-csharp">commandBuffer.Transition(texture, default, TextureLayout.ColorAttachment, TextureLayout.ResolveSrc);
+commandBuffer.Transition(nextTexture, default, TextureLayout.Undefined, TextureLayout.ResolveDst);
+
+commandBuffer.ResolveTexture(texture, default, nextTexture, default);
+</code></pre>
+<p>Create resolve and download sources with <code>TextureUsages.TransferSrc</code>. Resolve destinations require <code>TextureUsages.TransferDst</code>.</p>
+<p>Texture copy, resolve, and command-buffer upload or download operations do not insert layout transitions. <code>Texture.Download</code> is the synchronous convenience path and performs its declared current-to-final transitions; use <code>CommandBuffer.Download</code> with explicit transitions when readback belongs to a larger submission.</p>
+<p>See <a href="heaps.html">Heaps</a> for allocation requirements and explicit texture placement.</p>
+<p>Keep a texture alive while any view, handle, or submitted command refers to it. When replacing a size-dependent texture, recreate its views and update constant data that stores its handles.</p>
 
 </article>
 
@@ -120,7 +161,7 @@
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+          Zenith.NET is a modern rendering hardware interface for .NET.
         </div>
       </div>
     </footer>

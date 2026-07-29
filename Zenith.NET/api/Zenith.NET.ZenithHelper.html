@@ -7,7 +7,7 @@
       <meta name="title" content="Class ZenithHelper | Zenith.NET ">
       
       
-      <link rel="icon" href="../images/Zenith.NET.png">
+      <link rel="icon" href="../images/Zenith.NET.svg">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
       <meta name="docfx:navrel" content="../toc.html">
@@ -93,7 +93,7 @@ Class ZenithHelper  <a class="header-action link-secondary" title="View source" 
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="Zenith.html">Zenith</a>.<a class="xref" href="Zenith.NET.html">NET</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Zenith.NET.html">Zenith.NET</a></dd></dl>
   <dl><dt>Assembly</dt><dd>Zenith.NET.dll</dd></dl>
   </div>
 
@@ -206,12 +206,12 @@ Class ZenithHelper  <a class="header-action link-secondary" title="View source" 
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static (uint BlockWidth, uint BlockHeight, uint BlocksWide, uint BlocksHigh) BlockLayout(PixelFormat format, uint width, uint height)</code></pre>
+    <pre><code class="lang-csharp hljs">public static (uint BlockWidth, uint BlockHeight, uint BlocksWide, uint BlocksHigh) BlockLayout(PixelFormat pixelFormat, uint width, uint height)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>format</code> <a class="xref" href="Zenith.NET.PixelFormat.html">PixelFormat</a></dt>
+    <dt><code>pixelFormat</code> <a class="xref" href="Zenith.NET.PixelFormat.html">PixelFormat</a></dt>
     <dd></dd>
     <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
     <dd></dd>
@@ -222,221 +222,6 @@ Class ZenithHelper  <a class="header-action link-secondary" title="View source" 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.uint32,system.uint32,system.uint32,system.uint32-.blockwidth">BlockWidth</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.uint32,system.uint32,system.uint32,system.uint32-.blockheight">BlockHeight</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.uint32,system.uint32,system.uint32,system.uint32-.blockswide">BlocksWide</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.uint32,system.uint32,system.uint32,system.uint32-.blockshigh">BlocksHigh</a>)</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="Zenith_NET_ZenithHelper_FaceCount_" data-uid="Zenith.NET.ZenithHelper.FaceCount*"></a>
-
-  <h3 id="Zenith_NET_ZenithHelper_FaceCount_Zenith_NET_TextureDesc_" data-uid="Zenith.NET.ZenithHelper.FaceCount(Zenith.NET.TextureDesc)">
-  FaceCount(TextureDesc)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/ZenithHelper.cs/#L249"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static uint FaceCount(TextureDesc desc)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>desc</code> <a class="xref" href="Zenith.NET.TextureDesc.html">TextureDesc</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="Zenith_NET_ZenithHelper_FaceIndex_" data-uid="Zenith.NET.ZenithHelper.FaceIndex*"></a>
-
-  <h3 id="Zenith_NET_ZenithHelper_FaceIndex_Zenith_NET_TextureDesc_Zenith_NET_TextureSlice_" data-uid="Zenith.NET.ZenithHelper.FaceIndex(Zenith.NET.TextureDesc,Zenith.NET.TextureSlice)">
-  FaceIndex(TextureDesc, TextureSlice)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/ZenithHelper.cs/#L254"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static uint FaceIndex(TextureDesc desc, TextureSlice slice)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>desc</code> <a class="xref" href="Zenith.NET.TextureDesc.html">TextureDesc</a></dt>
-    <dd></dd>
-    <dt><code>slice</code> <a class="xref" href="Zenith.NET.TextureSlice.html">TextureSlice</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="Zenith_NET_ZenithHelper_FlattenArrayLayerCount_" data-uid="Zenith.NET.ZenithHelper.FlattenArrayLayerCount*"></a>
-
-  <h3 id="Zenith_NET_ZenithHelper_FlattenArrayLayerCount_Zenith_NET_TextureDesc_" data-uid="Zenith.NET.ZenithHelper.FlattenArrayLayerCount(Zenith.NET.TextureDesc)">
-  FlattenArrayLayerCount(TextureDesc)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/ZenithHelper.cs/#L259"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static uint FlattenArrayLayerCount(TextureDesc desc)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>desc</code> <a class="xref" href="Zenith.NET.TextureDesc.html">TextureDesc</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="Zenith_NET_ZenithHelper_FlattenArrayLayerIndex_" data-uid="Zenith.NET.ZenithHelper.FlattenArrayLayerIndex*"></a>
-
-  <h3 id="Zenith_NET_ZenithHelper_FlattenArrayLayerIndex_Zenith_NET_TextureDesc_Zenith_NET_TextureSlice_" data-uid="Zenith.NET.ZenithHelper.FlattenArrayLayerIndex(Zenith.NET.TextureDesc,Zenith.NET.TextureSlice)">
-  FlattenArrayLayerIndex(TextureDesc, TextureSlice)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/ZenithHelper.cs/#L264"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static uint FlattenArrayLayerIndex(TextureDesc desc, TextureSlice slice)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>desc</code> <a class="xref" href="Zenith.NET.TextureDesc.html">TextureDesc</a></dt>
-    <dd></dd>
-    <dt><code>slice</code> <a class="xref" href="Zenith.NET.TextureSlice.html">TextureSlice</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="Zenith_NET_ZenithHelper_FlattenArrayLayerRange_" data-uid="Zenith.NET.ZenithHelper.FlattenArrayLayerRange*"></a>
-
-  <h3 id="Zenith_NET_ZenithHelper_FlattenArrayLayerRange_Zenith_NET_TextureViewDesc_" data-uid="Zenith.NET.ZenithHelper.FlattenArrayLayerRange(Zenith.NET.TextureViewDesc)">
-  FlattenArrayLayerRange(TextureViewDesc)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/ZenithHelper.cs/#L269"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static (uint FlattenArrayLayerIndex, uint FlattenArrayLayerCount) FlattenArrayLayerRange(TextureViewDesc desc)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>desc</code> <a class="xref" href="Zenith.NET.TextureViewDesc.html">TextureViewDesc</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.uint32,system.uint32-.flattenarraylayerindex">FlattenArrayLayerIndex</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.uint32,system.uint32-.flattenarraylayercount">FlattenArrayLayerCount</a>)</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="Zenith_NET_ZenithHelper_GraphicShaderStages_" data-uid="Zenith.NET.ZenithHelper.GraphicShaderStages*"></a>
-
-  <h3 id="Zenith_NET_ZenithHelper_GraphicShaderStages" data-uid="Zenith.NET.ZenithHelper.GraphicShaderStages">
-  GraphicShaderStages()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/ZenithHelper.cs/#L291"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ShaderStageFlags[] GraphicShaderStages()</code></pre>
-  </div>
-
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="Zenith.NET.ShaderStageFlags.html">ShaderStageFlags</a>[]</dt>
     <dd></dd>
   </dl>
 
@@ -605,10 +390,10 @@ Class ZenithHelper  <a class="header-action link-secondary" title="View source" 
 
 
 
-  <a id="Zenith_NET_ZenithHelper_SizeInBytes_" data-uid="Zenith.NET.ZenithHelper.SizeInBytes*"></a>
+  <a id="Zenith_NET_ZenithHelper_RowStrideInBytes_" data-uid="Zenith.NET.ZenithHelper.RowStrideInBytes*"></a>
 
-  <h3 id="Zenith_NET_ZenithHelper_SizeInBytes_Zenith_NET_ElementFormat_" data-uid="Zenith.NET.ZenithHelper.SizeInBytes(Zenith.NET.ElementFormat)">
-  SizeInBytes(ElementFormat)
+  <h3 id="Zenith_NET_ZenithHelper_RowStrideInBytes_Zenith_NET_PixelFormat_System_UInt32_System_UInt32_" data-uid="Zenith.NET.ZenithHelper.RowStrideInBytes(Zenith.NET.PixelFormat,System.UInt32,System.UInt32)">
+  RowStrideInBytes(PixelFormat, uint, uint)
   <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/ZenithHelper.cs/#L196"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -616,12 +401,52 @@ Class ZenithHelper  <a class="header-action link-secondary" title="View source" 
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static uint SizeInBytes(ElementFormat format)</code></pre>
+    <pre><code class="lang-csharp hljs">public static uint RowStrideInBytes(PixelFormat pixelFormat, uint width, uint height)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>format</code> <a class="xref" href="Zenith.NET.ElementFormat.html">ElementFormat</a></dt>
+    <dt><code>pixelFormat</code> <a class="xref" href="Zenith.NET.PixelFormat.html">PixelFormat</a></dt>
+    <dd></dd>
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_ZenithHelper_SizeInBytes_" data-uid="Zenith.NET.ZenithHelper.SizeInBytes*"></a>
+
+  <h3 id="Zenith_NET_ZenithHelper_SizeInBytes_Zenith_NET_ElementFormat_" data-uid="Zenith.NET.ZenithHelper.SizeInBytes(Zenith.NET.ElementFormat)">
+  SizeInBytes(ElementFormat)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/ZenithHelper.cs/#L210"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static uint SizeInBytes(ElementFormat elementFormat)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>elementFormat</code> <a class="xref" href="Zenith.NET.ElementFormat.html">ElementFormat</a></dt>
     <dd></dd>
   </dl>
 
@@ -652,12 +477,12 @@ Class ZenithHelper  <a class="header-action link-secondary" title="View source" 
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static uint SizeInBytes(PixelFormat format)</code></pre>
+    <pre><code class="lang-csharp hljs">public static uint SizeInBytes(PixelFormat pixelFormat)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>format</code> <a class="xref" href="Zenith.NET.PixelFormat.html">PixelFormat</a></dt>
+    <dt><code>pixelFormat</code> <a class="xref" href="Zenith.NET.PixelFormat.html">PixelFormat</a></dt>
     <dd></dd>
   </dl>
 
@@ -688,12 +513,12 @@ Class ZenithHelper  <a class="header-action link-secondary" title="View source" 
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static uint SizeInBytes(PixelFormat format, uint width, uint height)</code></pre>
+    <pre><code class="lang-csharp hljs">public static uint SizeInBytes(PixelFormat pixelFormat, uint width, uint height)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>format</code> <a class="xref" href="Zenith.NET.PixelFormat.html">PixelFormat</a></dt>
+    <dt><code>pixelFormat</code> <a class="xref" href="Zenith.NET.PixelFormat.html">PixelFormat</a></dt>
     <dd></dd>
     <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
     <dd></dd>
@@ -717,99 +542,27 @@ Class ZenithHelper  <a class="header-action link-secondary" title="View source" 
 
 
 
-  <a id="Zenith_NET_ZenithHelper_SubresourceCount_" data-uid="Zenith.NET.ZenithHelper.SubresourceCount*"></a>
+  <a id="Zenith_NET_ZenithHelper_SliceStrideInBytes_" data-uid="Zenith.NET.ZenithHelper.SliceStrideInBytes*"></a>
 
-  <h3 id="Zenith_NET_ZenithHelper_SubresourceCount_Zenith_NET_TextureDesc_" data-uid="Zenith.NET.ZenithHelper.SubresourceCount(Zenith.NET.TextureDesc)">
-  SubresourceCount(TextureDesc)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/ZenithHelper.cs/#L274"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Zenith_NET_ZenithHelper_SliceStrideInBytes_Zenith_NET_PixelFormat_System_UInt32_System_UInt32_" data-uid="Zenith.NET.ZenithHelper.SliceStrideInBytes(Zenith.NET.PixelFormat,System.UInt32,System.UInt32)">
+  SliceStrideInBytes(PixelFormat, uint, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/ZenithHelper.cs/#L203"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static uint SubresourceCount(TextureDesc desc)</code></pre>
+    <pre><code class="lang-csharp hljs">public static uint SliceStrideInBytes(PixelFormat pixelFormat, uint width, uint height)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>desc</code> <a class="xref" href="Zenith.NET.TextureDesc.html">TextureDesc</a></dt>
+    <dt><code>pixelFormat</code> <a class="xref" href="Zenith.NET.PixelFormat.html">PixelFormat</a></dt>
     <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
     <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="Zenith_NET_ZenithHelper_SubresourceIndex_" data-uid="Zenith.NET.ZenithHelper.SubresourceIndex*"></a>
-
-  <h3 id="Zenith_NET_ZenithHelper_SubresourceIndex_Zenith_NET_TextureDesc_Zenith_NET_TextureSlice_" data-uid="Zenith.NET.ZenithHelper.SubresourceIndex(Zenith.NET.TextureDesc,Zenith.NET.TextureSlice)">
-  SubresourceIndex(TextureDesc, TextureSlice)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/ZenithHelper.cs/#L279"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static uint SubresourceIndex(TextureDesc desc, TextureSlice slice)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>desc</code> <a class="xref" href="Zenith.NET.TextureDesc.html">TextureDesc</a></dt>
-    <dd></dd>
-    <dt><code>slice</code> <a class="xref" href="Zenith.NET.TextureSlice.html">TextureSlice</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="Zenith_NET_ZenithHelper_SubresourceSizeInBytes_" data-uid="Zenith.NET.ZenithHelper.SubresourceSizeInBytes*"></a>
-
-  <h3 id="Zenith_NET_ZenithHelper_SubresourceSizeInBytes_Zenith_NET_TextureDesc_Zenith_NET_TextureSlice_" data-uid="Zenith.NET.ZenithHelper.SubresourceSizeInBytes(Zenith.NET.TextureDesc,Zenith.NET.TextureSlice)">
-  SubresourceSizeInBytes(TextureDesc, TextureSlice)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/ZenithHelper.cs/#L284"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static uint SubresourceSizeInBytes(TextureDesc desc, TextureSlice slice)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>desc</code> <a class="xref" href="Zenith.NET.TextureDesc.html">TextureDesc</a></dt>
-    <dd></dd>
-    <dt><code>slice</code> <a class="xref" href="Zenith.NET.TextureSlice.html">TextureSlice</a></dt>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
     <dd></dd>
   </dl>
 
@@ -849,7 +602,7 @@ Class ZenithHelper  <a class="header-action link-secondary" title="View source" 
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+          Zenith.NET is a modern rendering hardware interface for .NET.
         </div>
       </div>
     </footer>

@@ -7,7 +7,7 @@
       <meta name="title" content="Struct BufferViewDesc | Zenith.NET ">
       
       
-      <link rel="icon" href="../images/Zenith.NET.png">
+      <link rel="icon" href="../images/Zenith.NET.svg">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
       <meta name="docfx:navrel" content="../toc.html">
@@ -93,7 +93,7 @@ Struct BufferViewDesc  <a class="header-action link-secondary" title="View sourc
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="Zenith.html">Zenith</a>.<a class="xref" href="Zenith.NET.html">NET</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Zenith.NET.html">Zenith.NET</a></dd></dl>
   <dl><dt>Assembly</dt><dd>Zenith.NET.dll</dd></dl>
   </div>
 
@@ -101,19 +101,13 @@ Struct BufferViewDesc  <a class="header-action link-secondary" title="View sourc
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public record struct BufferViewDesc : IEquatable&lt;BufferViewDesc&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public struct BufferViewDesc</code></pre>
   </div>
 
 
 
 
 
-  <dl class="typelist implements">
-    <dt>Implements</dt>
-    <dd>
-      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="Zenith.NET.BufferViewDesc.html">BufferViewDesc</a>&gt;</div>
-    </dd>
-  </dl>
 
 
   <dl class="typelist inheritedMembers">
@@ -268,6 +262,134 @@ Struct BufferViewDesc  <a class="header-action link-secondary" title="View sourc
 
 
 
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Zenith_NET_BufferViewDesc_Constant_" data-uid="Zenith.NET.BufferViewDesc.Constant*"></a>
+
+  <h3 id="Zenith_NET_BufferViewDesc_Constant_Zenith_NET_Buffer_System_UInt32_System_UInt32_" data-uid="Zenith.NET.BufferViewDesc.Constant(Zenith.NET.Buffer,System.UInt32,System.UInt32)">
+  Constant(Buffer, uint, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Structs/BufferViewDesc.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static BufferViewDesc Constant(Buffer buffer, uint offsetInBytes, uint sizeInBytes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>buffer</code> <a class="xref" href="Zenith.NET.Buffer.html">Buffer</a></dt>
+    <dd></dd>
+    <dt><code>offsetInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>sizeInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Zenith.NET.BufferViewDesc.html">BufferViewDesc</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_BufferViewDesc_StorageReadOnly_" data-uid="Zenith.NET.BufferViewDesc.StorageReadOnly*"></a>
+
+  <h3 id="Zenith_NET_BufferViewDesc_StorageReadOnly_Zenith_NET_Buffer_System_UInt32_System_UInt32_System_UInt32_" data-uid="Zenith.NET.BufferViewDesc.StorageReadOnly(Zenith.NET.Buffer,System.UInt32,System.UInt32,System.UInt32)">
+  StorageReadOnly(Buffer, uint, uint, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Structs/BufferViewDesc.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static BufferViewDesc StorageReadOnly(Buffer buffer, uint offsetInBytes, uint sizeInBytes, uint strideInBytes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>buffer</code> <a class="xref" href="Zenith.NET.Buffer.html">Buffer</a></dt>
+    <dd></dd>
+    <dt><code>offsetInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>sizeInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>strideInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Zenith.NET.BufferViewDesc.html">BufferViewDesc</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_BufferViewDesc_StorageReadWrite_" data-uid="Zenith.NET.BufferViewDesc.StorageReadWrite*"></a>
+
+  <h3 id="Zenith_NET_BufferViewDesc_StorageReadWrite_Zenith_NET_Buffer_System_UInt32_System_UInt32_System_UInt32_" data-uid="Zenith.NET.BufferViewDesc.StorageReadWrite(Zenith.NET.Buffer,System.UInt32,System.UInt32,System.UInt32)">
+  StorageReadWrite(Buffer, uint, uint, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Structs/BufferViewDesc.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static BufferViewDesc StorageReadWrite(Buffer buffer, uint offsetInBytes, uint sizeInBytes, uint strideInBytes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>buffer</code> <a class="xref" href="Zenith.NET.Buffer.html">Buffer</a></dt>
+    <dd></dd>
+    <dt><code>offsetInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>sizeInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>strideInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Zenith.NET.BufferViewDesc.html">BufferViewDesc</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
 
 </article>
 
@@ -288,7 +410,7 @@ Struct BufferViewDesc  <a class="header-action link-secondary" title="View sourc
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+          Zenith.NET is a modern rendering hardware interface for .NET.
         </div>
       </div>
     </footer>

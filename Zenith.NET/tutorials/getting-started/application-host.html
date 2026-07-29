@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Application Host | Zenith.NET </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Application Host | Zenith.NET ">
+      
+      
+      <link rel="icon" href="../../images/Zenith.NET.svg">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/qian-o/Zenith.NET/blob/master/documents/tutorials/getting-started/application-host.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/Zenith.NET-Logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="application-host">Application Host</h1>
+
+<p>Every workload guide runs inside the same application host. The host owns the window and graphics context, creates the swap chain, records the outer frame transitions, and presents textures produced by compute workloads.</p>
+<p>This page explains that contract before the guides begin creating workload resources. Platform integration is host infrastructure and remains in the complete reference source rather than the walkthrough.</p>
+<h2 id="responsibilities">Responsibilities</h2>
+<p>The shared host is responsible for:</p>
+<ul>
+<li>selecting a supported graphics API for the current operating system;</li>
+<li>creating a window surface and swap chain;</li>
+<li>providing the active <code>GraphicsContext</code> and framebuffer dimensions;</li>
+<li>obtaining one graphics command buffer per frame;</li>
+<li>transitioning the swap-chain drawable into and out of attachment layout;</li>
+<li>forwarding update, render, and resize events to the active workload;</li>
+<li>submitting work, waiting for completion, and presenting the drawable;</li>
+<li>loading shared assets and presenting offscreen textures.</li>
+</ul>
+<p>The workload renderer remains responsible for its own buffers, textures, pipelines, commands, transitions, and disposal.</p>
+<h2 id="renderer-contract">Renderer contract</h2>
+<p>Create <code>IRenderer.cs</code>:</p>
+<pre><code class="lang-csharp">namespace ZenithTutorials;
+
+internal interface IRenderer : IDisposable
+{
+    void Update(double deltaTime);
+
+    void Render(CommandBuffer commandBuffer, Texture drawable);
+
+    void Resize(uint width, uint height);
+}
+</code></pre>
+<p>The host calls <code>Update</code> before rendering, passes the current swap-chain texture to <code>Render</code>, and reports framebuffer size changes through <code>Resize</code>. Extending <code>IDisposable</code> makes each guide state its GPU ownership explicitly.</p>
+<h2 id="create-the-graphics-context">Create the graphics context</h2>
+<p><code>App</code> exposes one shared graphics context. Its static constructor selects DirectX 12 on Windows, Metal 4 on macOS, or Vulkan 1.4 on Linux.</p>
+<p>The complete <code>App.cs</code> contains the required imports and declares <code>App</code> as an <code>unsafe</code> static class because its upload helpers use pointers.</p>
+<pre><code class="lang-csharp">static App()
+{
+    if (!OperatingSystem.IsWindows() &amp;&amp; !OperatingSystem.IsMacOS() &amp;&amp; !OperatingSystem.IsLinux())
+    {
+        throw new PlatformNotSupportedException(&quot;The tutorials support Windows, macOS, and Linux.&quot;);
+    }
+
+    if (OperatingSystem.IsWindows())
+    {
+        Context = GraphicsContext.CreateDirectX12(useValidationLayer: true);
+    }
+    else if (OperatingSystem.IsMacOS())
+    {
+        Context = GraphicsContext.CreateMetal(useValidationLayer: true);
+    }
+    else
+    {
+        Context = GraphicsContext.CreateVulkan(useValidationLayer: true);
+    }
+
+    Context.ValidationMessage += static (_, args) =&gt; Console.WriteLine($&quot;[{args.Severity}] {args.Message}&quot;);
+}
+</code></pre>
+<p>Validation remains enabled throughout the guides. Validation messages are written to the terminal and should remain free of errors when a workload is running correctly.</p>
+<p>The host also publishes the shared color format and current framebuffer dimensions:</p>
+<pre><code class="lang-csharp">public static GraphicsContext Context { get; }
+
+public static PixelFormat ColorFormat =&gt; PixelFormat.B8G8R8A8UNorm;
+
+public static uint Width =&gt; (uint)(window?.FramebufferSize.X ?? 0);
+
+public static uint Height =&gt; (uint)(window?.FramebufferSize.Y ?? 0);
+</code></pre>
+<p>Framebuffer dimensions, rather than logical window dimensions, are used for textures, viewports, and projection aspect ratios. This matters on high-density displays.</p>
+<h2 id="create-the-window-and-swap-chain">Create the window and swap chain</h2>
+<p>Silk.NET creates a window without an OpenGL context because Zenith.NET owns the native graphics API:</p>
+<pre><code class="lang-csharp">window = Window.Create(WindowOptions.Default with
+{
+    API = GraphicsAPI.None,
+    Title = &quot;Zenith.NET Tutorials&quot;
+});
+
+window.Initialize();
+window.Center();
+</code></pre>
+<p>The host creates a Zenith.NET <code>Surface</code> from the window. That platform integration is contained in <code>App.cs</code> and <code>CocoaHelper.cs</code>; workload renderers depend only on the resulting swap chain. The surface and shared color format define that swap chain:</p>
+<pre><code class="lang-csharp">swapChain = Context.CreateSwapChain(new()
+{
+    Surface = surface,
+    Format = ColorFormat
+});
+</code></pre>
+<h2 id="follow-one-frame">Follow one frame</h2>
+<p>The outer frame has the same shape for every workload:</p>
+<pre><code class="lang-mermaid">flowchart LR
+    A[Update workload] --&gt; B[Acquire command buffer]
+    B --&gt; C[Drawable to ColorAttachment]
+    C --&gt; D[Record workload]
+    D --&gt; E[Drawable to Present]
+    E --&gt; F[Submit and wait]
+    F --&gt; G[Present swap chain]
+</code></pre>
+<p>The render callback records those operations in order:</p>
+<pre><code class="lang-csharp">window.Render += _ =&gt;
+{
+    if (Width is 0 || Height is 0)
+    {
+        return;
+    }
+
+    CommandBuffer commandBuffer = Context.GraphicsQueue.CommandBuffer();
+
+    commandBuffer.Transition(swapChain.Drawable, default, TextureLayout.Undefined, TextureLayout.ColorAttachment);
+
+    renderer.Render(commandBuffer, swapChain.Drawable);
+
+    commandBuffer.Transition(swapChain.Drawable, default, TextureLayout.ColorAttachment, TextureLayout.Present);
+
+    commandBuffer.Submit().Wait();
+
+    swapChain.Present();
+};
+</code></pre>
+<p>The workload starts with a drawable already in <code>ColorAttachment</code> layout and must leave it in that layout. The host performs the final transition to <code>Present</code>.</p>
+<p><code>Submit().Wait()</code> deliberately permits only one frame of work at a time. That makes resource lifetime and CPU uploads easier to follow, but it is not a production frame scheduler. Applications that keep multiple frames in flight need per-frame resources and explicit reuse synchronization.</p>
+<h2 id="update-and-resize">Update and resize</h2>
+<p>The update callback forwards elapsed seconds:</p>
+<pre><code class="lang-csharp">window.Update += delta =&gt;
+{
+    if (Width is 0 || Height is 0)
+    {
+        return;
+    }
+
+    renderer.Update(delta);
+};
+</code></pre>
+<p>The resize callback lets the workload release size-dependent resources before resizing the swap chain:</p>
+<pre><code class="lang-csharp">window.Resize += _ =&gt;
+{
+    if (Width is 0 || Height is 0)
+    {
+        return;
+    }
+
+    renderer.Resize(Width, Height);
+    swapChain.Resize(Width, Height);
+};
+</code></pre>
+<p>Zero-size checks cover minimized windows. A workload normally sets a depth or output texture to <code>null</code> during <code>Resize</code>; its next <code>Render</code> call creates a replacement at the new framebuffer size.</p>
+<h2 id="upload-shared-data">Upload shared data</h2>
+<p>The guides use one helper for small static and CPU-updated buffers:</p>
+<pre><code class="lang-csharp">public static Buffer LoadBuffer&lt;T&gt;(T[] data, BufferUsages usages) where T : unmanaged
+{
+    Buffer buffer = Context.CreateBuffer(new()
+    {
+        SizeInBytes = (uint)(sizeof(T) * data.Length),
+        StrideInBytes = (uint)sizeof(T),
+        Usages = usages,
+        Residency = MemoryResidency.CpuWriteOnly
+    });
+
+    fixed (T* pointer = data)
+    {
+        buffer.Upload(0, new()
+        {
+            Pointer = (nint)pointer,
+            SizeInBytes = (uint)(sizeof(T) * data.Length)
+        });
+    }
+
+    return buffer;
+}
+</code></pre>
+<p><code>SizeInBytes</code> controls allocation size, while <code>StrideInBytes</code> describes one array element. <code>BufferUsages</code> states how later commands or shaders consume the buffer. The helper uses <code>CpuWriteOnly</code> residency because these compact guides favor direct uploads over a staging system.</p>
+<h2 id="present-offscreen-textures">Present offscreen textures</h2>
+<p>Compute Shader and Ray Tracing do not render directly into the swap-chain drawable. They write an offscreen texture, transition it to <code>Sampled</code>, and pass it to <code>App.PresentTexture</code>.</p>
+<p><code>TexturePresenter</code> owns a sampler, a two-handle constant buffer, and a fullscreen-triangle graphics pipeline:</p>
+<p>The complete presenter is also declared <code>unsafe</code> because it uploads a pointer to its local <code>Constants</code> value.</p>
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sampler</td>
+<td>Samples the input texture with linear filtering and clamp addressing</td>
+</tr>
+<tr>
+<td>Constant buffer</td>
+<td>Carries sampled-texture and sampler handles to Slang</td>
+</tr>
+<tr>
+<td>Graphics pipeline</td>
+<td>Draws a fullscreen triangle into the current drawable</td>
+</tr>
+</tbody>
+</table>
+<p>The presenter calculates a destination rectangle, uploads the two handles, and records a small render pass:</p>
+<pre><code class="lang-csharp">Constants constants = new()
+{
+    Image = texture.SampledHandle,
+    Sampler = sampler.Handle
+};
+
+constantBuffer.Upload(0, new()
+{
+    Pointer = (nint)(&amp;constants),
+    SizeInBytes = (uint)sizeof(Constants)
+});
+</code></pre>
+<pre><code class="lang-csharp">commandBuffer.BeginRenderPass([ColorAttachment.Clear(drawable, new(0.04f, 0.055f, 0.075f, 1.0f))], null);
+
+commandBuffer.SetPipeline(pipeline);
+commandBuffer.SetViewports([new() { X = x, Y = y, Width = width, Height = height, MaxDepth = 1.0f }]);
+commandBuffer.SetScissors([new() { X = x, Y = y, Width = width, Height = height }]);
+commandBuffer.SetConstantBuffer(constantBuffer, 0);
+
+commandBuffer.Draw(3, 1, 0, 0);
+
+commandBuffer.EndRenderPass();
+</code></pre>
+<p>Its vertex shader derives a fullscreen triangle from <code>SV_VertexID</code>, so no vertex buffer is required. Workload guides treat this presenter as host infrastructure and focus on producing the sampled texture correctly.</p>
+<h2 id="resource-lifetime">Resource lifetime</h2>
+<p>The <code>using TRenderer renderer = new();</code> declaration scopes the active renderer to the <code>try</code> body, so it is disposed when that body exits. The <code>finally</code> block then releases the host-owned presenter, swap chain, window, and graphics context:</p>
+<pre><code class="lang-csharp">finally
+{
+    texturePresenter?.Dispose();
+    swapChain?.Dispose();
+    window?.Dispose();
+
+    Context.Dispose();
+}
+</code></pre>
+<p>The sample disposes temporary shader objects after pipeline creation. Buffers and textures remain alive until every submitted GPU command that references them has completed. A top-level acceleration structure is a stronger ownership example: keep every BLAS it instances alive until the TLAS is no longer used.</p>
+<h2 id="complete-source">Complete source</h2>
+<p>Use the complete host implementation as the shared starting point for the workload guides:</p>
+<ul>
+<li><a href="https://github.com/qian-o/ZenithTutorials/blob/master/ZenithTutorials/App.cs">App.cs</a></li>
+<li><a href="https://github.com/qian-o/ZenithTutorials/blob/master/ZenithTutorials/IRenderer.cs">IRenderer.cs</a></li>
+<li><a href="https://github.com/qian-o/ZenithTutorials/blob/master/ZenithTutorials/CocoaHelper.cs">CocoaHelper.cs</a></li>
+<li><a href="https://github.com/qian-o/ZenithTutorials/blob/master/ZenithTutorials/TexturePresenter.cs">TexturePresenter.cs</a></li>
+<li><a href="https://github.com/qian-o/ZenithTutorials/blob/master/ZenithTutorials/Assets/Shaders/PresentTexture.slang">PresentTexture.slang</a></li>
+<li><a href="https://github.com/qian-o/ZenithTutorials/blob/master/ZenithTutorials/Program.cs">Program.cs</a></li>
+</ul>
+<p>The reference <code>Program.cs</code> presents a menu for all six completed renderers. Continue with <a href="../guides/hello-triangle.html">Hello Triangle</a> to create the first workload renderer and understand the first menu entry.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/qian-o/Zenith.NET/blob/master/documents/tutorials/getting-started/application-host.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Zenith.NET is a modern rendering hardware interface for .NET.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

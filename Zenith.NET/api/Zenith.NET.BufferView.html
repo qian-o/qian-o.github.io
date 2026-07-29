@@ -7,7 +7,7 @@
       <meta name="title" content="Class BufferView | Zenith.NET ">
       
       
-      <link rel="icon" href="../images/Zenith.NET.png">
+      <link rel="icon" href="../images/Zenith.NET.svg">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
       <meta name="docfx:navrel" content="../toc.html">
@@ -93,7 +93,7 @@ Class BufferView  <a class="header-action link-secondary" title="View source" hr
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="Zenith.html">Zenith</a>.<a class="xref" href="Zenith.NET.html">NET</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Zenith.NET.html">Zenith.NET</a></dd></dl>
   <dl><dt>Assembly</dt><dd>Zenith.NET.dll</dd></dl>
   </div>
 
@@ -101,7 +101,7 @@ Class BufferView  <a class="header-action link-secondary" title="View source" hr
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract class BufferView : GraphicsResource, IBindableResource, IDisposableObject, IDisposable</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract class BufferView : GraphicsResource, IDisposable</code></pre>
   </div>
 
 
@@ -120,8 +120,6 @@ Class BufferView  <a class="header-action link-secondary" title="View source" hr
   <dl class="typelist implements">
     <dt>Implements</dt>
     <dd>
-      <div><a class="xref" href="Zenith.NET.IBindableResource.html">IBindableResource</a></div>
-      <div><a class="xref" href="Zenith.NET.IDisposableObject.html">IDisposableObject</a></div>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
     </dd>
   </dl>
@@ -135,6 +133,9 @@ Class BufferView  <a class="header-action link-secondary" title="View source" hr
     </div>
     <div>
       <a class="xref" href="Zenith.NET.GraphicsResource.html#Zenith_NET_GraphicsResource_Context">GraphicsResource.Context</a>
+    </div>
+    <div>
+      <a class="xref" href="Zenith.NET.GraphicsResource.html#Zenith_NET_GraphicsResource_GetNativeObject_Zenith_NET_NativeObjectType_">GraphicsResource.GetNativeObject(NativeObjectType)</a>
     </div>
     <div>
       <a class="xref" href="Zenith.NET.GraphicsResource.html#Zenith_NET_GraphicsResource_SetResourceName_System_String_">GraphicsResource.SetResourceName(string)</a>
@@ -217,6 +218,37 @@ Class BufferView  <a class="header-action link-secondary" title="View source" hr
 </h2>
 
 
+  <a id="Zenith_NET_BufferView_ConstantHandle_" data-uid="Zenith.NET.BufferView.ConstantHandle*"></a>
+
+  <h3 id="Zenith_NET_BufferView_ConstantHandle" data-uid="Zenith.NET.BufferView.ConstantHandle">
+  ConstantHandle
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/BufferView.cs/#L9"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract ResourceHandle ConstantHandle { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Zenith.NET.ResourceHandle.html">ResourceHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="Zenith_NET_BufferView_Desc_" data-uid="Zenith.NET.BufferView.Desc*"></a>
 
   <h3 id="Zenith_NET_BufferView_Desc" data-uid="Zenith.NET.BufferView.Desc">
@@ -248,6 +280,68 @@ Class BufferView  <a class="header-action link-secondary" title="View source" hr
 
 
 
+  <a id="Zenith_NET_BufferView_StorageReadOnlyHandle_" data-uid="Zenith.NET.BufferView.StorageReadOnlyHandle*"></a>
+
+  <h3 id="Zenith_NET_BufferView_StorageReadOnlyHandle" data-uid="Zenith.NET.BufferView.StorageReadOnlyHandle">
+  StorageReadOnlyHandle
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/BufferView.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract ResourceHandle StorageReadOnlyHandle { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Zenith.NET.ResourceHandle.html">ResourceHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_BufferView_StorageReadWriteHandle_" data-uid="Zenith.NET.BufferView.StorageReadWriteHandle*"></a>
+
+  <h3 id="Zenith_NET_BufferView_StorageReadWriteHandle" data-uid="Zenith.NET.BufferView.StorageReadWriteHandle">
+  StorageReadWriteHandle
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/BufferView.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract ResourceHandle StorageReadWriteHandle { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Zenith.NET.ResourceHandle.html">ResourceHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
 
 </article>
 
@@ -268,7 +362,7 @@ Class BufferView  <a class="header-action link-secondary" title="View source" hr
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+          Zenith.NET is a modern rendering hardware interface for .NET.
         </div>
       </div>
     </footer>

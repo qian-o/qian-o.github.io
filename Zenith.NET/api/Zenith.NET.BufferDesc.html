@@ -7,7 +7,7 @@
       <meta name="title" content="Struct BufferDesc | Zenith.NET ">
       
       
-      <link rel="icon" href="../images/Zenith.NET.png">
+      <link rel="icon" href="../images/Zenith.NET.svg">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
       <meta name="docfx:navrel" content="../toc.html">
@@ -93,7 +93,7 @@ Struct BufferDesc  <a class="header-action link-secondary" title="View source" h
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="Zenith.html">Zenith</a>.<a class="xref" href="Zenith.NET.html">NET</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Zenith.NET.html">Zenith.NET</a></dd></dl>
   <dl><dt>Assembly</dt><dd>Zenith.NET.dll</dd></dl>
   </div>
 
@@ -101,19 +101,13 @@ Struct BufferDesc  <a class="header-action link-secondary" title="View source" h
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public record struct BufferDesc : IEquatable&lt;BufferDesc&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public struct BufferDesc</code></pre>
   </div>
 
 
 
 
 
-  <dl class="typelist implements">
-    <dt>Implements</dt>
-    <dd>
-      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="Zenith.NET.BufferDesc.html">BufferDesc</a>&gt;</div>
-    </dd>
-  </dl>
 
 
   <dl class="typelist inheritedMembers">
@@ -149,16 +143,16 @@ Struct BufferDesc  <a class="header-action link-secondary" title="View source" h
 
 
 
-  <h3 id="Zenith_NET_BufferDesc_Flags" data-uid="Zenith.NET.BufferDesc.Flags">
-  Flags
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Structs/BufferDesc.cs/#L9"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Zenith_NET_BufferDesc_Residency" data-uid="Zenith.NET.BufferDesc.Residency">
+  Residency
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Structs/BufferDesc.cs/#L11"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public BufferUsageFlags Flags</code></pre>
+    <pre><code class="lang-csharp hljs">public MemoryResidency Residency</code></pre>
   </div>
 
 
@@ -166,7 +160,7 @@ Struct BufferDesc  <a class="header-action link-secondary" title="View source" h
 
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="Zenith.NET.BufferUsageFlags.html">BufferUsageFlags</a></dt>
+    <dt><a class="xref" href="Zenith.NET.MemoryResidency.html">MemoryResidency</a></dt>
     <dd></dd>
   </dl>
 
@@ -239,6 +233,296 @@ Struct BufferDesc  <a class="header-action link-secondary" title="View source" h
 
 
 
+  <h3 id="Zenith_NET_BufferDesc_Usages" data-uid="Zenith.NET.BufferDesc.Usages">
+  Usages
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Structs/BufferDesc.cs/#L9"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BufferUsages Usages</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Zenith.NET.BufferUsages.html">BufferUsages</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Zenith_NET_BufferDesc_Constant_" data-uid="Zenith.NET.BufferDesc.Constant*"></a>
+
+  <h3 id="Zenith_NET_BufferDesc_Constant_System_UInt32_" data-uid="Zenith.NET.BufferDesc.Constant(System.UInt32)">
+  Constant(uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Structs/BufferDesc.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static BufferDesc Constant(uint sizeInBytes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sizeInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Zenith.NET.BufferDesc.html">BufferDesc</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_BufferDesc_Index_" data-uid="Zenith.NET.BufferDesc.Index*"></a>
+
+  <h3 id="Zenith_NET_BufferDesc_Index_System_UInt32_" data-uid="Zenith.NET.BufferDesc.Index(System.UInt32)">
+  Index(uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Structs/BufferDesc.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static BufferDesc Index(uint sizeInBytes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sizeInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Zenith.NET.BufferDesc.html">BufferDesc</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_BufferDesc_Indirect_" data-uid="Zenith.NET.BufferDesc.Indirect*"></a>
+
+  <h3 id="Zenith_NET_BufferDesc_Indirect_System_UInt32_" data-uid="Zenith.NET.BufferDesc.Indirect(System.UInt32)">
+  Indirect(uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Structs/BufferDesc.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static BufferDesc Indirect(uint sizeInBytes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sizeInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Zenith.NET.BufferDesc.html">BufferDesc</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_BufferDesc_Staging_" data-uid="Zenith.NET.BufferDesc.Staging*"></a>
+
+  <h3 id="Zenith_NET_BufferDesc_Staging_System_UInt32_" data-uid="Zenith.NET.BufferDesc.Staging(System.UInt32)">
+  Staging(uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Structs/BufferDesc.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static BufferDesc Staging(uint sizeInBytes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sizeInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Zenith.NET.BufferDesc.html">BufferDesc</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_BufferDesc_StorageReadOnly_" data-uid="Zenith.NET.BufferDesc.StorageReadOnly*"></a>
+
+  <h3 id="Zenith_NET_BufferDesc_StorageReadOnly_System_UInt32_System_UInt32_" data-uid="Zenith.NET.BufferDesc.StorageReadOnly(System.UInt32,System.UInt32)">
+  StorageReadOnly(uint, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Structs/BufferDesc.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static BufferDesc StorageReadOnly(uint sizeInBytes, uint strideInBytes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sizeInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>strideInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Zenith.NET.BufferDesc.html">BufferDesc</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_BufferDesc_StorageReadWrite_" data-uid="Zenith.NET.BufferDesc.StorageReadWrite*"></a>
+
+  <h3 id="Zenith_NET_BufferDesc_StorageReadWrite_System_UInt32_System_UInt32_" data-uid="Zenith.NET.BufferDesc.StorageReadWrite(System.UInt32,System.UInt32)">
+  StorageReadWrite(uint, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Structs/BufferDesc.cs/#L68"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static BufferDesc StorageReadWrite(uint sizeInBytes, uint strideInBytes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sizeInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>strideInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Zenith.NET.BufferDesc.html">BufferDesc</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_BufferDesc_Vertex_" data-uid="Zenith.NET.BufferDesc.Vertex*"></a>
+
+  <h3 id="Zenith_NET_BufferDesc_Vertex_System_UInt32_" data-uid="Zenith.NET.BufferDesc.Vertex(System.UInt32)">
+  Vertex(uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Structs/BufferDesc.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static BufferDesc Vertex(uint sizeInBytes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sizeInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Zenith.NET.BufferDesc.html">BufferDesc</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
 </article>
 
         <div class="contribution d-print-none">
@@ -258,7 +542,7 @@ Struct BufferDesc  <a class="header-action link-secondary" title="View source" h
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+          Zenith.NET is a modern rendering hardware interface for .NET.
         </div>
       </div>
     </footer>

@@ -7,7 +7,7 @@
       <meta name="title" content="Struct DepthStencilState | Zenith.NET ">
       
       
-      <link rel="icon" href="../images/Zenith.NET.png">
+      <link rel="icon" href="../images/Zenith.NET.svg">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
       <meta name="docfx:navrel" content="../toc.html">
@@ -93,7 +93,7 @@ Struct DepthStencilState  <a class="header-action link-secondary" title="View so
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="Zenith.html">Zenith</a>.<a class="xref" href="Zenith.NET.html">NET</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Zenith.NET.html">Zenith.NET</a></dd></dl>
   <dl><dt>Assembly</dt><dd>Zenith.NET.dll</dd></dl>
   </div>
 
@@ -101,19 +101,13 @@ Struct DepthStencilState  <a class="header-action link-secondary" title="View so
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public record struct DepthStencilState : IEquatable&lt;DepthStencilState&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public struct DepthStencilState</code></pre>
   </div>
 
 
 
 
 
-  <dl class="typelist implements">
-    <dt>Implements</dt>
-    <dd>
-      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="Zenith.NET.DepthStencilState.html">DepthStencilState</a>&gt;</div>
-    </dd>
-  </dl>
 
 
   <dl class="typelist inheritedMembers">
@@ -158,7 +152,7 @@ Struct DepthStencilState  <a class="header-action link-secondary" title="View so
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DepthStencilStateOp BackFace</code></pre>
+    <pre><code class="lang-csharp hljs">public StencilFaceState BackFace</code></pre>
   </div>
 
 
@@ -166,7 +160,7 @@ Struct DepthStencilState  <a class="header-action link-secondary" title="View so
 
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="Zenith.NET.DepthStencilStateOp.html">DepthStencilStateOp</a></dt>
+    <dt><a class="xref" href="Zenith.NET.StencilFaceState.html">StencilFaceState</a></dt>
     <dd></dd>
   </dl>
 
@@ -179,38 +173,8 @@ Struct DepthStencilState  <a class="header-action link-secondary" title="View so
 
 
 
-  <h3 id="Zenith_NET_DepthStencilState_DepthEnable" data-uid="Zenith.NET.DepthStencilState.DepthEnable">
-  DepthEnable
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Structs/DepthStencilState.cs/#L5"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool DepthEnable</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <h3 id="Zenith_NET_DepthStencilState_DepthFunc" data-uid="Zenith.NET.DepthStencilState.DepthFunc">
-  DepthFunc
+  <h3 id="Zenith_NET_DepthStencilState_DepthCompareOp" data-uid="Zenith.NET.DepthStencilState.DepthCompareOp">
+  DepthCompareOp
   <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Structs/DepthStencilState.cs/#L9"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -218,7 +182,7 @@ Struct DepthStencilState  <a class="header-action link-secondary" title="View so
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ComparisonFunc DepthFunc</code></pre>
+    <pre><code class="lang-csharp hljs">public CompareOp DepthCompareOp</code></pre>
   </div>
 
 
@@ -226,37 +190,7 @@ Struct DepthStencilState  <a class="header-action link-secondary" title="View so
 
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="Zenith.NET.ComparisonFunc.html">ComparisonFunc</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <h3 id="Zenith_NET_DepthStencilState_DepthWriteEnable" data-uid="Zenith.NET.DepthStencilState.DepthWriteEnable">
-  DepthWriteEnable
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Structs/DepthStencilState.cs/#L7"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool DepthWriteEnable</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dt><a class="xref" href="Zenith.NET.CompareOp.html">CompareOp</a></dt>
     <dd></dd>
   </dl>
 
@@ -278,7 +212,7 @@ Struct DepthStencilState  <a class="header-action link-secondary" title="View so
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DepthStencilStateOp FrontFace</code></pre>
+    <pre><code class="lang-csharp hljs">public StencilFaceState FrontFace</code></pre>
   </div>
 
 
@@ -286,7 +220,7 @@ Struct DepthStencilState  <a class="header-action link-secondary" title="View so
 
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="Zenith.NET.DepthStencilStateOp.html">DepthStencilStateOp</a></dt>
+    <dt><a class="xref" href="Zenith.NET.StencilFaceState.html">StencilFaceState</a></dt>
     <dd></dd>
   </dl>
 
@@ -299,8 +233,68 @@ Struct DepthStencilState  <a class="header-action link-secondary" title="View so
 
 
 
-  <h3 id="Zenith_NET_DepthStencilState_StencilEnable" data-uid="Zenith.NET.DepthStencilState.StencilEnable">
-  StencilEnable
+  <h3 id="Zenith_NET_DepthStencilState_IsDepthEnabled" data-uid="Zenith.NET.DepthStencilState.IsDepthEnabled">
+  IsDepthEnabled
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Structs/DepthStencilState.cs/#L5"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsDepthEnabled</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Zenith_NET_DepthStencilState_IsDepthWriteEnabled" data-uid="Zenith.NET.DepthStencilState.IsDepthWriteEnabled">
+  IsDepthWriteEnabled
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Structs/DepthStencilState.cs/#L7"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsDepthWriteEnabled</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Zenith_NET_DepthStencilState_IsStencilEnabled" data-uid="Zenith.NET.DepthStencilState.IsStencilEnabled">
+  IsStencilEnabled
   <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Structs/DepthStencilState.cs/#L11"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -308,7 +302,7 @@ Struct DepthStencilState  <a class="header-action link-secondary" title="View so
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool StencilEnable</code></pre>
+    <pre><code class="lang-csharp hljs">public bool IsStencilEnabled</code></pre>
   </div>
 
 
@@ -388,6 +382,165 @@ Struct DepthStencilState  <a class="header-action link-secondary" title="View so
 
 
 
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Zenith_NET_DepthStencilState_DepthNone_" data-uid="Zenith.NET.DepthStencilState.DepthNone*"></a>
+
+  <h3 id="Zenith_NET_DepthStencilState_DepthNone" data-uid="Zenith.NET.DepthStencilState.DepthNone">
+  DepthNone()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Structs/DepthStencilState.cs/#L81"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DepthStencilState DepthNone()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Zenith.NET.DepthStencilState.html">DepthStencilState</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_DepthStencilState_DepthRead_" data-uid="Zenith.NET.DepthStencilState.DepthRead*"></a>
+
+  <h3 id="Zenith_NET_DepthStencilState_DepthRead" data-uid="Zenith.NET.DepthStencilState.DepthRead">
+  DepthRead()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Structs/DepthStencilState.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DepthStencilState DepthRead()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Zenith.NET.DepthStencilState.html">DepthStencilState</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_DepthStencilState_DepthReadReverseZ_" data-uid="Zenith.NET.DepthStencilState.DepthReadReverseZ*"></a>
+
+  <h3 id="Zenith_NET_DepthStencilState_DepthReadReverseZ" data-uid="Zenith.NET.DepthStencilState.DepthReadReverseZ">
+  DepthReadReverseZ()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Structs/DepthStencilState.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DepthStencilState DepthReadReverseZ()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Zenith.NET.DepthStencilState.html">DepthStencilState</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_DepthStencilState_DepthReadWrite_" data-uid="Zenith.NET.DepthStencilState.DepthReadWrite*"></a>
+
+  <h3 id="Zenith_NET_DepthStencilState_DepthReadWrite" data-uid="Zenith.NET.DepthStencilState.DepthReadWrite">
+  DepthReadWrite()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Structs/DepthStencilState.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DepthStencilState DepthReadWrite()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Zenith.NET.DepthStencilState.html">DepthStencilState</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_DepthStencilState_DepthReadWriteReverseZ_" data-uid="Zenith.NET.DepthStencilState.DepthReadWriteReverseZ*"></a>
+
+  <h3 id="Zenith_NET_DepthStencilState_DepthReadWriteReverseZ" data-uid="Zenith.NET.DepthStencilState.DepthReadWriteReverseZ">
+  DepthReadWriteReverseZ()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Structs/DepthStencilState.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DepthStencilState DepthReadWriteReverseZ()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Zenith.NET.DepthStencilState.html">DepthStencilState</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
 
 </article>
 
@@ -408,7 +561,7 @@ Struct DepthStencilState  <a class="header-action link-secondary" title="View so
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+          Zenith.NET is a modern rendering hardware interface for .NET.
         </div>
       </div>
     </footer>

@@ -7,7 +7,7 @@
       <meta name="title" content="Struct RasterizerState | Zenith.NET ">
       
       
-      <link rel="icon" href="../images/Zenith.NET.png">
+      <link rel="icon" href="../images/Zenith.NET.svg">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
       <meta name="docfx:navrel" content="../toc.html">
@@ -93,7 +93,7 @@ Struct RasterizerState  <a class="header-action link-secondary" title="View sour
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="Zenith.html">Zenith</a>.<a class="xref" href="Zenith.NET.html">NET</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Zenith.NET.html">Zenith.NET</a></dd></dl>
   <dl><dt>Assembly</dt><dd>Zenith.NET.dll</dd></dl>
   </div>
 
@@ -101,19 +101,13 @@ Struct RasterizerState  <a class="header-action link-secondary" title="View sour
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public record struct RasterizerState : IEquatable&lt;RasterizerState&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public struct RasterizerState</code></pre>
   </div>
 
 
 
 
 
-  <dl class="typelist implements">
-    <dt>Implements</dt>
-    <dd>
-      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="Zenith.NET.RasterizerState.html">RasterizerState</a>&gt;</div>
-    </dd>
-  </dl>
 
 
   <dl class="typelist inheritedMembers">
@@ -151,7 +145,7 @@ Struct RasterizerState  <a class="header-action link-secondary" title="View sour
 
   <h3 id="Zenith_NET_RasterizerState_CullMode" data-uid="Zenith.NET.RasterizerState.CullMode">
   CullMode
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Structs/RasterizerState.cs/#L5"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Structs/RasterizerState.cs/#L7"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -239,16 +233,16 @@ Struct RasterizerState  <a class="header-action link-secondary" title="View sour
 
 
 
-  <h3 id="Zenith_NET_RasterizerState_DepthClipEnable" data-uid="Zenith.NET.RasterizerState.DepthClipEnable">
-  DepthClipEnable
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Structs/RasterizerState.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Zenith_NET_RasterizerState_DepthBiasSlopeScale" data-uid="Zenith.NET.RasterizerState.DepthBiasSlopeScale">
+  DepthBiasSlopeScale
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Structs/RasterizerState.cs/#L15"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool DepthClipEnable</code></pre>
+    <pre><code class="lang-csharp hljs">public float DepthBiasSlopeScale</code></pre>
   </div>
 
 
@@ -256,7 +250,7 @@ Struct RasterizerState  <a class="header-action link-secondary" title="View sour
 
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
     <dd></dd>
   </dl>
 
@@ -271,7 +265,7 @@ Struct RasterizerState  <a class="header-action link-secondary" title="View sour
 
   <h3 id="Zenith_NET_RasterizerState_FillMode" data-uid="Zenith.NET.RasterizerState.FillMode">
   FillMode
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Structs/RasterizerState.cs/#L7"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Structs/RasterizerState.cs/#L5"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -329,16 +323,16 @@ Struct RasterizerState  <a class="header-action link-secondary" title="View sour
 
 
 
-  <h3 id="Zenith_NET_RasterizerState_ScissorEnable" data-uid="Zenith.NET.RasterizerState.ScissorEnable">
-  ScissorEnable
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Structs/RasterizerState.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Zenith_NET_RasterizerState_IsDepthClipEnabled" data-uid="Zenith.NET.RasterizerState.IsDepthClipEnabled">
+  IsDepthClipEnabled
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Structs/RasterizerState.cs/#L17"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool ScissorEnable</code></pre>
+    <pre><code class="lang-csharp hljs">public bool IsDepthClipEnabled</code></pre>
   </div>
 
 
@@ -358,27 +352,187 @@ Struct RasterizerState  <a class="header-action link-secondary" title="View sour
 
 
 
+  <h2 class="section" id="methods">Methods
+</h2>
 
-  <h3 id="Zenith_NET_RasterizerState_SlopeScaledDepthBias" data-uid="Zenith.NET.RasterizerState.SlopeScaledDepthBias">
-  SlopeScaledDepthBias
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Structs/RasterizerState.cs/#L15"><i class="bi bi-code-slash"></i></a>
+
+  <a id="Zenith_NET_RasterizerState_CullBack_" data-uid="Zenith.NET.RasterizerState.CullBack*"></a>
+
+  <h3 id="Zenith_NET_RasterizerState_CullBack" data-uid="Zenith.NET.RasterizerState.CullBack">
+  CullBack()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Structs/RasterizerState.cs/#L33"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public float SlopeScaledDepthBias</code></pre>
+    <pre><code class="lang-csharp hljs">public static RasterizerState CullBack()</code></pre>
   </div>
 
 
-
-
-  <h4 class="section">Field Value</h4>
+  <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dt><a class="xref" href="Zenith.NET.RasterizerState.html">RasterizerState</a></dt>
     <dd></dd>
   </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_RasterizerState_CullFront_" data-uid="Zenith.NET.RasterizerState.CullFront*"></a>
+
+  <h3 id="Zenith_NET_RasterizerState_CullFront" data-uid="Zenith.NET.RasterizerState.CullFront">
+  CullFront()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Structs/RasterizerState.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RasterizerState CullFront()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Zenith.NET.RasterizerState.html">RasterizerState</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_RasterizerState_CullNone_" data-uid="Zenith.NET.RasterizerState.CullNone*"></a>
+
+  <h3 id="Zenith_NET_RasterizerState_CullNone" data-uid="Zenith.NET.RasterizerState.CullNone">
+  CullNone()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Structs/RasterizerState.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RasterizerState CullNone()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Zenith.NET.RasterizerState.html">RasterizerState</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_RasterizerState_Wireframe_" data-uid="Zenith.NET.RasterizerState.Wireframe*"></a>
+
+  <h3 id="Zenith_NET_RasterizerState_Wireframe" data-uid="Zenith.NET.RasterizerState.Wireframe">
+  Wireframe()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Structs/RasterizerState.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RasterizerState Wireframe()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Zenith.NET.RasterizerState.html">RasterizerState</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_RasterizerState_WireframeCullBack_" data-uid="Zenith.NET.RasterizerState.WireframeCullBack*"></a>
+
+  <h3 id="Zenith_NET_RasterizerState_WireframeCullBack" data-uid="Zenith.NET.RasterizerState.WireframeCullBack">
+  WireframeCullBack()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Structs/RasterizerState.cs/#L89"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RasterizerState WireframeCullBack()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Zenith.NET.RasterizerState.html">RasterizerState</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_RasterizerState_WireframeCullFront_" data-uid="Zenith.NET.RasterizerState.WireframeCullFront*"></a>
+
+  <h3 id="Zenith_NET_RasterizerState_WireframeCullFront" data-uid="Zenith.NET.RasterizerState.WireframeCullFront">
+  WireframeCullFront()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Structs/RasterizerState.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RasterizerState WireframeCullFront()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Zenith.NET.RasterizerState.html">RasterizerState</a></dt>
+    <dd></dd>
+  </dl>
+
+
 
 
 
@@ -408,7 +562,7 @@ Struct RasterizerState  <a class="header-action link-secondary" title="View sour
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+          Zenith.NET is a modern rendering hardware interface for .NET.
         </div>
       </div>
     </footer>

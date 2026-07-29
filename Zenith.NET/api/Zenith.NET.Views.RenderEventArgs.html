@@ -7,7 +7,7 @@
       <meta name="title" content="Class RenderEventArgs | Zenith.NET ">
       
       
-      <link rel="icon" href="../images/Zenith.NET.png">
+      <link rel="icon" href="../images/Zenith.NET.svg">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
       <meta name="docfx:navrel" content="../toc.html">
@@ -93,7 +93,7 @@ Class RenderEventArgs  <a class="header-action link-secondary" title="View sourc
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="Zenith.html">Zenith</a>.<a class="xref" href="Zenith.NET.html">NET</a>.<a class="xref" href="Zenith.NET.Views.html">Views</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Zenith.NET.Views.html">Zenith.NET.Views</a></dd></dl>
   <dl><dt>Assembly</dt><dd>Zenith.NET.Views.dll</dd></dl>
   </div>
 
@@ -158,8 +158,8 @@ Class RenderEventArgs  <a class="header-action link-secondary" title="View sourc
 
   <a id="Zenith_NET_Views_RenderEventArgs__ctor_" data-uid="Zenith.NET.Views.RenderEventArgs.#ctor*"></a>
 
-  <h3 id="Zenith_NET_Views_RenderEventArgs__ctor_System_Double_System_Double_Zenith_NET_FrameBuffer_" data-uid="Zenith.NET.Views.RenderEventArgs.#ctor(System.Double,System.Double,Zenith.NET.FrameBuffer)">
-  RenderEventArgs(double, double, FrameBuffer)
+  <h3 id="Zenith_NET_Views_RenderEventArgs__ctor_System_Double_System_Double_Zenith_NET_CommandBuffer_Zenith_NET_Texture_" data-uid="Zenith.NET.Views.RenderEventArgs.#ctor(System.Double,System.Double,Zenith.NET.CommandBuffer,Zenith.NET.Texture)">
+  RenderEventArgs(double, double, CommandBuffer, Texture)
   <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Views/Zenith.NET.Views/RenderEventArgs.cs/#L3"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -167,7 +167,7 @@ Class RenderEventArgs  <a class="header-action link-secondary" title="View sourc
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public RenderEventArgs(double deltaSeconds, double totalSeconds, FrameBuffer frameBuffer)</code></pre>
+    <pre><code class="lang-csharp hljs">public RenderEventArgs(double deltaSeconds, double totalSeconds, CommandBuffer commandBuffer, Texture drawable)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -176,7 +176,9 @@ Class RenderEventArgs  <a class="header-action link-secondary" title="View sourc
     <dd></dd>
     <dt><code>totalSeconds</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
     <dd></dd>
-    <dt><code>frameBuffer</code> <a class="xref" href="Zenith.NET.FrameBuffer.html">FrameBuffer</a></dt>
+    <dt><code>commandBuffer</code> <a class="xref" href="Zenith.NET.CommandBuffer.html">CommandBuffer</a></dt>
+    <dd></dd>
+    <dt><code>drawable</code> <a class="xref" href="Zenith.NET.Texture.html">Texture</a></dt>
     <dd></dd>
   </dl>
 
@@ -193,6 +195,37 @@ Class RenderEventArgs  <a class="header-action link-secondary" title="View sourc
 
   <h2 class="section" id="properties">Properties
 </h2>
+
+
+  <a id="Zenith_NET_Views_RenderEventArgs_CommandBuffer_" data-uid="Zenith.NET.Views.RenderEventArgs.CommandBuffer*"></a>
+
+  <h3 id="Zenith_NET_Views_RenderEventArgs_CommandBuffer" data-uid="Zenith.NET.Views.RenderEventArgs.CommandBuffer">
+  CommandBuffer
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Views/Zenith.NET.Views/RenderEventArgs.cs/#L9"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CommandBuffer CommandBuffer { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Zenith.NET.CommandBuffer.html">CommandBuffer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="Zenith_NET_Views_RenderEventArgs_DeltaSeconds_" data-uid="Zenith.NET.Views.RenderEventArgs.DeltaSeconds*"></a>
@@ -226,18 +259,18 @@ Class RenderEventArgs  <a class="header-action link-secondary" title="View sourc
 
 
 
-  <a id="Zenith_NET_Views_RenderEventArgs_FrameBuffer_" data-uid="Zenith.NET.Views.RenderEventArgs.FrameBuffer*"></a>
+  <a id="Zenith_NET_Views_RenderEventArgs_Drawable_" data-uid="Zenith.NET.Views.RenderEventArgs.Drawable*"></a>
 
-  <h3 id="Zenith_NET_Views_RenderEventArgs_FrameBuffer" data-uid="Zenith.NET.Views.RenderEventArgs.FrameBuffer">
-  FrameBuffer
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Views/Zenith.NET.Views/RenderEventArgs.cs/#L9"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Zenith_NET_Views_RenderEventArgs_Drawable" data-uid="Zenith.NET.Views.RenderEventArgs.Drawable">
+  Drawable
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Views/Zenith.NET.Views/RenderEventArgs.cs/#L11"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public FrameBuffer FrameBuffer { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Texture Drawable { get; }</code></pre>
   </div>
 
 
@@ -246,7 +279,7 @@ Class RenderEventArgs  <a class="header-action link-secondary" title="View sourc
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="Zenith.NET.FrameBuffer.html">FrameBuffer</a></dt>
+    <dt><a class="xref" href="Zenith.NET.Texture.html">Texture</a></dt>
     <dd></dd>
   </dl>
 
@@ -308,7 +341,7 @@ Class RenderEventArgs  <a class="header-action link-secondary" title="View sourc
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+          Zenith.NET is a modern rendering hardware interface for .NET.
         </div>
       </div>
     </footer>

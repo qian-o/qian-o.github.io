@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Compute Shader | Zenith.NET </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Compute Shader | Zenith.NET ">
+      
+      
+      <link rel="icon" href="../../images/Zenith.NET.svg">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/qian-o/Zenith.NET/blob/master/documents/tutorials/guides/compute-shader.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/Zenith.NET-Logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="compute-shader">Compute Shader</h1>
+
+<p>Compute Shader produces an image without a render pass. A compute pipeline reads a sampled texture, converts one pixel per thread to grayscale, and writes a storage texture. The host then presents that output with its shared fullscreen-triangle pipeline.</p>
+<p>The grayscale conversion makes the result easy to inspect, but the guide focuses on Zenith.NET resource handles, compute dispatch, and texture layout transitions rather than color-science derivations.</p>
+<h2 id="result">Result</h2>
+<p><img src="https://raw.githubusercontent.com/qian-o/ZenithTutorials/master/ZenithTutorials/Assets/Screenshots/compute-shader.png" alt="An image converted to grayscale by a Zenith.NET compute shader"></p>
+<p>The source image is processed once at its original dimensions. It is displayed at those dimensions while the framebuffer is at least as large as the image. Threads outside the image bounds are discarded when the dimensions are not exact multiples of the thread-group size.</p>
+<h2 id="frame-overview">Frame overview</h2>
+<pre><code class="lang-mermaid">flowchart LR
+    A{Already processed?} -- No --&gt; B[Output to Storage]
+    B --&gt; C[Bind compute pipeline and constants]
+    C --&gt; D[Dispatch thread groups]
+    D --&gt; E[Output to Sampled]
+    E --&gt; F[Present texture]
+    A -- Yes --&gt; F
+</code></pre>
+<p>The output is static, so the compute pass runs only during the first frame. Later frames reuse the sampled result.</p>
+<h2 id="resource-map">Resource map</h2>
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Usage</th>
+<th>Access</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Input texture</td>
+<td><code>Sampled</code></td>
+<td>Compute shader reads pixels</td>
+</tr>
+<tr>
+<td>Output texture</td>
+<td><code>Storage</code> and <code>Sampled</code></td>
+<td>Compute shader writes; presenter reads</td>
+</tr>
+<tr>
+<td>Constant buffer</td>
+<td><code>Constant</code></td>
+<td>Width, height, and two resource handles</td>
+</tr>
+<tr>
+<td>Compute shader</td>
+<td><code>CSMain</code></td>
+<td>One thread per output pixel</td>
+</tr>
+<tr>
+<td>Compute pipeline</td>
+<td>Compute dispatch</td>
+<td>Binds the shader executable</td>
+</tr>
+</tbody>
+</table>
+<p>The output texture needs both usages at creation time because it changes roles after the dispatch.</p>
+<h2 id="load-the-input-texture">Load the input texture</h2>
+<p>Place an image at <code>Assets/Textures/shoko.png</code>. The project configuration from Project Setup copies it next to the executable. The ImageSharp extension loads it into a sampled Zenith.NET texture:</p>
+<pre><code class="lang-csharp">inputTexture = App.LoadTexture(&quot;shoko.png&quot;, false);
+</code></pre>
+<p>The final argument disables mipmap generation because this workload reads exact source pixels with <code>Texture2D.Load</code>.</p>
+<p><code>App.LoadTexture</code> completes the upload before returning and leaves the loaded mip in <code>Sampled</code> layout. The compute pass therefore needs no input-texture transition; only the output texture changes layout during <code>Render</code>.</p>
+<h2 id="create-the-output-texture">Create the output texture</h2>
+<p>Create a floating-point texture with the same dimensions as the source:</p>
+<pre><code class="lang-csharp">outputTexture = App.Context.CreateTexture(new()
+{
+    Type = TextureType.Texture2D,
+    Format = PixelFormat.R32G32B32A32Float,
+    Width = inputTexture.Desc.Width,
+    Height = inputTexture.Desc.Height,
+    Depth = 1,
+    MipLevels = 1,
+    ArrayLayers = 1,
+    SampleCount = SampleCount.Count1,
+    Usages = TextureUsages.Sampled | TextureUsages.Storage
+});
+</code></pre>
+<p><code>R32G32B32A32Float</code> matches the shader's writable <code>float4</code> element type. <code>Storage</code> permits writes during compute; <code>Sampled</code> permits reads by <code>TexturePresenter</code> afterward.</p>
+<h2 id="data-contract">Data contract</h2>
+<p>The constant buffer passes image dimensions and descriptor handles:</p>
+<pre><code class="lang-slang">struct Constants
+{
+    uint Width;
+
+    uint Height;
+
+    DescriptorHandle&lt;Texture2D&gt; Input;
+
+    DescriptorHandle&lt;RWTexture2D&lt;float4&gt;&gt; Output;
+};
+
+ConstantBuffer&lt;Constants&gt; constants;
+</code></pre>
+<p>The declaration after the structure binds that contract as the constant-buffer view read by <code>CSMain</code>.</p>
+<p>The C# layout matches the two four-byte integers followed by two eight-byte handles:</p>
+<pre><code class="lang-csharp">[StructLayout(LayoutKind.Explicit, Size = 256)]
+file struct Constants
+{
+    [FieldOffset(0)]
+    public uint Width;
+
+    [FieldOffset(4)]
+    public uint Height;
+
+    [FieldOffset(8)]
+    public ResourceHandle Input;
+
+    [FieldOffset(16)]
+    public ResourceHandle Output;
+}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Offset</th>
+<th>C# value</th>
+<th>Slang view</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">0</td>
+<td><code>inputTexture.Desc.Width</code></td>
+<td><code>uint Width</code></td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td><code>inputTexture.Desc.Height</code></td>
+<td><code>uint Height</code></td>
+</tr>
+<tr>
+<td style="text-align: right;">8</td>
+<td><code>inputTexture.SampledHandle</code></td>
+<td><code>DescriptorHandle&lt;Texture2D&gt;</code></td>
+</tr>
+<tr>
+<td style="text-align: right;">16</td>
+<td><code>outputTexture.StorageHandle</code></td>
+<td><code>DescriptorHandle&lt;RWTexture2D&lt;float4&gt;&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<p>The structure reserves a 256-byte constant-buffer allocation while its semantic fields occupy the leading bytes. The offsets, rather than the C# field names, define the shared binary contract.</p>
+<p>Initialize and upload one value:</p>
+<pre><code class="lang-csharp">Constants constants = new()
+{
+    Width = inputTexture.Desc.Width,
+    Height = inputTexture.Desc.Height,
+    Input = inputTexture.SampledHandle,
+    Output = outputTexture.StorageHandle
+};
+
+constantBuffer = App.LoadBuffer([constants], BufferUsages.Constant);
+</code></pre>
+<h2 id="shader-interface">Shader interface</h2>
+<p>The shader declares a <span class="math">\(16 \times 16\)</span> thread group:</p>
+<pre><code class="lang-slang">[shader(&quot;compute&quot;)]
+[numthreads(16, 16, 1)]
+void CSMain(uint3 dispatchThreadID: SV_DispatchThreadID)
+{
+    uint2 pixel = dispatchThreadID.xy;
+
+    if (pixel.x &gt;= constants.Width || pixel.y &gt;= constants.Height)
+    {
+        return;
+    }
+
+    float4 color = constants.Input.Load(int3(pixel, 0));
+    float3 linear = pow(color.rgb, 2.2);
+    float grayscale = dot(linear, float3(0.2126, 0.7152, 0.0722));
+    grayscale = pow(grayscale, 1.0 / 2.2);
+
+    constants.Output[pixel] = float4(grayscale, grayscale, grayscale, color.a);
+}
+</code></pre>
+<p><code>SV_DispatchThreadID</code> is the global thread coordinate across all dispatched groups. The bounds check is essential because group counts round up to cover partial groups at the image edges.</p>
+<p>The middle lines approximate conversion to linear light, calculate luminance, and convert back for display. That effect can be replaced without changing the pipeline or resource flow; the important interface is one sampled read and one storage write at the same pixel coordinate.</p>
+<h2 id="create-the-compute-pipeline">Create the compute pipeline</h2>
+<p>Compile the compute entry point and create its pipeline:</p>
+<pre><code class="lang-csharp">using Shader computeShader = App.LoadShader(&quot;ComputeShader.slang&quot;, &quot;CSMain&quot;);
+
+computePipeline = App.Context.CreateComputePipeline(new() { ComputeShader = computeShader });
+</code></pre>
+<p>A compute pipeline has no attachment formats or rasterizer state. It executes outside a render pass.</p>
+<h2 id="dispatch-the-workload">Dispatch the workload</h2>
+<p>Before the first dispatch, transition the output from its undefined initial contents into writable storage layout:</p>
+<pre><code class="lang-csharp">commandBuffer.Transition(outputTexture, default, TextureLayout.Undefined, TextureLayout.Storage);
+
+commandBuffer.SetPipeline(computePipeline);
+commandBuffer.SetConstantBuffer(constantBuffer, 0);
+commandBuffer.Dispatch((inputTexture.Desc.Width + ThreadGroupSize - 1) / ThreadGroupSize, (inputTexture.Desc.Height + ThreadGroupSize - 1) / ThreadGroupSize, 1);
+</code></pre>
+<p>For a dimension <span class="math">\(D\)</span> and group size <span class="math">\(G\)</span>, integer ceiling division is:</p>
+<div class="math">
+\[
+\left\lceil \frac{D}{G} \right\rceil = \frac{D + G - 1}{G}
+\]</div>
+<p>After all storage writes, transition the texture for sampled reads:</p>
+<pre><code class="lang-csharp">commandBuffer.Transition(outputTexture, default, TextureLayout.Storage, TextureLayout.Sampled);
+
+processed = true;
+</code></pre>
+<p>The command buffer preserves this order: transition, dispatch, then transition. The presenter consumes the texture only after it reaches <code>Sampled</code> layout.</p>
+<h2 id="present-the-output">Present the output</h2>
+<p>Every frame, including the first, hands the sampled result to the shared presenter:</p>
+<pre><code class="lang-csharp">App.PresentTexture(commandBuffer, drawable, outputTexture, false);
+</code></pre>
+<p>Passing <code>false</code> preserves the texture's original size and centers it when the framebuffer is at least as large in both dimensions. In a smaller framebuffer, the presenter clamps each viewport dimension to the available size. The presenter records the graphics render pass that writes the swap-chain drawable.</p>
+<h2 id="lifetime">Lifetime</h2>
+<p>This image does not depend on the framebuffer size, so <code>Resize</code> is empty. Dispose each renderer-owned resource after the final submitted frame has completed:</p>
+<pre><code class="lang-csharp">public void Dispose()
+{
+    computePipeline.Dispose();
+    constantBuffer.Dispose();
+    outputTexture.Dispose();
+    inputTexture.Dispose();
+}
+</code></pre>
+<h2 id="inspect-the-result">Inspect the result</h2>
+<p>Run the host and select <strong>Compute Shader</strong>. Confirm that:</p>
+<ul>
+<li>the complete source image appears in grayscale;</li>
+<li>no unprocessed strip appears along the right or bottom edge;</li>
+<li>resizing to a framebuffer at least as large as the image preserves its original display size;</li>
+<li>validation reports no storage/sampled usage or layout errors.</li>
+</ul>
+<p>An unprocessed edge usually indicates floor division or a missing bounds check. A blank result often indicates an incorrect descriptor handle or a missing <code>Storage</code> to <code>Sampled</code> transition.</p>
+<h2 id="explore-further">Explore further</h2>
+<ol>
+<li>Replace the grayscale calculation with <code>constants.Output[pixel] = color</code> to verify a direct copy.</li>
+<li>Invert <code>color.rgb</code> while preserving alpha.</li>
+<li>Change the declared thread-group size and update the C# <code>ThreadGroupSize</code> constant to match.</li>
+<li>Set <code>fitToWindow</code> to <code>true</code> when presenting and compare the viewport behavior.</li>
+</ol>
+<h2 id="complete-source">Complete source</h2>
+<ul>
+<li><a href="https://github.com/qian-o/ZenithTutorials/blob/master/ZenithTutorials/Renderers/ComputeShaderRenderer.cs">ComputeShaderRenderer.cs</a></li>
+<li><a href="https://github.com/qian-o/ZenithTutorials/blob/master/ZenithTutorials/Assets/Shaders/ComputeShader.slang">ComputeShader.slang</a></li>
+<li><a href="https://github.com/qian-o/ZenithTutorials/blob/master/ZenithTutorials/Assets/Textures/shoko.png">Input texture</a></li>
+</ul>
+<p>Continue with <a href="ray-tracing.html">Ray Tracing</a> to reuse the compute-output flow for an image regenerated from inline ray queries every frame.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/qian-o/Zenith.NET/blob/master/documents/tutorials/guides/compute-shader.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Zenith.NET is a modern rendering hardware interface for .NET.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

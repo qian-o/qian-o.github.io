@@ -7,7 +7,7 @@
       <meta name="title" content="Class ValidationLayer | Zenith.NET ">
       
       
-      <link rel="icon" href="../images/Zenith.NET.png">
+      <link rel="icon" href="../images/Zenith.NET.svg">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
       <meta name="docfx:navrel" content="../toc.html">
@@ -93,7 +93,7 @@ Class ValidationLayer  <a class="header-action link-secondary" title="View sourc
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="Zenith.html">Zenith</a>.<a class="xref" href="Zenith.NET.html">NET</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Zenith.NET.html">Zenith.NET</a></dd></dl>
   <dl><dt>Assembly</dt><dd>Zenith.NET.dll</dd></dl>
   </div>
 
@@ -101,7 +101,7 @@ Class ValidationLayer  <a class="header-action link-secondary" title="View sourc
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract class ValidationLayer : GraphicsResource, IDisposableObject, IDisposable</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract class ValidationLayer : GraphicsResource, IDisposable</code></pre>
   </div>
 
 
@@ -120,7 +120,6 @@ Class ValidationLayer  <a class="header-action link-secondary" title="View sourc
   <dl class="typelist implements">
     <dt>Implements</dt>
     <dd>
-      <div><a class="xref" href="Zenith.NET.IDisposableObject.html">IDisposableObject</a></div>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
     </dd>
   </dl>
@@ -134,6 +133,9 @@ Class ValidationLayer  <a class="header-action link-secondary" title="View sourc
     </div>
     <div>
       <a class="xref" href="Zenith.NET.GraphicsResource.html#Zenith_NET_GraphicsResource_Context">GraphicsResource.Context</a>
+    </div>
+    <div>
+      <a class="xref" href="Zenith.NET.GraphicsResource.html#Zenith_NET_GraphicsResource_GetNativeObject_Zenith_NET_NativeObjectType_">GraphicsResource.GetNativeObject(NativeObjectType)</a>
     </div>
     <div>
       <a class="xref" href="Zenith.NET.GraphicsResource.html#Zenith_NET_GraphicsResource_SetResourceName_System_String_">GraphicsResource.SetResourceName(string)</a>
@@ -216,8 +218,8 @@ Class ValidationLayer  <a class="header-action link-secondary" title="View sourc
 
   <a id="Zenith_NET_ValidationLayer_Report_" data-uid="Zenith.NET.ValidationLayer.Report*"></a>
 
-  <h3 id="Zenith_NET_ValidationLayer_Report_Zenith_NET_MessageSource_Zenith_NET_MessageSeverity_System_String_" data-uid="Zenith.NET.ValidationLayer.Report(Zenith.NET.MessageSource,Zenith.NET.MessageSeverity,System.String)">
-  Report(MessageSource, MessageSeverity, string)
+  <h3 id="Zenith_NET_ValidationLayer_Report_Zenith_NET_MessageSeverity_System_String_" data-uid="Zenith.NET.ValidationLayer.Report(Zenith.NET.MessageSeverity,System.String)">
+  Report(MessageSeverity, string)
   <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/ValidationLayer.cs/#L5"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -225,13 +227,11 @@ Class ValidationLayer  <a class="header-action link-secondary" title="View sourc
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected void Report(MessageSource source, MessageSeverity severity, string message)</code></pre>
+    <pre><code class="lang-csharp hljs">protected void Report(MessageSeverity severity, string message)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>source</code> <a class="xref" href="Zenith.NET.MessageSource.html">MessageSource</a></dt>
-    <dd></dd>
     <dt><code>severity</code> <a class="xref" href="Zenith.NET.MessageSeverity.html">MessageSeverity</a></dt>
     <dd></dd>
     <dt><code>message</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
@@ -269,7 +269,7 @@ Class ValidationLayer  <a class="header-action link-secondary" title="View sourc
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+          Zenith.NET is a modern rendering hardware interface for .NET.
         </div>
       </div>
     </footer>
