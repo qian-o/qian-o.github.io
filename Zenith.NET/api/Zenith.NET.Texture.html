@@ -7,7 +7,7 @@
       <meta name="title" content="Class Texture | Zenith.NET ">
       
       
-      <link rel="icon" href="../images/Zenith.NET.png">
+      <link rel="icon" href="../images/Zenith.NET.svg">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
       <meta name="docfx:navrel" content="../toc.html">
@@ -93,7 +93,7 @@ Class Texture  <a class="header-action link-secondary" title="View source" href=
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="Zenith.html">Zenith</a>.<a class="xref" href="Zenith.NET.html">NET</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Zenith.NET.html">Zenith.NET</a></dd></dl>
   <dl><dt>Assembly</dt><dd>Zenith.NET.dll</dd></dl>
   </div>
 
@@ -101,7 +101,7 @@ Class Texture  <a class="header-action link-secondary" title="View source" href=
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract class Texture : GraphicsResource, IBindableResource, IDisposableObject, IDisposable</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract class Texture : GraphicsResource, IDisposable</code></pre>
   </div>
 
 
@@ -120,8 +120,6 @@ Class Texture  <a class="header-action link-secondary" title="View source" href=
   <dl class="typelist implements">
     <dt>Implements</dt>
     <dd>
-      <div><a class="xref" href="Zenith.NET.IBindableResource.html">IBindableResource</a></div>
-      <div><a class="xref" href="Zenith.NET.IDisposableObject.html">IDisposableObject</a></div>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
     </dd>
   </dl>
@@ -135,6 +133,9 @@ Class Texture  <a class="header-action link-secondary" title="View source" href=
     </div>
     <div>
       <a class="xref" href="Zenith.NET.GraphicsResource.html#Zenith_NET_GraphicsResource_Context">GraphicsResource.Context</a>
+    </div>
+    <div>
+      <a class="xref" href="Zenith.NET.GraphicsResource.html#Zenith_NET_GraphicsResource_GetNativeObject_Zenith_NET_NativeObjectType_">GraphicsResource.GetNativeObject(NativeObjectType)</a>
     </div>
     <div>
       <a class="xref" href="Zenith.NET.GraphicsResource.html#Zenith_NET_GraphicsResource_SetResourceName_System_String_">GraphicsResource.SetResourceName(string)</a>
@@ -248,14 +249,10 @@ Class Texture  <a class="header-action link-secondary" title="View source" href=
 
 
 
-  <h2 class="section" id="methods">Methods
-</h2>
+  <a id="Zenith_NET_Texture_SampledHandle_" data-uid="Zenith.NET.Texture.SampledHandle*"></a>
 
-
-  <a id="Zenith_NET_Texture_Upload_" data-uid="Zenith.NET.Texture.Upload*"></a>
-
-  <h3 id="Zenith_NET_Texture_Upload__1_System_ReadOnlySpan___0__Zenith_NET_TextureSlice_Zenith_NET_TextureOffset_Zenith_NET_TextureExtent_" data-uid="Zenith.NET.Texture.Upload``1(System.ReadOnlySpan{``0},Zenith.NET.TextureSlice,Zenith.NET.TextureOffset,Zenith.NET.TextureExtent)">
-  Upload&lt;T&gt;(ReadOnlySpan&lt;T&gt;, TextureSlice, TextureOffset, TextureExtent)
+  <h3 id="Zenith_NET_Texture_SampledHandle" data-uid="Zenith.NET.Texture.SampledHandle">
+  SampledHandle
   <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Texture.cs/#L9"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -263,27 +260,133 @@ Class Texture  <a class="header-action link-secondary" title="View source" href=
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Upload&lt;T&gt;(ReadOnlySpan&lt;T&gt; data, TextureSlice slice, TextureOffset offset, TextureExtent extent) where T : unmanaged</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract ResourceHandle SampledHandle { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Zenith.NET.ResourceHandle.html">ResourceHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_Texture_StorageHandle_" data-uid="Zenith.NET.Texture.StorageHandle*"></a>
+
+  <h3 id="Zenith_NET_Texture_StorageHandle" data-uid="Zenith.NET.Texture.StorageHandle">
+  StorageHandle
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Texture.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract ResourceHandle StorageHandle { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Zenith.NET.ResourceHandle.html">ResourceHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Zenith_NET_Texture_Download_" data-uid="Zenith.NET.Texture.Download*"></a>
+
+  <h3 id="Zenith_NET_Texture_Download_Zenith_NET_TextureSubresource_Zenith_NET_TextureLayout_Zenith_NET_TextureLayout_Zenith_NET_Offset3D_Zenith_NET_Extent3D_Zenith_NET_TextureData_" data-uid="Zenith.NET.Texture.Download(Zenith.NET.TextureSubresource,Zenith.NET.TextureLayout,Zenith.NET.TextureLayout,Zenith.NET.Offset3D,Zenith.NET.Extent3D,Zenith.NET.TextureData)">
+  Download(TextureSubresource, TextureLayout, TextureLayout, Offset3D, Extent3D, TextureData)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Texture.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Download(TextureSubresource subresource, TextureLayout currentLayout, TextureLayout finalLayout, Offset3D offset, Extent3D extent, TextureData data)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>data</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;T&gt;</dt>
+    <dt><code>subresource</code> <a class="xref" href="Zenith.NET.TextureSubresource.html">TextureSubresource</a></dt>
     <dd></dd>
-    <dt><code>slice</code> <a class="xref" href="Zenith.NET.TextureSlice.html">TextureSlice</a></dt>
+    <dt><code>currentLayout</code> <a class="xref" href="Zenith.NET.TextureLayout.html">TextureLayout</a></dt>
     <dd></dd>
-    <dt><code>offset</code> <a class="xref" href="Zenith.NET.TextureOffset.html">TextureOffset</a></dt>
+    <dt><code>finalLayout</code> <a class="xref" href="Zenith.NET.TextureLayout.html">TextureLayout</a></dt>
     <dd></dd>
-    <dt><code>extent</code> <a class="xref" href="Zenith.NET.TextureExtent.html">TextureExtent</a></dt>
+    <dt><code>offset</code> <a class="xref" href="Zenith.NET.Offset3D.html">Offset3D</a></dt>
+    <dd></dd>
+    <dt><code>extent</code> <a class="xref" href="Zenith.NET.Extent3D.html">Extent3D</a></dt>
+    <dd></dd>
+    <dt><code>data</code> <a class="xref" href="Zenith.NET.TextureData.html">TextureData</a></dt>
     <dd></dd>
   </dl>
 
 
-  <h4 class="section">Type Parameters</h4>
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_Texture_Upload_" data-uid="Zenith.NET.Texture.Upload*"></a>
+
+  <h3 id="Zenith_NET_Texture_Upload_Zenith_NET_TextureSubresource_Zenith_NET_TextureLayout_Zenith_NET_TextureLayout_Zenith_NET_Offset3D_Zenith_NET_Extent3D_Zenith_NET_TextureData_" data-uid="Zenith.NET.Texture.Upload(Zenith.NET.TextureSubresource,Zenith.NET.TextureLayout,Zenith.NET.TextureLayout,Zenith.NET.Offset3D,Zenith.NET.Extent3D,Zenith.NET.TextureData)">
+  Upload(TextureSubresource, TextureLayout, TextureLayout, Offset3D, Extent3D, TextureData)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Texture.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Upload(TextureSubresource subresource, TextureLayout currentLayout, TextureLayout finalLayout, Offset3D offset, Extent3D extent, TextureData data)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>T</code></dt>
+    <dt><code>subresource</code> <a class="xref" href="Zenith.NET.TextureSubresource.html">TextureSubresource</a></dt>
+    <dd></dd>
+    <dt><code>currentLayout</code> <a class="xref" href="Zenith.NET.TextureLayout.html">TextureLayout</a></dt>
+    <dd></dd>
+    <dt><code>finalLayout</code> <a class="xref" href="Zenith.NET.TextureLayout.html">TextureLayout</a></dt>
+    <dd></dd>
+    <dt><code>offset</code> <a class="xref" href="Zenith.NET.Offset3D.html">Offset3D</a></dt>
+    <dd></dd>
+    <dt><code>extent</code> <a class="xref" href="Zenith.NET.Extent3D.html">Extent3D</a></dt>
+    <dd></dd>
+    <dt><code>data</code> <a class="xref" href="Zenith.NET.TextureData.html">TextureData</a></dt>
     <dd></dd>
   </dl>
+
+
 
 
 
@@ -314,7 +417,7 @@ Class Texture  <a class="header-action link-secondary" title="View source" href=
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+          Zenith.NET is a modern rendering hardware interface for .NET.
         </div>
       </div>
     </footer>

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Spinning Cube | Zenith.NET </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Spinning Cube | Zenith.NET ">
+      
+      
+      <link rel="icon" href="../../images/Zenith.NET.svg">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/qian-o/Zenith.NET/blob/master/documents/tutorials/guides/spinning-cube.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/Zenith.NET-Logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="spinning-cube">Spinning Cube</h1>
+
+<p>Spinning Cube extends the first graphics workload into three dimensions. It reuses vertex input and a graphics pipeline, then adds indexed geometry, model-view-projection constants, back-face culling, a depth attachment, animation, and size-dependent resource handling.</p>
+<p>The guide focuses on the Zenith.NET objects and their lifetime. Matrix construction uses <code>System.Numerics</code>; a full derivation of perspective projection is outside the workload boundary.</p>
+<h2 id="result">Result</h2>
+<p><img src="https://raw.githubusercontent.com/qian-o/ZenithTutorials/master/ZenithTutorials/Assets/Screenshots/spinning-cube.png" alt="A rotating depth-tested cube rendered with Zenith.NET"></p>
+<p>The cube rotates around two axes. Back faces are culled, and the depth attachment ensures that nearer fragments hide farther surfaces.</p>
+<h2 id="frame-overview">Frame overview</h2>
+<p>Initialization uploads eight shared vertices and 36 indices, creates a constant buffer, and builds a depth-enabled pipeline. Per frame:</p>
+<pre><code class="lang-mermaid">flowchart LR
+    A[Update MVP constants] --&gt; B{Depth texture exists?}
+    B -- No --&gt; C[Create and transition depth texture]
+    B -- Yes --&gt; D[Begin color and depth render pass]
+    C --&gt; D
+    D --&gt; E[Bind pipeline and buffers]
+    E --&gt; F[DrawIndexed 36]
+    F --&gt; G[End render pass]
+</code></pre>
+<p>On resize, the renderer disposes only the depth texture. The next frame recreates it with the new framebuffer dimensions.</p>
+<h2 id="resource-map">Resource map</h2>
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Usage</th>
+<th>Lifetime</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vertex buffer</td>
+<td>Eight cube positions and colors</td>
+<td>Renderer</td>
+</tr>
+<tr>
+<td>Index buffer</td>
+<td>Twelve triangles sharing those vertices</td>
+<td>Renderer</td>
+</tr>
+<tr>
+<td>Constant buffer</td>
+<td>Model, view, and projection matrices</td>
+<td>Renderer; updated each frame</td>
+</tr>
+<tr>
+<td>Graphics pipeline</td>
+<td>Depth-tested indexed drawing</td>
+<td>Renderer</td>
+</tr>
+<tr>
+<td>Depth texture</td>
+<td><code>D32FloatS8UInt</code> attachment</td>
+<td>Recreated after resize</td>
+</tr>
+<tr>
+<td>Swap-chain drawable</td>
+<td>Color attachment</td>
+<td>Host-owned</td>
+</tr>
+</tbody>
+</table>
+<p>The depth format appears in both the pipeline attachment declaration and the texture description. Those values must agree.</p>
+<h2 id="geometry-and-indexed-drawing">Geometry and indexed drawing</h2>
+<p>Eight vertices describe the unique corners of the cube. The index buffer selects them to build six faces, two triangles per face:</p>
+<pre><code class="lang-csharp">uint[] indices =
+[
+    0, 1, 2, 0, 2, 3,
+    5, 4, 7, 5, 7, 6,
+    4, 0, 3, 4, 3, 7,
+    1, 5, 6, 1, 6, 2,
+    3, 2, 6, 3, 6, 7,
+    4, 5, 1, 4, 1, 0
+];
+
+vertexBuffer = App.LoadBuffer(vertices, BufferUsages.Vertex);
+indexBuffer = App.LoadBuffer(indices, BufferUsages.Index);
+</code></pre>
+<p>Using indices avoids duplicating a complete position-and-color record for every triangle corner. The element type is <code>uint</code>, so the render method binds it as <code>IndexFormat.UInt32</code>.</p>
+<h2 id="data-contract">Data contract</h2>
+<p>The Slang constant buffer contains three consecutive matrices:</p>
+<pre><code class="lang-slang">struct Constants
+{
+    float4x4 Model;
+
+    float4x4 View;
+
+    float4x4 Projection;
+};
+
+ConstantBuffer&lt;Constants&gt; constants;
+</code></pre>
+<p>The C# structure fixes each 64-byte matrix at the corresponding offset:</p>
+<pre><code class="lang-csharp">[StructLayout(LayoutKind.Explicit, Size = 192)]
+file struct Constants
+{
+    [FieldOffset(0)]
+    public Matrix4x4 Model;
+
+    [FieldOffset(64)]
+    public Matrix4x4 View;
+
+    [FieldOffset(128)]
+    public Matrix4x4 Projection;
+}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Offset</th>
+<th>C#</th>
+<th>Slang</th>
+<th style="text-align: right;">Size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">0</td>
+<td><code>Matrix4x4 Model</code></td>
+<td><code>float4x4 Model</code></td>
+<td style="text-align: right;">64 bytes</td>
+</tr>
+<tr>
+<td style="text-align: right;">64</td>
+<td><code>Matrix4x4 View</code></td>
+<td><code>float4x4 View</code></td>
+<td style="text-align: right;">64 bytes</td>
+</tr>
+<tr>
+<td style="text-align: right;">128</td>
+<td><code>Matrix4x4 Projection</code></td>
+<td><code>float4x4 Projection</code></td>
+<td style="text-align: right;">64 bytes</td>
+</tr>
+</tbody>
+</table>
+<p>Explicit offsets keep the shared binary contract visible. The total structure size is 192 bytes.</p>
+<h2 id="transform-vertices">Transform vertices</h2>
+<p>The vertex shader composes the three matrices and transforms each position:</p>
+<pre><code class="lang-slang">[shader(&quot;vertex&quot;)]
+FSInput VSMain(VSInput input)
+{
+    float4x4 modelView = mul(constants.Model, constants.View);
+    float4x4 mvp = mul(modelView, constants.Projection);
+
+    FSInput output;
+    output.Position = mul(float4(input.Position, 1.0), mvp);
+    output.Color = input.Color;
+
+    return output;
+}
+</code></pre>
+<p><code>System.Numerics.Matrix4x4</code> and this shader use the same row-vector order: model, then view, then projection. The fragment shader simply returns the interpolated vertex color.</p>
+<h2 id="enable-depth-and-culling">Enable depth and culling</h2>
+<p>The graphics pipeline adds a depth format and enables both back-face culling and depth read/write:</p>
+<pre><code class="lang-csharp">pipeline = App.Context.CreateGraphicsPipeline(new()
+{
+    VertexShader = vertexShader,
+    FragmentShader = fragmentShader,
+    InputLayouts = [inputLayout],
+    PrimitiveTopology = PrimitiveTopology.TriangleList,
+    AttachmentFormats = new()
+    {
+        ColorFormats = [App.ColorFormat],
+        DepthStencilFormat = PixelFormat.D32FloatS8UInt,
+        SampleCount = SampleCount.Count1
+    },
+    RenderState = new()
+    {
+        Rasterizer = RasterizerState.CullBack(),
+        DepthStencil = DepthStencilState.DepthReadWrite(),
+        Blend = BlendState.Opaque()
+    }
+});
+</code></pre>
+<p>Back-face culling removes triangles whose winding faces away from the camera. Depth testing compares overlapping fragments, while depth writes preserve the nearest accepted value for later triangles.</p>
+<h2 id="update-transformation-constants">Update transformation constants</h2>
+<p><code>Update</code> advances a frame-rate-independent angle and constructs the three matrices:</p>
+<pre><code class="lang-csharp">rotationAngle += (float)deltaTime;
+
+Constants constants = new()
+{
+    Model = Matrix4x4.CreateRotationY(rotationAngle) * Matrix4x4.CreateRotationX(rotationAngle * 0.5f),
+    View = Matrix4x4.CreateLookAt(new(0.0f, 0.0f, 3.0f), Vector3.Zero, Vector3.UnitY),
+    Projection = Matrix4x4.CreatePerspectiveFieldOfView(float.DegreesToRadians(45.0f), (float)App.Width / App.Height, 0.1f, 100.0f)
+};
+</code></pre>
+<p>The framebuffer aspect ratio keeps the projection proportional after a resize. Upload exactly one <code>Constants</code> value:</p>
+<pre><code class="lang-csharp">constantBuffer.Upload(0, new()
+{
+    Pointer = (nint)(&amp;constants),
+    SizeInBytes = (uint)sizeof(Constants)
+});
+</code></pre>
+<p>The teaching host waits for each submitted frame, so overwriting this single constant buffer does not race a previous frame. A multi-frame application needs separate per-frame storage or equivalent synchronization.</p>
+<h2 id="create-the-depth-attachment">Create the depth attachment</h2>
+<p>The depth texture is created lazily after the window has a valid framebuffer size:</p>
+<pre><code class="lang-csharp">if (depthTexture is null)
+{
+    depthTexture = App.Context.CreateTexture(TextureDesc.DepthStencilAttachment(PixelFormat.D32FloatS8UInt, App.Width, App.Height, SampleCount.Count1));
+
+    commandBuffer.Transition(depthTexture, default, TextureLayout.Undefined, TextureLayout.DepthStencilAttachment);
+}
+</code></pre>
+<p>The first transition establishes <code>DepthStencilAttachment</code> layout. The texture remains in that layout while reused by later frames.</p>
+<h2 id="record-the-frame">Record the frame</h2>
+<p>Begin a render pass with both color and depth attachments, bind all inputs, and issue an indexed draw:</p>
+<pre><code class="lang-csharp">commandBuffer.BeginRenderPass([ColorAttachment.Clear(drawable, new(0.04f, 0.055f, 0.075f, 1.0f))], DepthStencilAttachment.Clear(depthTexture, 1.0f, 0));
+
+commandBuffer.SetPipeline(pipeline);
+commandBuffer.SetVertexBuffer(vertexBuffer, 0, 0);
+commandBuffer.SetIndexBuffer(indexBuffer, 0, IndexFormat.UInt32);
+commandBuffer.SetConstantBuffer(constantBuffer, 0);
+
+commandBuffer.DrawIndexed(36, 1, 0, 0, 0);
+
+commandBuffer.EndRenderPass();
+</code></pre>
+<p>Depth is cleared to <code>1.0</code> for each frame. <code>DrawIndexed</code> consumes all 36 indices for one instance, starting at index and vertex offsets zero.</p>
+<h2 id="resize-and-lifetime">Resize and lifetime</h2>
+<p>The depth attachment dimensions must match the drawable. Dispose it on resize and recreate it during the next render:</p>
+<pre><code class="lang-csharp">public void Resize(uint width, uint height)
+{
+    depthTexture?.Dispose();
+    depthTexture = null;
+}
+</code></pre>
+<p>Release the optional depth texture first, then the pipeline and its input resources:</p>
+<pre><code class="lang-csharp">public void Dispose()
+{
+    depthTexture?.Dispose();
+
+    pipeline.Dispose();
+    constantBuffer.Dispose();
+    indexBuffer.Dispose();
+    vertexBuffer.Dispose();
+}
+</code></pre>
+<h2 id="inspect-the-result">Inspect the result</h2>
+<p>Run the host and select <strong>Spinning Cube</strong>. Confirm that:</p>
+<ul>
+<li>the cube rotates smoothly and hidden surfaces do not bleed through;</li>
+<li>resizing changes the projection without stretching the cube;</li>
+<li>the depth texture is recreated after resize;</li>
+<li>the validation layer reports no attachment-format or layout errors.</li>
+</ul>
+<p>If faces disappear unexpectedly, inspect index winding and culling. If distant faces draw over near faces, confirm that the pipeline enables depth read/write and that a depth attachment is supplied to the render pass.</p>
+<h2 id="explore-further">Explore further</h2>
+<ol>
+<li>Replace <code>CullBack</code> with <code>CullNone</code> and compare the result.</li>
+<li>Disable depth testing while leaving the depth attachment present.</li>
+<li>Change the near and far projection planes and observe depth precision at different distances.</li>
+<li>Give each face its own vertices and colors to see the tradeoff between shared indices and per-face attributes.</li>
+</ol>
+<h2 id="complete-source">Complete source</h2>
+<ul>
+<li><a href="https://github.com/qian-o/ZenithTutorials/blob/master/ZenithTutorials/Renderers/SpinningCubeRenderer.cs">SpinningCubeRenderer.cs</a></li>
+<li><a href="https://github.com/qian-o/ZenithTutorials/blob/master/ZenithTutorials/Assets/Shaders/SpinningCube.slang">SpinningCube.slang</a></li>
+</ul>
+<p>Continue with <a href="indirect-drawing.html">Indirect Drawing</a> to reuse this depth-tested cube for 25 instances driven by one indirect argument record, or branch to <a href="compute-shader.html">Compute Shader</a> to produce an image without rasterized geometry.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/qian-o/Zenith.NET/blob/master/documents/tutorials/guides/spinning-cube.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Zenith.NET is a modern rendering hardware interface for .NET.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

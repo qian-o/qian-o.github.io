@@ -15,6 +15,594 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Silk.NET.Vulkan.BindHeapInfoEXT.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Silk.NET.Vulkan.BindHeapInfoEXT.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Silk.NET.Vulkan.BindHeapInfoEXT",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Silk.NET.Vulkan.CommandBufferInheritanceDescriptorHeapInfoEXT.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Silk.NET.Vulkan.CommandBufferInheritanceDescriptorHeapInfoEXT.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Silk.NET.Vulkan.CommandBufferInheritanceDescriptorHeapInfoEXT",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Silk.NET.Vulkan.DescriptorMappingSourceConstantOffsetEXT.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Silk.NET.Vulkan.DescriptorMappingSourceConstantOffsetEXT.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Silk.NET.Vulkan.DescriptorMappingSourceConstantOffsetEXT",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Silk.NET.Vulkan.DescriptorMappingSourceDataEXT.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Silk.NET.Vulkan.DescriptorMappingSourceDataEXT.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Silk.NET.Vulkan.DescriptorMappingSourceDataEXT",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Silk.NET.Vulkan.DescriptorMappingSourceEXT.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Silk.NET.Vulkan.DescriptorMappingSourceEXT.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Silk.NET.Vulkan.DescriptorMappingSourceEXT",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Silk.NET.Vulkan.DescriptorMappingSourceHeapDataEXT.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Silk.NET.Vulkan.DescriptorMappingSourceHeapDataEXT.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Silk.NET.Vulkan.DescriptorMappingSourceHeapDataEXT",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Silk.NET.Vulkan.DescriptorMappingSourceIndirectAddressEXT.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Silk.NET.Vulkan.DescriptorMappingSourceIndirectAddressEXT.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Silk.NET.Vulkan.DescriptorMappingSourceIndirectAddressEXT",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Silk.NET.Vulkan.DescriptorMappingSourceIndirectIndexArrayEXT.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Silk.NET.Vulkan.DescriptorMappingSourceIndirectIndexArrayEXT.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Silk.NET.Vulkan.DescriptorMappingSourceIndirectIndexArrayEXT",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Silk.NET.Vulkan.DescriptorMappingSourceIndirectIndexEXT.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Silk.NET.Vulkan.DescriptorMappingSourceIndirectIndexEXT.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Silk.NET.Vulkan.DescriptorMappingSourceIndirectIndexEXT",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Silk.NET.Vulkan.DescriptorMappingSourcePushIndexEXT.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Silk.NET.Vulkan.DescriptorMappingSourcePushIndexEXT.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Silk.NET.Vulkan.DescriptorMappingSourcePushIndexEXT",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Silk.NET.Vulkan.DescriptorMappingSourceShaderRecordIndexEXT.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Silk.NET.Vulkan.DescriptorMappingSourceShaderRecordIndexEXT.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Silk.NET.Vulkan.DescriptorMappingSourceShaderRecordIndexEXT",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Silk.NET.Vulkan.DescriptorSetAndBindingMappingEXT.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Silk.NET.Vulkan.DescriptorSetAndBindingMappingEXT.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Silk.NET.Vulkan.DescriptorSetAndBindingMappingEXT",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Silk.NET.Vulkan.DeviceAddressRangeEXT.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Silk.NET.Vulkan.DeviceAddressRangeEXT.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Silk.NET.Vulkan.DeviceAddressRangeEXT",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Silk.NET.Vulkan.ExtDescriptorHeapAccessFlags2Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Silk.NET.Vulkan.ExtDescriptorHeapAccessFlags2Extensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Silk.NET.Vulkan.ExtDescriptorHeapAccessFlags2Extensions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Silk.NET.Vulkan.ExtDescriptorHeapBufferUsageFlags2Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Silk.NET.Vulkan.ExtDescriptorHeapBufferUsageFlags2Extensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Silk.NET.Vulkan.ExtDescriptorHeapBufferUsageFlags2Extensions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Silk.NET.Vulkan.ExtDescriptorHeapBufferUsageFlagsExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Silk.NET.Vulkan.ExtDescriptorHeapBufferUsageFlagsExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Silk.NET.Vulkan.ExtDescriptorHeapBufferUsageFlagsExtensions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Silk.NET.Vulkan.ExtDescriptorHeapImageCreateFlagsExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Silk.NET.Vulkan.ExtDescriptorHeapImageCreateFlagsExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Silk.NET.Vulkan.ExtDescriptorHeapImageCreateFlagsExtensions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Silk.NET.Vulkan.ExtDescriptorHeapIndirectCommandsTokenTypeExtExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Silk.NET.Vulkan.ExtDescriptorHeapIndirectCommandsTokenTypeExtExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Silk.NET.Vulkan.ExtDescriptorHeapIndirectCommandsTokenTypeExtExtensions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Silk.NET.Vulkan.ExtDescriptorHeapIndirectCommandsTokenTypeNvExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Silk.NET.Vulkan.ExtDescriptorHeapIndirectCommandsTokenTypeNvExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Silk.NET.Vulkan.ExtDescriptorHeapIndirectCommandsTokenTypeNvExtensions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Silk.NET.Vulkan.ExtDescriptorHeapPipelineCreateFlags2Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Silk.NET.Vulkan.ExtDescriptorHeapPipelineCreateFlags2Extensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Silk.NET.Vulkan.ExtDescriptorHeapPipelineCreateFlags2Extensions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Silk.NET.Vulkan.ExtDescriptorHeapShaderCreateFlagsExtExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Silk.NET.Vulkan.ExtDescriptorHeapShaderCreateFlagsExtExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Silk.NET.Vulkan.ExtDescriptorHeapShaderCreateFlagsExtExtensions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Silk.NET.Vulkan.ExtDescriptorHeapStructureTypeExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Silk.NET.Vulkan.ExtDescriptorHeapStructureTypeExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Silk.NET.Vulkan.ExtDescriptorHeapStructureTypeExtensions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Silk.NET.Vulkan.ExtDescriptorHeapTensorCreateFlagsArmExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Silk.NET.Vulkan.ExtDescriptorHeapTensorCreateFlagsArmExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Silk.NET.Vulkan.ExtDescriptorHeapTensorCreateFlagsArmExtensions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Silk.NET.Vulkan.Extensions.EXT.ExtDescriptorHeap.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Silk.NET.Vulkan.Extensions.EXT.ExtDescriptorHeap.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Silk.NET.Vulkan.Extensions.EXT.ExtDescriptorHeap",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Silk.NET.Vulkan.Extensions.EXT.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Silk.NET.Vulkan.Extensions.EXT.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Silk.NET.Vulkan.Extensions.EXT",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Silk.NET.Vulkan.HostAddressRangeConstEXT.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Silk.NET.Vulkan.HostAddressRangeConstEXT.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Silk.NET.Vulkan.HostAddressRangeConstEXT",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Silk.NET.Vulkan.HostAddressRangeEXT.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Silk.NET.Vulkan.HostAddressRangeEXT.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Silk.NET.Vulkan.HostAddressRangeEXT",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Silk.NET.Vulkan.ImageDescriptorInfoEXT.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Silk.NET.Vulkan.ImageDescriptorInfoEXT.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Silk.NET.Vulkan.ImageDescriptorInfoEXT",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Silk.NET.Vulkan.IndirectCommandsLayoutPushDataTokenNV.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Silk.NET.Vulkan.IndirectCommandsLayoutPushDataTokenNV.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Silk.NET.Vulkan.IndirectCommandsLayoutPushDataTokenNV",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Silk.NET.Vulkan.OpaqueCaptureDataCreateInfoEXT.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Silk.NET.Vulkan.OpaqueCaptureDataCreateInfoEXT.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Silk.NET.Vulkan.OpaqueCaptureDataCreateInfoEXT",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Silk.NET.Vulkan.PhysicalDeviceDescriptorHeapFeaturesEXT.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Silk.NET.Vulkan.PhysicalDeviceDescriptorHeapFeaturesEXT.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Silk.NET.Vulkan.PhysicalDeviceDescriptorHeapFeaturesEXT",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Silk.NET.Vulkan.PhysicalDeviceDescriptorHeapPropertiesEXT.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Silk.NET.Vulkan.PhysicalDeviceDescriptorHeapPropertiesEXT.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Silk.NET.Vulkan.PhysicalDeviceDescriptorHeapPropertiesEXT",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Silk.NET.Vulkan.PhysicalDeviceDescriptorHeapTensorPropertiesARM.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Silk.NET.Vulkan.PhysicalDeviceDescriptorHeapTensorPropertiesARM.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Silk.NET.Vulkan.PhysicalDeviceDescriptorHeapTensorPropertiesARM",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Silk.NET.Vulkan.PushDataInfoEXT.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Silk.NET.Vulkan.PushDataInfoEXT.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Silk.NET.Vulkan.PushDataInfoEXT",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Silk.NET.Vulkan.ResourceDescriptorDataEXT.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Silk.NET.Vulkan.ResourceDescriptorDataEXT.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Silk.NET.Vulkan.ResourceDescriptorDataEXT",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Silk.NET.Vulkan.ResourceDescriptorInfoEXT.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Silk.NET.Vulkan.ResourceDescriptorInfoEXT.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Silk.NET.Vulkan.ResourceDescriptorInfoEXT",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Silk.NET.Vulkan.SamplerCustomBorderColorIndexCreateInfoEXT.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Silk.NET.Vulkan.SamplerCustomBorderColorIndexCreateInfoEXT.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Silk.NET.Vulkan.SamplerCustomBorderColorIndexCreateInfoEXT",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Silk.NET.Vulkan.ShaderDescriptorSetAndBindingMappingInfoEXT.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Silk.NET.Vulkan.ShaderDescriptorSetAndBindingMappingInfoEXT.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Silk.NET.Vulkan.ShaderDescriptorSetAndBindingMappingInfoEXT",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Silk.NET.Vulkan.SpirvResourceTypeFlagsEXT.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Silk.NET.Vulkan.SpirvResourceTypeFlagsEXT.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Silk.NET.Vulkan.SpirvResourceTypeFlagsEXT",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Silk.NET.Vulkan.SubsampledImageFormatPropertiesEXT.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Silk.NET.Vulkan.SubsampledImageFormatPropertiesEXT.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Silk.NET.Vulkan.SubsampledImageFormatPropertiesEXT",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Silk.NET.Vulkan.TexelBufferDescriptorInfoEXT.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Silk.NET.Vulkan.TexelBufferDescriptorInfoEXT.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Silk.NET.Vulkan.TexelBufferDescriptorInfoEXT",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Silk.NET.Vulkan.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Silk.NET.Vulkan.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Silk.NET.Vulkan",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Zenith.NET.AccelerationStructureBuildFlags.yml",
       "output": {
         ".html": {
@@ -43,30 +631,44 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Zenith.NET.Backend.yml",
+      "source_relative_path": "api/Zenith.NET.AttachmentFormats.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Zenith.NET.Backend.html"
+          "relative_path": "api/Zenith.NET.AttachmentFormats.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "Zenith.NET.Backend",
+      "Title": "Zenith.NET.AttachmentFormats",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Zenith.NET.Blend.yml",
+      "source_relative_path": "api/Zenith.NET.BarrierStages.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Zenith.NET.Blend.html"
+          "relative_path": "api/Zenith.NET.BarrierStages.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "Zenith.NET.Blend",
+      "Title": "Zenith.NET.BarrierStages",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.BlendFactor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.BlendFactor.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.BlendFactor",
       "Summary": null
     },
     {
@@ -95,34 +697,6 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "Zenith.NET.BlendState",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Zenith.NET.BlendStateRenderTarget.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Zenith.NET.BlendStateRenderTarget.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "Zenith.NET.BlendStateRenderTarget",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Zenith.NET.BlendStates.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Zenith.NET.BlendStates.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "Zenith.NET.BlendStates",
       "Summary": null
     },
     {
@@ -183,6 +757,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.BufferData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.BufferData.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.BufferData",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Zenith.NET.BufferDesc.yml",
       "output": {
         ".html": {
@@ -197,16 +785,16 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Zenith.NET.BufferUsageFlags.yml",
+      "source_relative_path": "api/Zenith.NET.BufferUsages.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Zenith.NET.BufferUsageFlags.html"
+          "relative_path": "api/Zenith.NET.BufferUsages.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "Zenith.NET.BufferUsageFlags",
+      "Title": "Zenith.NET.BufferUsages",
       "Summary": null
     },
     {
@@ -253,58 +841,44 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Zenith.NET.ClearFlags.yml",
+      "source_relative_path": "api/Zenith.NET.ColorAttachment.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Zenith.NET.ClearFlags.html"
+          "relative_path": "api/Zenith.NET.ColorAttachment.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "Zenith.NET.ClearFlags",
+      "Title": "Zenith.NET.ColorAttachment",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Zenith.NET.ClearValue.yml",
+      "source_relative_path": "api/Zenith.NET.ColorAttachmentBlendState.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Zenith.NET.ClearValue.html"
+          "relative_path": "api/Zenith.NET.ColorAttachmentBlendState.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "Zenith.NET.ClearValue",
+      "Title": "Zenith.NET.ColorAttachmentBlendState",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Zenith.NET.ClearValues.yml",
+      "source_relative_path": "api/Zenith.NET.ColorWrites.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Zenith.NET.ClearValues.html"
+          "relative_path": "api/Zenith.NET.ColorWrites.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "Zenith.NET.ClearValues",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Zenith.NET.ColorComponentFlags.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Zenith.NET.ColorComponentFlags.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "Zenith.NET.ColorComponentFlags",
+      "Title": "Zenith.NET.ColorWrites",
       "Summary": null
     },
     {
@@ -351,16 +925,16 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Zenith.NET.ComparisonFunc.yml",
+      "source_relative_path": "api/Zenith.NET.CompareOp.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Zenith.NET.ComparisonFunc.html"
+          "relative_path": "api/Zenith.NET.CompareOp.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "Zenith.NET.ComparisonFunc",
+      "Title": "Zenith.NET.CompareOp",
       "Summary": null
     },
     {
@@ -407,6 +981,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.DepthStencilAttachment.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.DepthStencilAttachment.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.DepthStencilAttachment",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Zenith.NET.DepthStencilState.yml",
       "output": {
         ".html": {
@@ -417,34 +1005,6 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "Zenith.NET.DepthStencilState",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Zenith.NET.DepthStencilStateOp.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Zenith.NET.DepthStencilStateOp.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "Zenith.NET.DepthStencilStateOp",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Zenith.NET.DepthStencilStates.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Zenith.NET.DepthStencilStates.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "Zenith.NET.DepthStencilStates",
       "Summary": null
     },
     {
@@ -603,30 +1163,16 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Zenith.NET.Extensions.Slang.Extensions.yml",
+      "source_relative_path": "api/Zenith.NET.Extent3D.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Zenith.NET.Extensions.Slang.Extensions.html"
+          "relative_path": "api/Zenith.NET.Extent3D.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "Zenith.NET.Extensions.Slang.Extensions",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Zenith.NET.Extensions.Slang.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Zenith.NET.Extensions.Slang.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "Zenith.NET.Extensions.Slang",
+      "Title": "Zenith.NET.Extent3D",
       "Summary": null
     },
     {
@@ -645,58 +1191,16 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Zenith.NET.Filter.yml",
+      "source_relative_path": "api/Zenith.NET.FilterMode.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Zenith.NET.Filter.html"
+          "relative_path": "api/Zenith.NET.FilterMode.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "Zenith.NET.Filter",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Zenith.NET.FrameBuffer.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Zenith.NET.FrameBuffer.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "Zenith.NET.FrameBuffer",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Zenith.NET.FrameBufferAttachment.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Zenith.NET.FrameBufferAttachment.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "Zenith.NET.FrameBufferAttachment",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Zenith.NET.FrameBufferDesc.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Zenith.NET.FrameBufferDesc.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "Zenith.NET.FrameBufferDesc",
+      "Title": "Zenith.NET.FilterMode",
       "Summary": null
     },
     {
@@ -711,6 +1215,20 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "Zenith.NET.FrontFace",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.GraphicsApi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.GraphicsApi.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.GraphicsApi",
       "Summary": null
     },
     {
@@ -771,30 +1289,30 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Zenith.NET.IBindableResource.yml",
+      "source_relative_path": "api/Zenith.NET.Heap.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Zenith.NET.IBindableResource.html"
+          "relative_path": "api/Zenith.NET.Heap.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "Zenith.NET.IBindableResource",
+      "Title": "Zenith.NET.Heap",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Zenith.NET.IDisposableObject.yml",
+      "source_relative_path": "api/Zenith.NET.HeapDesc.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Zenith.NET.IDisposableObject.html"
+          "relative_path": "api/Zenith.NET.HeapDesc.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "Zenith.NET.IDisposableObject",
+      "Title": "Zenith.NET.HeapDesc",
       "Summary": null
     },
     {
@@ -897,16 +1415,30 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Zenith.NET.MappedMemory.yml",
+      "source_relative_path": "api/Zenith.NET.LoadOp.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Zenith.NET.MappedMemory.html"
+          "relative_path": "api/Zenith.NET.LoadOp.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "Zenith.NET.MappedMemory",
+      "Title": "Zenith.NET.LoadOp",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.MemoryResidency.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.MemoryResidency.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.MemoryResidency",
       "Summary": null
     },
     {
@@ -953,20 +1485,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Zenith.NET.MessageSource.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Zenith.NET.MessageSource.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "Zenith.NET.MessageSource",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/Zenith.NET.Metal.Extensions.yml",
       "output": {
         ".html": {
@@ -995,16 +1513,44 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Zenith.NET.Output.yml",
+      "source_relative_path": "api/Zenith.NET.NativeObjectType.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Zenith.NET.Output.html"
+          "relative_path": "api/Zenith.NET.NativeObjectType.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "Zenith.NET.Output",
+      "Title": "Zenith.NET.NativeObjectType",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.NativeTextureType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.NativeTextureType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.NativeTextureType",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Offset3D.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Offset3D.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Offset3D",
       "Summary": null
     },
     {
@@ -1107,30 +1653,16 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Zenith.NET.RasterizerStates.yml",
+      "source_relative_path": "api/Zenith.NET.RayTracingAabbGeometry.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Zenith.NET.RasterizerStates.html"
+          "relative_path": "api/Zenith.NET.RayTracingAabbGeometry.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "Zenith.NET.RasterizerStates",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Zenith.NET.RayTracingAABBs.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Zenith.NET.RayTracingAABBs.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "Zenith.NET.RayTracingAABBs",
+      "Title": "Zenith.NET.RayTracingAabbGeometry",
       "Summary": null
     },
     {
@@ -1145,20 +1677,6 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "Zenith.NET.RayTracingGeometry",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Zenith.NET.RayTracingGeometryFlags.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Zenith.NET.RayTracingGeometryFlags.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "Zenith.NET.RayTracingGeometryFlags",
       "Summary": null
     },
     {
@@ -1205,114 +1723,44 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Zenith.NET.RayTracingTriangles.yml",
+      "source_relative_path": "api/Zenith.NET.RayTracingTriangleGeometry.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Zenith.NET.RayTracingTriangles.html"
+          "relative_path": "api/Zenith.NET.RayTracingTriangleGeometry.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "Zenith.NET.RayTracingTriangles",
+      "Title": "Zenith.NET.RayTracingTriangleGeometry",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Zenith.NET.RenderStates.yml",
+      "source_relative_path": "api/Zenith.NET.RenderState.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Zenith.NET.RenderStates.html"
+          "relative_path": "api/Zenith.NET.RenderState.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "Zenith.NET.RenderStates",
+      "Title": "Zenith.NET.RenderState",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Zenith.NET.ResourceBinding.yml",
+      "source_relative_path": "api/Zenith.NET.ResourceHandle.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Zenith.NET.ResourceBinding.html"
+          "relative_path": "api/Zenith.NET.ResourceHandle.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "Zenith.NET.ResourceBinding",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Zenith.NET.ResourceLayout.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Zenith.NET.ResourceLayout.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "Zenith.NET.ResourceLayout",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Zenith.NET.ResourceLayoutDesc.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Zenith.NET.ResourceLayoutDesc.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "Zenith.NET.ResourceLayoutDesc",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Zenith.NET.ResourceTable.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Zenith.NET.ResourceTable.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "Zenith.NET.ResourceTable",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Zenith.NET.ResourceTableDesc.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Zenith.NET.ResourceTableDesc.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "Zenith.NET.ResourceTableDesc",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Zenith.NET.ResourceType.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Zenith.NET.ResourceType.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "Zenith.NET.ResourceType",
+      "Title": "Zenith.NET.ResourceHandle",
       "Summary": null
     },
     {
@@ -1401,16 +1849,30 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Zenith.NET.ShaderStageFlags.yml",
+      "source_relative_path": "api/Zenith.NET.SizeAndAlignment.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Zenith.NET.ShaderStageFlags.html"
+          "relative_path": "api/Zenith.NET.SizeAndAlignment.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "Zenith.NET.ShaderStageFlags",
+      "Title": "Zenith.NET.SizeAndAlignment",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.StencilFaceState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.StencilFaceState.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.StencilFaceState",
       "Summary": null
     },
     {
@@ -1425,6 +1887,20 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "Zenith.NET.StencilOp",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.StoreOp.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.StoreOp.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.StoreOp",
       "Summary": null
     },
     {
@@ -1513,6 +1989,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.TextureData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.TextureData.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.TextureData",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Zenith.NET.TextureDesc.yml",
       "output": {
         ".html": {
@@ -1527,44 +2017,44 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Zenith.NET.TextureExtent.yml",
+      "source_relative_path": "api/Zenith.NET.TextureLayout.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Zenith.NET.TextureExtent.html"
+          "relative_path": "api/Zenith.NET.TextureLayout.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "Zenith.NET.TextureExtent",
+      "Title": "Zenith.NET.TextureLayout",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Zenith.NET.TextureOffset.yml",
+      "source_relative_path": "api/Zenith.NET.TextureSubresource.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Zenith.NET.TextureOffset.html"
+          "relative_path": "api/Zenith.NET.TextureSubresource.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "Zenith.NET.TextureOffset",
+      "Title": "Zenith.NET.TextureSubresource",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Zenith.NET.TextureSlice.yml",
+      "source_relative_path": "api/Zenith.NET.TextureSubresourceRange.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Zenith.NET.TextureSlice.html"
+          "relative_path": "api/Zenith.NET.TextureSubresourceRange.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "Zenith.NET.TextureSlice",
+      "Title": "Zenith.NET.TextureSubresourceRange",
       "Summary": null
     },
     {
@@ -1583,16 +2073,16 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Zenith.NET.TextureUsageFlags.yml",
+      "source_relative_path": "api/Zenith.NET.TextureUsages.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Zenith.NET.TextureUsageFlags.html"
+          "relative_path": "api/Zenith.NET.TextureUsages.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "Zenith.NET.TextureUsageFlags",
+      "Title": "Zenith.NET.TextureUsages",
       "Summary": null
     },
     {
@@ -1621,6 +2111,48 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "Zenith.NET.TextureViewDesc",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.ThreadGroupSize.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.ThreadGroupSize.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.ThreadGroupSize",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Timeline.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Timeline.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Timeline",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.TimelineValue.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.TimelineValue.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.TimelineValue",
       "Summary": null
     },
     {
@@ -1667,16 +2199,16 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Zenith.NET.ValidationMessageArgs.yml",
+      "source_relative_path": "api/Zenith.NET.ValidationMessageEventArgs.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Zenith.NET.ValidationMessageArgs.html"
+          "relative_path": "api/Zenith.NET.ValidationMessageEventArgs.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "Zenith.NET.ValidationMessageArgs",
+      "Title": "Zenith.NET.ValidationMessageEventArgs",
       "Summary": null
     },
     {
@@ -1975,6 +2507,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.ZenithCompiler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.ZenithCompiler.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.ZenithCompiler",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Zenith.NET.ZenithHelper.yml",
       "output": {
         ".html": {
@@ -2054,80 +2600,60 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "docs/best-practices.md",
+      "source_relative_path": "docs/fundamentals/bindless-resources.md",
       "output": {
         ".html": {
-          "relative_path": "docs/best-practices.html"
+          "relative_path": "docs/fundamentals/bindless-resources.html"
         }
       },
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "docs/concepts/command-model.md",
+      "source_relative_path": "docs/fundamentals/commands.md",
       "output": {
         ".html": {
-          "relative_path": "docs/concepts/command-model.html"
+          "relative_path": "docs/fundamentals/commands.html"
         }
       },
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "docs/concepts/graphics-context.md",
+      "source_relative_path": "docs/fundamentals/queries.md",
       "output": {
         ".html": {
-          "relative_path": "docs/concepts/graphics-context.html"
+          "relative_path": "docs/fundamentals/queries.html"
         }
       },
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "docs/concepts/resource-binding.md",
+      "source_relative_path": "docs/fundamentals/runtime.md",
       "output": {
         ".html": {
-          "relative_path": "docs/concepts/resource-binding.html"
+          "relative_path": "docs/fundamentals/runtime.html"
         }
       },
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "docs/features/compute.md",
+      "source_relative_path": "docs/fundamentals/shaders.md",
       "output": {
         ".html": {
-          "relative_path": "docs/features/compute.html"
+          "relative_path": "docs/fundamentals/shaders.html"
         }
       },
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "docs/features/graphics.md",
+      "source_relative_path": "docs/fundamentals/synchronization.md",
       "output": {
         ".html": {
-          "relative_path": "docs/features/graphics.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "docs/features/mesh-shading.md",
-      "output": {
-        ".html": {
-          "relative_path": "docs/features/mesh-shading.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "docs/features/ray-tracing.md",
-      "output": {
-        ".html": {
-          "relative_path": "docs/features/ray-tracing.html"
+          "relative_path": "docs/fundamentals/synchronization.html"
         }
       },
       "version": ""
@@ -2144,20 +2670,20 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "docs/platform/backend-selection.md",
+      "source_relative_path": "docs/presentation/swap-chains.md",
       "output": {
         ".html": {
-          "relative_path": "docs/platform/backend-selection.html"
+          "relative_path": "docs/presentation/swap-chains.html"
         }
       },
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "docs/platform/ui-frameworks.md",
+      "source_relative_path": "docs/presentation/views.md",
       "output": {
         ".html": {
-          "relative_path": "docs/platform/ui-frameworks.html"
+          "relative_path": "docs/presentation/views.html"
         }
       },
       "version": ""
@@ -2174,10 +2700,10 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "docs/resources/samplers.md",
+      "source_relative_path": "docs/resources/heaps.md",
       "output": {
         ".html": {
-          "relative_path": "docs/resources/samplers.html"
+          "relative_path": "docs/resources/heaps.html"
         }
       },
       "version": ""
@@ -2201,6 +2727,46 @@
         },
         ".json": {
           "relative_path": "docs/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/workloads/compute.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/workloads/compute.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/workloads/mesh-shading.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/workloads/mesh-shading.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/workloads/rasterization.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/workloads/rasterization.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/workloads/ray-tracing.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/workloads/ray-tracing.html"
         }
       },
       "version": ""
@@ -2246,86 +2812,6 @@
       "version": ""
     },
     {
-      "type": "Resource",
-      "source_relative_path": "images/compute-shader.png",
-      "output": {
-        "resource": {
-          "relative_path": "images/compute-shader.png"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "images/hello-triangle.png",
-      "output": {
-        "resource": {
-          "relative_path": "images/hello-triangle.png"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "images/indirect-drawing.png",
-      "output": {
-        "resource": {
-          "relative_path": "images/indirect-drawing.png"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "images/mesh-shading.png",
-      "output": {
-        "resource": {
-          "relative_path": "images/mesh-shading.png"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "images/ray-tracing.png",
-      "output": {
-        "resource": {
-          "relative_path": "images/ray-tracing.png"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "images/shoko.png",
-      "output": {
-        "resource": {
-          "relative_path": "images/shoko.png"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "images/spinning-cube.png",
-      "output": {
-        "resource": {
-          "relative_path": "images/spinning-cube.png"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "images/textured-quad.png",
-      "output": {
-        "resource": {
-          "relative_path": "images/textured-quad.png"
-        }
-      },
-      "version": ""
-    },
-    {
       "type": "Conceptual",
       "source_relative_path": "index.md",
       "output": {
@@ -2350,60 +2836,80 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "tutorials/advanced/mesh-shading.md",
+      "source_relative_path": "tutorials/getting-started/application-host.md",
       "output": {
         ".html": {
-          "relative_path": "tutorials/advanced/mesh-shading.html"
+          "relative_path": "tutorials/getting-started/application-host.html"
         }
       },
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "tutorials/advanced/ray-tracing.md",
+      "source_relative_path": "tutorials/getting-started/project-setup.md",
       "output": {
         ".html": {
-          "relative_path": "tutorials/advanced/ray-tracing.html"
+          "relative_path": "tutorials/getting-started/project-setup.html"
         }
       },
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "tutorials/getting-started/hello-triangle.md",
+      "source_relative_path": "tutorials/guides/compute-shader.md",
       "output": {
         ".html": {
-          "relative_path": "tutorials/getting-started/hello-triangle.html"
+          "relative_path": "tutorials/guides/compute-shader.html"
         }
       },
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "tutorials/getting-started/prerequisites.md",
+      "source_relative_path": "tutorials/guides/hello-triangle.md",
       "output": {
         ".html": {
-          "relative_path": "tutorials/getting-started/prerequisites.html"
+          "relative_path": "tutorials/guides/hello-triangle.html"
         }
       },
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "tutorials/getting-started/spinning-cube.md",
+      "source_relative_path": "tutorials/guides/indirect-drawing.md",
       "output": {
         ".html": {
-          "relative_path": "tutorials/getting-started/spinning-cube.html"
+          "relative_path": "tutorials/guides/indirect-drawing.html"
         }
       },
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "tutorials/getting-started/textured-quad.md",
+      "source_relative_path": "tutorials/guides/mesh-shading.md",
       "output": {
         ".html": {
-          "relative_path": "tutorials/getting-started/textured-quad.html"
+          "relative_path": "tutorials/guides/mesh-shading.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "tutorials/guides/ray-tracing.md",
+      "output": {
+        ".html": {
+          "relative_path": "tutorials/guides/ray-tracing.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "tutorials/guides/spinning-cube.md",
+      "output": {
+        ".html": {
+          "relative_path": "tutorials/guides/spinning-cube.html"
         }
       },
       "version": ""
@@ -2414,26 +2920,6 @@
       "output": {
         ".html": {
           "relative_path": "tutorials/index.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "tutorials/intermediate/compute-shader.md",
-      "output": {
-        ".html": {
-          "relative_path": "tutorials/intermediate/compute-shader.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "tutorials/intermediate/indirect-drawing.md",
-      "output": {
-        ".html": {
-          "relative_path": "tutorials/intermediate/indirect-drawing.html"
         }
       },
       "version": ""

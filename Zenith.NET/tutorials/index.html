@@ -7,7 +7,7 @@
       <meta name="title" content="Tutorials | Zenith.NET ">
       
       
-      <link rel="icon" href="../images/Zenith.NET.png">
+      <link rel="icon" href="../images/Zenith.NET.svg">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
       <meta name="docfx:navrel" content="../toc.html">
@@ -87,149 +87,68 @@
         <article data-uid="">
 <h1 id="tutorials">Tutorials</h1>
 
-<p>Welcome to the Zenith.NET tutorials! These step-by-step guides will help you learn how to use Zenith.NET for GPU programming.</p>
-<h2 id="getting-started">Getting Started</h2>
-<p>New to Zenith.NET? Start here to set up your environment and render your first graphics.</p>
-<table>
-<thead>
-<tr>
-<th>Tutorial</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="getting-started/prerequisites.html">Prerequisites</a></td>
-<td>Set up your development environment with <code>App</code> framework, <code>IRenderer</code> interface, and <code>BindingHelper</code></td>
-</tr>
-<tr>
-<td><a href="getting-started/hello-triangle.html">Hello Triangle</a></td>
-<td>Create vertex buffers, compile Slang shaders, and build your first graphics pipeline</td>
-</tr>
-<tr>
-<td><a href="getting-started/textured-quad.html">Textured Quad</a></td>
-<td>Load textures, create samplers, and bind resources with <code>ResourceLayout</code> and <code>ResourceTable</code></td>
-</tr>
-<tr>
-<td><a href="getting-started/spinning-cube.html">Spinning Cube</a></td>
-<td>Use constant buffers for MVP matrices and render 3D geometry with depth testing</td>
-</tr>
-</tbody>
-</table>
-<h2 id="intermediate">Intermediate</h2>
-<p>Build on the basics with GPU compute and advanced rendering techniques.</p>
-<table>
-<thead>
-<tr>
-<th>Tutorial</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="intermediate/compute-shader.html">Compute Shader</a></td>
-<td>Create compute pipelines for GPU image processing (grayscale conversion)</td>
-</tr>
-<tr>
-<td><a href="intermediate/indirect-drawing.html">Indirect Drawing</a></td>
-<td>GPU-driven rendering with <code>DrawIndexedIndirect</code> for multi-instance drawing</td>
-</tr>
-</tbody>
-</table>
-<h2 id="advanced">Advanced</h2>
-<p>Explore cutting-edge GPU features for modern rendering (requires hardware support).</p>
-<table>
-<thead>
-<tr>
-<th>Tutorial</th>
-<th>Description</th>
-<th>Requirement</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="advanced/ray-tracing.html">Ray Tracing</a></td>
-<td>Build acceleration structures (BLAS/TLAS), use <code>RayQuery</code> for ray tracing with soft shadows, reflections, and ACES tonemapping</td>
-<td><code>RayTracingSupported</code></td>
-</tr>
-<tr>
-<td><a href="advanced/mesh-shading.html">Mesh Shading</a></td>
-<td>Render 1,000 sphere instances with amplification shader frustum culling and mesh shading pipeline</td>
-<td><code>MeshShadingSupported</code></td>
-</tr>
-</tbody>
-</table>
-<h2 id="tutorial-structure">Tutorial Structure</h2>
-<p>Each tutorial follows a consistent pattern:</p>
-<ol>
-<li><strong>Overview</strong> - What you'll build and the key concepts covered</li>
-<li><strong>Key Concepts</strong> (advanced tutorials) - In-depth explanation of new API features</li>
-<li><strong>Renderer Class</strong> - Complete, runnable implementation code</li>
-<li><strong>Running the Tutorial</strong> - How to switch renderers and run the example</li>
-<li><strong>Result</strong> - Screenshot of the expected output</li>
-<li><strong>Code Breakdown</strong> - Step-by-step explanation of important code sections</li>
-</ol>
-<p>All tutorials share the same <code>App</code> framework. Run <code>dotnet run</code> and select a tutorial from the interactive menu in <code>Program.cs</code>.</p>
-<h2 id="learning-path">Learning Path</h2>
-<table>
-<thead>
-<tr>
-<th>Stage</th>
-<th>You Will Learn</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Prerequisites</strong></td>
-<td>Set up the application framework, graphics context, and cross-platform resource binding</td>
-</tr>
-<tr>
-<td><strong>Hello Triangle</strong></td>
-<td>Create GPU buffers, compile shaders, configure graphics pipelines, and submit draw commands</td>
-</tr>
-<tr>
-<td><strong>Textured Quad</strong></td>
-<td>Load and sample textures, use index buffers, and bind shader resources</td>
-</tr>
-<tr>
-<td><strong>Spinning Cube</strong></td>
-<td>Pass data to shaders via constant buffers, implement 3D transformations, and enable depth testing</td>
-</tr>
-<tr>
-<td><strong>Compute Shader</strong></td>
-<td>Run general-purpose GPU computations for image processing</td>
-</tr>
-<tr>
-<td><strong>Indirect Drawing</strong></td>
-<td>Let the GPU control draw parameters for efficient multi-instance rendering</td>
-</tr>
-<tr>
-<td><strong>Ray Tracing</strong></td>
-<td>Build acceleration structures, trace rays with <code>RayQuery</code>, implement soft shadows, reflections, Fresnel, and ACES tonemapping</td>
-</tr>
-<tr>
-<td><strong>Mesh Shading</strong></td>
-<td>Use amplification shaders for GPU-driven frustum culling with mesh shading at scale (1,000 instances)</td>
-</tr>
-</tbody>
-</table>
-<h2 id="requirements">Requirements</h2>
-<p>Before starting, ensure you have:</p>
-<ul>
-<li>.NET 10.0 SDK or later</li>
-<li>A GPU with DirectX 12, Metal 4, or Vulkan 1.4 support</li>
-<li>Visual Studio 2026, VS Code, or JetBrains Rider</li>
-</ul>
+<p>The Zenith.NET tutorials examine complete rendering workloads built with C# and the Slang shader language. Each guide focuses on the resources, pipelines, commands, data contracts, and lifetime rules that connect a workload to Zenith.NET.</p>
+<p>Begin with Project Setup and Application Host. The six guides then move from a first graphics pipeline to compute, indirect drawing, inline ray queries, and programmable geometry.</p>
 <div class="NOTE">
 <h5>Note</h5>
-<p>These tutorials are designed for desktop platforms (Windows, macOS, and Linux).
-See <a href="getting-started/prerequisites.html">Prerequisites</a> for detailed platform support and setup instructions.</p>
+<p>The guides explain the Zenith.NET integration points in detail. Supporting graphics techniques such as sampling patterns, tone mapping, and procedural mesh generation are summarized when they are not essential to the API workflow. Their complete implementations remain available in the tutorial source.</p>
 </div>
-<h2 id="source-code">Source Code</h2>
-<div class="TIP">
-<h5>Tip</h5>
-<p>The complete source code for all tutorials is available on GitHub: <a href="https://github.com/qian-o/ZenithTutorials">ZenithTutorials</a></p>
-</div>
+<h2 id="getting-started">Getting started</h2>
+<ul>
+<li><a href="getting-started/project-setup.html">Project Setup</a> creates the .NET 10 project and configures runtime assets.</li>
+<li><a href="getting-started/application-host.html">Application Host</a> follows the cross-platform window, swap chain, frame loop, and offscreen texture presenter.</li>
+</ul>
+<h2 id="guides">Guides</h2>
+<table>
+<thead>
+<tr>
+<th>Guide</th>
+<th>Result</th>
+<th>Focus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="guides/hello-triangle.html">Hello Triangle</a></td>
+<td>A vertex-colored triangle</td>
+<td>Vertex input, graphics pipeline, render pass, and draw command</td>
+</tr>
+<tr>
+<td><a href="guides/spinning-cube.html">Spinning Cube</a></td>
+<td>A rotating depth-tested cube</td>
+<td>Indexed geometry, constant buffers, transforms, depth, and resize</td>
+</tr>
+<tr>
+<td><a href="guides/compute-shader.html">Compute Shader</a></td>
+<td>A grayscale image</td>
+<td>Storage textures, descriptor handles, dispatch, and layout transitions</td>
+</tr>
+<tr>
+<td><a href="guides/indirect-drawing.html">Indirect Drawing</a></td>
+<td>A grid of animated cubes</td>
+<td>Structured instance data and indirect draw arguments</td>
+</tr>
+<tr>
+<td><a href="guides/ray-tracing.html">Ray Tracing</a></td>
+<td>Procedural spheres above a floor</td>
+<td>Acceleration structures, inline ray queries, and compute output</td>
+</tr>
+<tr>
+<td><a href="guides/mesh-shading.html">Mesh Shading</a></td>
+<td>A culled sphere grid</td>
+<td>Task and mesh shaders, payload compaction, and mesh dispatch</td>
+</tr>
+</tbody>
+</table>
+<p>The complete, runnable implementations are maintained in the <a href="https://github.com/qian-o/ZenithTutorials">ZenithTutorials repository</a>. Code shown in these pages is static so it remains readable and searchable with the rest of the documentation; each guide links its complete renderer and shader at the end.</p>
+<h2 id="suggested-paths">Suggested paths</h2>
+<p>Complete <a href="guides/hello-triangle.html">Hello Triangle</a> first. From there:</p>
+<ul>
+<li>continue with <a href="guides/spinning-cube.html">Spinning Cube</a> and <a href="guides/indirect-drawing.html">Indirect Drawing</a> for the graphics path;</li>
+<li>continue with <a href="guides/compute-shader.html">Compute Shader</a> and <a href="guides/ray-tracing.html">Ray Tracing</a> for compute-produced images;</li>
+<li>read <a href="guides/mesh-shading.html">Mesh Shading</a> after Spinning Cube when you are comfortable with graphics pipelines, depth attachments, and GPU thread groups.</li>
+</ul>
+<p>Ray tracing and mesh shading are optional device capabilities. Their guides show how to test support before creating workload-specific resources.</p>
 
 </article>
 
@@ -251,7 +170,7 @@ See <a href="getting-started/prerequisites.html">Prerequisites</a> for detailed 
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+          Zenith.NET is a modern rendering hardware interface for .NET.
         </div>
       </div>
     </footer>

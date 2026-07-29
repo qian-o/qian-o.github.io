@@ -7,7 +7,7 @@
       <meta name="title" content="Buffers | Zenith.NET ">
       
       
-      <link rel="icon" href="../../images/Zenith.NET.png">
+      <link rel="icon" href="../../images/Zenith.NET.svg">
       <link rel="stylesheet" href="../../public/docfx.min.css">
       <link rel="stylesheet" href="../../public/main.css">
       <meta name="docfx:navrel" content="../../toc.html">
@@ -87,17 +87,72 @@
         <article data-uid="">
 <h1 id="buffers">Buffers</h1>
 
-<div class="NOTE">
-<h5>Note</h5>
-<p>This page is under construction.</p>
-</div>
-<p>This topic covers:</p>
-<ul>
-<li>Buffer types: Vertex, Index, Constant, Structured</li>
-<li>Creating and using <code>BufferView</code></li>
-<li>Uploading data with the <code>Upload</code> method</li>
-<li>Map/Unmap operations</li>
-</ul>
+<p>Buffers store linear data such as vertices, indices, constants, structured records, and indirect arguments. A <code>BufferDesc</code> defines the byte size, structured-element stride, permitted uses, and residency.</p>
+<h2 id="create-a-standalone-buffer">Create a Standalone Buffer</h2>
+<p>When explicit heap placement is unnecessary, define the buffer properties and create it directly from the context:</p>
+<pre><code class="lang-csharp">BufferDesc desc = new()
+{
+    SizeInBytes = sizeof(Element) * count,
+    StrideInBytes = 0,
+    Usages = BufferUsages.Vertex | BufferUsages.TransferDst,
+    Residency = MemoryResidency.GpuOnly
+};
+
+Buffer buffer = context.CreateBuffer(desc);
+</code></pre>
+<p>Set <code>Usages</code> to every operation the buffer must support and select its CPU access with <code>Residency</code>.</p>
+<p><code>StrideInBytes</code> describes structured elements. Use zero for unstructured data.</p>
+<h2 id="choose-memory-residency">Choose Memory Residency</h2>
+<table>
+<thead>
+<tr>
+<th>Residency</th>
+<th>CPU access</th>
+<th>Typical use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GpuOnly</code></td>
+<td>Not mappable</td>
+<td>Persistent GPU data</td>
+</tr>
+<tr>
+<td><code>CpuReadOnly</code></td>
+<td>Read through <code>Map()</code></td>
+<td>Readback data</td>
+</tr>
+<tr>
+<td><code>CpuWriteOnly</code></td>
+<td>Write through <code>Map()</code></td>
+<td>Frequently updated constants and staging data</td>
+</tr>
+</tbody>
+</table>
+<p>Prefer <code>GpuOnly</code> unless CPU access is part of the buffer's regular use.</p>
+<h2 id="upload-and-download">Upload and Download</h2>
+<p><code>Buffer.Upload</code> copies data into a buffer and completes before returning:</p>
+<pre><code class="lang-csharp">buffer.Upload(0, new()
+{
+    Pointer = data,
+    SizeInBytes = sizeof(Element) * count
+});
+</code></pre>
+<p><code>Buffer.Download</code> follows the same pattern and writes into caller-provided memory before returning.</p>
+<p>Use command-buffer transfers to batch several operations:</p>
+<pre><code class="lang-csharp">CommandBuffer commandBuffer = context.TransferQueue.CommandBuffer();
+commandBuffer.Upload(buffer, 0, data);
+
+TimelineValue timelineValue = commandBuffer.Submit();
+</code></pre>
+<p>Record additional transfers before <code>Submit()</code> to include them in the same submission. Pass <code>timelineValue</code> to a submission that consumes the buffers. For <code>CommandBuffer.Download</code>, keep the destination memory valid until the submission's <code>TimelineValue</code> has been waited on.</p>
+<h2 id="map-cpu-visible-memory">Map CPU-Visible Memory</h2>
+<p>Map only buffers created with <code>CpuReadOnly</code> or <code>CpuWriteOnly</code> residency. Pair each <code>Map()</code> with <code>Unmap()</code>, and use mapping for repeated CPU access. Use <code>Upload</code> or <code>Download</code> for individual transfers.</p>
+<h2 id="create-a-view">Create a View</h2>
+<p>A <code>BufferView</code> selects a byte range and structured element stride. Use <code>sizeof(T)</code> for the stride and derive the selected byte range from the element count.</p>
+<p>Use <code>BufferViewDesc.Constant</code>, <code>StorageReadOnly</code>, or <code>StorageReadWrite</code> to match the intended shader access. See <a href="../fundamentals/bindless-resources.html">Bindless Resources</a> for shader declarations.</p>
+<p>See <a href="heaps.html">Heaps</a> for allocation requirements and explicit buffer placement.</p>
+<p>Buffer views depend on their source buffer. Keep buffers and views alive until all submissions that use them have completed. Use a <a href="../fundamentals/synchronization.html#add-a-memory-barrier">memory barrier</a> when later GPU work consumes buffer data written earlier in the same command stream.</p>
 
 </article>
 
@@ -119,7 +174,7 @@
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+          Zenith.NET is a modern rendering hardware interface for .NET.
         </div>
       </div>
     </footer>

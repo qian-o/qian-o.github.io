@@ -7,7 +7,7 @@
       <meta name="title" content="API Reference | Zenith.NET ">
       
       
-      <link rel="icon" href="../images/Zenith.NET.png">
+      <link rel="icon" href="../images/Zenith.NET.svg">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
       <meta name="docfx:navrel" content="../toc.html">
@@ -87,265 +87,98 @@
         <article data-uid="">
 <h1 id="api-reference">API Reference</h1>
 
-<p>Welcome to the Zenith.NET API Reference. This documentation is automatically generated from the source code and provides detailed information about all public types, methods, and properties.</p>
-<h2 id="namespaces">Namespaces</h2>
-<table>
-<thead>
-<tr>
-<th>Namespace</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Zenith.NET</td>
-<td>Core graphics abstractions and resource types</td>
-</tr>
-<tr>
-<td>Zenith.NET.DirectX12</td>
-<td>DirectX 12 backend implementation for Windows</td>
-</tr>
-<tr>
-<td>Zenith.NET.Metal</td>
-<td>Metal 4 backend implementation for Apple platforms</td>
-</tr>
-<tr>
-<td>Zenith.NET.Vulkan</td>
-<td>Vulkan 1.4 backend implementation for cross-platform support</td>
-</tr>
-</tbody>
-</table>
-<h2 id="key-types">Key Types</h2>
-<h3 id="context--queues">Context &amp; Queues</h3>
+<p>The API reference documents the public Zenith.NET types, members, parameters, and enum values. Start with the <a href="../docs/index.html">RHI Guide</a> when learning a workflow.</p>
+<h2 id="start-here">Start Here</h2>
 <table>
 <thead>
 <tr>
 <th>Type</th>
-<th>Description</th>
+<th>Purpose</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>GraphicsContext</code></td>
-<td>Central hub for creating GPU resources and accessing command queues</td>
+<td>Creates resources and exposes capabilities and command queues</td>
 </tr>
 <tr>
 <td><code>CommandQueue</code></td>
-<td>Provides command buffers and synchronization (Graphics, Compute, Copy)</td>
+<td>Owns and lends command buffers for one class of GPU work</td>
 </tr>
 <tr>
 <td><code>CommandBuffer</code></td>
-<td>Records and submits GPU commands</td>
+<td>Queue-owned recorder borrowed for one immediate submission</td>
 </tr>
 <tr>
-<td><code>Capabilities</code></td>
-<td>Reports device name and feature support (ray tracing, mesh shading)</td>
+<td><code>TimelineValue</code></td>
+<td>Represents a queue-submission completion point that can be queried or waited on</td>
+</tr>
+<tr>
+<td><code>QueryHeap</code> / <code>QueryHeapDesc</code></td>
+<td>Collect visibility results and GPU timestamps</td>
+</tr>
+<tr>
+<td><code>BufferDesc</code> / <code>TextureDesc</code></td>
+<td>Describe resources before creation</td>
+</tr>
+<tr>
+<td><code>GraphicsPipelineDesc</code> / <code>ComputePipelineDesc</code></td>
+<td>Describe shader pipelines</td>
+</tr>
+<tr>
+<td><code>Surface</code> / <code>SwapChain</code></td>
+<td>Connect rendering to a window</td>
+</tr>
+<tr>
+<td><code>ZenithCompiler</code></td>
+<td>Compiles Slang source for the selected graphics API</td>
 </tr>
 </tbody>
 </table>
-<h3 id="presentation">Presentation</h3>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>SwapChain</code></td>
-<td>Manages double/triple buffering and presentation to a surface</td>
-</tr>
-<tr>
-<td><code>FrameBuffer</code></td>
-<td>Render target attachments (color and depth/stencil)</td>
-</tr>
-</tbody>
-</table>
-<h3 id="buffers--textures">Buffers &amp; Textures</h3>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>Buffer</code></td>
-<td>GPU buffer for vertex, index, constant, or structured data</td>
-</tr>
-<tr>
-<td><code>BufferView</code></td>
-<td>A view into a portion of a buffer for shader binding</td>
-</tr>
-<tr>
-<td><code>Texture</code></td>
-<td>GPU texture resource (2D, 3D, Cube, Array)</td>
-</tr>
-<tr>
-<td><code>TextureView</code></td>
-<td>A view into a texture for shader binding</td>
-</tr>
-<tr>
-<td><code>Sampler</code></td>
-<td>Texture sampling and filtering configuration</td>
-</tr>
-</tbody>
-</table>
-<h3 id="pipelines">Pipelines</h3>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>GraphicsPipeline</code></td>
-<td>Rasterization pipeline configuration</td>
-</tr>
-<tr>
-<td><code>ComputePipeline</code></td>
-<td>Compute dispatch pipeline configuration</td>
-</tr>
-<tr>
-<td><code>MeshShadingPipeline</code></td>
-<td>Mesh shading pipeline configuration</td>
-</tr>
-</tbody>
-</table>
-<h3 id="resource-binding">Resource Binding</h3>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>ResourceLayout</code></td>
-<td>Declares expected shader resource bindings</td>
-</tr>
-<tr>
-<td><code>ResourceTable</code></td>
-<td>Binds actual resources to a layout</td>
-</tr>
-<tr>
-<td><code>Shader</code></td>
-<td>Compiled shader module with entry point and stage</td>
-</tr>
-</tbody>
-</table>
-<h3 id="ray-tracing">Ray Tracing</h3>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>BottomLevelAccelerationStructure</code></td>
-<td>BLAS containing triangle or AABB geometry</td>
-</tr>
-<tr>
-<td><code>TopLevelAccelerationStructure</code></td>
-<td>TLAS containing geometry instances</td>
-</tr>
-</tbody>
-</table>
-<h3 id="query">Query</h3>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>QueryHeap</code></td>
-<td>GPU query heap for timestamps and statistics</td>
-</tr>
-</tbody>
-</table>
-<h2 id="extensions">Extensions</h2>
+<h2 id="public-namespaces">Public Namespaces</h2>
 <table>
 <thead>
 <tr>
 <th>Namespace</th>
-<th>Description</th>
+<th>Contents</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Zenith.NET.Extensions.ImageSharp</td>
-<td>Texture loading from files/streams via ImageSharp</td>
+<td><code>Zenith.NET</code></td>
+<td>Core RHI types and Slang compilation</td>
 </tr>
 <tr>
-<td>Zenith.NET.Extensions.ImGui</td>
-<td>Dear ImGui rendering integration</td>
+<td><code>Zenith.NET.DirectX12</code></td>
+<td>DirectX 12 context factory</td>
 </tr>
 <tr>
-<td>Zenith.NET.Extensions.Skia</td>
-<td>Skia rendering integration</td>
+<td><code>Zenith.NET.Metal</code></td>
+<td>Metal context factory</td>
 </tr>
 <tr>
-<td>Zenith.NET.Extensions.Slang</td>
-<td>Shader compilation from Slang source files</td>
+<td><code>Zenith.NET.Vulkan</code></td>
+<td>Vulkan context factory</td>
+</tr>
+<tr>
+<td><code>Zenith.NET.Extensions.ImageSharp</code></td>
+<td>Image loading and mip generation</td>
+</tr>
+<tr>
+<td><code>Zenith.NET.Extensions.ImGui</code></td>
+<td>Dear ImGui integration</td>
+</tr>
+<tr>
+<td><code>Zenith.NET.Views</code></td>
+<td>Shared View contracts and frame event data</td>
+</tr>
+<tr>
+<td><code>Zenith.NET.Views.*</code></td>
+<td>Framework-specific View controls</td>
 </tr>
 </tbody>
 </table>
-<h2 id="views">Views</h2>
-<table>
-<thead>
-<tr>
-<th>Namespace</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Zenith.NET.Views</td>
-<td>Base view interface and frame scheduling</td>
-</tr>
-<tr>
-<td>Zenith.NET.Views.Avalonia</td>
-<td>Avalonia UI integration</td>
-</tr>
-<tr>
-<td>Zenith.NET.Views.Maui</td>
-<td>.NET MAUI integration</td>
-</tr>
-<tr>
-<td>Zenith.NET.Views.WinForms</td>
-<td>Windows Forms integration</td>
-</tr>
-<tr>
-<td>Zenith.NET.Views.WinUI</td>
-<td>WinUI 3 and Uno Platform integration</td>
-</tr>
-<tr>
-<td>Zenith.NET.Views.WPF</td>
-<td>WPF integration</td>
-</tr>
-</tbody>
-</table>
-<h2 id="navigation">Navigation</h2>
-<p>Browse the namespace tree on the left to explore all available types. Each type page includes:</p>
-<ul>
-<li><strong>Summary</strong> - Brief description of the type</li>
-<li><strong>Properties</strong> - Available properties</li>
-<li><strong>Methods</strong> - Available methods</li>
-</ul>
-<div class="TIP">
-<h5>Tip</h5>
-<p>Start with <code>GraphicsContext</code> to understand resource creation, then explore <code>CommandBuffer</code> for recording GPU commands.</p>
-</div>
+<p>Browse the namespace tree to inspect the complete public API reference. The guide pages link related concepts, while the <a href="../tutorials/index.html">Tutorials</a> show the types in complete applications.</p>
 
 </article>
 
@@ -367,7 +200,7 @@
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+          Zenith.NET is a modern rendering hardware interface for .NET.
         </div>
       </div>
     </footer>

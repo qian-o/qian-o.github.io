@@ -7,7 +7,7 @@
       <meta name="title" content="Class GraphicsResource | Zenith.NET ">
       
       
-      <link rel="icon" href="../images/Zenith.NET.png">
+      <link rel="icon" href="../images/Zenith.NET.svg">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
       <meta name="docfx:navrel" content="../toc.html">
@@ -93,7 +93,7 @@ Class GraphicsResource  <a class="header-action link-secondary" title="View sour
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="Zenith.html">Zenith</a>.<a class="xref" href="Zenith.NET.html">NET</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Zenith.NET.html">Zenith.NET</a></dd></dl>
   <dl><dt>Assembly</dt><dd>Zenith.NET.dll</dd></dl>
   </div>
 
@@ -101,7 +101,7 @@ Class GraphicsResource  <a class="header-action link-secondary" title="View sour
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract class GraphicsResource : DisposableObject, IDisposableObject, IDisposable</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract class GraphicsResource : DisposableObject, IDisposable</code></pre>
   </div>
 
 
@@ -119,7 +119,6 @@ Class GraphicsResource  <a class="header-action link-secondary" title="View sour
   <dl class="typelist implements">
     <dt>Implements</dt>
     <dd>
-      <div><a class="xref" href="Zenith.NET.IDisposableObject.html">IDisposableObject</a></div>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
     </dd>
   </dl>
@@ -132,16 +131,15 @@ Class GraphicsResource  <a class="header-action link-secondary" title="View sour
       <div><a class="xref" href="Zenith.NET.BufferView.html">BufferView</a></div>
       <div><a class="xref" href="Zenith.NET.CommandBuffer.html">CommandBuffer</a></div>
       <div><a class="xref" href="Zenith.NET.CommandQueue.html">CommandQueue</a></div>
-      <div><a class="xref" href="Zenith.NET.FrameBuffer.html">FrameBuffer</a></div>
+      <div><a class="xref" href="Zenith.NET.Heap.html">Heap</a></div>
       <div><a class="xref" href="Zenith.NET.Pipeline.html">Pipeline</a></div>
       <div><a class="xref" href="Zenith.NET.QueryHeap.html">QueryHeap</a></div>
-      <div><a class="xref" href="Zenith.NET.ResourceLayout.html">ResourceLayout</a></div>
-      <div><a class="xref" href="Zenith.NET.ResourceTable.html">ResourceTable</a></div>
       <div><a class="xref" href="Zenith.NET.Sampler.html">Sampler</a></div>
       <div><a class="xref" href="Zenith.NET.Shader.html">Shader</a></div>
       <div><a class="xref" href="Zenith.NET.SwapChain.html">SwapChain</a></div>
       <div><a class="xref" href="Zenith.NET.Texture.html">Texture</a></div>
       <div><a class="xref" href="Zenith.NET.TextureView.html">TextureView</a></div>
+      <div><a class="xref" href="Zenith.NET.Timeline.html">Timeline</a></div>
       <div><a class="xref" href="Zenith.NET.TopLevelAccelerationStructure.html">TopLevelAccelerationStructure</a></div>
       <div><a class="xref" href="Zenith.NET.ValidationLayer.html">ValidationLayer</a></div>
     </dd>
@@ -230,7 +228,7 @@ Class GraphicsResource  <a class="header-action link-secondary" title="View sour
 
   <h3 id="Zenith_NET_GraphicsResource_Context" data-uid="Zenith.NET.GraphicsResource.Context">
   Context
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsResource.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsResource.cs/#L19"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -292,11 +290,47 @@ Class GraphicsResource  <a class="header-action link-secondary" title="View sour
 </h2>
 
 
+  <a id="Zenith_NET_GraphicsResource_GetNativeObject_" data-uid="Zenith.NET.GraphicsResource.GetNativeObject*"></a>
+
+  <h3 id="Zenith_NET_GraphicsResource_GetNativeObject_Zenith_NET_NativeObjectType_" data-uid="Zenith.NET.GraphicsResource.GetNativeObject(Zenith.NET.NativeObjectType)">
+  GetNativeObject(NativeObjectType)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsResource.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract nint GetNativeObject(NativeObjectType type)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="Zenith.NET.NativeObjectType.html">NativeObjectType</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="Zenith_NET_GraphicsResource_SetResourceName_" data-uid="Zenith.NET.GraphicsResource.SetResourceName*"></a>
 
   <h3 id="Zenith_NET_GraphicsResource_SetResourceName_System_String_" data-uid="Zenith.NET.GraphicsResource.SetResourceName(System.String)">
   SetResourceName(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsResource.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsResource.cs/#L23"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -343,7 +377,7 @@ Class GraphicsResource  <a class="header-action link-secondary" title="View sour
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+          Zenith.NET is a modern rendering hardware interface for .NET.
         </div>
       </div>
     </footer>

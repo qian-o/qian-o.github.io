@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Swap Chains | Zenith.NET </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Swap Chains | Zenith.NET ">
+      
+      
+      <link rel="icon" href="../../images/Zenith.NET.svg">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/qian-o/Zenith.NET/blob/master/documents/docs/presentation/swap-chains.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/Zenith.NET-Logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="swap-chains">Swap Chains</h1>
+
+<p>A <code>Surface</code> identifies a window and its drawable size. <code>SwapChain.Drawable</code> returns the texture to render for the current frame.</p>
+<h2 id="create-a-surface">Create a Surface</h2>
+<p>Create the surface that matches the application's window system and native handles, such as <code>Surface.Win32(hwnd, width, height)</code>.</p>
+<p>Zenith.NET provides <code>Win32</code>, <code>Wayland</code>, <code>Xlib</code>, <code>Android</code>, and <code>Apple</code> surface factories. Select the factory that corresponds to the handles supplied by the window host. Use a <a href="views.html">View integration</a> when a supported UI framework should manage the surface.</p>
+<h2 id="create-a-swap-chain">Create a Swap Chain</h2>
+<p>Create the swap chain from the same context used for rendering:</p>
+<pre><code class="lang-csharp">SwapChain swapChain = context.CreateSwapChain(new()
+{
+    Surface = surface,
+    Format = PixelFormat.B8G8R8A8UNorm
+});
+</code></pre>
+<p>The graphics pipeline color format must match the swap-chain format.</p>
+<h2 id="render-and-present">Render and Present</h2>
+<p>Borrow a graphics command buffer for each frame, record the current drawable, and wait for the submission to complete before presentation:</p>
+<pre><code class="lang-csharp">CommandBuffer commandBuffer = context.GraphicsQueue.CommandBuffer();
+
+commandBuffer.Transition(swapChain.Drawable, default, TextureLayout.Undefined, TextureLayout.ColorAttachment);
+commandBuffer.BeginRenderPass([ColorAttachment.Clear(swapChain.Drawable, default)], null);
+
+commandBuffer.SetPipeline(pipeline);
+commandBuffer.SetVertexBuffer(buffer, 0, 0);
+commandBuffer.Draw(vertexCount, 1, 0, 0);
+
+commandBuffer.EndRenderPass();
+commandBuffer.Transition(swapChain.Drawable, default, TextureLayout.ColorAttachment, TextureLayout.Present);
+
+commandBuffer.Submit().Wait();
+swapChain.Present();
+</code></pre>
+<p>Wait for the graphics submission before calling <code>Present()</code>. Do not dispose or retain the command buffer or drawable; borrow both again for the next frame.</p>
+<h2 id="resize">Resize</h2>
+<p>Skip rendering while either dimension is zero. Dispose and recreate application-owned size-dependent textures, then call <code>swapChain.Resize(width, height)</code> before rendering again.</p>
+<p>Recreate a pipeline only when its attachment formats or sample count change.</p>
+<h2 id="refresh-a-surface">Refresh a Surface</h2>
+<p>If the window system replaces its surface handle, create a new <code>Surface</code> and pass it to <code>swapChain.Refresh(...)</code>.</p>
+<p>Use <code>Resize</code> when only the dimensions change. Use <code>Refresh</code> when the handle or surface type changes.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/qian-o/Zenith.NET/blob/master/documents/docs/presentation/swap-chains.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Zenith.NET is a modern rendering hardware interface for .NET.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

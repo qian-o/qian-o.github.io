@@ -7,7 +7,7 @@
       <meta name="title" content="Class GraphicsContext | Zenith.NET ">
       
       
-      <link rel="icon" href="../images/Zenith.NET.png">
+      <link rel="icon" href="../images/Zenith.NET.svg">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
       <meta name="docfx:navrel" content="../toc.html">
@@ -93,7 +93,7 @@ Class GraphicsContext  <a class="header-action link-secondary" title="View sourc
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="Zenith.html">Zenith</a>.<a class="xref" href="Zenith.NET.html">NET</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Zenith.NET.html">Zenith.NET</a></dd></dl>
   <dl><dt>Assembly</dt><dd>Zenith.NET.dll</dd></dl>
   </div>
 
@@ -101,7 +101,7 @@ Class GraphicsContext  <a class="header-action link-secondary" title="View sourc
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract class GraphicsContext : DisposableObject, IDisposableObject, IDisposable</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract class GraphicsContext : DisposableObject, IDisposable</code></pre>
   </div>
 
 
@@ -119,7 +119,6 @@ Class GraphicsContext  <a class="header-action link-secondary" title="View sourc
   <dl class="typelist implements">
     <dt>Implements</dt>
     <dd>
-      <div><a class="xref" href="Zenith.NET.IDisposableObject.html">IDisposableObject</a></div>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
     </dd>
   </dl>
@@ -168,21 +167,21 @@ Class GraphicsContext  <a class="header-action link-secondary" title="View sourc
 
   <a id="Zenith_NET_GraphicsContext__ctor_" data-uid="Zenith.NET.GraphicsContext.#ctor*"></a>
 
-  <h3 id="Zenith_NET_GraphicsContext__ctor_Zenith_NET_Backend_System_Boolean_" data-uid="Zenith.NET.GraphicsContext.#ctor(Zenith.NET.Backend,System.Boolean)">
-  GraphicsContext(Backend, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Zenith_NET_GraphicsContext__ctor_Zenith_NET_GraphicsApi_System_Boolean_" data-uid="Zenith.NET.GraphicsContext.#ctor(Zenith.NET.GraphicsApi,System.Boolean)">
+  GraphicsContext(GraphicsApi, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L5"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected GraphicsContext(Backend backend, bool useValidationLayer)</code></pre>
+    <pre><code class="lang-csharp hljs">protected GraphicsContext(GraphicsApi graphicsApi, bool useValidationLayer)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>backend</code> <a class="xref" href="Zenith.NET.Backend.html">Backend</a></dt>
+    <dt><code>graphicsApi</code> <a class="xref" href="Zenith.NET.GraphicsApi.html">GraphicsApi</a></dt>
     <dd></dd>
     <dt><code>useValidationLayer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
@@ -199,140 +198,15 @@ Class GraphicsContext  <a class="header-action link-secondary" title="View sourc
 
 
 
-  <h2 class="section" id="fields">Fields
-</h2>
-
-
-
-  <h3 id="Zenith_NET_GraphicsContext_ConstantBufferAlignment" data-uid="Zenith.NET.GraphicsContext.ConstantBufferAlignment">
-  ConstantBufferAlignment
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L5"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const uint ConstantBufferAlignment = 256</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <h3 id="Zenith_NET_GraphicsContext_TextureDepthPitchAlignment" data-uid="Zenith.NET.GraphicsContext.TextureDepthPitchAlignment">
-  TextureDepthPitchAlignment
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L9"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const uint TextureDepthPitchAlignment = 512</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <h3 id="Zenith_NET_GraphicsContext_TextureRowPitchAlignment" data-uid="Zenith.NET.GraphicsContext.TextureRowPitchAlignment">
-  TextureRowPitchAlignment
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L7"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const uint TextureRowPitchAlignment = 256</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
   <h2 class="section" id="properties">Properties
 </h2>
-
-
-  <a id="Zenith_NET_GraphicsContext_Backend_" data-uid="Zenith.NET.GraphicsContext.Backend*"></a>
-
-  <h3 id="Zenith_NET_GraphicsContext_Backend" data-uid="Zenith.NET.GraphicsContext.Backend">
-  Backend
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L31"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Backend Backend { get; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="Zenith.NET.Backend.html">Backend</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
 
 
   <a id="Zenith_NET_GraphicsContext_Capabilities_" data-uid="Zenith.NET.GraphicsContext.Capabilities*"></a>
 
   <h3 id="Zenith_NET_GraphicsContext_Capabilities" data-uid="Zenith.NET.GraphicsContext.Capabilities">
   Capabilities
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L28"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -359,18 +233,18 @@ Class GraphicsContext  <a class="header-action link-secondary" title="View sourc
 
 
 
-  <a id="Zenith_NET_GraphicsContext_Compute_" data-uid="Zenith.NET.GraphicsContext.Compute*"></a>
+  <a id="Zenith_NET_GraphicsContext_ComputeQueue_" data-uid="Zenith.NET.GraphicsContext.ComputeQueue*"></a>
 
-  <h3 id="Zenith_NET_GraphicsContext_Compute" data-uid="Zenith.NET.GraphicsContext.Compute">
-  Compute
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Zenith_NET_GraphicsContext_ComputeQueue" data-uid="Zenith.NET.GraphicsContext.ComputeQueue">
+  ComputeQueue
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L32"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public CommandQueue Compute { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public CommandQueue ComputeQueue { get; }</code></pre>
   </div>
 
 
@@ -390,18 +264,49 @@ Class GraphicsContext  <a class="header-action link-secondary" title="View sourc
 
 
 
-  <a id="Zenith_NET_GraphicsContext_Copy_" data-uid="Zenith.NET.GraphicsContext.Copy*"></a>
+  <a id="Zenith_NET_GraphicsContext_GraphicsApi_" data-uid="Zenith.NET.GraphicsContext.GraphicsApi*"></a>
 
-  <h3 id="Zenith_NET_GraphicsContext_Copy" data-uid="Zenith.NET.GraphicsContext.Copy">
-  Copy
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Zenith_NET_GraphicsContext_GraphicsApi" data-uid="Zenith.NET.GraphicsContext.GraphicsApi">
+  GraphicsApi
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L26"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public CommandQueue Copy { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public GraphicsApi GraphicsApi { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Zenith.NET.GraphicsApi.html">GraphicsApi</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_GraphicsContext_GraphicsQueue_" data-uid="Zenith.NET.GraphicsContext.GraphicsQueue*"></a>
+
+  <h3 id="Zenith_NET_GraphicsContext_GraphicsQueue" data-uid="Zenith.NET.GraphicsContext.GraphicsQueue">
+  GraphicsQueue
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CommandQueue GraphicsQueue { get; }</code></pre>
   </div>
 
 
@@ -421,18 +326,18 @@ Class GraphicsContext  <a class="header-action link-secondary" title="View sourc
 
 
 
-  <a id="Zenith_NET_GraphicsContext_Graphics_" data-uid="Zenith.NET.GraphicsContext.Graphics*"></a>
+  <a id="Zenith_NET_GraphicsContext_TransferQueue_" data-uid="Zenith.NET.GraphicsContext.TransferQueue*"></a>
 
-  <h3 id="Zenith_NET_GraphicsContext_Graphics" data-uid="Zenith.NET.GraphicsContext.Graphics">
-  Graphics
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Zenith_NET_GraphicsContext_TransferQueue" data-uid="Zenith.NET.GraphicsContext.TransferQueue">
+  TransferQueue
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L34"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public CommandQueue Graphics { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public CommandQueue TransferQueue { get; }</code></pre>
   </div>
 
 
@@ -460,7 +365,7 @@ Class GraphicsContext  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="Zenith_NET_GraphicsContext_CreateBuffer_Zenith_NET_BufferDesc_" data-uid="Zenith.NET.GraphicsContext.CreateBuffer(Zenith.NET.BufferDesc)">
   CreateBuffer(BufferDesc)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L68"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L64"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -496,7 +401,7 @@ Class GraphicsContext  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="Zenith_NET_GraphicsContext_CreateBufferImpl_Zenith_NET_BufferDesc_" data-uid="Zenith.NET.GraphicsContext.CreateBufferImpl(Zenith.NET.BufferDesc)">
   CreateBufferImpl(BufferDesc)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L168"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L147"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -532,7 +437,7 @@ Class GraphicsContext  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="Zenith_NET_GraphicsContext_CreateBufferView_Zenith_NET_BufferViewDesc_" data-uid="Zenith.NET.GraphicsContext.CreateBufferView(Zenith.NET.BufferViewDesc)">
   CreateBufferView(BufferViewDesc)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L69"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -568,7 +473,7 @@ Class GraphicsContext  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="Zenith_NET_GraphicsContext_CreateBufferViewImpl_Zenith_NET_BufferViewDesc_" data-uid="Zenith.NET.GraphicsContext.CreateBufferViewImpl(Zenith.NET.BufferViewDesc)">
   CreateBufferViewImpl(BufferViewDesc)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L170"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L149"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -604,7 +509,7 @@ Class GraphicsContext  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="Zenith_NET_GraphicsContext_CreateComputePipeline_Zenith_NET_ComputePipelineDesc_" data-uid="Zenith.NET.GraphicsContext.CreateComputePipeline(Zenith.NET.ComputePipelineDesc)">
   CreateComputePipeline(ComputePipelineDesc)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L124"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L104"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -640,7 +545,7 @@ Class GraphicsContext  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="Zenith_NET_GraphicsContext_CreateComputePipelineImpl_Zenith_NET_ComputePipelineDesc_" data-uid="Zenith.NET.GraphicsContext.CreateComputePipelineImpl(Zenith.NET.ComputePipelineDesc)">
   CreateComputePipelineImpl(ComputePipelineDesc)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L184"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L163"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -672,83 +577,11 @@ Class GraphicsContext  <a class="header-action link-secondary" title="View sourc
 
 
 
-  <a id="Zenith_NET_GraphicsContext_CreateFrameBuffer_" data-uid="Zenith.NET.GraphicsContext.CreateFrameBuffer*"></a>
-
-  <h3 id="Zenith_NET_GraphicsContext_CreateFrameBuffer_Zenith_NET_FrameBufferDesc_" data-uid="Zenith.NET.GraphicsContext.CreateFrameBuffer(Zenith.NET.FrameBufferDesc)">
-  CreateFrameBuffer(FrameBufferDesc)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L54"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public FrameBuffer CreateFrameBuffer(FrameBufferDesc desc)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>desc</code> <a class="xref" href="Zenith.NET.FrameBufferDesc.html">FrameBufferDesc</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="Zenith.NET.FrameBuffer.html">FrameBuffer</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="Zenith_NET_GraphicsContext_CreateFrameBufferImpl_" data-uid="Zenith.NET.GraphicsContext.CreateFrameBufferImpl*"></a>
-
-  <h3 id="Zenith_NET_GraphicsContext_CreateFrameBufferImpl_Zenith_NET_FrameBufferDesc_" data-uid="Zenith.NET.GraphicsContext.CreateFrameBufferImpl(Zenith.NET.FrameBufferDesc)">
-  CreateFrameBufferImpl(FrameBufferDesc)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L164"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract FrameBuffer CreateFrameBufferImpl(FrameBufferDesc desc)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>desc</code> <a class="xref" href="Zenith.NET.FrameBufferDesc.html">FrameBufferDesc</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="Zenith.NET.FrameBuffer.html">FrameBuffer</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
   <a id="Zenith_NET_GraphicsContext_CreateGraphicsPipeline_" data-uid="Zenith.NET.GraphicsContext.CreateGraphicsPipeline*"></a>
 
   <h3 id="Zenith_NET_GraphicsContext_CreateGraphicsPipeline_Zenith_NET_GraphicsPipelineDesc_" data-uid="Zenith.NET.GraphicsContext.CreateGraphicsPipeline(Zenith.NET.GraphicsPipelineDesc)">
   CreateGraphicsPipeline(GraphicsPipelineDesc)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L117"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L99"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -784,7 +617,7 @@ Class GraphicsContext  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="Zenith_NET_GraphicsContext_CreateGraphicsPipelineImpl_Zenith_NET_GraphicsPipelineDesc_" data-uid="Zenith.NET.GraphicsContext.CreateGraphicsPipelineImpl(Zenith.NET.GraphicsPipelineDesc)">
   CreateGraphicsPipelineImpl(GraphicsPipelineDesc)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L182"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L161"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -816,11 +649,83 @@ Class GraphicsContext  <a class="header-action link-secondary" title="View sourc
 
 
 
+  <a id="Zenith_NET_GraphicsContext_CreateHeap_" data-uid="Zenith.NET.GraphicsContext.CreateHeap*"></a>
+
+  <h3 id="Zenith_NET_GraphicsContext_CreateHeap_Zenith_NET_HeapDesc_" data-uid="Zenith.NET.GraphicsContext.CreateHeap(Zenith.NET.HeapDesc)">
+  CreateHeap(HeapDesc)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Heap CreateHeap(HeapDesc desc)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>desc</code> <a class="xref" href="Zenith.NET.HeapDesc.html">HeapDesc</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Zenith.NET.Heap.html">Heap</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_GraphicsContext_CreateHeapImpl_" data-uid="Zenith.NET.GraphicsContext.CreateHeapImpl*"></a>
+
+  <h3 id="Zenith_NET_GraphicsContext_CreateHeapImpl_Zenith_NET_HeapDesc_" data-uid="Zenith.NET.GraphicsContext.CreateHeapImpl(Zenith.NET.HeapDesc)">
+  CreateHeapImpl(HeapDesc)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L141"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract Heap CreateHeapImpl(HeapDesc desc)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>desc</code> <a class="xref" href="Zenith.NET.HeapDesc.html">HeapDesc</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Zenith.NET.Heap.html">Heap</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="Zenith_NET_GraphicsContext_CreateMeshShadingPipeline_" data-uid="Zenith.NET.GraphicsContext.CreateMeshShadingPipeline*"></a>
 
   <h3 id="Zenith_NET_GraphicsContext_CreateMeshShadingPipeline_Zenith_NET_MeshShadingPipelineDesc_" data-uid="Zenith.NET.GraphicsContext.CreateMeshShadingPipeline(Zenith.NET.MeshShadingPipelineDesc)">
   CreateMeshShadingPipeline(MeshShadingPipelineDesc)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L131"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L109"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -856,7 +761,7 @@ Class GraphicsContext  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="Zenith_NET_GraphicsContext_CreateMeshShadingPipelineImpl_Zenith_NET_MeshShadingPipelineDesc_" data-uid="Zenith.NET.GraphicsContext.CreateMeshShadingPipelineImpl(Zenith.NET.MeshShadingPipelineDesc)">
   CreateMeshShadingPipelineImpl(MeshShadingPipelineDesc)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L186"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L165"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -892,7 +797,7 @@ Class GraphicsContext  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="Zenith_NET_GraphicsContext_CreateQueryHeap_Zenith_NET_QueryHeapDesc_" data-uid="Zenith.NET.GraphicsContext.CreateQueryHeap(Zenith.NET.QueryHeapDesc)">
   CreateQueryHeap(QueryHeapDesc)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L138"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L114"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -928,7 +833,7 @@ Class GraphicsContext  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="Zenith_NET_GraphicsContext_CreateQueryHeapImpl_Zenith_NET_QueryHeapDesc_" data-uid="Zenith.NET.GraphicsContext.CreateQueryHeapImpl(Zenith.NET.QueryHeapDesc)">
   CreateQueryHeapImpl(QueryHeapDesc)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L188"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L167"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -960,155 +865,11 @@ Class GraphicsContext  <a class="header-action link-secondary" title="View sourc
 
 
 
-  <a id="Zenith_NET_GraphicsContext_CreateResourceLayout_" data-uid="Zenith.NET.GraphicsContext.CreateResourceLayout*"></a>
-
-  <h3 id="Zenith_NET_GraphicsContext_CreateResourceLayout_Zenith_NET_ResourceLayoutDesc_" data-uid="Zenith.NET.GraphicsContext.CreateResourceLayout(Zenith.NET.ResourceLayoutDesc)">
-  CreateResourceLayout(ResourceLayoutDesc)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L103"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ResourceLayout CreateResourceLayout(ResourceLayoutDesc desc)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>desc</code> <a class="xref" href="Zenith.NET.ResourceLayoutDesc.html">ResourceLayoutDesc</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="Zenith.NET.ResourceLayout.html">ResourceLayout</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="Zenith_NET_GraphicsContext_CreateResourceLayoutImpl_" data-uid="Zenith.NET.GraphicsContext.CreateResourceLayoutImpl*"></a>
-
-  <h3 id="Zenith_NET_GraphicsContext_CreateResourceLayoutImpl_Zenith_NET_ResourceLayoutDesc_" data-uid="Zenith.NET.GraphicsContext.CreateResourceLayoutImpl(Zenith.NET.ResourceLayoutDesc)">
-  CreateResourceLayoutImpl(ResourceLayoutDesc)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L178"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract ResourceLayout CreateResourceLayoutImpl(ResourceLayoutDesc desc)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>desc</code> <a class="xref" href="Zenith.NET.ResourceLayoutDesc.html">ResourceLayoutDesc</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="Zenith.NET.ResourceLayout.html">ResourceLayout</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="Zenith_NET_GraphicsContext_CreateResourceTable_" data-uid="Zenith.NET.GraphicsContext.CreateResourceTable*"></a>
-
-  <h3 id="Zenith_NET_GraphicsContext_CreateResourceTable_Zenith_NET_ResourceTableDesc_" data-uid="Zenith.NET.GraphicsContext.CreateResourceTable(Zenith.NET.ResourceTableDesc)">
-  CreateResourceTable(ResourceTableDesc)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L110"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ResourceTable CreateResourceTable(ResourceTableDesc desc)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>desc</code> <a class="xref" href="Zenith.NET.ResourceTableDesc.html">ResourceTableDesc</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="Zenith.NET.ResourceTable.html">ResourceTable</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="Zenith_NET_GraphicsContext_CreateResourceTableImpl_" data-uid="Zenith.NET.GraphicsContext.CreateResourceTableImpl*"></a>
-
-  <h3 id="Zenith_NET_GraphicsContext_CreateResourceTableImpl_Zenith_NET_ResourceTableDesc_" data-uid="Zenith.NET.GraphicsContext.CreateResourceTableImpl(Zenith.NET.ResourceTableDesc)">
-  CreateResourceTableImpl(ResourceTableDesc)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L180"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract ResourceTable CreateResourceTableImpl(ResourceTableDesc desc)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>desc</code> <a class="xref" href="Zenith.NET.ResourceTableDesc.html">ResourceTableDesc</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="Zenith.NET.ResourceTable.html">ResourceTable</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
   <a id="Zenith_NET_GraphicsContext_CreateSampler_" data-uid="Zenith.NET.GraphicsContext.CreateSampler*"></a>
 
   <h3 id="Zenith_NET_GraphicsContext_CreateSampler_Zenith_NET_SamplerDesc_" data-uid="Zenith.NET.GraphicsContext.CreateSampler(Zenith.NET.SamplerDesc)">
   CreateSampler(SamplerDesc)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L96"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L89"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1144,7 +905,7 @@ Class GraphicsContext  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="Zenith_NET_GraphicsContext_CreateSamplerImpl_Zenith_NET_SamplerDesc_" data-uid="Zenith.NET.GraphicsContext.CreateSamplerImpl(Zenith.NET.SamplerDesc)">
   CreateSamplerImpl(SamplerDesc)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L176"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L157"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1180,7 +941,7 @@ Class GraphicsContext  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="Zenith_NET_GraphicsContext_CreateShader_Zenith_NET_ShaderDesc_" data-uid="Zenith.NET.GraphicsContext.CreateShader(Zenith.NET.ShaderDesc)">
   CreateShader(ShaderDesc)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L94"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1216,7 +977,7 @@ Class GraphicsContext  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="Zenith_NET_GraphicsContext_CreateShaderImpl_Zenith_NET_ShaderDesc_" data-uid="Zenith.NET.GraphicsContext.CreateShaderImpl(Zenith.NET.ShaderDesc)">
   CreateShaderImpl(ShaderDesc)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L166"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L159"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1252,7 +1013,7 @@ Class GraphicsContext  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="Zenith_NET_GraphicsContext_CreateSwapChain_Zenith_NET_SwapChainDesc_" data-uid="Zenith.NET.GraphicsContext.CreateSwapChain(Zenith.NET.SwapChainDesc)">
   CreateSwapChain(SwapChainDesc)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L44"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1288,7 +1049,7 @@ Class GraphicsContext  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="Zenith_NET_GraphicsContext_CreateSwapChainImpl_Zenith_NET_SwapChainDesc_" data-uid="Zenith.NET.GraphicsContext.CreateSwapChainImpl(Zenith.NET.SwapChainDesc)">
   CreateSwapChainImpl(SwapChainDesc)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L162"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L139"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1324,7 +1085,7 @@ Class GraphicsContext  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="Zenith_NET_GraphicsContext_CreateTexture_Zenith_NET_TextureDesc_" data-uid="Zenith.NET.GraphicsContext.CreateTexture(Zenith.NET.TextureDesc)">
   CreateTexture(TextureDesc)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L82"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L74"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1356,11 +1117,51 @@ Class GraphicsContext  <a class="header-action link-secondary" title="View sourc
 
 
 
+  <a id="Zenith_NET_GraphicsContext_CreateTexture_" data-uid="Zenith.NET.GraphicsContext.CreateTexture*"></a>
+
+  <h3 id="Zenith_NET_GraphicsContext_CreateTexture_Zenith_NET_TextureDesc_Zenith_NET_NativeTextureType_System_IntPtr_" data-uid="Zenith.NET.GraphicsContext.CreateTexture(Zenith.NET.TextureDesc,Zenith.NET.NativeTextureType,System.IntPtr)">
+  CreateTexture(TextureDesc, NativeTextureType, nint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Texture CreateTexture(TextureDesc desc, NativeTextureType nativeTextureType, nint nativeTexture)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>desc</code> <a class="xref" href="Zenith.NET.TextureDesc.html">TextureDesc</a></dt>
+    <dd></dd>
+    <dt><code>nativeTextureType</code> <a class="xref" href="Zenith.NET.NativeTextureType.html">NativeTextureType</a></dt>
+    <dd></dd>
+    <dt><code>nativeTexture</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Zenith.NET.Texture.html">Texture</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="Zenith_NET_GraphicsContext_CreateTextureImpl_" data-uid="Zenith.NET.GraphicsContext.CreateTextureImpl*"></a>
 
   <h3 id="Zenith_NET_GraphicsContext_CreateTextureImpl_Zenith_NET_TextureDesc_" data-uid="Zenith.NET.GraphicsContext.CreateTextureImpl(Zenith.NET.TextureDesc)">
   CreateTextureImpl(TextureDesc)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L172"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L151"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1392,11 +1193,51 @@ Class GraphicsContext  <a class="header-action link-secondary" title="View sourc
 
 
 
+  <a id="Zenith_NET_GraphicsContext_CreateTextureImpl_" data-uid="Zenith.NET.GraphicsContext.CreateTextureImpl*"></a>
+
+  <h3 id="Zenith_NET_GraphicsContext_CreateTextureImpl_Zenith_NET_TextureDesc_Zenith_NET_NativeTextureType_System_IntPtr_" data-uid="Zenith.NET.GraphicsContext.CreateTextureImpl(Zenith.NET.TextureDesc,Zenith.NET.NativeTextureType,System.IntPtr)">
+  CreateTextureImpl(TextureDesc, NativeTextureType, nint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L153"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract Texture CreateTextureImpl(TextureDesc desc, NativeTextureType nativeTextureType, nint nativeTexture)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>desc</code> <a class="xref" href="Zenith.NET.TextureDesc.html">TextureDesc</a></dt>
+    <dd></dd>
+    <dt><code>nativeTextureType</code> <a class="xref" href="Zenith.NET.NativeTextureType.html">NativeTextureType</a></dt>
+    <dd></dd>
+    <dt><code>nativeTexture</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Zenith.NET.Texture.html">Texture</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="Zenith_NET_GraphicsContext_CreateTextureView_" data-uid="Zenith.NET.GraphicsContext.CreateTextureView*"></a>
 
   <h3 id="Zenith_NET_GraphicsContext_CreateTextureView_Zenith_NET_TextureViewDesc_" data-uid="Zenith.NET.GraphicsContext.CreateTextureView(Zenith.NET.TextureViewDesc)">
   CreateTextureView(TextureViewDesc)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L89"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L84"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1432,7 +1273,7 @@ Class GraphicsContext  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="Zenith_NET_GraphicsContext_CreateTextureViewImpl_Zenith_NET_TextureViewDesc_" data-uid="Zenith.NET.GraphicsContext.CreateTextureViewImpl(Zenith.NET.TextureViewDesc)">
   CreateTextureViewImpl(TextureViewDesc)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L174"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L155"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1468,7 +1309,7 @@ Class GraphicsContext  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="Zenith_NET_GraphicsContext_Destroy" data-uid="Zenith.NET.GraphicsContext.Destroy">
   Destroy()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L145"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L121"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1490,18 +1331,198 @@ Class GraphicsContext  <a class="header-action link-secondary" title="View sourc
 
 
 
-  <a id="Zenith_NET_GraphicsContext_Initialize_" data-uid="Zenith.NET.GraphicsContext.Initialize*"></a>
+  <a id="Zenith_NET_GraphicsContext_GetNativeObject_" data-uid="Zenith.NET.GraphicsContext.GetNativeObject*"></a>
 
-  <h3 id="Zenith_NET_GraphicsContext_Initialize_System_Boolean_Zenith_NET_Capabilities__Zenith_NET_CommandQueue__Zenith_NET_CommandQueue__Zenith_NET_CommandQueue__Zenith_NET_ValidationLayer__" data-uid="Zenith.NET.GraphicsContext.Initialize(System.Boolean,Zenith.NET.Capabilities@,Zenith.NET.CommandQueue@,Zenith.NET.CommandQueue@,Zenith.NET.CommandQueue@,Zenith.NET.ValidationLayer@)">
-  Initialize(bool, out Capabilities, out CommandQueue, out CommandQueue, out CommandQueue, out ValidationLayer?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L155"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Zenith_NET_GraphicsContext_GetNativeObject_Zenith_NET_NativeObjectType_" data-uid="Zenith.NET.GraphicsContext.GetNativeObject(Zenith.NET.NativeObjectType)">
+  GetNativeObject(NativeObjectType)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L119"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void Initialize(bool useValidationLayer, out Capabilities capabilities, out CommandQueue graphics, out CommandQueue compute, out CommandQueue copy, out ValidationLayer? validationLayer)</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract nint GetNativeObject(NativeObjectType type)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="Zenith.NET.NativeObjectType.html">NativeObjectType</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_GraphicsContext_GetSizeAndAlignment_" data-uid="Zenith.NET.GraphicsContext.GetSizeAndAlignment*"></a>
+
+  <h3 id="Zenith_NET_GraphicsContext_GetSizeAndAlignment_Zenith_NET_BufferDesc_" data-uid="Zenith.NET.GraphicsContext.GetSizeAndAlignment(Zenith.NET.BufferDesc)">
+  GetSizeAndAlignment(BufferDesc)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SizeAndAlignment GetSizeAndAlignment(BufferDesc desc)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>desc</code> <a class="xref" href="Zenith.NET.BufferDesc.html">BufferDesc</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Zenith.NET.SizeAndAlignment.html">SizeAndAlignment</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_GraphicsContext_GetSizeAndAlignment_" data-uid="Zenith.NET.GraphicsContext.GetSizeAndAlignment*"></a>
+
+  <h3 id="Zenith_NET_GraphicsContext_GetSizeAndAlignment_Zenith_NET_TextureDesc_" data-uid="Zenith.NET.GraphicsContext.GetSizeAndAlignment(Zenith.NET.TextureDesc)">
+  GetSizeAndAlignment(TextureDesc)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L59"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SizeAndAlignment GetSizeAndAlignment(TextureDesc desc)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>desc</code> <a class="xref" href="Zenith.NET.TextureDesc.html">TextureDesc</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Zenith.NET.SizeAndAlignment.html">SizeAndAlignment</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_GraphicsContext_GetSizeAndAlignmentImpl_" data-uid="Zenith.NET.GraphicsContext.GetSizeAndAlignmentImpl*"></a>
+
+  <h3 id="Zenith_NET_GraphicsContext_GetSizeAndAlignmentImpl_Zenith_NET_BufferDesc_" data-uid="Zenith.NET.GraphicsContext.GetSizeAndAlignmentImpl(Zenith.NET.BufferDesc)">
+  GetSizeAndAlignmentImpl(BufferDesc)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L143"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract SizeAndAlignment GetSizeAndAlignmentImpl(BufferDesc desc)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>desc</code> <a class="xref" href="Zenith.NET.BufferDesc.html">BufferDesc</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Zenith.NET.SizeAndAlignment.html">SizeAndAlignment</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_GraphicsContext_GetSizeAndAlignmentImpl_" data-uid="Zenith.NET.GraphicsContext.GetSizeAndAlignmentImpl*"></a>
+
+  <h3 id="Zenith_NET_GraphicsContext_GetSizeAndAlignmentImpl_Zenith_NET_TextureDesc_" data-uid="Zenith.NET.GraphicsContext.GetSizeAndAlignmentImpl(Zenith.NET.TextureDesc)">
+  GetSizeAndAlignmentImpl(TextureDesc)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L145"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract SizeAndAlignment GetSizeAndAlignmentImpl(TextureDesc desc)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>desc</code> <a class="xref" href="Zenith.NET.TextureDesc.html">TextureDesc</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Zenith.NET.SizeAndAlignment.html">SizeAndAlignment</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_GraphicsContext_Initialize_" data-uid="Zenith.NET.GraphicsContext.Initialize*"></a>
+
+  <h3 id="Zenith_NET_GraphicsContext_Initialize_System_Boolean_Zenith_NET_Capabilities__Zenith_NET_CommandQueue__Zenith_NET_CommandQueue__Zenith_NET_CommandQueue__Zenith_NET_ValidationLayer__" data-uid="Zenith.NET.GraphicsContext.Initialize(System.Boolean,Zenith.NET.Capabilities@,Zenith.NET.CommandQueue@,Zenith.NET.CommandQueue@,Zenith.NET.CommandQueue@,Zenith.NET.ValidationLayer@)">
+  Initialize(bool, out Capabilities, out CommandQueue, out CommandQueue, out CommandQueue, out ValidationLayer?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L132"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void Initialize(bool useValidationLayer, out Capabilities capabilities, out CommandQueue graphicsQueue, out CommandQueue computeQueue, out CommandQueue transferQueue, out ValidationLayer? validationLayer)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -1510,11 +1531,11 @@ Class GraphicsContext  <a class="header-action link-secondary" title="View sourc
     <dd></dd>
     <dt><code>capabilities</code> <a class="xref" href="Zenith.NET.Capabilities.html">Capabilities</a></dt>
     <dd></dd>
-    <dt><code>graphics</code> <a class="xref" href="Zenith.NET.CommandQueue.html">CommandQueue</a></dt>
+    <dt><code>graphicsQueue</code> <a class="xref" href="Zenith.NET.CommandQueue.html">CommandQueue</a></dt>
     <dd></dd>
-    <dt><code>compute</code> <a class="xref" href="Zenith.NET.CommandQueue.html">CommandQueue</a></dt>
+    <dt><code>computeQueue</code> <a class="xref" href="Zenith.NET.CommandQueue.html">CommandQueue</a></dt>
     <dd></dd>
-    <dt><code>copy</code> <a class="xref" href="Zenith.NET.CommandQueue.html">CommandQueue</a></dt>
+    <dt><code>transferQueue</code> <a class="xref" href="Zenith.NET.CommandQueue.html">CommandQueue</a></dt>
     <dd></dd>
     <dt><code>validationLayer</code> <a class="xref" href="Zenith.NET.ValidationLayer.html">ValidationLayer</a></dt>
     <dd></dd>
@@ -1538,14 +1559,14 @@ Class GraphicsContext  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="Zenith_NET_GraphicsContext_ValidationMessage" data-uid="Zenith.NET.GraphicsContext.ValidationMessage">
   ValidationMessage
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/GraphicsContext.cs/#L42"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public event EventHandler&lt;ValidationMessageArgs&gt;? ValidationMessage</code></pre>
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;ValidationMessageEventArgs&gt;? ValidationMessage</code></pre>
   </div>
 
 
@@ -1555,7 +1576,7 @@ Class GraphicsContext  <a class="header-action link-secondary" title="View sourc
 
   <h4 class="section">Event Type</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="Zenith.NET.ValidationMessageArgs.html">ValidationMessageArgs</a>&gt;</dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="Zenith.NET.ValidationMessageEventArgs.html">ValidationMessageEventArgs</a>&gt;</dt>
     <dd></dd>
   </dl>
 
@@ -1585,7 +1606,7 @@ Class GraphicsContext  <a class="header-action link-secondary" title="View sourc
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+          Zenith.NET is a modern rendering hardware interface for .NET.
         </div>
       </div>
     </footer>

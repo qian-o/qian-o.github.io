@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Synchronization | Zenith.NET </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Synchronization | Zenith.NET ">
+      
+      
+      <link rel="icon" href="../../images/Zenith.NET.svg">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/qian-o/Zenith.NET/blob/master/documents/docs/fundamentals/synchronization.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/Zenith.NET-Logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="synchronization">Synchronization</h1>
+
+<p>Synchronization makes data produced by earlier GPU work available to later work. Choose the mechanism that matches the dependency:</p>
+<table>
+<thead>
+<tr>
+<th>Mechanism</th>
+<th>Use it when</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Barrier(before, after)</code></td>
+<td>Commands in one command buffer share data without changing a texture layout</td>
+</tr>
+<tr>
+<td><code>Transition(texture, subresource, before, after)</code></td>
+<td>A texture changes its access role</td>
+</tr>
+<tr>
+<td><code>Submit(waitValues...)</code></td>
+<td>A submission depends on work submitted to another queue</td>
+</tr>
+</tbody>
+</table>
+<h2 id="add-a-memory-barrier">Add a Memory Barrier</h2>
+<p>Use <code>Barrier</code> when a later command consumes memory written by an earlier command and the resource layout does not change:</p>
+<pre><code class="lang-csharp">commandBuffer.SetPipeline(pipeline);
+commandBuffer.Dispatch(groupCount, 1, 1);
+
+commandBuffer.Barrier(BarrierStages.ComputeShading, BarrierStages.ComputeShading);
+
+commandBuffer.SetPipeline(nextPipeline);
+commandBuffer.Dispatch(nextGroupCount, 1, 1);
+</code></pre>
+<p>Common cases include storage-buffer producer/consumer chains and compute-generated indirect arguments. Select the stages that perform the producing and consuming work, and combine flags when several stages consume the result.</p>
+<p>Use <code>BarrierStages.All</code> only when a narrower dependency cannot describe the work.</p>
+<h2 id="transition-a-texture">Transition a Texture</h2>
+<p>Supply the current and next layout whenever a texture changes how it is used:</p>
+<pre><code class="lang-csharp">commandBuffer.Transition(texture, default, TextureLayout.Undefined, TextureLayout.Storage);
+
+commandBuffer.SetPipeline(pipeline);
+commandBuffer.SetConstantBuffer(buffer, 0);
+commandBuffer.Dispatch(groupCountX, groupCountY, 1);
+
+commandBuffer.Transition(texture, default, TextureLayout.Storage, TextureLayout.Sampled);
+</code></pre>
+<p><code>default</code> selects mip level zero and array layer zero. Pass a <code>TextureSubresource</code> with the required <code>MipLevel</code> and <code>ArrayLayer</code> when another subresource is needed.</p>
+<p>Use <code>Undefined</code> as the source only when previous contents can be discarded. Copy, resolve, and command-buffer upload or download operations do not insert transitions. The <code>Texture.Upload</code> and <code>Texture.Download</code> convenience methods perform their declared current-to-final layout transitions.</p>
+<p>The principal layouts are listed in declaration order:</p>
+<table>
+<thead>
+<tr>
+<th>Layout</th>
+<th>Access role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Undefined</code></td>
+<td>Previous contents are discarded</td>
+</tr>
+<tr>
+<td><code>Common</code></td>
+<td>General access and shared-texture presentation paths</td>
+</tr>
+<tr>
+<td><code>Sampled</code></td>
+<td>Sampled texture reads</td>
+</tr>
+<tr>
+<td><code>Storage</code></td>
+<td>Storage texture reads and writes</td>
+</tr>
+<tr>
+<td><code>ColorAttachment</code></td>
+<td>Color attachment access</td>
+</tr>
+<tr>
+<td><code>DepthStencilAttachment</code></td>
+<td>Writable depth/stencil attachment access</td>
+</tr>
+<tr>
+<td><code>DepthStencilReadOnly</code></td>
+<td>Read-only depth/stencil access</td>
+</tr>
+<tr>
+<td><code>CopySrc</code> / <code>CopyDst</code></td>
+<td>Copy source or destination</td>
+</tr>
+<tr>
+<td><code>ResolveSrc</code> / <code>ResolveDst</code></td>
+<td>Resolve source or destination</td>
+</tr>
+<tr>
+<td><code>Present</code></td>
+<td>Presentation</td>
+</tr>
+</tbody>
+</table>
+<h2 id="order-work-across-queues">Order Work Across Queues</h2>
+<p>Pass a producer's <code>TimelineValue</code> to the dependent submission:</p>
+<pre><code class="lang-csharp">CommandBuffer commandBuffer = context.TransferQueue.CommandBuffer();
+commandBuffer.Upload(buffer, 0, data);
+TimelineValue timelineValue = commandBuffer.Submit();
+
+commandBuffer = context.ComputeQueue.CommandBuffer();
+commandBuffer.SetPipeline(pipeline);
+commandBuffer.SetConstantBuffer(buffer, 0);
+commandBuffer.Dispatch(groupCountX, groupCountY, 1);
+
+commandBuffer.Submit(timelineValue);
+</code></pre>
+<p>Passing a producer <code>TimelineValue</code> to <code>Submit</code> orders the consumer submission after that value without blocking the CPU. Call <code>Wait()</code> only when CPU code must observe GPU results.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/qian-o/Zenith.NET/blob/master/documents/docs/fundamentals/synchronization.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Zenith.NET is a modern rendering hardware interface for .NET.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

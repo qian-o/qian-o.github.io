@@ -2,12 +2,12 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Documentation | Zenith.NET </title>
+      <title>RHI Guide | Zenith.NET </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Documentation | Zenith.NET ">
+      <meta name="title" content="RHI Guide | Zenith.NET ">
       
       
-      <link rel="icon" href="../images/Zenith.NET.png">
+      <link rel="icon" href="../images/Zenith.NET.svg">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
       <meta name="docfx:navrel" content="../toc.html">
@@ -85,192 +85,38 @@
         </div>
 
         <article data-uid="">
-<h1 id="documentation">Documentation</h1>
+<h1 id="rhi-guide">RHI Guide</h1>
 
-<p>This section provides conceptual documentation to help you understand Zenith.NET's architecture and best practices.</p>
-<div class="NOTE">
-<h5>Note</h5>
-<p>Looking for step-by-step coding guides? Check out the <a href="../tutorials/index.html">Tutorials</a> section.</p>
-</div>
-<h2 id="design-philosophy">Design Philosophy</h2>
-<p>Zenith.NET abstracts DirectX 12, Metal 4, and Vulkan 1.4 under a unified API. The design follows a clear principle: <strong>adopt the latest API versions and expose only the capabilities shared across all three backends</strong>. This means platform-specific features are intentionally excluded to maintain a consistent cross-platform experience.</p>
-<p>Each backend targets real-world device coverage:</p>
-<table>
-<thead>
-<tr>
-<th>Backend</th>
-<th>Strategy</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>DirectX 12</strong></td>
-<td>Targets mainstream Windows 10 and above, covering the vast majority of Windows devices</td>
-</tr>
-<tr>
-<td><strong>Metal 4</strong></td>
-<td>Supports Apple Silicon (M-series) Macs and compatible iPhone/iPad models. Intel-based Macs are not supported</td>
-</tr>
-<tr>
-<td><strong>Vulkan 1.4</strong></td>
-<td>Serves as the cross-platform fallback. While Vulkan has evolved rapidly with many extensions, mobile and Linux driver support remains uneven — so adaptation is driven by actual device capabilities rather than spec version alone</td>
-</tr>
-</tbody>
-</table>
-<p>For detailed backend selection guidance, see <a href="platform/backend-selection.html">Backend Selection</a>.</p>
-<h2 id="core-concepts">Core Concepts</h2>
-<h3 id="graphics-context">Graphics Context</h3>
-<p>The <code>GraphicsContext</code> is the central hub of Zenith.NET. It abstracts the underlying graphics API and provides:</p>
-<ul>
-<li><strong>Resource Creation</strong> - Create buffers, textures, pipelines, and other GPU resources</li>
-<li><strong>Command Queues</strong> - Access to <code>Graphics</code>, <code>Compute</code>, and <code>Copy</code> queues</li>
-<li><strong>Capabilities</strong> - Query device name and feature support via <code>Capabilities</code></li>
-</ul>
-<p>Backend-specific contexts are created via extension methods:</p>
-<ul>
-<li><code>GraphicsContext.CreateDirectX12(useValidationLayer)</code> - Windows</li>
-<li><code>GraphicsContext.CreateMetal(useValidationLayer)</code> - Apple</li>
-<li><code>GraphicsContext.CreateVulkan(useValidationLayer)</code> - Cross-platform</li>
-</ul>
-<h3 id="command-model">Command Model</h3>
-<p>Zenith.NET uses an explicit command recording model:</p>
+<p>Use this guide to learn the Zenith.NET programming model. It covers the C# objects and workflows used to create resources, record GPU work, and present results.</p>
+<h2 id="fundamentals">Fundamentals</h2>
+<p>Start here if you are new to Zenith.NET:</p>
 <ol>
-<li><strong>Get a CommandBuffer</strong> - Call <code>queue.CommandBuffer()</code> to obtain a buffer from the pool</li>
-<li><strong>Record Commands</strong> - Record draw calls, dispatches, copies, and state changes</li>
-<li><strong>Submit</strong> - Call <code>commandBuffer.Submit()</code> to execute on the GPU</li>
-<li><strong>Synchronize</strong> - Use <code>queue.WaitIdle()</code> to wait for all submitted work to complete</li>
+<li><a href="fundamentals/runtime.html">Runtime</a> introduces the graphics context, capabilities, queues, and object lifetime.</li>
+<li><a href="fundamentals/commands.html">Commands</a> shows how to record and submit work.</li>
+<li><a href="fundamentals/synchronization.html">Synchronization</a> explains barriers, texture transitions, and queue dependencies.</li>
+<li><a href="fundamentals/shaders.html">Shaders</a> shows how to compile Slang entry points and create shader objects.</li>
+<li><a href="fundamentals/bindless-resources.html">Bindless Resources</a> shows how shaders access resources through handles.</li>
+<li><a href="fundamentals/queries.html">Queries</a> shows how to collect visibility results and measure GPU work.</li>
 </ol>
-<h3 id="resource-binding">Resource Binding</h3>
-<p>Resources are bound to shaders through two types:</p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>ResourceLayout</code></td>
-<td>Declares <em>what</em> resources a shader expects (binding slots, types)</td>
-</tr>
-<tr>
-<td><code>ResourceTable</code></td>
-<td>Provides <em>actual</em> resources matching a layout</td>
-</tr>
-</tbody>
-</table>
-<p>Pipelines reference a single <code>ResourceLayout</code>, and you bind a corresponding <code>ResourceTable</code> before draw/dispatch calls.</p>
-<h2 id="features">Features</h2>
-<table>
-<thead>
-<tr>
-<th>Feature</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Graphics</strong></td>
-<td>Traditional rasterization with vertex and pixel shaders</td>
-</tr>
-<tr>
-<td><strong>Compute</strong></td>
-<td>General-purpose GPU compute with compute shaders</td>
-</tr>
-<tr>
-<td><strong>Ray Tracing</strong></td>
-<td>Hardware-accelerated BLAS/TLAS with <code>RayQuery</code> in any shader stage</td>
-</tr>
-<tr>
-<td><strong>Mesh Shading</strong></td>
-<td>Modern GPU-driven geometry with mesh and amplification shaders</td>
-</tr>
-</tbody>
-</table>
-<h2 id="platform-support">Platform Support</h2>
-<table>
-<thead>
-<tr>
-<th>Platform</th>
-<th style="text-align: center;">DirectX 12</th>
-<th style="text-align: center;">Metal 4</th>
-<th style="text-align: center;">Vulkan 1.4</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Windows</td>
-<td style="text-align: center;"><span class="status-yes">Yes</span></td>
-<td style="text-align: center;"><span class="status-no">No</span></td>
-<td style="text-align: center;"><span class="status-yes">Yes</span></td>
-</tr>
-<tr>
-<td>Apple</td>
-<td style="text-align: center;"><span class="status-no">No</span></td>
-<td style="text-align: center;"><span class="status-yes">Yes</span></td>
-<td style="text-align: center;"><span class="status-yes">Yes</span></td>
-</tr>
-<tr>
-<td>Android</td>
-<td style="text-align: center;"><span class="status-no">No</span></td>
-<td style="text-align: center;"><span class="status-no">No</span></td>
-<td style="text-align: center;"><span class="status-yes">Yes</span></td>
-</tr>
-<tr>
-<td>Linux</td>
-<td style="text-align: center;"><span class="status-no">No</span></td>
-<td style="text-align: center;"><span class="status-no">No</span></td>
-<td style="text-align: center;"><span class="status-yes">Yes</span></td>
-</tr>
-</tbody>
-</table>
-<h2 id="best-practices">Best Practices</h2>
-<h3 id="resource-management">Resource Management</h3>
+<h2 id="resources">Resources</h2>
 <ul>
-<li><strong>Dispose resources</strong> when no longer needed using <code>using</code> statements or <code>IDisposable</code> patterns</li>
-<li><strong>Create resources upfront</strong> rather than per-frame to avoid allocation overhead</li>
-<li><strong>Reuse command buffers</strong> - the queue automatically pools and recycles them</li>
+<li><a href="resources/heaps.html">Heaps</a> covers placed resources, allocation requirements, offsets, and lifetime.</li>
+<li><a href="resources/buffers.html">Buffers</a> covers creation, data transfer, mapping, and views.</li>
+<li><a href="resources/textures.html">Textures</a> covers creation, views, uploads, layouts, resolves, and samplers.</li>
 </ul>
-<h3 id="command-recording">Command Recording</h3>
+<h2 id="workloads">Workloads</h2>
 <ul>
-<li><strong>Batch similar operations</strong> to reduce pipeline and resource table switches</li>
-<li><strong>Minimize render pass switches</strong> by grouping draws with the same targets</li>
-<li>Call <code>queue.WaitIdle()</code> only when synchronization is required</li>
+<li><a href="workloads/rasterization.html">Rasterization</a> covers graphics pipelines, render passes, and draw commands.</li>
+<li><a href="workloads/compute.html">Compute</a> covers compute pipelines and dispatch commands.</li>
+<li><a href="workloads/ray-tracing.html">Ray Tracing</a> covers acceleration structures and inline ray queries.</li>
+<li><a href="workloads/mesh-shading.html">Mesh Shading</a> covers mesh shading pipelines and dispatch commands.</li>
 </ul>
-<h3 id="data-alignment">Data Alignment</h3>
-<p>Zenith.NET defines alignment constants in <code>GraphicsContext</code> for cross-platform compatibility:</p>
-<table>
-<thead>
-<tr>
-<th>Constant</th>
-<th style="text-align: center;">Value</th>
-<th>Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>ConstantBufferAlignment</code></td>
-<td style="text-align: center;">256 bytes</td>
-<td>Minimum alignment for constant buffer data</td>
-</tr>
-<tr>
-<td><code>TextureRowPitchAlignment</code></td>
-<td style="text-align: center;">256 bytes</td>
-<td>Alignment for texture row pitch</td>
-</tr>
-<tr>
-<td><code>TextureDepthPitchAlignment</code></td>
-<td style="text-align: center;">512 bytes</td>
-<td>Alignment for 3D texture depth slice pitch</td>
-</tr>
-</tbody>
-</table>
-<h2 id="next-steps">Next Steps</h2>
+<h2 id="presentation">Presentation</h2>
 <ul>
-<li><a href="../tutorials/index.html">Tutorials</a> - Hands-on coding examples</li>
-<li><a href="../api/index.html">API Reference</a> - Detailed type documentation</li>
+<li><a href="presentation/swap-chains.html">Swap Chains</a> shows how to render to a window and present a frame.</li>
+<li><a href="presentation/views.html">Views</a> shows how to render through supported .NET UI controls.</li>
 </ul>
+<p>Follow the <a href="../tutorials/index.html">Tutorials</a> to build complete examples. Use the <a href="../api/index.html">API Reference</a> for exact types and signatures.</p>
 
 </article>
 
@@ -292,7 +138,7 @@
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+          Zenith.NET is a modern rendering hardware interface for .NET.
         </div>
       </div>
     </footer>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Queries | Zenith.NET </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Queries | Zenith.NET ">
+      
+      
+      <link rel="icon" href="../../images/Zenith.NET.svg">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/qian-o/Zenith.NET/blob/master/documents/docs/fundamentals/queries.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/Zenith.NET-Logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="queries">Queries</h1>
+
+<p>Queries report information produced while the GPU executes commands. Create a query heap from the same <code>GraphicsContext</code> as the command buffer, record query operations, and read the results after the submission has completed.</p>
+<h2 id="create-a-query-heap">Create a Query Heap</h2>
+<p>Choose a query heap description for the result you need:</p>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Result</th>
+<th>Recording commands</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>QueryHeapDesc.Occlusion</code></td>
+<td>Number of samples that pass the visibility tests</td>
+<td><code>BeginQuery</code> and <code>EndQuery</code></td>
+</tr>
+<tr>
+<td><code>QueryHeapDesc.BinaryOcclusion</code></td>
+<td>Whether any sample passes the visibility tests</td>
+<td><code>BeginQuery</code> and <code>EndQuery</code></td>
+</tr>
+<tr>
+<td><code>QueryHeapDesc.Timestamp</code></td>
+<td>GPU timestamp values</td>
+<td><code>WriteTimestamp</code></td>
+</tr>
+</tbody>
+</table>
+<p>The count in the description is the number of query slots. Use a separate index for each result that must remain available at the same time:</p>
+<pre><code class="lang-csharp">QueryHeap queryHeap = context.CreateQueryHeap(QueryHeapDesc.Occlusion(1));
+</code></pre>
+<p>Keep the query heap alive until every submitted command that refers to it has completed.</p>
+<h2 id="record-occlusion-queries">Record Occlusion Queries</h2>
+<p>While a render pass is active, surround the drawing commands whose visibility you want to measure with <code>BeginQuery</code> and <code>EndQuery</code>. Keep both query commands in the same render pass:</p>
+<pre><code class="lang-csharp">commandBuffer.BeginRenderPass([ColorAttachment.Load(colorTarget)], null);
+commandBuffer.BeginQuery(queryHeap, 0);
+
+commandBuffer.SetPipeline(pipeline);
+commandBuffer.Draw(vertexCount, 1, 0, 0);
+
+commandBuffer.EndQuery(queryHeap, 0);
+commandBuffer.EndRenderPass();
+</code></pre>
+<p>Use an occlusion heap for a sample count or a binary occlusion heap when only a visible-or-not result is needed. Submit the command buffer before reading the result.</p>
+<h2 id="record-timestamps">Record Timestamps</h2>
+<p>Write two timestamps around the work whose GPU duration you want to measure. Timestamp results are raw <code>ulong</code> values until the queue converts their difference:</p>
+<pre><code class="lang-csharp">QueryHeap queryHeap = context.CreateQueryHeap(QueryHeapDesc.Timestamp(2));
+CommandBuffer commandBuffer = context.ComputeQueue.CommandBuffer();
+
+commandBuffer.WriteTimestamp(queryHeap, 0);
+
+commandBuffer.SetPipeline(pipeline);
+commandBuffer.Dispatch(groupCountX, groupCountY, groupCountZ);
+
+commandBuffer.WriteTimestamp(queryHeap, 1);
+
+TimelineValue completion = commandBuffer.Submit();
+completion.Wait();
+</code></pre>
+<p>Read the two results and ask the same queue that recorded them for the elapsed time:</p>
+<pre><code class="lang-csharp">Span&lt;ulong&gt; timestamps = stackalloc ulong[2];
+queryHeap.GetResults(timestamps, 0);
+
+double elapsedNanoseconds = context.ComputeQueue.GetElapsedNanoseconds(timestamps[0], timestamps[1]);
+</code></pre>
+<p>The two timestamp values must come from the same queue. <code>GetElapsedNanoseconds</code> returns the elapsed GPU time between the values; it does not represent a wall-clock time.</p>
+<h2 id="read-results">Read Results</h2>
+<p>Wait for the submission that writes the queries before calling <code>GetResults</code>:</p>
+<pre><code class="lang-csharp">Span&lt;ulong&gt; results = stackalloc ulong[1];
+queryHeap.GetResults(results, 0);
+</code></pre>
+<p>The span length selects how many consecutive results to read, and <code>startIndex</code> selects the first query slot. Keep the span within the query heap's count. Reuse a slot only after the submission that last wrote it has completed.</p>
+<h2 id="manage-query-lifetime">Manage Query Lifetime</h2>
+<p>Query heaps are application-owned resources. Dispose them after the command submissions that use them have completed. Command buffers remain queue-owned borrows; submit them before reading their query results and do not dispose them directly.</p>
+<p>Queries use the same recording and completion model as other commands. Review <a href="commands.html">Commands</a> for command-buffer lifetime and <a href="synchronization.html">Synchronization</a> for submission dependencies.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/qian-o/Zenith.NET/blob/master/documents/docs/fundamentals/queries.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Zenith.NET is a modern rendering hardware interface for .NET.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

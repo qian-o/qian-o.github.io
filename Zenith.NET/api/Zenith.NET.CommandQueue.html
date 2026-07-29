@@ -7,7 +7,7 @@
       <meta name="title" content="Class CommandQueue | Zenith.NET ">
       
       
-      <link rel="icon" href="../images/Zenith.NET.png">
+      <link rel="icon" href="../images/Zenith.NET.svg">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
       <meta name="docfx:navrel" content="../toc.html">
@@ -93,7 +93,7 @@ Class CommandQueue  <a class="header-action link-secondary" title="View source" 
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="Zenith.html">Zenith</a>.<a class="xref" href="Zenith.NET.html">NET</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Zenith.NET.html">Zenith.NET</a></dd></dl>
   <dl><dt>Assembly</dt><dd>Zenith.NET.dll</dd></dl>
   </div>
 
@@ -101,7 +101,7 @@ Class CommandQueue  <a class="header-action link-secondary" title="View source" 
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract class CommandQueue : GraphicsResource, IDisposableObject, IDisposable</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract class CommandQueue : GraphicsResource, IDisposable</code></pre>
   </div>
 
 
@@ -120,7 +120,6 @@ Class CommandQueue  <a class="header-action link-secondary" title="View source" 
   <dl class="typelist implements">
     <dt>Implements</dt>
     <dd>
-      <div><a class="xref" href="Zenith.NET.IDisposableObject.html">IDisposableObject</a></div>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
     </dd>
   </dl>
@@ -134,6 +133,9 @@ Class CommandQueue  <a class="header-action link-secondary" title="View source" 
     </div>
     <div>
       <a class="xref" href="Zenith.NET.GraphicsResource.html#Zenith_NET_GraphicsResource_Context">GraphicsResource.Context</a>
+    </div>
+    <div>
+      <a class="xref" href="Zenith.NET.GraphicsResource.html#Zenith_NET_GraphicsResource_GetNativeObject_Zenith_NET_NativeObjectType_">GraphicsResource.GetNativeObject(NativeObjectType)</a>
     </div>
     <div>
       <a class="xref" href="Zenith.NET.GraphicsResource.html#Zenith_NET_GraphicsResource_SetResourceName_System_String_">GraphicsResource.SetResourceName(string)</a>
@@ -213,6 +215,37 @@ Class CommandQueue  <a class="header-action link-secondary" title="View source" 
 </h2>
 
 
+  <a id="Zenith_NET_CommandQueue_Timeline_" data-uid="Zenith.NET.CommandQueue.Timeline*"></a>
+
+  <h3 id="Zenith_NET_CommandQueue_Timeline" data-uid="Zenith.NET.CommandQueue.Timeline">
+  Timeline
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/CommandQueue.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract Timeline Timeline { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Zenith.NET.Timeline.html">Timeline</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="Zenith_NET_CommandQueue_Type_" data-uid="Zenith.NET.CommandQueue.Type*"></a>
 
   <h3 id="Zenith_NET_CommandQueue_Type" data-uid="Zenith.NET.CommandQueue.Type">
@@ -252,7 +285,7 @@ Class CommandQueue  <a class="header-action link-secondary" title="View source" 
 
   <h3 id="Zenith_NET_CommandQueue_CommandBuffer" data-uid="Zenith.NET.CommandQueue.CommandBuffer">
   CommandBuffer()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/CommandQueue.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/CommandQueue.cs/#L13"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -283,7 +316,7 @@ Class CommandQueue  <a class="header-action link-secondary" title="View source" 
 
   <h3 id="Zenith_NET_CommandQueue_CreateCommandBuffer" data-uid="Zenith.NET.CommandQueue.CreateCommandBuffer">
   CreateCommandBuffer()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/CommandQueue.cs/#L52"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/CommandQueue.cs/#L71"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -314,7 +347,7 @@ Class CommandQueue  <a class="header-action link-secondary" title="View source" 
 
   <h3 id="Zenith_NET_CommandQueue_Destroy" data-uid="Zenith.NET.CommandQueue.Destroy">
   Destroy()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/CommandQueue.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/CommandQueue.cs/#L77"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -336,23 +369,31 @@ Class CommandQueue  <a class="header-action link-secondary" title="View source" 
 
 
 
-  <a id="Zenith_NET_CommandQueue_SubmitImpl_" data-uid="Zenith.NET.CommandQueue.SubmitImpl*"></a>
+  <a id="Zenith_NET_CommandQueue_GetElapsedNanoseconds_" data-uid="Zenith.NET.CommandQueue.GetElapsedNanoseconds*"></a>
 
-  <h3 id="Zenith_NET_CommandQueue_SubmitImpl_Zenith_NET_CommandBuffer_" data-uid="Zenith.NET.CommandQueue.SubmitImpl(Zenith.NET.CommandBuffer)">
-  SubmitImpl(CommandBuffer)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/CommandQueue.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Zenith_NET_CommandQueue_GetElapsedNanoseconds_System_UInt64_System_UInt64_" data-uid="Zenith.NET.CommandQueue.GetElapsedNanoseconds(System.UInt64,System.UInt64)">
+  GetElapsedNanoseconds(ulong, ulong)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/CommandQueue.cs/#L26"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void SubmitImpl(CommandBuffer commandBuffer)</code></pre>
+    <pre><code class="lang-csharp hljs">public double GetElapsedNanoseconds(ulong startTimestamp, ulong endTimestamp)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>commandBuffer</code> <a class="xref" href="Zenith.NET.CommandBuffer.html">CommandBuffer</a></dt>
+    <dt><code>startTimestamp</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd></dd>
+    <dt><code>endTimestamp</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
     <dd></dd>
   </dl>
 
@@ -366,21 +407,31 @@ Class CommandQueue  <a class="header-action link-secondary" title="View source" 
 
 
 
+  <a id="Zenith_NET_CommandQueue_GetTimestampPeriod_" data-uid="Zenith.NET.CommandQueue.GetTimestampPeriod*"></a>
 
-  <a id="Zenith_NET_CommandQueue_WaitIdle_" data-uid="Zenith.NET.CommandQueue.WaitIdle*"></a>
-
-  <h3 id="Zenith_NET_CommandQueue_WaitIdle" data-uid="Zenith.NET.CommandQueue.WaitIdle">
-  WaitIdle()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/CommandQueue.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Zenith_NET_CommandQueue_GetTimestampPeriod_System_UInt32__" data-uid="Zenith.NET.CommandQueue.GetTimestampPeriod(System.UInt32@)">
+  GetTimestampPeriod(out uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/CommandQueue.cs/#L73"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void WaitIdle()</code></pre>
+    <pre><code class="lang-csharp hljs">protected abstract double GetTimestampPeriod(out uint validBits)</code></pre>
   </div>
 
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>validBits</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
 
 
 
@@ -392,21 +443,27 @@ Class CommandQueue  <a class="header-action link-secondary" title="View source" 
 
 
 
+  <a id="Zenith_NET_CommandQueue_SubmitImpl_" data-uid="Zenith.NET.CommandQueue.SubmitImpl*"></a>
 
-  <a id="Zenith_NET_CommandQueue_WaitIdleImpl_" data-uid="Zenith.NET.CommandQueue.WaitIdleImpl*"></a>
-
-  <h3 id="Zenith_NET_CommandQueue_WaitIdleImpl" data-uid="Zenith.NET.CommandQueue.WaitIdleImpl">
-  WaitIdleImpl()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/CommandQueue.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Zenith_NET_CommandQueue_SubmitImpl_System_ReadOnlySpan_Zenith_NET_TimelineValue__Zenith_NET_CommandBuffer_" data-uid="Zenith.NET.CommandQueue.SubmitImpl(System.ReadOnlySpan{Zenith.NET.TimelineValue},Zenith.NET.CommandBuffer)">
+  SubmitImpl(ReadOnlySpan&lt;TimelineValue&gt;, CommandBuffer)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/CommandQueue.cs/#L75"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void WaitIdleImpl()</code></pre>
+    <pre><code class="lang-csharp hljs">protected abstract void SubmitImpl(ReadOnlySpan&lt;TimelineValue&gt; waits, CommandBuffer commandBuffer)</code></pre>
   </div>
 
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>waits</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="Zenith.NET.TimelineValue.html">TimelineValue</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>commandBuffer</code> <a class="xref" href="Zenith.NET.CommandBuffer.html">CommandBuffer</a></dt>
+    <dd></dd>
+  </dl>
 
 
 
@@ -439,7 +496,7 @@ Class CommandQueue  <a class="header-action link-secondary" title="View source" 
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+          Zenith.NET is a modern rendering hardware interface for .NET.
         </div>
       </div>
     </footer>

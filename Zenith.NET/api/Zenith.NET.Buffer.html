@@ -7,7 +7,7 @@
       <meta name="title" content="Class Buffer | Zenith.NET ">
       
       
-      <link rel="icon" href="../images/Zenith.NET.png">
+      <link rel="icon" href="../images/Zenith.NET.svg">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
       <meta name="docfx:navrel" content="../toc.html">
@@ -93,7 +93,7 @@ Class Buffer  <a class="header-action link-secondary" title="View source" href="
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="Zenith.html">Zenith</a>.<a class="xref" href="Zenith.NET.html">NET</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Zenith.NET.html">Zenith.NET</a></dd></dl>
   <dl><dt>Assembly</dt><dd>Zenith.NET.dll</dd></dl>
   </div>
 
@@ -101,7 +101,7 @@ Class Buffer  <a class="header-action link-secondary" title="View source" href="
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract class Buffer : GraphicsResource, IBindableResource, IDisposableObject, IDisposable</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract class Buffer : GraphicsResource, IDisposable</code></pre>
   </div>
 
 
@@ -120,8 +120,6 @@ Class Buffer  <a class="header-action link-secondary" title="View source" href="
   <dl class="typelist implements">
     <dt>Implements</dt>
     <dd>
-      <div><a class="xref" href="Zenith.NET.IBindableResource.html">IBindableResource</a></div>
-      <div><a class="xref" href="Zenith.NET.IDisposableObject.html">IDisposableObject</a></div>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
     </dd>
   </dl>
@@ -135,6 +133,9 @@ Class Buffer  <a class="header-action link-secondary" title="View source" href="
     </div>
     <div>
       <a class="xref" href="Zenith.NET.GraphicsResource.html#Zenith_NET_GraphicsResource_Context">GraphicsResource.Context</a>
+    </div>
+    <div>
+      <a class="xref" href="Zenith.NET.GraphicsResource.html#Zenith_NET_GraphicsResource_GetNativeObject_Zenith_NET_NativeObjectType_">GraphicsResource.GetNativeObject(NativeObjectType)</a>
     </div>
     <div>
       <a class="xref" href="Zenith.NET.GraphicsResource.html#Zenith_NET_GraphicsResource_SetResourceName_System_String_">GraphicsResource.SetResourceName(string)</a>
@@ -217,6 +218,37 @@ Class Buffer  <a class="header-action link-secondary" title="View source" href="
 </h2>
 
 
+  <a id="Zenith_NET_Buffer_ConstantHandle_" data-uid="Zenith.NET.Buffer.ConstantHandle*"></a>
+
+  <h3 id="Zenith_NET_Buffer_ConstantHandle" data-uid="Zenith.NET.Buffer.ConstantHandle">
+  ConstantHandle
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Buffer.cs/#L9"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract ResourceHandle ConstantHandle { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Zenith.NET.ResourceHandle.html">ResourceHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="Zenith_NET_Buffer_Desc_" data-uid="Zenith.NET.Buffer.Desc*"></a>
 
   <h3 id="Zenith_NET_Buffer_Desc" data-uid="Zenith.NET.Buffer.Desc">
@@ -248,28 +280,123 @@ Class Buffer  <a class="header-action link-secondary" title="View source" href="
 
 
 
-  <h2 class="section" id="methods">Methods
-</h2>
+  <a id="Zenith_NET_Buffer_StorageReadOnlyHandle_" data-uid="Zenith.NET.Buffer.StorageReadOnlyHandle*"></a>
 
-
-  <a id="Zenith_NET_Buffer_Map_" data-uid="Zenith.NET.Buffer.Map*"></a>
-
-  <h3 id="Zenith_NET_Buffer_Map" data-uid="Zenith.NET.Buffer.Map">
-  Map()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Buffer.cs/#L9"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Zenith_NET_Buffer_StorageReadOnlyHandle" data-uid="Zenith.NET.Buffer.StorageReadOnlyHandle">
+  StorageReadOnlyHandle
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Buffer.cs/#L11"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract MappedMemory Map()</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract ResourceHandle StorageReadOnlyHandle { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Zenith.NET.ResourceHandle.html">ResourceHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_Buffer_StorageReadWriteHandle_" data-uid="Zenith.NET.Buffer.StorageReadWriteHandle*"></a>
+
+  <h3 id="Zenith_NET_Buffer_StorageReadWriteHandle" data-uid="Zenith.NET.Buffer.StorageReadWriteHandle">
+  StorageReadWriteHandle
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Buffer.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract ResourceHandle StorageReadWriteHandle { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Zenith.NET.ResourceHandle.html">ResourceHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Zenith_NET_Buffer_Download_" data-uid="Zenith.NET.Buffer.Download*"></a>
+
+  <h3 id="Zenith_NET_Buffer_Download_System_UInt32_Zenith_NET_BufferData_" data-uid="Zenith.NET.Buffer.Download(System.UInt32,Zenith.NET.BufferData)">
+  Download(uint, BufferData)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Buffer.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Download(uint offsetInBytes, BufferData data)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>offsetInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+    <dt><code>data</code> <a class="xref" href="Zenith.NET.BufferData.html">BufferData</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_Buffer_Map_" data-uid="Zenith.NET.Buffer.Map*"></a>
+
+  <h3 id="Zenith_NET_Buffer_Map" data-uid="Zenith.NET.Buffer.Map">
+  Map()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Buffer.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract nint Map()</code></pre>
   </div>
 
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="Zenith.NET.MappedMemory.html">MappedMemory</a></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
     <dd></dd>
   </dl>
 
@@ -287,7 +414,7 @@ Class Buffer  <a class="header-action link-secondary" title="View source" href="
 
   <h3 id="Zenith_NET_Buffer_Unmap" data-uid="Zenith.NET.Buffer.Unmap">
   Unmap()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Buffer.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Buffer.cs/#L17"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -311,32 +438,27 @@ Class Buffer  <a class="header-action link-secondary" title="View source" href="
 
   <a id="Zenith_NET_Buffer_Upload_" data-uid="Zenith.NET.Buffer.Upload*"></a>
 
-  <h3 id="Zenith_NET_Buffer_Upload__1_System_ReadOnlySpan___0__System_UInt32_" data-uid="Zenith.NET.Buffer.Upload``1(System.ReadOnlySpan{``0},System.UInt32)">
-  Upload&lt;T&gt;(ReadOnlySpan&lt;T&gt;, uint)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Buffer.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Zenith_NET_Buffer_Upload_System_UInt32_Zenith_NET_BufferData_" data-uid="Zenith.NET.Buffer.Upload(System.UInt32,Zenith.NET.BufferData)">
+  Upload(uint, BufferData)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/Buffer.cs/#L19"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Upload&lt;T&gt;(ReadOnlySpan&lt;T&gt; data, uint offsetInBytes) where T : unmanaged</code></pre>
+    <pre><code class="lang-csharp hljs">public void Upload(uint offsetInBytes, BufferData data)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>data</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;T&gt;</dt>
-    <dd></dd>
     <dt><code>offsetInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
     <dd></dd>
-  </dl>
-
-
-  <h4 class="section">Type Parameters</h4>
-  <dl class="parameters">
-    <dt><code>T</code></dt>
+    <dt><code>data</code> <a class="xref" href="Zenith.NET.BufferData.html">BufferData</a></dt>
     <dd></dd>
   </dl>
+
+
 
 
 
@@ -367,7 +489,7 @@ Class Buffer  <a class="header-action link-secondary" title="View source" href="
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+          Zenith.NET is a modern rendering hardware interface for .NET.
         </div>
       </div>
     </footer>

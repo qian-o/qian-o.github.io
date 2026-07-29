@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Mesh Shading | Zenith.NET </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Mesh Shading | Zenith.NET ">
+      
+      
+      <link rel="icon" href="../../images/Zenith.NET.svg">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/qian-o/Zenith.NET/blob/master/documents/tutorials/guides/mesh-shading.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/Zenith.NET-Logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="mesh-shading">Mesh Shading</h1>
+
+<p>Mesh Shading replaces fixed vertex and index fetch with programmable task and mesh stages. This workload renders a <span class="math">\(10 \times 10 \times 10\)</span> sphere grid. Task threads test candidate instances against the camera frustum, compact visible IDs into a payload, and launch one mesh workgroup for each surviving sphere.</p>
+<p>This guide focuses on the Zenith.NET mesh-shading pipeline, structured geometry, C#/Slang layout, task payload, synchronization, and mesh dispatch. The UV-sphere construction and final diffuse-lighting calculation support the sample result but are not derived as general geometry or lighting algorithms.</p>
+<h2 id="result">Result</h2>
+<p><img src="https://raw.githubusercontent.com/qian-o/ZenithTutorials/master/ZenithTutorials/Assets/Screenshots/mesh-shading.png" alt="A culled grid of spheres emitted by task and mesh shaders"></p>
+<p>The camera moves around 1,000 possible sphere instances. Only instances intersecting the view frustum produce mesh workgroups and rasterized geometry.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Mesh shading is optional. Check <code>App.Context.Capabilities.MeshShadingSupported</code> before creating shaders, buffers, or a mesh-shading pipeline.</p>
+</div>
+<h2 id="frame-overview">Frame overview</h2>
+<pre><code class="lang-mermaid">flowchart LR
+    A[Update camera and frustum constants] --&gt; B[Begin color and depth pass]
+    B --&gt; C[Bind mesh-shading pipeline]
+    C --&gt; D[Bind constants]
+    D --&gt; E[Dispatch 32 task groups]
+    E --&gt; F[Task groups compact visible IDs]
+    F --&gt; G[Mesh groups emit sphere geometry]
+    G --&gt; H[Rasterize and shade fragments]
+</code></pre>
+<p>No vertex or index buffer is bound through traditional command-buffer slots. The mesh shader reads source geometry through descriptor handles and writes pipeline outputs directly.</p>
+<h2 id="pipeline-stages">Pipeline stages</h2>
+<pre><code class="lang-mermaid">flowchart TD
+    A[32 candidate IDs per task group] --&gt; B[Frustum test]
+    B --&gt; C[groupshared payload]
+    C --&gt; D[DispatchMesh visible count]
+    D --&gt; E[One mesh group per visible ID]
+    E --&gt; F[Emit 62 vertices]
+    E --&gt; G[Emit 120 triangles]
+    F --&gt; H[Rasterization]
+    G --&gt; H
+    H --&gt; I[Fragment shader]
+</code></pre>
+<p>Zenith.NET calls the first stage <code>TaskShader</code>; Slang declares the corresponding entry point with <code>[shader(&quot;task&quot;)]</code>. Other APIs may call this an amplification or object stage.</p>
+<h2 id="resource-map">Resource map</h2>
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Usage</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vertex buffer</td>
+<td><code>StorageReadOnly</code></td>
+<td>Source sphere positions and normals</td>
+</tr>
+<tr>
+<td>Triangle buffer</td>
+<td><code>StorageReadOnly</code></td>
+<td>Source sphere index triplets</td>
+</tr>
+<tr>
+<td>Constant buffer</td>
+<td><code>Constant</code></td>
+<td>View-projection, frustum, light, and two handles</td>
+</tr>
+<tr>
+<td>Task shader</td>
+<td><code>ASMain</code></td>
+<td>Culls and compacts candidate instance IDs</td>
+</tr>
+<tr>
+<td>Mesh shader</td>
+<td><code>MSMain</code></td>
+<td>Emits transformed vertices and primitive indices</td>
+</tr>
+<tr>
+<td>Fragment shader</td>
+<td><code>FSMain</code></td>
+<td>Applies simple directional lighting</td>
+</tr>
+<tr>
+<td>Mesh-shading pipeline</td>
+<td>Task, mesh, and fragment stages</td>
+<td>Rasterized output</td>
+</tr>
+<tr>
+<td>Depth texture</td>
+<td>Depth-stencil attachment</td>
+<td>Recreated after resize</td>
+</tr>
+</tbody>
+</table>
+<p>The source geometry remains in structured buffers for the renderer lifetime. Each visible instance reuses the same 62 vertices and 120 triangles.</p>
+<h2 id="check-device-support">Check device support</h2>
+<p>Reject unsupported devices before generating or uploading the source mesh:</p>
+<pre><code class="lang-csharp">if (!App.Context.Capabilities.MeshShadingSupported)
+{
+    throw new PlatformNotSupportedException(&quot;Mesh Shading is not supported by the selected device.&quot;);
+}
+</code></pre>
+<p>The capability controls creation and execution of the task/mesh pipeline. It is independent of the traditional graphics pipeline used by earlier guides.</p>
+<h2 id="create-the-source-mesh">Create the source mesh</h2>
+<p>The CPU generates one compact UV sphere with 62 vertices and 120 triangles. It creates a north pole, five latitude rings, a south pole, and indices for both caps and the ring quads.</p>
+<p>The complete generation loop is available in the renderer source. Its important output for this workload is two tightly defined arrays:</p>
+<pre><code class="lang-csharp">vertexBuffer = App.LoadBuffer([.. sphereVertices], BufferUsages.StorageReadOnly);
+triangleBuffer = App.LoadBuffer([.. sphereTriangles], BufferUsages.StorageReadOnly);
+constantBuffer = App.LoadBuffer([new Constants()], BufferUsages.Constant);
+</code></pre>
+<p>These are structured shader inputs, not traditional vertex and index bindings. Their element strides come from the explicit C# structures described next.</p>
+<h2 id="geometry-data-contract">Geometry data contract</h2>
+<p>Three-component vectors can receive different alignment across shader targets. The C# vertex therefore places position and normal at separate 16-byte boundaries:</p>
+<pre><code class="lang-csharp">[StructLayout(LayoutKind.Explicit, Size = 32)]
+file struct Vertex
+{
+    [FieldOffset(0)]
+    public Vector3 Position;
+
+    [FieldOffset(16)]
+    public Vector3 Normal;
+}
+</code></pre>
+<p>The Slang side uses two <code>float4</code> backing values:</p>
+<pre><code class="lang-slang">struct Vertex
+{
+    private float4 PositionAndPadding;
+
+    private float4 NormalAndPadding;
+
+    property float3 Position
+    {
+        get {
+            return PositionAndPadding.xyz;
+        }
+    }
+
+    property float3 Normal
+    {
+        get {
+            return NormalAndPadding.xyz;
+        }
+    }
+};
+</code></pre>
+<p>Triangle elements follow the same pattern. C# stores three indices in a 16-byte record:</p>
+<pre><code class="lang-csharp">[StructLayout(LayoutKind.Explicit, Size = 16)]
+file struct Triangle
+{
+    [FieldOffset(0)]
+    public uint Index0;
+
+    [FieldOffset(4)]
+    public uint Index1;
+
+    [FieldOffset(8)]
+    public uint Index2;
+}
+</code></pre>
+<p>Slang reads one <code>uint4</code> and exposes its first three lanes:</p>
+<pre><code class="lang-slang">struct Triangle
+{
+    private uint4 IndicesAndPadding;
+
+    property uint3 Indices
+    {
+        get {
+            return IndicesAndPadding.xyz;
+        }
+    }
+};
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Structured element</th>
+<th style="text-align: right;">C# size</th>
+<th>Slang backing storage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Vertex</code></td>
+<td style="text-align: right;">32 bytes</td>
+<td>Two <code>float4</code> values</td>
+</tr>
+<tr>
+<td><code>Triangle</code></td>
+<td style="text-align: right;">16 bytes</td>
+<td>One <code>uint4</code> value</td>
+</tr>
+</tbody>
+</table>
+<p>Explicit backing storage keeps these strides consistent across the supported graphics APIs.</p>
+<h2 id="frame-constants">Frame constants</h2>
+<p>The constant buffer supplies one view-projection matrix, six frustum planes, a light direction, and two structured-buffer handles:</p>
+<pre><code class="lang-csharp">[StructLayout(LayoutKind.Explicit, Size = 256)]
+file struct Constants
+{
+    [FieldOffset(0)]
+    public Matrix4x4 ViewProjection;
+
+    [FieldOffset(64)]
+    public FrustumPlanes FrustumPlanes;
+
+    [FieldOffset(160)]
+    public Vector3 LightDirection;
+
+    [FieldOffset(176)]
+    public ResourceHandle Vertices;
+
+    [FieldOffset(184)]
+    public ResourceHandle Triangles;
+}
+</code></pre>
+<p><code>FrustumPlanes</code> is an inline array of six <code>Vector4</code> values, occupying 96 bytes from offset 64 through 159. Slang backs <code>LightDirection</code> with a <code>float4</code>, so the handles begin at byte 176 rather than immediately after the 12-byte C# <code>Vector3</code>.</p>
+<pre><code class="lang-slang">struct Constants
+{
+    float4x4 ViewProjection;
+
+    float4 FrustumPlanes[6];
+
+    private float4 LightDirectionAndPadding;
+
+    DescriptorHandle&lt;StructuredBuffer&lt;Vertex&gt;&gt; Vertices;
+
+    DescriptorHandle&lt;StructuredBuffer&lt;Triangle&gt;&gt; Triangles;
+
+    property float3 LightDirection
+    {
+        get {
+            return LightDirectionAndPadding.xyz;
+        }
+    }
+};
+</code></pre>
+<p>The renderer extracts and normalizes the six planes from the current view-projection matrix. That matrix extraction is supporting camera math; the mesh-shading interface only requires six consistently oriented <code>float4</code> plane equations.</p>
+<h2 id="create-the-pipeline">Create the pipeline</h2>
+<p>Compile all three stage entry points:</p>
+<pre><code class="lang-csharp">using Shader taskShader = App.LoadShader(&quot;MeshShading.slang&quot;, &quot;ASMain&quot;);
+using Shader meshShader = App.LoadShader(&quot;MeshShading.slang&quot;, &quot;MSMain&quot;);
+using Shader fragmentShader = App.LoadShader(&quot;MeshShading.slang&quot;, &quot;FSMain&quot;);
+</code></pre>
+<p>Create a mesh-shading pipeline with the same color, depth, culling, and blend configuration used by the spinning cube:</p>
+<pre><code class="lang-csharp">pipeline = App.Context.CreateMeshShadingPipeline(new()
+{
+    TaskShader = taskShader,
+    MeshShader = meshShader,
+    FragmentShader = fragmentShader,
+    PrimitiveTopology = PrimitiveTopology.TriangleList,
+    AttachmentFormats = new()
+    {
+        ColorFormats = [App.ColorFormat],
+        DepthStencilFormat = PixelFormat.D32FloatS8UInt,
+        SampleCount = SampleCount.Count1
+    },
+    RenderState = new()
+    {
+        Rasterizer = RasterizerState.CullBack(),
+        DepthStencil = DepthStencilState.DepthReadWrite(),
+        Blend = BlendState.Opaque()
+    }
+});
+</code></pre>
+<p>There is no <code>InputLayouts</code> field because fixed vertex fetch is not part of this pipeline. <code>TaskShader</code> is optional at the API level, but this workload uses it to generate mesh work dynamically.</p>
+<h2 id="map-instance-ids">Map instance IDs</h2>
+<p>A linear ID maps into the <span class="math">\(10 \times 10 \times 10\)</span> grid:</p>
+<pre><code class="lang-slang">void DecomposeInstanceID(uint id, out uint x, out uint y, out uint z)
+{
+    x = id % GridSize;
+    y = (id / GridSize) % GridSize;
+    z = id / (GridSize * GridSize);
+}
+</code></pre>
+<p>Helper functions convert those coordinates into world positions and colors. This arithmetic controls sample placement; it does not alter the task or mesh pipeline contract.</p>
+<h2 id="cull-and-compact-in-the-task-shader">Cull and compact in the task shader</h2>
+<p>The task stage declares 32 threads and two groupshared values:</p>
+<pre><code class="lang-slang">groupshared Payload s_payload;
+groupshared uint s_visibleCount;
+
+[shader(&quot;task&quot;)]
+[numthreads(ASGroupSize, 1, 1)]
+void ASMain(uint groupID: SV_GroupID, uint groupThreadID: SV_GroupThreadID)
+</code></pre>
+<p>Each thread derives one candidate instance and tests its bounding sphere against all six frustum planes:</p>
+<pre><code class="lang-slang">uint instanceIndex = groupID * ASGroupSize + groupThreadID;
+
+bool visible = false;
+if (instanceIndex &lt; GridSize * GridSize * GridSize)
+{
+    float3 worldPos = InstancePosition(instanceIndex);
+    visible = !IsFrustumCulled(worldPos, BoundingSphereRadius);
+}
+</code></pre>
+<p>Thread zero resets the shared counter, then all threads synchronize:</p>
+<pre><code class="lang-slang">if (groupThreadID == 0)
+{
+    s_visibleCount = 0;
+}
+
+GroupMemoryBarrierWithGroupSync();
+</code></pre>
+<p>Visible threads reserve unique payload slots with an atomic increment:</p>
+<pre><code class="lang-slang">if (visible)
+{
+    uint offset;
+    InterlockedAdd(s_visibleCount, 1, offset);
+    s_payload.InstanceIndices[offset] = instanceIndex;
+}
+
+GroupMemoryBarrierWithGroupSync();
+
+DispatchMesh(s_visibleCount, 1, 1, s_payload);
+</code></pre>
+<p>The second barrier ensures all payload writes are visible before the task group launches mesh work. A task group dispatches between zero and 32 mesh groups, one for each compacted instance ID.</p>
+<h2 id="emit-geometry-in-the-mesh-shader">Emit geometry in the mesh shader</h2>
+<p>The mesh shader receives the payload, selects one instance, and declares its output capacity:</p>
+<pre><code class="lang-slang">[shader(&quot;mesh&quot;)]
+[numthreads(120, 1, 1)]
+[outputtopology(&quot;triangle&quot;)]
+void MSMain(uint groupID: SV_GroupID, uint groupThreadID: SV_GroupThreadID, in payload Payload meshPayload, OutputVertices&lt;VertexOutput, 62&gt; outVertices, OutputIndices&lt;uint3, 120&gt; outIndices)
+{
+    uint instanceIndex = meshPayload.InstanceIndices[groupID];
+    float3 instancePos = InstancePosition(instanceIndex);
+    float3 color = InstanceColor(instanceIndex);
+
+    SetMeshOutputCounts(SphereVertexCount, SphereTriangleCount);
+</code></pre>
+<p>The group has 120 threads because the source sphere contains 120 triangles. Threads zero through 61 also transform and emit the 62 vertices:</p>
+<pre><code class="lang-slang">if (groupThreadID &lt; SphereVertexCount)
+{
+    Vertex v = constants.Vertices[groupThreadID];
+    float3 worldPos = v.Position + instancePos;
+
+    VertexOutput output;
+    output.Position = mul(float4(worldPos, 1.0), constants.ViewProjection);
+    output.WorldNormal = v.Normal;
+    output.Color = color;
+
+    outVertices[groupThreadID] = output;
+}
+
+if (groupThreadID &lt; SphereTriangleCount)
+{
+    outIndices[groupThreadID] = constants.Triangles[groupThreadID].Indices;
+}
+</code></pre>
+<p><code>SetMeshOutputCounts</code> establishes the valid output ranges before writes occur. The fragment shader receives the emitted normal and color, then applies a compact ambient-plus-diffuse lighting calculation.</p>
+<h2 id="update-frame-data">Update frame data</h2>
+<p>Each update moves the camera, creates the view-projection matrix, extracts frustum planes, and supplies the two storage handles:</p>
+<pre><code class="lang-csharp">Constants constants = new()
+{
+    ViewProjection = viewProjection,
+    FrustumPlanes = new(viewProjection),
+    LightDirection = -Vector3.Normalize(cameraPosition),
+    Vertices = vertexBuffer.StorageReadOnlyHandle,
+    Triangles = triangleBuffer.StorageReadOnlyHandle
+};
+</code></pre>
+<p>The same matrix controls both emitted vertex positions and the planes used for culling, so visibility and rasterization share one camera definition.</p>
+<h2 id="record-the-mesh-dispatch">Record the mesh dispatch</h2>
+<p>Create the depth attachment on first use and transition it from <code>Undefined</code> to <code>DepthStencilAttachment</code>. Begin a color/depth render pass, bind the pipeline and constants, dispatch the task groups, and end the pass:</p>
+<pre><code class="lang-csharp">if (depthTexture is null)
+{
+    depthTexture = App.Context.CreateTexture(TextureDesc.DepthStencilAttachment(PixelFormat.D32FloatS8UInt, App.Width, App.Height, SampleCount.Count1));
+
+    commandBuffer.Transition(depthTexture, default, TextureLayout.Undefined, TextureLayout.DepthStencilAttachment);
+}
+
+commandBuffer.BeginRenderPass([ColorAttachment.Clear(drawable, new(0.05f, 0.05f, 0.08f, 1.0f))], DepthStencilAttachment.Clear(depthTexture, 1.0f, 0));
+
+commandBuffer.SetPipeline(pipeline);
+commandBuffer.SetConstantBuffer(constantBuffer, 0);
+
+commandBuffer.DispatchMesh(32, 1, 1);
+
+commandBuffer.EndRenderPass();
+</code></pre>
+<p>There are 1,000 candidate instances and 32 task threads per group:</p>
+<div class="math">
+\[
+\left\lceil \frac{1000}{32} \right\rceil = 32
+\]</div>
+<p>The bounds check discards candidate IDs at or above 1,000 in the final task group. Frustum testing then determines how many mesh groups each task group launches.</p>
+<h2 id="resize-and-lifetime">Resize and lifetime</h2>
+<p>Only the depth attachment depends on framebuffer dimensions. Dispose it during <code>Resize</code> and let the next frame create a replacement. The source mesh, pipeline, and constant-buffer allocation remain valid.</p>
+<p>Release the optional depth texture, then the pipeline and its buffers:</p>
+<pre><code class="lang-csharp">depthTexture?.Dispose();
+
+pipeline.Dispose();
+constantBuffer.Dispose();
+triangleBuffer.Dispose();
+vertexBuffer.Dispose();
+</code></pre>
+<h2 id="inspect-the-result">Inspect the result</h2>
+<p>Run the host and select <strong>Mesh Shading</strong> on a supported device. Confirm that:</p>
+<ul>
+<li>the camera moves around a colored sphere grid;</li>
+<li>visible spheres remain complete as they approach the viewport edges;</li>
+<li>resize preserves depth behavior and camera proportions;</li>
+<li>validation reports no structured-stride, payload, output-count, or attachment errors.</li>
+</ul>
+<p>Missing spheres inside the view often indicate incorrect frustum-plane orientation or a missing groupshared barrier. Corrupted geometry points to a C#/Slang stride mismatch or output counts that disagree with the source mesh. A rejected pipeline usually indicates missing mesh-shading capability or mismatched shader stages.</p>
+<h2 id="explore-further">Explore further</h2>
+<ol>
+<li>Replace <code>IsFrustumCulled</code> with <code>false</code> and compare the number of generated mesh groups.</li>
+<li>Visualize visibility by assigning a constant color per task group.</li>
+<li>Change <code>InstanceSpacing</code> without modifying the source sphere buffers.</li>
+<li>Add a mesh entry point with no payload parameter that selects instance zero, create a pipeline with <code>TaskShader = null</code>, and dispatch one mesh group to isolate geometry emission.</li>
+<li>Replace the UV sphere with another mesh while keeping the vertex and triangle contracts unchanged.</li>
+</ol>
+<h2 id="complete-source">Complete source</h2>
+<ul>
+<li><a href="https://github.com/qian-o/ZenithTutorials/blob/master/ZenithTutorials/Renderers/MeshShadingRenderer.cs">MeshShadingRenderer.cs</a></li>
+<li><a href="https://github.com/qian-o/ZenithTutorials/blob/master/ZenithTutorials/Assets/Shaders/MeshShading.slang">MeshShading.slang</a></li>
+</ul>
+<p>This completes the guide set. Use the <a href="../../docs/index.html">Zenith.NET documentation</a> and <a href="../../api/index.html">API reference</a> to inspect the underlying resource and command types in more detail.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/qian-o/Zenith.NET/blob/master/documents/tutorials/guides/mesh-shading.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Zenith.NET is a modern rendering hardware interface for .NET.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
