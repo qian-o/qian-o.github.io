@@ -1163,6 +1163,62 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Extensions.Skia.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Extensions.Skia.Extensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Extensions.Skia.Extensions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Extensions.Skia.SKTexture.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Extensions.Skia.SKTexture.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Extensions.Skia.SKTexture",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Extensions.Skia.SKTextureDesc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Extensions.Skia.SKTextureDesc.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Extensions.Skia.SKTextureDesc",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Extensions.Skia.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Extensions.Skia.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Extensions.Skia",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Zenith.NET.Extent3D.yml",
       "output": {
         ".html": {

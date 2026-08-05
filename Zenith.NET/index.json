@@ -367,7 +367,7 @@
   "api/Zenith.NET.DisposableObject.html": {
     "href": "api/Zenith.NET.DisposableObject.html",
     "title": "Class DisposableObject | Zenith.NET",
-    "summary": "Class DisposableObject Namespace Zenith.NET Assembly Zenith.NET.dll public abstract class DisposableObject : IDisposable Inheritance object DisposableObject Implements IDisposable Derived ImGuiController GraphicsContext GraphicsResource ZenithMarshal.Scope Inherited Members object.Equals(object) object.Equals(object, object) object.GetHashCode() object.GetType() object.MemberwiseClone() object.ReferenceEquals(object, object) object.ToString() Properties IsDisposed public bool IsDisposed { get; } Property Value bool Methods Destroy() protected abstract void Destroy() Dispose() Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources. public void Dispose() ~DisposableObject() protected ~DisposableObject()"
+    "summary": "Class DisposableObject Namespace Zenith.NET Assembly Zenith.NET.dll public abstract class DisposableObject : IDisposable Inheritance object DisposableObject Implements IDisposable Derived ImGuiController SKTexture GraphicsContext GraphicsResource ZenithMarshal.Scope Inherited Members object.Equals(object) object.Equals(object, object) object.GetHashCode() object.GetType() object.MemberwiseClone() object.ReferenceEquals(object, object) object.ToString() Properties IsDisposed public bool IsDisposed { get; } Property Value bool Methods Destroy() protected abstract void Destroy() Dispose() Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources. public void Dispose() ~DisposableObject() protected ~DisposableObject()"
   },
   "api/Zenith.NET.ElementFormat.html": {
     "href": "api/Zenith.NET.ElementFormat.html",
@@ -408,6 +408,26 @@
     "href": "api/Zenith.NET.Extensions.ImageSharp.html",
     "title": "Namespace Zenith.NET.Extensions.ImageSharp | Zenith.NET",
     "summary": "Namespace Zenith.NET.Extensions.ImageSharp Classes Extensions"
+  },
+  "api/Zenith.NET.Extensions.Skia.Extensions.html": {
+    "href": "api/Zenith.NET.Extensions.Skia.Extensions.html",
+    "title": "Class Extensions | Zenith.NET",
+    "summary": "Class Extensions Namespace Zenith.NET.Extensions.Skia Assembly Zenith.NET.Extensions.Skia.dll public static class Extensions Inheritance object Extensions Inherited Members object.Equals(object) object.Equals(object, object) object.GetHashCode() object.GetType() object.MemberwiseClone() object.ReferenceEquals(object, object) object.ToString()"
+  },
+  "api/Zenith.NET.Extensions.Skia.SKTexture.html": {
+    "href": "api/Zenith.NET.Extensions.Skia.SKTexture.html",
+    "title": "Class SKTexture | Zenith.NET",
+    "summary": "Class SKTexture Namespace Zenith.NET.Extensions.Skia Assembly Zenith.NET.Extensions.Skia.dll public class SKTexture : DisposableObject, IDisposable Inheritance object DisposableObject SKTexture Implements IDisposable Inherited Members DisposableObject.IsDisposed DisposableObject.Dispose() object.Equals(object) object.Equals(object, object) object.GetHashCode() object.GetType() object.MemberwiseClone() object.ReferenceEquals(object, object) object.ToString() Properties Desc public ref readonly TextureDesc Desc { get; } Property Value TextureDesc RequiredLayout public TextureLayout RequiredLayout { get; } Property Value TextureLayout Methods Destroy() protected override void Destroy() Render(Action<SKCanvas>) public void Render(Action<SKCanvas> render) Parameters render Action<SKCanvas> Operators implicit operator Texture(SKTexture) public static implicit operator Texture(SKTexture texture) Parameters texture SKTexture Returns Texture"
+  },
+  "api/Zenith.NET.Extensions.Skia.SKTextureDesc.html": {
+    "href": "api/Zenith.NET.Extensions.Skia.SKTextureDesc.html",
+    "title": "Struct SKTextureDesc | Zenith.NET",
+    "summary": "Struct SKTextureDesc Namespace Zenith.NET.Extensions.Skia Assembly Zenith.NET.Extensions.Skia.dll public struct SKTextureDesc Inherited Members ValueType.Equals(object) ValueType.GetHashCode() ValueType.ToString() object.Equals(object, object) object.GetType() object.ReferenceEquals(object, object) Fields Format public PixelFormat Format Field Value PixelFormat Height public uint Height Field Value uint IsMultisamplingEnabled public bool IsMultisamplingEnabled Field Value bool Width public uint Width Field Value uint"
+  },
+  "api/Zenith.NET.Extensions.Skia.html": {
+    "href": "api/Zenith.NET.Extensions.Skia.html",
+    "title": "Namespace Zenith.NET.Extensions.Skia | Zenith.NET",
+    "summary": "Namespace Zenith.NET.Extensions.Skia Classes Extensions SKTexture Structs SKTextureDesc"
   },
   "api/Zenith.NET.Extent3D.html": {
     "href": "api/Zenith.NET.Extent3D.html",
@@ -537,7 +557,7 @@
   "api/Zenith.NET.NativeObjectType.html": {
     "href": "api/Zenith.NET.NativeObjectType.html",
     "title": "Enum NativeObjectType | Zenith.NET",
-    "summary": "Enum NativeObjectType Namespace Zenith.NET Assembly Zenith.NET.dll public enum NativeObjectType"
+    "summary": "Enum NativeObjectType Namespace Zenith.NET Assembly Zenith.NET.dll public enum NativeObjectType Fields D3D12Adapter = 0 D3D12CommandQueue = 1 D3D12Device = 2 D3D12Fence = 3 D3D12GpuVirtualAddress = 4 D3D12GraphicsCommandList = 5 D3D12Resource = 6 MTLDevice = 7 MTLSharedEvent = 8 MTLTexture = 9 VulkanAccelerationStructure = 10 VulkanBuffer = 11 VulkanCommandBuffer = 12 VulkanDevice = 13 VulkanDeviceAddress = 14 VulkanDeviceMemory = 15 VulkanDeviceMemoryOffset = 16 VulkanGetDeviceProcAddr = 17 VulkanGetInstanceProcAddr = 18 VulkanImage = 19 VulkanInstance = 20 VulkanPhysicalDevice = 21 VulkanQueue = 22 VulkanQueueFamilyIndex = 23 VulkanSemaphore = 24"
   },
   "api/Zenith.NET.NativeTextureType.html": {
     "href": "api/Zenith.NET.NativeTextureType.html",

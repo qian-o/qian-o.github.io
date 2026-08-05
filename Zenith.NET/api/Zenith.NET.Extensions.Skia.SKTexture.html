@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Class DisposableObject | Zenith.NET </title>
+      <title>Class SKTexture | Zenith.NET </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Class DisposableObject | Zenith.NET ">
+      <meta name="title" content="Class SKTexture | Zenith.NET ">
       
       
       <link rel="icon" href="../images/Zenith.NET.svg">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/qian-o/Zenith.NET/new/master/apiSpec/new?filename=Zenith_NET_DisposableObject.md&amp;value=---%0Auid%3A%20Zenith.NET.DisposableObject%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/qian-o/Zenith.NET/new/master/apiSpec/new?filename=Zenith_NET_Extensions_Skia_SKTexture.md&amp;value=---%0Auid%3A%20Zenith.NET.Extensions.Skia.SKTexture%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -84,24 +84,24 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="Zenith.NET.DisposableObject">
+        <article data-uid="Zenith.NET.Extensions.Skia.SKTexture">
 
 
 
-  <h1 id="Zenith_NET_DisposableObject" data-uid="Zenith.NET.DisposableObject" class="text-break">
-Class DisposableObject  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/DisposableObject.cs/#L3"><i class="bi bi-code-slash"></i></a>
+  <h1 id="Zenith_NET_Extensions_Skia_SKTexture" data-uid="Zenith.NET.Extensions.Skia.SKTexture" class="text-break">
+Class SKTexture  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Extensions/Zenith.NET.Extensions.Skia/SKTexture.cs/#L6"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="Zenith.NET.html">Zenith.NET</a></dd></dl>
-  <dl><dt>Assembly</dt><dd>Zenith.NET.dll</dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Zenith.NET.Extensions.Skia.html">Zenith.NET.Extensions.Skia</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Zenith.NET.Extensions.Skia.dll</dd></dl>
   </div>
 
   <div class="markdown summary"></div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract class DisposableObject : IDisposable</code></pre>
+    <pre><code class="lang-csharp hljs">public class SKTexture : DisposableObject, IDisposable</code></pre>
   </div>
 
 
@@ -111,7 +111,8 @@ Class DisposableObject  <a class="header-action link-secondary" title="View sour
     <dt>Inheritance</dt>
     <dd>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-      <div><span class="xref">DisposableObject</span></div>
+      <div><a class="xref" href="Zenith.NET.DisposableObject.html">DisposableObject</a></div>
+      <div><span class="xref">SKTexture</span></div>
     </dd>
   </dl>
 
@@ -122,20 +123,16 @@ Class DisposableObject  <a class="header-action link-secondary" title="View sour
     </dd>
   </dl>
 
-  <dl class="typelist derived">
-    <dt>Derived</dt>
-    <dd>
-      <div><a class="xref" href="Zenith.NET.Extensions.ImGui.ImGuiController.html">ImGuiController</a></div>
-      <div><a class="xref" href="Zenith.NET.Extensions.Skia.SKTexture.html">SKTexture</a></div>
-      <div><a class="xref" href="Zenith.NET.GraphicsContext.html">GraphicsContext</a></div>
-      <div><a class="xref" href="Zenith.NET.GraphicsResource.html">GraphicsResource</a></div>
-      <div><a class="xref" href="Zenith.NET.ZenithMarshal.Scope.html">ZenithMarshal.Scope</a></div>
-    </dd>
-  </dl>
 
   <dl class="typelist inheritedMembers">
     <dt>Inherited Members</dt>
     <dd>
+    <div>
+      <a class="xref" href="Zenith.NET.DisposableObject.html#Zenith_NET_DisposableObject_IsDisposed">DisposableObject.IsDisposed</a>
+    </div>
+    <div>
+      <a class="xref" href="Zenith.NET.DisposableObject.html#Zenith_NET_DisposableObject_Dispose">DisposableObject.Dispose()</a>
+    </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
     </div>
@@ -168,18 +165,18 @@ Class DisposableObject  <a class="header-action link-secondary" title="View sour
 </h2>
 
 
-  <a id="Zenith_NET_DisposableObject_IsDisposed_" data-uid="Zenith.NET.DisposableObject.IsDisposed*"></a>
+  <a id="Zenith_NET_Extensions_Skia_SKTexture_Desc_" data-uid="Zenith.NET.Extensions.Skia.SKTexture.Desc*"></a>
 
-  <h3 id="Zenith_NET_DisposableObject_IsDisposed" data-uid="Zenith.NET.DisposableObject.IsDisposed">
-  IsDisposed
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/DisposableObject.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Zenith_NET_Extensions_Skia_SKTexture_Desc" data-uid="Zenith.NET.Extensions.Skia.SKTexture.Desc">
+  Desc
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Extensions/Zenith.NET.Extensions.Skia/SKTexture.cs/#L49"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool IsDisposed { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public ref readonly TextureDesc Desc { get; }</code></pre>
   </div>
 
 
@@ -188,7 +185,38 @@ Class DisposableObject  <a class="header-action link-secondary" title="View sour
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dt><a class="xref" href="Zenith.NET.TextureDesc.html">TextureDesc</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Zenith_NET_Extensions_Skia_SKTexture_RequiredLayout_" data-uid="Zenith.NET.Extensions.Skia.SKTexture.RequiredLayout*"></a>
+
+  <h3 id="Zenith_NET_Extensions_Skia_SKTexture_RequiredLayout" data-uid="Zenith.NET.Extensions.Skia.SKTexture.RequiredLayout">
+  RequiredLayout
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Extensions/Zenith.NET.Extensions.Skia/SKTexture.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextureLayout RequiredLayout { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Zenith.NET.TextureLayout.html">TextureLayout</a></dt>
     <dd></dd>
   </dl>
 
@@ -203,18 +231,18 @@ Class DisposableObject  <a class="header-action link-secondary" title="View sour
 </h2>
 
 
-  <a id="Zenith_NET_DisposableObject_Destroy_" data-uid="Zenith.NET.DisposableObject.Destroy*"></a>
+  <a id="Zenith_NET_Extensions_Skia_SKTexture_Destroy_" data-uid="Zenith.NET.Extensions.Skia.SKTexture.Destroy*"></a>
 
-  <h3 id="Zenith_NET_DisposableObject_Destroy" data-uid="Zenith.NET.DisposableObject.Destroy">
+  <h3 id="Zenith_NET_Extensions_Skia_SKTexture_Destroy" data-uid="Zenith.NET.Extensions.Skia.SKTexture.Destroy">
   Destroy()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/DisposableObject.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Extensions/Zenith.NET.Extensions.Skia/SKTexture.cs/#L58"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void Destroy()</code></pre>
+    <pre><code class="lang-csharp hljs">protected override void Destroy()</code></pre>
   </div>
 
 
@@ -229,48 +257,66 @@ Class DisposableObject  <a class="header-action link-secondary" title="View sour
 
 
 
-  <a id="Zenith_NET_DisposableObject_Dispose_" data-uid="Zenith.NET.DisposableObject.Dispose*"></a>
+  <a id="Zenith_NET_Extensions_Skia_SKTexture_Render_" data-uid="Zenith.NET.Extensions.Skia.SKTexture.Render*"></a>
 
-  <h3 id="Zenith_NET_DisposableObject_Dispose" data-uid="Zenith.NET.DisposableObject.Dispose">
-  Dispose()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/DisposableObject.cs/#L14"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="Zenith_NET_DisposableObject_Finalize_" data-uid="Zenith.NET.DisposableObject.Finalize*"></a>
-
-  <h3 id="Zenith_NET_DisposableObject_Finalize" data-uid="Zenith.NET.DisposableObject.Finalize">
-  ~DisposableObject()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/DisposableObject.cs/#L7"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Zenith_NET_Extensions_Skia_SKTexture_Render_System_Action_SkiaSharp_SKCanvas__" data-uid="Zenith.NET.Extensions.Skia.SKTexture.Render(System.Action{SkiaSharp.SKCanvas})">
+  Render(Action&lt;SKCanvas&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Extensions/Zenith.NET.Extensions.Skia/SKTexture.cs/#L53"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected ~DisposableObject()</code></pre>
+    <pre><code class="lang-csharp hljs">public void Render(Action&lt;SKCanvas&gt; render)</code></pre>
   </div>
 
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>render</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/skiasharp.skcanvas">SKCanvas</a>&gt;</dt>
+    <dd></dd>
+  </dl>
 
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="Zenith_NET_Extensions_Skia_SKTexture_op_Implicit_" data-uid="Zenith.NET.Extensions.Skia.SKTexture.op_Implicit*"></a>
+
+  <h3 id="Zenith_NET_Extensions_Skia_SKTexture_op_Implicit_Zenith_NET_Extensions_Skia_SKTexture__Zenith_NET_Texture" data-uid="Zenith.NET.Extensions.Skia.SKTexture.op_Implicit(Zenith.NET.Extensions.Skia.SKTexture)~Zenith.NET.Texture">
+  implicit operator Texture(SKTexture)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Extensions/Zenith.NET.Extensions.Skia/SKTexture.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator Texture(SKTexture texture)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>texture</code> <a class="xref" href="Zenith.NET.Extensions.Skia.SKTexture.html">SKTexture</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Zenith.NET.Texture.html">Texture</a></dt>
+    <dd></dd>
+  </dl>
 
 
 
@@ -286,7 +332,7 @@ Class DisposableObject  <a class="header-action link-secondary" title="View sour
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET/DisposableObject.cs/#L3" class="edit-link">Edit this page</a>
+          <a href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Extensions/Zenith.NET.Extensions.Skia/SKTexture.cs/#L6" class="edit-link">Edit this page</a>
         </div>
 
 
