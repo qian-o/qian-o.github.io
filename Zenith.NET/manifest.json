@@ -1079,6 +1079,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Extensions.ImGui.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Extensions.ImGui.Extensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Extensions.ImGui.Extensions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Zenith.NET.Extensions.ImGui.IImGuiPlatformBindings.yml",
       "output": {
         ".html": {
@@ -1215,6 +1229,132 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "Zenith.NET.Extensions.Skia",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Extensions.Upscaling.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Extensions.Upscaling.Extensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Extensions.Upscaling.Extensions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Extensions.Upscaling.SpatialUpscaler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Extensions.Upscaling.SpatialUpscaler.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Extensions.Upscaling.SpatialUpscaler",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Extensions.Upscaling.SpatialUpscalerArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Extensions.Upscaling.SpatialUpscalerArgs.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Extensions.Upscaling.SpatialUpscalerArgs",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Extensions.Upscaling.SpatialUpscalerDesc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Extensions.Upscaling.SpatialUpscalerDesc.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Extensions.Upscaling.SpatialUpscalerDesc",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Extensions.Upscaling.TemporalUpscaler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Extensions.Upscaling.TemporalUpscaler.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Extensions.Upscaling.TemporalUpscaler",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Extensions.Upscaling.TemporalUpscalerDesc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Extensions.Upscaling.TemporalUpscalerDesc.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Extensions.Upscaling.TemporalUpscalerDesc",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Extensions.Upscaling.TemporalUpscalerMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Extensions.Upscaling.TemporalUpscalerMode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Extensions.Upscaling.TemporalUpscalerMode",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Zenith.NET.Extensions.Upscaling.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Zenith.NET.Extensions.Upscaling.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Zenith.NET.Extensions.Upscaling",
       "Summary": null
     },
     {
@@ -2655,179 +2795,6 @@
       "version": ""
     },
     {
-      "type": "Conceptual",
-      "source_relative_path": "docs/fundamentals/bindless-resources.md",
-      "output": {
-        ".html": {
-          "relative_path": "docs/fundamentals/bindless-resources.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "docs/fundamentals/commands.md",
-      "output": {
-        ".html": {
-          "relative_path": "docs/fundamentals/commands.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "docs/fundamentals/queries.md",
-      "output": {
-        ".html": {
-          "relative_path": "docs/fundamentals/queries.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "docs/fundamentals/runtime.md",
-      "output": {
-        ".html": {
-          "relative_path": "docs/fundamentals/runtime.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "docs/fundamentals/shaders.md",
-      "output": {
-        ".html": {
-          "relative_path": "docs/fundamentals/shaders.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "docs/fundamentals/synchronization.md",
-      "output": {
-        ".html": {
-          "relative_path": "docs/fundamentals/synchronization.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "docs/index.md",
-      "output": {
-        ".html": {
-          "relative_path": "docs/index.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "docs/presentation/swap-chains.md",
-      "output": {
-        ".html": {
-          "relative_path": "docs/presentation/swap-chains.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "docs/presentation/views.md",
-      "output": {
-        ".html": {
-          "relative_path": "docs/presentation/views.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "docs/resources/buffers.md",
-      "output": {
-        ".html": {
-          "relative_path": "docs/resources/buffers.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "docs/resources/heaps.md",
-      "output": {
-        ".html": {
-          "relative_path": "docs/resources/heaps.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "docs/resources/textures.md",
-      "output": {
-        ".html": {
-          "relative_path": "docs/resources/textures.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Toc",
-      "source_relative_path": "docs/toc.yml",
-      "output": {
-        ".html": {
-          "relative_path": "docs/toc.html"
-        },
-        ".json": {
-          "relative_path": "docs/toc.json"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "docs/workloads/compute.md",
-      "output": {
-        ".html": {
-          "relative_path": "docs/workloads/compute.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "docs/workloads/mesh-shading.md",
-      "output": {
-        ".html": {
-          "relative_path": "docs/workloads/mesh-shading.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "docs/workloads/rasterization.md",
-      "output": {
-        ".html": {
-          "relative_path": "docs/workloads/rasterization.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "docs/workloads/ray-tracing.md",
-      "output": {
-        ".html": {
-          "relative_path": "docs/workloads/ray-tracing.html"
-        }
-      },
-      "version": ""
-    },
-    {
       "type": "Resource",
       "source_relative_path": "images/Zenith.NET-Logo.png",
       "output": {
@@ -2878,6 +2845,186 @@
       "version": ""
     },
     {
+      "type": "Conceptual",
+      "source_relative_path": "learn/concepts/execution-model.md",
+      "output": {
+        ".html": {
+          "relative_path": "learn/concepts/execution-model.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "learn/concepts/platform-integration.md",
+      "output": {
+        ".html": {
+          "relative_path": "learn/concepts/platform-integration.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "learn/concepts/resource-management.md",
+      "output": {
+        ".html": {
+          "relative_path": "learn/concepts/resource-management.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "learn/concepts/shader-data-and-binding.md",
+      "output": {
+        ".html": {
+          "relative_path": "learn/concepts/shader-data-and-binding.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "learn/concepts/synchronization.md",
+      "output": {
+        ".html": {
+          "relative_path": "learn/concepts/synchronization.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "learn/first-triangle.md",
+      "output": {
+        ".html": {
+          "relative_path": "learn/first-triangle.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "learn/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "learn/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "learn/samples.md",
+      "output": {
+        ".html": {
+          "relative_path": "learn/samples.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resources",
+      "source_relative_path": "locales/de-DE/strings.yml",
+      "output": {
+        ".json": {
+          "relative_path": "locales/de-DE/strings.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resources",
+      "source_relative_path": "locales/en-US/strings.yml",
+      "output": {
+        ".json": {
+          "relative_path": "locales/en-US/strings.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resources",
+      "source_relative_path": "locales/es-ES/strings.yml",
+      "output": {
+        ".json": {
+          "relative_path": "locales/es-ES/strings.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resources",
+      "source_relative_path": "locales/fr-FR/strings.yml",
+      "output": {
+        ".json": {
+          "relative_path": "locales/fr-FR/strings.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resources",
+      "source_relative_path": "locales/ja-JP/strings.yml",
+      "output": {
+        ".json": {
+          "relative_path": "locales/ja-JP/strings.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resources",
+      "source_relative_path": "locales/ko-KR/strings.yml",
+      "output": {
+        ".json": {
+          "relative_path": "locales/ko-KR/strings.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resources",
+      "source_relative_path": "locales/pt-BR/strings.yml",
+      "output": {
+        ".json": {
+          "relative_path": "locales/pt-BR/strings.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resources",
+      "source_relative_path": "locales/ru-RU/strings.yml",
+      "output": {
+        ".json": {
+          "relative_path": "locales/ru-RU/strings.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resources",
+      "source_relative_path": "locales/zh-CN/strings.yml",
+      "output": {
+        ".json": {
+          "relative_path": "locales/zh-CN/strings.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resources",
+      "source_relative_path": "locales/zh-TW/strings.yml",
+      "output": {
+        ".json": {
+          "relative_path": "locales/zh-TW/strings.json"
+        }
+      },
+      "version": ""
+    },
+    {
       "type": "Toc",
       "source_relative_path": "toc.yml",
       "output": {
@@ -2886,109 +3033,6 @@
         },
         ".json": {
           "relative_path": "toc.json"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "tutorials/getting-started/application-host.md",
-      "output": {
-        ".html": {
-          "relative_path": "tutorials/getting-started/application-host.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "tutorials/getting-started/project-setup.md",
-      "output": {
-        ".html": {
-          "relative_path": "tutorials/getting-started/project-setup.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "tutorials/guides/compute-shader.md",
-      "output": {
-        ".html": {
-          "relative_path": "tutorials/guides/compute-shader.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "tutorials/guides/hello-triangle.md",
-      "output": {
-        ".html": {
-          "relative_path": "tutorials/guides/hello-triangle.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "tutorials/guides/indirect-drawing.md",
-      "output": {
-        ".html": {
-          "relative_path": "tutorials/guides/indirect-drawing.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "tutorials/guides/mesh-shading.md",
-      "output": {
-        ".html": {
-          "relative_path": "tutorials/guides/mesh-shading.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "tutorials/guides/ray-tracing.md",
-      "output": {
-        ".html": {
-          "relative_path": "tutorials/guides/ray-tracing.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "tutorials/guides/spinning-cube.md",
-      "output": {
-        ".html": {
-          "relative_path": "tutorials/guides/spinning-cube.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "tutorials/index.md",
-      "output": {
-        ".html": {
-          "relative_path": "tutorials/index.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Toc",
-      "source_relative_path": "tutorials/toc.yml",
-      "output": {
-        ".html": {
-          "relative_path": "tutorials/toc.html"
-        },
-        ".json": {
-          "relative_path": "tutorials/toc.json"
         }
       },
       "version": ""

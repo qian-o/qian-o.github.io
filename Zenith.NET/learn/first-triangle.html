@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en-US" data-bs-theme="dark">
+    <head>
+        <meta charset="utf-8">
+        <meta name="color-scheme" content="dark">
+        <title>First Triangle | Zenith.NET </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="title" content="First Triangle | Zenith.NET ">
+
+        <link rel="icon" href="../images/Zenith.NET.svg">
+        <link rel="stylesheet" href="../public/main.css">
+
+        <meta name="site:root" content="../">
+
+        <meta name="loc:copy" content="Copy">
+
+        <script id="resource-state" type="application/json">{"sourceLanguage":"en-US","languages":[{"code":"de-DE","label":"Deutsch","available":true},{"code":"en-US","label":"English","available":true},{"code":"es-ES","label":"Español","available":true},{"code":"fr-FR","label":"Français","available":true},{"code":"ja-JP","label":"日本語","available":true},{"code":"ko-KR","label":"한국어","available":true},{"code":"pt-BR","label":"Português (Brasil)","available":true},{"code":"ru-RU","label":"Русский","available":true},{"code":"zh-CN","label":"简体中文","available":true},{"code":"zh-TW","label":"繁體中文","available":true}],"placeholders":{"concepts.execution.context.description":["graphicsContext"],"concepts.execution.context.details":["capabilities","detail","link","meshShadingSupported","rayTracingSupported"],"concepts.execution.context.details.detail":[],"concepts.execution.context.details.link":[],"concepts.execution.context.title":[],"concepts.execution.description":[],"concepts.execution.ownership.description":["dispose"],"concepts.execution.ownership.details":[],"concepts.execution.ownership.guidance":["link"],"concepts.execution.ownership.guidance.link":[],"concepts.execution.ownership.table.applicationResources.object":[],"concepts.execution.ownership.table.applicationResources.ownership":[],"concepts.execution.ownership.table.commandBuffers.object":[],"concepts.execution.ownership.table.commandBuffers.ownership":[],"concepts.execution.ownership.table.headings.object":[],"concepts.execution.ownership.table.headings.ownership":[],"concepts.execution.ownership.table.queues.object":[],"concepts.execution.ownership.table.queues.ownership":[],"concepts.execution.ownership.table.swapChainDrawable.ownership":[],"concepts.execution.ownership.title":[],"concepts.execution.pipelines.description":[],"concepts.execution.pipelines.details":[],"concepts.execution.pipelines.guidance":["detail","link"],"concepts.execution.pipelines.guidance.detail":[],"concepts.execution.pipelines.guidance.link":[],"concepts.execution.pipelines.title":[],"concepts.execution.queues.description":["graphicsQueue"],"concepts.execution.queues.details":[],"concepts.execution.queues.guidance":["link"],"concepts.execution.queues.guidance.link":[],"concepts.execution.queues.table.computeQueue.workToRecord":[],"concepts.execution.queues.table.graphicsQueue.workToRecord":[],"concepts.execution.queues.table.headings.queue":[],"concepts.execution.queues.table.headings.workToRecord":[],"concepts.execution.queues.table.transferQueue.workToRecord":[],"concepts.execution.queues.title":[],"concepts.execution.recording.context":["queueCommandBuffer"],"concepts.execution.recording.description":["commandBuffer","queueCommandBuffer","submit","timelineValue"],"concepts.execution.recording.details":["commandBuffer"],"concepts.execution.recording.guidance":["submit","wait"],"concepts.execution.recording.title":[],"concepts.execution.title":[],"concepts.platforms.description":[],"concepts.platforms.frame.context":["colorAttachment"],"concepts.platforms.frame.description":["graphicsContext","iZenithView","renderEventArgs","renderRequested","updateRequested"],"concepts.platforms.frame.details":["colorAttachment"],"concepts.platforms.frame.guidance":["iZenithView","usingZenithNET","view"],"concepts.platforms.frame.notes":["undefined"],"concepts.platforms.frame.reference":["zenithViewHelperDrawableFormat"],"concepts.platforms.frame.title":[],"concepts.platforms.integration.context":["extensionsCs","useZenithView"],"concepts.platforms.integration.description":[],"concepts.platforms.integration.details":["renderRequested"],"concepts.platforms.integration.guidance":["avaloniaPackage"],"concepts.platforms.integration.table.avalonia.integration":[],"concepts.platforms.integration.table.avalonia.presentation":["surfaceCs","writeableBitmap","zenithViewCs"],"concepts.platforms.integration.table.headings.integration":[],"concepts.platforms.integration.table.headings.presentation":[],"concepts.platforms.integration.table.maui.integration":[],"concepts.platforms.integration.table.maui.presentation":["link"],"concepts.platforms.integration.table.maui.presentation.link":[],"concepts.platforms.integration.table.uno.integration":[],"concepts.platforms.integration.table.uno.presentation":["writeableBitmap","zenithViewUnoCs"],"concepts.platforms.integration.table.winForms.integration":[],"concepts.platforms.integration.table.winForms.presentation":["hWND","zenithViewCs"],"concepts.platforms.integration.table.winUI.integration":[],"concepts.platforms.integration.table.winUI.presentation":["swapChainPanel","zenithViewWinUICs"],"concepts.platforms.integration.table.wpf.integration":[],"concepts.platforms.integration.table.wpf.presentation":["d3DImage","surfaceCs"],"concepts.platforms.integration.title":[],"concepts.platforms.lifecycle.context":["descFormat","descHeight","descSampleCount","descWidth"],"concepts.platforms.lifecycle.description":["swapChainDrawable"],"concepts.platforms.lifecycle.details":["swapChainRefresh","swapChainResize"],"concepts.platforms.lifecycle.guidance":["link"],"concepts.platforms.lifecycle.guidance.link":[],"concepts.platforms.lifecycle.title":[],"concepts.platforms.ownership.description":["graphicsContext"],"concepts.platforms.ownership.details":[],"concepts.platforms.ownership.guidance":["frameSchedulerCs"],"concepts.platforms.ownership.title":[],"concepts.platforms.surface.description":["link","surface","swapChain"],"concepts.platforms.surface.description.link":[],"concepts.platforms.surface.details":[],"concepts.platforms.surface.guidance":["appCs","surfaceWayland"],"concepts.platforms.surface.table.android.backend":[],"concepts.platforms.surface.table.apple.backend":[],"concepts.platforms.surface.table.headings.backend":[],"concepts.platforms.surface.table.headings.factory":[],"concepts.platforms.surface.table.headings.handles":[],"concepts.platforms.surface.table.wayland.backend":[],"concepts.platforms.surface.table.wayland.handles":[],"concepts.platforms.surface.table.win32.backend":[],"concepts.platforms.surface.table.xlib.backend":[],"concepts.platforms.surface.table.xlib.handles":[],"concepts.platforms.surface.title":[],"concepts.platforms.title":[],"concepts.resources.allocation.context":[],"concepts.resources.allocation.description":["heap"],"concepts.resources.allocation.details":["contextGetSizeAndAlignment"],"concepts.resources.allocation.guidance":[],"concepts.resources.allocation.title":[],"concepts.resources.bufferUsages.table.constant.role":[],"concepts.resources.bufferUsages.table.headings.role":[],"concepts.resources.bufferUsages.table.headings.usage":[],"concepts.resources.bufferUsages.table.index.role":[],"concepts.resources.bufferUsages.table.indirect.role":[],"concepts.resources.bufferUsages.table.none.role":[],"concepts.resources.bufferUsages.table.storageReadOnly.role":[],"concepts.resources.bufferUsages.table.storageReadWrite.role":[],"concepts.resources.bufferUsages.table.transferDst.role":[],"concepts.resources.bufferUsages.table.transferSrc.role":[],"concepts.resources.bufferUsages.table.vertex.role":[],"concepts.resources.bufferUsages.title":[],"concepts.resources.description":[],"concepts.resources.memory.context":["map","unmap"],"concepts.resources.memory.description":["bufferDesc","residency"],"concepts.resources.memory.details":["cpuWriteOnly"],"concepts.resources.memory.guidance":["textureDesc"],"concepts.resources.memory.table.cpuReadOnly.cPUAccess":[],"concepts.resources.memory.table.cpuReadOnly.typicalRole":[],"concepts.resources.memory.table.cpuWriteOnly.cPUAccess":[],"concepts.resources.memory.table.cpuWriteOnly.typicalRole":[],"concepts.resources.memory.table.gpuOnly.cPUAccess":[],"concepts.resources.memory.table.gpuOnly.typicalRole":[],"concepts.resources.memory.table.headings.cPUAccess":[],"concepts.resources.memory.table.headings.residency":[],"concepts.resources.memory.table.headings.typicalRole":[],"concepts.resources.memory.title":[],"concepts.resources.textureUsages.description":[],"concepts.resources.textureUsages.details":["link"],"concepts.resources.textureUsages.details.link":[],"concepts.resources.textureUsages.table.colorAttachment.role":[],"concepts.resources.textureUsages.table.depthStencilAttachment.role":[],"concepts.resources.textureUsages.table.headings.role":[],"concepts.resources.textureUsages.table.headings.usage":[],"concepts.resources.textureUsages.table.none.role":[],"concepts.resources.textureUsages.table.sampled.role":[],"concepts.resources.textureUsages.table.storage.role":[],"concepts.resources.textureUsages.table.transferDst.role":[],"concepts.resources.textureUsages.table.transferSrc.role":[],"concepts.resources.textureUsages.title":[],"concepts.resources.title":[],"concepts.resources.transfers.context":["wait"],"concepts.resources.transfers.description":[],"concepts.resources.transfers.details":[],"concepts.resources.transfers.guidance":["commandBufferDownload","commandBufferUpload"],"concepts.resources.transfers.item":[],"concepts.resources.transfers.notes":["link"],"concepts.resources.transfers.notes.link":[],"concepts.resources.transfers.table.bufferDownload.transfer":["cpuReadOnly"],"concepts.resources.transfers.table.bufferUpload.transfer":["cpuWriteOnly"],"concepts.resources.transfers.table.headings.method":[],"concepts.resources.transfers.table.headings.transfer":[],"concepts.resources.transfers.table.textureTransfers.method":["textureDownload","textureUpload"],"concepts.resources.transfers.table.textureTransfers.transfer":[],"concepts.resources.transfers.title":[],"concepts.resources.usages.description":["bufferDescUsages","bufferUsages","textureDescUsages","textureUsages","value"],"concepts.resources.usages.title":[],"concepts.resources.views.description":["bufferView","textureView"],"concepts.resources.views.details":["link"],"concepts.resources.views.details.link":[],"concepts.resources.views.title":[],"concepts.shaders.binding.context":["descriptorHandle","input","inputTextureSampledHandle","output","outputTextureStorageHandle"],"concepts.shaders.binding.description":["setConstantBuffer"],"concepts.shaders.binding.details":[],"concepts.shaders.binding.guidance":["bufferUsagesConstant","commandBuffer","computePipeline","constantBuffer"],"concepts.shaders.binding.notes":["resourceHandle"],"concepts.shaders.binding.reference":["link"],"concepts.shaders.binding.reference.link":[],"concepts.shaders.binding.table.bufferStorageReadOnlyHandle.access":["t"],"concepts.shaders.binding.table.bufferStorageReadWriteHandle.access":["t"],"concepts.shaders.binding.table.headings.access":[],"concepts.shaders.binding.table.headings.cHandle":[],"concepts.shaders.binding.table.headings.slangFieldType":[],"concepts.shaders.binding.table.samplerHandle.access":[],"concepts.shaders.binding.table.textureSampledHandle.access":[],"concepts.shaders.binding.table.textureStorageHandle.access":[],"concepts.shaders.binding.title":[],"concepts.shaders.compilation.description":["graphicsApi","shaderDesc","zenithCompiler"],"concepts.shaders.compilation.details":["context"],"concepts.shaders.compilation.guidance":["link","vSMain"],"concepts.shaders.compilation.guidance.link":[],"concepts.shaders.compilation.title":[],"concepts.shaders.description":[],"concepts.shaders.dispatch.description":["dispatch","numthreads"],"concepts.shaders.dispatch.details":["computeShaderRendererCs","dispatch","link","shaderDescThreadGroupSize"],"concepts.shaders.dispatch.details.link":[],"concepts.shaders.dispatch.title":[],"concepts.shaders.layout.context":["link","systemRuntimeInteropServices","zenithNET"],"concepts.shaders.layout.context.link":[],"concepts.shaders.layout.description":["float3","float4","inputLayout","inputLayoutAdd"],"concepts.shaders.layout.details":["float3","inputLayout"],"concepts.shaders.layout.guidance":[],"concepts.shaders.layout.notes":["computeShaderSlang"],"concepts.shaders.layout.reference":[],"concepts.shaders.layout.title":[],"concepts.shaders.matrices.description":["detail","link","matrix4x4","mulVectorMatrix"],"concepts.shaders.matrices.description.detail":[],"concepts.shaders.matrices.description.link":[],"concepts.shaders.matrices.details":[],"concepts.shaders.matrices.title":[],"concepts.shaders.title":[],"concepts.synchronization.backends.description":["barrier","transition"],"concepts.synchronization.backends.details":["link"],"concepts.synchronization.backends.details.link":[],"concepts.synchronization.backends.title":[],"concepts.synchronization.barriers.context":["barrierStagesAll"],"concepts.synchronization.barriers.description":[],"concepts.synchronization.barriers.details":[],"concepts.synchronization.barriers.guidance":["link"],"concepts.synchronization.barriers.guidance.link":[],"concepts.synchronization.barriers.title":[],"concepts.synchronization.dependencies.description":[],"concepts.synchronization.dependencies.details":[],"concepts.synchronization.dependencies.guidance":[],"concepts.synchronization.dependencies.table.cpuAccess.mechanism":["wait"],"concepts.synchronization.dependencies.table.cpuAccess.situation":[],"concepts.synchronization.dependencies.table.crossQueue.mechanism":["submit","timelineValue"],"concepts.synchronization.dependencies.table.crossQueue.situation":[],"concepts.synchronization.dependencies.table.headings.mechanism":[],"concepts.synchronization.dependencies.table.headings.situation":[],"concepts.synchronization.dependencies.table.layoutChange.mechanism":["commandBufferTransition"],"concepts.synchronization.dependencies.table.layoutChange.situation":[],"concepts.synchronization.dependencies.table.pipelineStages.mechanism":["commandBufferBarrier"],"concepts.synchronization.dependencies.table.pipelineStages.situation":[],"concepts.synchronization.dependencies.title":[],"concepts.synchronization.description":[],"concepts.synchronization.layouts.context":["undefined"],"concepts.synchronization.layouts.description":["storage","textureLayout"],"concepts.synchronization.layouts.details":["default","outputTexture","sampledStorage","storage"],"concepts.synchronization.layouts.guidance":["transition"],"concepts.synchronization.layouts.title":[],"concepts.synchronization.readback.description":["isCompleted"],"concepts.synchronization.readback.details":["commandBufferDownload","wait"],"concepts.synchronization.readback.guidance":["isCompleted","link"],"concepts.synchronization.readback.guidance.link":[],"concepts.synchronization.readback.title":[],"concepts.synchronization.reuse.description":[],"concepts.synchronization.reuse.details":["swapChainResize"],"concepts.synchronization.reuse.guidance":["swapChainPresent"],"concepts.synchronization.reuse.title":[],"concepts.synchronization.timelines.context":[],"concepts.synchronization.timelines.description":["submit","timelineValue","value"],"concepts.synchronization.timelines.details":["consumer","producer"],"concepts.synchronization.timelines.guidance":["consumed","producedWait"],"concepts.synchronization.timelines.notes":["queueTimelineSignal","signal","wait"],"concepts.synchronization.timelines.title":[],"concepts.synchronization.title":[],"home.actions.reference":[],"home.actions.tutorial":[],"home.entries.description":[],"home.entries.label":[],"home.entries.reference.action":[],"home.entries.reference.category":[],"home.entries.reference.description":[],"home.entries.reference.title":[],"home.entries.samples.action":[],"home.entries.samples.category":[],"home.entries.samples.description":[],"home.entries.samples.title":[],"home.entries.title":[],"home.entries.tutorial.action":[],"home.entries.tutorial.category":[],"home.entries.tutorial.description":[],"home.entries.tutorial.title":[],"home.introduction.accent":[],"home.introduction.description":[],"home.introduction.title":["accent","lineBreak"],"home.meta.description":[],"home.scene.description":[],"home.scene.label":[],"home.scene.surface":[],"home.scene.wireframe":[],"home.title":[],"learning.concepts.description":[],"learning.concepts.execution.description":[],"learning.concepts.platforms.description":[],"learning.concepts.resources.description":[],"learning.concepts.shaders.description":[],"learning.concepts.synchronization.description":[],"learning.concepts.title":[],"learning.description":[],"learning.entries.samples.action":[],"learning.entries.samples.description":[],"learning.entries.tutorial.action":[],"learning.entries.tutorial.description":[],"learning.meta.description":[],"learning.title":[],"reference.description":[],"reference.entries.commands.description":[],"reference.entries.commands.label":[],"reference.entries.context.description":[],"reference.entries.context.label":[],"reference.meta.description":[],"reference.navigation.core":[],"reference.title":[],"samples.computeShader.description":["assetsTexturesShokoPng"],"samples.computeShader.details":["computeShaderRendererCs","computeShaderSlang"],"samples.computeShader.title":[],"samples.cube.description":["d32FloatS8UInt"],"samples.cube.details":["spinningCubeRendererCs","spinningCubeSlang"],"samples.cube.title":[],"samples.description":["link"],"samples.description.link":[],"samples.execution.description":["link"],"samples.execution.description.link":[],"samples.execution.title":[],"samples.host.description":["appCs","iRendererCs"],"samples.host.details":["presentTextureSlang","texturePresenterCs"],"samples.host.title":[],"samples.indirectDrawing.description":[],"samples.indirectDrawing.details":["indirectDrawingRendererCs","indirectDrawingSlang"],"samples.indirectDrawing.title":[],"samples.meshShading.description":["contextCapabilitiesMeshShadingSupported"],"samples.meshShading.details":["meshShadingRendererCs","meshShadingSlang"],"samples.meshShading.title":[],"samples.rayTracing.description":["contextCapabilitiesRayTracingSupported"],"samples.rayTracing.details":["rayTracingRendererCs","rayTracingSlang"],"samples.rayTracing.title":[],"samples.title":[],"samples.triangle.description":[],"samples.triangle.details":["helloTriangleRendererCs","helloTriangleSlang","link"],"samples.triangle.details.link":[],"samples.triangle.title":[],"samples.workloads.description":["link"],"samples.workloads.description.link":[],"samples.workloads.details":["link"],"samples.workloads.details.link":[],"samples.workloads.table.cornellBox.example":["link"],"samples.workloads.table.cornellBox.example.link":[],"samples.workloads.table.cornellBox.whatItDemonstratesAndRequires":[],"samples.workloads.table.fluidTank.example":["link"],"samples.workloads.table.fluidTank.example.link":[],"samples.workloads.table.fluidTank.whatItDemonstratesAndRequires":[],"samples.workloads.table.headings.example":[],"samples.workloads.table.headings.whatItDemonstratesAndRequires":[],"samples.workloads.table.inkCanvas.example":["link"],"samples.workloads.table.inkCanvas.example.link":[],"samples.workloads.table.inkCanvas.whatItDemonstratesAndRequires":[],"samples.workloads.table.platformDetection.example":["link"],"samples.workloads.table.platformDetection.example.link":[],"samples.workloads.table.platformDetection.whatItDemonstratesAndRequires":[],"samples.workloads.title":[],"tutorial.context.description":["graphicsContext"],"tutorial.context.details":["emphasis"],"tutorial.context.details.emphasis":["iWindowWindow"],"tutorial.context.guidance":["validationMessage"],"tutorial.context.imports":["programCs"],"tutorial.context.title":[],"tutorial.description":[],"tutorial.details":[],"tutorial.draw.context":["draw"],"tutorial.draw.description":["addTheTriangleDrawCommandsHereLater","beginRenderPass","endRenderPass","windowRender"],"tutorial.draw.details":["setPipeline"],"tutorial.draw.guidance":["inputLayouts","setVertexBufferVertexBuffer"],"tutorial.draw.notes":["present","submitWait"],"tutorial.draw.table.firstInstance.meaning":[],"tutorial.draw.table.firstVertex.meaning":[],"tutorial.draw.table.headings.argument":[],"tutorial.draw.table.headings.description":[],"tutorial.draw.table.headings.meaning":[],"tutorial.draw.table.instanceCount.meaning":[],"tutorial.draw.table.vertexCount.meaning":[],"tutorial.draw.title":[],"tutorial.execution.description":["firstTriangle"],"tutorial.execution.details":[],"tutorial.execution.guidance":[],"tutorial.execution.title":[],"tutorial.frame.commands.context":["endRenderPass","present","submit","wait"],"tutorial.frame.commands.description":["beginRenderPass","colorAttachmentClear"],"tutorial.frame.commands.details":["null"],"tutorial.frame.commands.guidance":["beginRenderPass"],"tutorial.frame.commands.title":[],"tutorial.frame.description":[],"tutorial.frame.details":["emphasis","value"],"tutorial.frame.details.emphasis":["windowRun"],"tutorial.frame.target.description":["graphicsQueueCommandBuffer"],"tutorial.frame.target.details":["default","transition","undefined"],"tutorial.frame.target.guidance":[],"tutorial.frame.target.title":[],"tutorial.frame.title":[],"tutorial.geometry.data.description":["emphasis"],"tutorial.geometry.data.description.emphasis":["windowRender"],"tutorial.geometry.data.details":["new","vector3","vector4","vertex","w"],"tutorial.geometry.data.guidance":[],"tutorial.geometry.data.title":[],"tutorial.geometry.description":[],"tutorial.geometry.format.description":["emphasis"],"tutorial.geometry.format.description.emphasis":["programCs"],"tutorial.geometry.format.details":["color","file","layoutKindSequential","position","programCs"],"tutorial.geometry.format.imports":["programCs"],"tutorial.geometry.format.title":[],"tutorial.geometry.title":[],"tutorial.geometry.upload.context":["fixed","upload"],"tutorial.geometry.upload.description":["buffer"],"tutorial.geometry.upload.details":["bufferUsagesVertex","cpuWriteOnly","sizeofVertexVerticesLength"],"tutorial.geometry.upload.guidance":["upload"],"tutorial.geometry.upload.imports":["bufferAlias","programCs","systemBuffer"],"tutorial.geometry.upload.notes":["link","programCs","swapChainDispose","vertexBufferDispose"],"tutorial.geometry.upload.notes.link":[],"tutorial.geometry.upload.title":[],"tutorial.input.description":[],"tutorial.input.details":["inputLayoutAdd"],"tutorial.input.guidance":["cOLOR0","pOSITION0","semanticIndex"],"tutorial.input.table.headings.byteOffset":[],"tutorial.input.table.headings.cField":[],"tutorial.input.table.headings.format":[],"tutorial.input.table.headings.shaderInput":[],"tutorial.input.table.nextVertex.cField":[],"tutorial.input.table.nextVertex.format":[],"tutorial.input.table.nextVertex.shaderInput":[],"tutorial.input.table.vertexColor.format":["float4"],"tutorial.input.table.vertexPosition.format":["float3"],"tutorial.input.title":[],"tutorial.lifecycle.description":[],"tutorial.lifecycle.details":["run","windowRun"],"tutorial.lifecycle.guidance":["dispose"],"tutorial.lifecycle.title":[],"tutorial.pipeline.behavior":[],"tutorial.pipeline.context":["cullNone"],"tutorial.pipeline.description":["graphicsPipeline"],"tutorial.pipeline.details":[],"tutorial.pipeline.guidance":["count1","swapChainDescFormat"],"tutorial.pipeline.item":["triangleList"],"tutorial.pipeline.notes":["depthNone"],"tutorial.pipeline.reference":["opaque"],"tutorial.pipeline.title":[],"tutorial.pipeline.usage":["pipelineDispose","vertexBufferDispose"],"tutorial.presentation.title":[],"tutorial.project.context":["allowUnsafeBlocks","emphasis"],"tutorial.project.context.emphasis":[],"tutorial.project.description":["firstTriangle"],"tutorial.project.details":[],"tutorial.project.guidance":["zenithNET","zenithNETCompiler"],"tutorial.project.title":[],"tutorial.requirements.context":["detail","link"],"tutorial.requirements.context.detail":[],"tutorial.requirements.context.link":[],"tutorial.requirements.description":["emphasis","net10"],"tutorial.requirements.description.emphasis":[],"tutorial.requirements.guidance":["cAMetalLayerCs"],"tutorial.requirements.table.headings.graphicsBackend":[],"tutorial.requirements.table.headings.platform":[],"tutorial.requirements.table.linux.graphicsBackend":[],"tutorial.requirements.table.linux.platform":[],"tutorial.requirements.table.macOS.graphicsBackend":[],"tutorial.requirements.table.macOS.platform":[],"tutorial.requirements.table.windows.graphicsBackend":[],"tutorial.requirements.table.windows.platform":[],"tutorial.requirements.title":[],"tutorial.resize.context":[],"tutorial.resize.description":["framebufferResize","windowRun"],"tutorial.resize.details":["link"],"tutorial.resize.details.link":[],"tutorial.resize.guidance":["link","present"],"tutorial.resize.guidance.link":[],"tutorial.resize.title":[],"tutorial.shaders.compilation.context":["appContextBaseDirectory"],"tutorial.shaders.compilation.description":["detail","emphasis","triangleSlang"],"tutorial.shaders.compilation.description.detail":[],"tutorial.shaders.compilation.description.emphasis":[],"tutorial.shaders.compilation.details":["programCs"],"tutorial.shaders.compilation.guidance":["contextGraphicsApi","createShader","fSMain","vSMain","zenithCompiler"],"tutorial.shaders.compilation.title":[],"tutorial.shaders.context":["cOLOR0","fSInput","sVPOSITION"],"tutorial.shaders.description":[],"tutorial.shaders.details":["triangleSlang"],"tutorial.shaders.fragment.description":[],"tutorial.shaders.fragment.details":["fSMain","sVTARGET"],"tutorial.shaders.fragment.title":[],"tutorial.shaders.guidance":["cOLOR0","pOSITION0","vSInput"],"tutorial.shaders.title":[],"tutorial.shaders.vertex.description":["triangleSlang"],"tutorial.shaders.vertex.details":["w"],"tutorial.shaders.vertex.title":[],"tutorial.surface.description":["emphasis"],"tutorial.surface.description.emphasis":["windowCenter","windowRun"],"tutorial.surface.details":["framebufferSize","surface"],"tutorial.surface.guidance":[],"tutorial.surface.title":[],"tutorial.swapChain.context":["programCs","windowDispose"],"tutorial.swapChain.description":[],"tutorial.swapChain.details":["drawable","present","swapChain","texture"],"tutorial.swapChain.guidance":["b8G8R8A8UNorm","swapChainDescFormat","uNorm"],"tutorial.swapChain.title":[],"tutorial.title":[],"tutorial.troubleshooting.description":[],"tutorial.troubleshooting.details":["context","detail","link","programCs"],"tutorial.troubleshooting.details.context":[],"tutorial.troubleshooting.details.detail":[],"tutorial.troubleshooting.details.link":[],"tutorial.troubleshooting.table.backend.check":[],"tutorial.troubleshooting.table.backend.symptom":[],"tutorial.troubleshooting.table.drawing.check":[],"tutorial.troubleshooting.table.drawing.symptom":[],"tutorial.troubleshooting.table.headings.check":[],"tutorial.troubleshooting.table.headings.symptom":[],"tutorial.troubleshooting.table.input.check":[],"tutorial.troubleshooting.table.input.symptom":[],"tutorial.troubleshooting.table.shaders.check":["triangleSlang"],"tutorial.troubleshooting.table.shaders.symptom":[],"tutorial.troubleshooting.table.window.check":[],"tutorial.troubleshooting.table.window.symptom":[],"tutorial.troubleshooting.title":[],"tutorial.window.description":["cocoaHelperCs"],"tutorial.window.details":["main","programCs"],"tutorial.window.guidance":["center","dispose","graphicsAPINone","initialize","run"],"tutorial.window.notes":[],"tutorial.window.title":[],"ui.action.copy":[],"ui.action.navigate":[],"ui.action.open":[],"ui.action.source":[],"ui.api.browse":[],"ui.api.clearTypeSearch":[],"ui.api.findType":[],"ui.api.loadError":[],"ui.api.loadingNamespaces":[],"ui.api.loadingTypes":[],"ui.api.matchingTypes":[],"ui.api.namespace":[],"ui.api.namespaces":[],"ui.api.noNamespaceTypes":[],"ui.api.noTypes":[],"ui.api.types":[],"ui.content.reference":[],"ui.content.source":[],"ui.content.tutorial":[],"ui.contents.close":[],"ui.contents.open":[],"ui.contents.title":[],"ui.footer.caption":[],"ui.footer.label":[],"ui.language.label":[],"ui.language.unavailable":[],"ui.members.clear":[],"ui.members.close":[],"ui.members.empty":[],"ui.members.open":[],"ui.members.placeholder":[],"ui.members.search":[],"ui.members.title":[],"ui.members.undeclared":[],"ui.navigation.api":[],"ui.navigation.concepts":[],"ui.navigation.home":[],"ui.navigation.label":[],"ui.navigation.skip":[],"ui.navigation.toggle":[],"ui.outline.title":[],"ui.reference.assembly":[],"ui.reference.classes":[],"ui.reference.constructors":[],"ui.reference.declaration":[],"ui.reference.delegates":[],"ui.reference.derived":[],"ui.reference.enums":[],"ui.reference.events":[],"ui.reference.examples":[],"ui.reference.exceptions":[],"ui.reference.extensionMethods":[],"ui.reference.fields":[],"ui.reference.implementations":[],"ui.reference.implements":[],"ui.reference.inheritance":[],"ui.reference.inheritedMembers":[],"ui.reference.interfaces":[],"ui.reference.metadata":[],"ui.reference.methods":[],"ui.reference.namespace":[],"ui.reference.open":["name"],"ui.reference.operators":[],"ui.reference.parameters":[],"ui.reference.properties":[],"ui.reference.related":[],"ui.reference.relationships":[],"ui.reference.remarks":[],"ui.reference.returns":[],"ui.reference.structs":[],"ui.reference.typeParameters":[],"ui.reference.value":[],"ui.reference.values":[],"ui.search.close":[],"ui.search.empty":["query"],"ui.search.hint":[],"ui.search.loading":[],"ui.search.more":[],"ui.search.pending":[],"ui.search.placeholder":[],"ui.search.resultCount":["count"],"ui.search.title":[],"ui.search.unavailable":[]},"strings":{"concepts.execution.context.title":"Graphics context","concepts.execution.ownership.title":"Ownership and lifetime","concepts.execution.pipelines.title":"Pipeline state","concepts.execution.queues.title":"Queue selection","concepts.execution.recording.title":"Recording and submission","concepts.execution.title":"Execution Model","concepts.platforms.frame.title":"Rendering through a UI control","concepts.platforms.integration.title":"Framework and presentation path","concepts.platforms.lifecycle.title":"Swap-chain dimensions and lifetime","concepts.platforms.ownership.title":"Application and control ownership","concepts.platforms.surface.title":"Native presentation surfaces","concepts.platforms.title":"Platform Integration","concepts.resources.allocation.title":"Heap allocation","concepts.resources.bufferUsages.title":"Buffer usages","concepts.resources.memory.title":"CPU access and memory placement","concepts.resources.textureUsages.title":"Texture usages","concepts.resources.title":"Resource Management","concepts.resources.transfers.title":"Immediate and recorded transfers","concepts.resources.usages.title":"Resource usages","concepts.resources.views.title":"Views and backing resources","concepts.shaders.binding.title":"Constant buffers and resource handles","concepts.shaders.compilation.title":"Shader compilation","concepts.shaders.dispatch.title":"Thread groups","concepts.shaders.layout.title":"Data layout","concepts.shaders.matrices.title":"Matrix conventions","concepts.shaders.title":"Shader Data and Binding","concepts.synchronization.backends.title":"Backend behavior","concepts.synchronization.barriers.title":"Pipeline barriers","concepts.synchronization.dependencies.title":"Access dependencies","concepts.synchronization.layouts.title":"Texture layouts","concepts.synchronization.readback.title":"Readback completion","concepts.synchronization.reuse.title":"Resource reuse","concepts.synchronization.timelines.title":"Timelines and queue dependencies","concepts.synchronization.title":"Synchronization","home.entries.reference.title":"API Reference","home.entries.samples.title":"Samples","home.entries.title":"Documentation","home.entries.tutorial.title":"First Triangle","home.introduction.title":"Cross-platform graphics{lineBreak}{accent}","home.title":"Modern RHI for .NET","learning.concepts.title":"Core concepts","learning.title":"Learn","reference.title":"API Reference","samples.computeShader.title":"Compute Shader","samples.cube.title":"Spinning Cube","samples.execution.title":"Running the examples","samples.host.title":"Host and presentation","samples.indirectDrawing.title":"Indirect Drawing","samples.meshShading.title":"Mesh Shading","samples.rayTracing.title":"Ray Tracing","samples.title":"Samples","samples.triangle.title":"Hello Triangle","samples.workloads.title":"Larger applications","tutorial.context.title":"Graphics context","tutorial.draw.title":"Drawing commands","tutorial.execution.title":"Running the application","tutorial.frame.commands.title":"Clear, submission, and presentation","tutorial.frame.target.title":"Drawable preparation","tutorial.frame.title":"The first frame","tutorial.geometry.data.title":"Vertex positions and colors","tutorial.geometry.format.title":"Vertex representation","tutorial.geometry.title":"Vertex data","tutorial.geometry.upload.title":"Buffer allocation and upload","tutorial.input.title":"Vertex input layout","tutorial.lifecycle.title":"Frame lifecycle and cleanup","tutorial.pipeline.title":"Graphics pipeline","tutorial.presentation.title":"Graphics context and presentation","tutorial.project.title":"Project setup","tutorial.requirements.title":"Prerequisites","tutorial.resize.title":"Resizing","tutorial.shaders.compilation.title":"Compiling the shaders","tutorial.shaders.fragment.title":"Fragment shading","tutorial.shaders.title":"Shader stages","tutorial.shaders.vertex.title":"Vertex shading","tutorial.surface.title":"Native surface","tutorial.swapChain.title":"Swap chain","tutorial.title":"First Triangle","tutorial.troubleshooting.title":"Troubleshooting","tutorial.window.title":"Window creation","ui.action.copy":"Copy","ui.action.navigate":"Navigate","ui.action.open":"Open","ui.action.source":"View source","ui.api.browse":"Browse namespaces and types.","ui.api.clearTypeSearch":"Clear type search","ui.api.findType":"Find a type","ui.api.loadError":"Could not load types. Reload this page to try again.","ui.api.loadingNamespaces":"Loading namespaces…","ui.api.loadingTypes":"Loading types…","ui.api.matchingTypes":"Matching types","ui.api.namespace":"Namespace","ui.api.namespaces":"Namespaces","ui.api.noNamespaceTypes":"No types in this namespace.","ui.api.noTypes":"No matching types.","ui.api.types":"Types","ui.content.reference":"Reference","ui.content.source":"Source code","ui.content.tutorial":"Tutorial","ui.contents.close":"Close contents","ui.contents.open":"Open contents","ui.contents.title":"Contents","ui.footer.caption":"Modern RHI for .NET","ui.footer.label":"Footer","ui.language.label":"Language","ui.language.unavailable":"Not translated","ui.members.clear":"Clear member search","ui.members.close":"Close member finder","ui.members.empty":"No matching members.","ui.members.open":"Go to member","ui.members.placeholder":"Name or signature…","ui.members.search":"Search members","ui.members.title":"Find a member","ui.members.undeclared":"This type has no declared members.","ui.navigation.api":"API","ui.navigation.concepts":"Concepts","ui.navigation.home":"Home","ui.navigation.label":"Main navigation","ui.navigation.skip":"Skip to content","ui.navigation.toggle":"Toggle navigation","ui.outline.title":"On this page","ui.reference.assembly":"Assembly","ui.reference.classes":"Classes","ui.reference.constructors":"Constructors","ui.reference.declaration":"C# type declaration","ui.reference.delegates":"Delegates","ui.reference.derived":"Derived types","ui.reference.enums":"Enums","ui.reference.events":"Events","ui.reference.examples":"Examples","ui.reference.exceptions":"Exceptions","ui.reference.extensionMethods":"Extension methods","ui.reference.fields":"Fields","ui.reference.implementations":"Explicit interface implementations","ui.reference.implements":"Implements","ui.reference.inheritance":"Inheritance","ui.reference.inheritedMembers":"Inherited members","ui.reference.interfaces":"Interfaces","ui.reference.metadata":"Type metadata","ui.reference.methods":"Methods","ui.reference.namespace":"Namespace","ui.reference.open":"Open reference for {name}","ui.reference.operators":"Operators","ui.reference.parameters":"Parameters","ui.reference.properties":"Properties","ui.reference.related":"See also","ui.reference.relationships":"Inheritance and metadata","ui.reference.remarks":"Remarks","ui.reference.returns":"Returns","ui.reference.structs":"Structs","ui.reference.typeParameters":"Type parameters","ui.reference.value":"Value","ui.reference.values":"Values","ui.search.close":"Close search","ui.search.empty":"No results for “{query}”.","ui.search.hint":"Search tutorials, concepts, samples, and the API reference.","ui.search.loading":"Loading search…","ui.search.more":"Show more results","ui.search.pending":"Searching…","ui.search.placeholder":"What are you looking for?","ui.search.resultCount":"Results: {count}","ui.search.title":"Search documentation","ui.search.unavailable":"Search is unavailable. You can still open the pages below."}}</script>
+            <meta name="resource:title" content="tutorial.title">
+        <script type="module" src="../public/docfx.min.js"></script>
+
+        <script>
+            // Keep DocFX initialization aligned with the fixed dark page, including old saved preferences.
+            localStorage.setItem('theme', 'dark')
+        </script>
+    </head>
+
+    <body class="tex2jax_ignore zenith-theme" data-layout="" data-yaml-mime="" data-page-kind="" data-section="learn">
+        <header class="site-header">
+            <nav class="site-nav container-xxl" data-resource-label="ui.navigation.label" aria-label="Main navigation">
+                <a class="skip-link visually-hidden-focusable" href="#main-content" data-resource="ui.navigation.skip">Skip to content</a>
+                <a class="navbar-brand" data-resource-label="ui.navigation.home" aria-label="Home" href="../index.html">
+                    <img id="logo" src="../images/Zenith.NET-Logo.svg" width="252" height="64" alt="">
+                </a>
+                <div id="site-menu" class="site-menu">
+                    <div id="primary-navigation"></div>
+                </div>
+                <div class="site-actions">
+                    <details class="language-menu" id="language-menu">
+                        <summary data-resource-label="ui.language.label" data-resource-title="ui.language.label" aria-label="Language" title="Language">
+                            <i class="bi bi-translate" aria-hidden="true"></i>
+                        </summary>
+                        <nav class="language-options" data-resource-label="ui.language.label" aria-label="Language">
+                                    <a href="?lang=de-DE" lang="de-DE" hreflang="de-DE" data-language-code="de-DE">Deutsch</a>
+                                    <a href="?lang=en-US" lang="en-US" hreflang="en-US" data-language-code="en-US">English</a>
+                                    <a href="?lang=es-ES" lang="es-ES" hreflang="es-ES" data-language-code="es-ES">Espa&#241;ol</a>
+                                    <a href="?lang=fr-FR" lang="fr-FR" hreflang="fr-FR" data-language-code="fr-FR">Fran&#231;ais</a>
+                                    <a href="?lang=ja-JP" lang="ja-JP" hreflang="ja-JP" data-language-code="ja-JP">日本語</a>
+                                    <a href="?lang=ko-KR" lang="ko-KR" hreflang="ko-KR" data-language-code="ko-KR">한국어</a>
+                                    <a href="?lang=pt-BR" lang="pt-BR" hreflang="pt-BR" data-language-code="pt-BR">Portugu&#234;s (Brasil)</a>
+                                    <a href="?lang=ru-RU" lang="ru-RU" hreflang="ru-RU" data-language-code="ru-RU">Русский</a>
+                                    <a href="?lang=zh-CN" lang="zh-CN" hreflang="zh-CN" data-language-code="zh-CN">简体中文</a>
+                                    <a href="?lang=zh-TW" lang="zh-TW" hreflang="zh-TW" data-language-code="zh-TW">繁體中文</a>
+                        </nav>
+                    </details>
+                        <button class="search-launcher" id="search-open" type="button" data-resource-label="ui.search.title" aria-label="Search documentation" aria-haspopup="dialog" aria-controls="search-dialog">
+                            <i class="bi bi-search" aria-hidden="true"></i>
+                        </button>
+                    <a class="source-link" href="https://github.com/qian-o/Zenith.NET" aria-label="GitHub">
+                        <i class="bi bi-github" aria-hidden="true"></i>
+                    </a>
+                    <button class="menu-toggle" id="menu-toggle" type="button" data-resource-label="ui.navigation.toggle" aria-label="Toggle navigation" aria-controls="site-menu" aria-expanded="false">
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </nav>
+        </header>
+
+        <main class="container-xxl">
+                <div class="toc-offcanvas">
+                    <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel" data-bs-scroll="true">
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="tocOffcanvasLabel" data-resource="ui.contents.title">Contents</h5>
+                            <button type="button" class="contents-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" data-resource-label="ui.contents.close" aria-label="Close contents">
+                                <i class="bi bi-x-lg" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                        <div class="offcanvas-body">
+                                <nav class="toc" id="toc"></nav>
+                        </div>
+                    </div>
+                </div>
+
+            <div class="content">
+                    
+                    <button class="contents-toggle" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" data-resource-label="ui.contents.open" aria-label="Open contents">
+                        <i class="bi bi-list" aria-hidden="true"></i>
+                        <span data-resource="ui.contents.title">Contents</span>
+                    </button>
+
+                <article id="main-content" tabindex="-1" data-uid="">
+                    <h1 id="first-triangle">
+    <doc-text data-resource="tutorial.title">First Triangle</doc-text>
+</h1>
+
+<p>
+    <doc-text data-resource="tutorial.description">In this tutorial, you will build a .NET console application that opens a window and draws a colored triangle, starting from an empty project.</doc-text>
+</p>
+<p>
+    <doc-text data-resource="tutorial.details">The tutorial has three checkpoints: an empty window, a solid background color, and the colored triangle. Run the application at each checkpoint before adding the next part.</doc-text>
+</p>
+<p>
+    <a id="prerequisites"></a>
+</p>
+<h2 id="1-before-you-begin">
+    1. <doc-text data-resource="tutorial.requirements.title">Prerequisites</doc-text>
+</h2>
+<p>
+    <doc-text data-resource="tutorial.requirements.description" data-resource-slots="resource-slots-0">You need the <strong><doc-text data-resource="tutorial.requirements.description.emphasis">.NET 10 SDK</doc-text></strong> and basic C# knowledge. The application targets <code>net10.0</code>. Your GPU and driver must support the backend selected for your platform:</doc-text>
+</p>
+<table>
+    <thead>
+        <tr>
+            <th>
+                <doc-text data-resource="tutorial.requirements.table.headings.platform">Platform</doc-text>
+            </th>
+            <th>
+                <doc-text data-resource="tutorial.requirements.table.headings.graphicsBackend">Graphics backend</doc-text>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <doc-text data-resource="tutorial.requirements.table.windows.platform">Windows</doc-text>
+            </td>
+            <td>
+                <doc-text data-resource="tutorial.requirements.table.windows.graphicsBackend">DirectX 12</doc-text>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <doc-text data-resource="tutorial.requirements.table.macOS.platform">macOS</doc-text>
+            </td>
+            <td>
+                <doc-text data-resource="tutorial.requirements.table.macOS.graphicsBackend">Metal 4</doc-text>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <doc-text data-resource="tutorial.requirements.table.linux.platform">Linux (X11 or XWayland)</doc-text>
+            </td>
+            <td>
+                <doc-text data-resource="tutorial.requirements.table.linux.graphicsBackend">Vulkan 1.4</doc-text>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>
+    <doc-text data-resource="tutorial.requirements.guidance" data-resource-slots="resource-slots-1">Zenith.NET renders into a native surface provided by the application. Silk.NET.Windowing creates the window and processes its events. On macOS, presentation uses a Metal layer, represented by <a href="https://github.com/qian-o/Metal.NET/blob/master/Metal.NET/CoreAnimation/CAMetalLayer.cs">CAMetalLayer.cs</a>; the window helper attaches it to the window.</doc-text>
+</p>
+<p>
+    <doc-text data-resource="tutorial.requirements.context" data-resource-slots="resource-slots-2">The <a href="https://github.com/qian-o/ZenithTutorials/blob/master/ZenithTutorials/Renderers/HelloTriangleRenderer.cs"><doc-text data-resource="tutorial.requirements.context.link">Hello Triangle sample</doc-text></a> and its <a href="https://github.com/qian-o/ZenithTutorials/blob/master/ZenithTutorials/App.cs"><doc-text data-resource="tutorial.requirements.context.detail">shared host</doc-text></a> provide reference implementations for this tutorial.</doc-text>
+</p>
+<p>
+    <a id="project"></a>
+</p>
+<h2 id="2-create-a-console-project">
+    2. <doc-text data-resource="tutorial.project.title">Project setup</doc-text>
+</h2>
+<p>
+    <doc-text data-resource="tutorial.project.description" data-resource-slots="resource-slots-3">Create a C# console project named <code>FirstTriangle</code> targeting .NET 10.</doc-text>
+</p>
+<p>
+    <doc-text data-resource="tutorial.project.details">Add the following NuGet packages to the project:</doc-text>
+</p>
+<ul>
+    <li>
+        <code>Silk.NET.Windowing</code>
+    </li>
+    <li>
+        <code>Zenith.NET</code>
+    </li>
+    <li>
+        <code>Zenith.NET.Compiler</code>
+    </li>
+    <li>
+        <code>Zenith.NET.DirectX12</code>
+    </li>
+    <li>
+        <code>Zenith.NET.Metal</code>
+    </li>
+    <li>
+        <code>Zenith.NET.Vulkan</code>
+    </li>
+</ul>
+<p>
+    <doc-text data-resource="tutorial.project.guidance" data-resource-slots="resource-slots-4"><code>Zenith.NET</code> provides the shared rendering API, and the three backend packages supply its platform implementations. <code>Zenith.NET.Compiler</code> compiles the Slang shaders introduced below for the selected backend. Silk.NET provides window creation and event processing.</doc-text>
+</p>
+<p>
+    <doc-text data-resource="tutorial.project.context" data-resource-slots="resource-slots-5">Enable <strong><doc-text data-resource="tutorial.project.context.emphasis">Allow unsafe code</doc-text></strong> (<code>AllowUnsafeBlocks</code>) in the project&#39;s build settings. Native calls in the window helper and the vertex upload require unsafe code.</doc-text>
+</p>
+<p>
+    <a id="window"></a>
+</p>
+<h2 id="3-open-a-window">
+    3. <doc-text data-resource="tutorial.window.title">Window creation</doc-text>
+</h2>
+<p>
+    <doc-text data-resource="tutorial.window.description" data-resource-slots="resource-slots-6">Download <a href="https://github.com/qian-o/ZenithTutorials/blob/master/ZenithTutorials/CocoaHelper.cs">CocoaHelper.cs</a> into the project. This helper class attaches the Metal layer to the macOS window.</doc-text>
+</p>
+<p>
+    <doc-text data-resource="tutorial.window.details" data-resource-slots="resource-slots-7">Replace the generated <code>Program.cs</code> with the code below. It uses top-level statements, which run in order without an explicit <code>Main</code> method. Each later section will show where to add its code:</doc-text>
+</p>
+<pre><code class="lang-csharp">using Silk.NET.Windowing;
+
+IWindow window = Window.Create(WindowOptions.Default with
+{
+    API = GraphicsAPI.None,
+    Title = &quot;Zenith.NET - First Triangle&quot;
+});
+
+window.Initialize();
+window.Center();
+
+window.Run();
+
+window.Dispose();
+</code></pre>
+<p>
+    <doc-text data-resource="tutorial.window.guidance" data-resource-slots="resource-slots-8"><code>GraphicsAPI.None</code> leaves graphics-context creation to Zenith.NET. <code>Initialize()</code> creates the native window and makes its window-system handles available. <code>Center()</code> places the window in the center of the screen. <code>Run()</code> processes events until the window closes, then execution continues to <code>Dispose()</code> to release it.</doc-text>
+</p>
+<p>
+    <doc-text data-resource="tutorial.window.notes">Build and run the application, then check that the window opens, moves, resizes, and closes. Its contents are not yet defined because no rendering commands have been submitted. Close the window before continuing.</doc-text>
+</p>
+<p>
+    <a id="context"></a>
+</p>
+<h2 id="4-connect-the-gpu-to-the-window">
+    4. <doc-text data-resource="tutorial.presentation.title">Graphics context and presentation</doc-text>
+</h2>
+<h3 id="create-the-graphics-context">
+    <doc-text data-resource="tutorial.context.title">Graphics context</doc-text>
+</h3>
+<p>
+    <doc-text data-resource="tutorial.context.description" data-resource-slots="resource-slots-9">A <a class="xref" href="../api/Zenith.NET.GraphicsContext.html"><code>GraphicsContext</code></a> connects the application to the GPU through a backend and provides the methods used to create rendering resources.</doc-text>
+</p>
+<p>
+    <doc-text data-resource="tutorial.context.imports" data-resource-slots="resource-slots-10">Add the following using directives at the top of <code>Program.cs</code>:</doc-text>
+</p>
+<pre><code class="lang-csharp">using Zenith.NET;
+using Zenith.NET.DirectX12;
+using Zenith.NET.Metal;
+using Zenith.NET.Vulkan;
+</code></pre>
+<p>
+    <doc-text data-resource="tutorial.context.details" data-resource-slots="resource-slots-12">Insert the context initialization <strong><doc-text data-resource="tutorial.context.details.emphasis" data-resource-slots="resource-slots-11">after the using directives, before <code>IWindow window</code></doc-text>
+    </strong>
+    :</doc-text>
+</p>
+<pre><code class="lang-csharp">GraphicsContext context;
+if (OperatingSystem.IsWindows())
+{
+    context = GraphicsContext.CreateDirectX12(useValidationLayer: true);
+}
+else if (OperatingSystem.IsMacOS())
+{
+    context = GraphicsContext.CreateMetal(useValidationLayer: true);
+}
+else
+{
+    context = GraphicsContext.CreateVulkan(useValidationLayer: true);
+}
+
+context.ValidationMessage += static (_, args) =&gt; Console.WriteLine($&quot;[{args.Severity}] {args.Message}&quot;);
+</code></pre>
+<p>
+    <doc-text data-resource="tutorial.context.guidance" data-resource-slots="resource-slots-13">Each branch selects a backend for the current platform and requests validation. Messages from <a class="xref" href="../api/Zenith.NET.GraphicsContext.html#Zenith_NET_GraphicsContext_ValidationMessage"><code>ValidationMessage</code></a> are printed in the console.</doc-text>
+</p>
+<h3 id="describe-the-native-surface">
+    <doc-text data-resource="tutorial.surface.title">Native surface</doc-text>
+</h3>
+<p>
+    <doc-text data-resource="tutorial.surface.description" data-resource-slots="resource-slots-15">Specify the native presentation target <strong><doc-text data-resource="tutorial.surface.description.emphasis" data-resource-slots="resource-slots-14">after <code>window.Center()</code> and before <code>window.Run()</code></doc-text>
+    </strong>
+    :</doc-text>
+</p>
+<pre><code class="lang-csharp">uint width = (uint)window.FramebufferSize.X;
+uint height = (uint)window.FramebufferSize.Y;
+
+Surface surface;
+if (OperatingSystem.IsWindows())
+{
+    surface = Surface.Win32(window.Native!.Win32!.Value.Hwnd, width, height);
+}
+else if (OperatingSystem.IsMacOS())
+{
+    surface = Surface.Apple(CocoaHelper.CreateLayer(window.Native!.Cocoa!.Value), width, height);
+}
+else
+{
+    surface = Surface.Xlib(window.Native!.X11!.Value.Display, (nint)window.Native.X11.Value.Window, width, height);
+}
+</code></pre>
+<p>
+    <doc-text data-resource="tutorial.surface.details" data-resource-slots="resource-slots-16">The framebuffer is the window&#39;s image in pixels. <a class="xref" href="../api/Zenith.NET.Surface.html"><code>Surface</code></a> describes the native presentation target and its dimensions, and <code>FramebufferSize</code> gives the size in pixels. With display scaling, this can differ from the window&#39;s logical size.</doc-text>
+</p>
+<p>
+    <doc-text data-resource="tutorial.surface.guidance">The surface supplies the native handles needed by the selected backend: a Win32 window on Windows, an X11 display and window on Linux, or the attached Metal layer on macOS.</doc-text>
+</p>
+<h3 id="create-the-swap-chain">
+    <doc-text data-resource="tutorial.swapChain.title">Swap chain</doc-text>
+</h3>
+<p>
+    <doc-text data-resource="tutorial.swapChain.description">Create the swap chain immediately after the surface description:</doc-text>
+</p>
+<pre><code class="lang-csharp">SwapChain swapChain = context.CreateSwapChain(new()
+{
+    Surface = surface,
+    Format = PixelFormat.B8G8R8A8UNorm
+});
+</code></pre>
+<p>
+    <doc-text data-resource="tutorial.swapChain.details" data-resource-slots="resource-slots-17">The <a class="xref" href="../api/Zenith.NET.SwapChain.html"><code>SwapChain</code></a> manages the images presented by the window. <a class="xref" href="../api/Zenith.NET.SwapChain.html#Zenith_NET_SwapChain_Drawable"><code>Drawable</code></a> supplies the current image as a <a class="xref" href="../api/Zenith.NET.Texture.html"><code>Texture</code></a>, the API&#39;s image resource. After rendering, <a class="xref" href="../api/Zenith.NET.SwapChain.html#Zenith_NET_SwapChain_Present"><code>Present()</code></a> requests display of that image and advances to the next drawable.</doc-text>
+</p>
+<p>
+    <doc-text data-resource="tutorial.swapChain.guidance" data-resource-slots="resource-slots-18"><a class="xref" href="../api/Zenith.NET.PixelFormat.html#Zenith_NET_PixelFormat_B8G8R8A8UNorm"><code>B8G8R8A8UNorm</code></a> stores four 8-bit channels in blue, green, red, and alpha order. <code>UNorm</code> maps integer values 0–255 to values 0–1. Shader output remains a logical RGBA value; the format specifies its storage representation. The pipeline will use <code>swapChain.<a class="xref" href="../api/Zenith.NET.SwapChain.html#Zenith_NET_SwapChain_Desc">Desc</a>.<a class="xref" href="../api/Zenith.NET.SwapChainDesc.html#Zenith_NET_SwapChainDesc_Format">Format</a></code> to match this attachment.</doc-text>
+</p>
+<p>
+    <doc-text data-resource="tutorial.swapChain.context" data-resource-slots="resource-slots-19">The swap chain depends on both the context and the window. Replace <code>window.Dispose();</code> at the end of <code>Program.cs</code> with this disposal order:</doc-text>
+</p>
+<pre><code class="lang-csharp">swapChain.Dispose();
+window.Dispose();
+
+context.Dispose();
+</code></pre>
+<p>
+    <a id="frame-loop"></a>
+</p>
+<h2 id="5-display-a-background-color">
+    5. <doc-text data-resource="tutorial.frame.title">The first frame</doc-text>
+</h2>
+<p>
+    <doc-text data-resource="tutorial.frame.description">Start by filling the window with a single background color. This operation is called clearing. Once the background appears, the surface, command submission, and presentation are working together, ready for the triangle&#39;s geometry and shaders.</doc-text>
+</p>
+<p>
+    <doc-text data-resource="tutorial.frame.details" data-resource-slots="resource-slots-21">Silk.NET invokes the render callback when a frame is due. This example does not use the elapsed-time argument, so the parameter is named <code>_</code>. Register the callback <strong><doc-text data-resource="tutorial.frame.details.emphasis" data-resource-slots="resource-slots-20">before <code>window.Run();</code></doc-text>
+    </strong>
+    :</doc-text>
+</p>
+<pre><code class="lang-csharp">window.Render += _ =&gt;
+{
+    if (width is 0 || height is 0)
+    {
+        return;
+    }
+
+    CommandBuffer commandBuffer = context.GraphicsQueue.CommandBuffer();
+
+    commandBuffer.Transition(swapChain.Drawable, default, TextureLayout.Undefined, TextureLayout.ColorAttachment);
+
+    commandBuffer.BeginRenderPass([ColorAttachment.Clear(swapChain.Drawable, new(0.04f, 0.055f, 0.075f, 1.0f))], null);
+
+    // Add the triangle draw commands here later.
+
+    commandBuffer.EndRenderPass();
+
+    commandBuffer.Transition(swapChain.Drawable, default, TextureLayout.ColorAttachment, TextureLayout.Present);
+
+    commandBuffer.Submit().Wait();
+
+    swapChain.Present();
+};
+</code></pre>
+<h3 id="prepare-the-drawable">
+    <doc-text data-resource="tutorial.frame.target.title">Drawable preparation</doc-text>
+</h3>
+<p>
+    <doc-text data-resource="tutorial.frame.target.description" data-resource-slots="resource-slots-22"><code><a class="xref" href="../api/Zenith.NET.GraphicsContext.html#Zenith_NET_GraphicsContext_GraphicsQueue">GraphicsQueue</a>.<a class="xref" href="../api/Zenith.NET.CommandQueue.html#Zenith_NET_CommandQueue_CommandBuffer">CommandBuffer</a>()</code> returns a command buffer ready for recording. Recording defines the GPU workload; execution begins only after submission.</doc-text>
+</p>
+<p>
+    <doc-text data-resource="tutorial.frame.target.details" data-resource-slots="resource-slots-23">A texture layout describes the kind of access an operation requires. The first <a class="xref" href="../api/Zenith.NET.CommandBuffer.html#Zenith_NET_CommandBuffer_Transition_Zenith_NET_Texture_Zenith_NET_TextureSubresource_Zenith_NET_TextureLayout_Zenith_NET_TextureLayout_"><code>Transition</code></a> prepares the drawable for use as a color attachment. Here, <code>default</code> selects mip level 0 and array layer 0, the drawable&#39;s base image. Specifying <a class="xref" href="../api/Zenith.NET.TextureLayout.html#Zenith_NET_TextureLayout_Undefined"><code>Undefined</code></a> allows the previous contents to be discarded because this pass clears the entire image.</doc-text>
+</p>
+<p>
+    <doc-text data-resource="tutorial.frame.target.guidance">Use the current drawable on each frame because presentation can advance to a different image.</doc-text>
+</p>
+<h3 id="clear-submit-and-present">
+    <doc-text data-resource="tutorial.frame.commands.title">Clear, submission, and presentation</doc-text>
+</h3>
+<p>
+    <doc-text data-resource="tutorial.frame.commands.description" data-resource-slots="resource-slots-24">A render pass groups drawing operations that write to the same attachments. In this pass, the swap chain&#39;s drawable receives the color output. <a class="xref" href="../api/Zenith.NET.ColorAttachment.html#Zenith_NET_ColorAttachment_Clear_Zenith_NET_Texture_System_Numerics_Vector4_"><code>ColorAttachment.Clear</code></a> describes how to initialize that attachment with an RGBA clear color and preserve its contents when the pass ends. <a class="xref" href="../api/Zenith.NET.CommandBuffer.html#Zenith_NET_CommandBuffer_BeginRenderPass_System_ReadOnlySpan_Zenith_NET_ColorAttachment__System_Nullable_Zenith_NET_DepthStencilAttachment__"><code>BeginRenderPass</code></a> records the start of the pass with those settings.</doc-text>
+</p>
+<p>
+    <doc-text data-resource="tutorial.frame.commands.details" data-resource-slots="resource-slots-25">The collection contains one color attachment. <code>null</code> specifies that the pass has no depth/stencil attachment.</doc-text>
+</p>
+<p>
+    <doc-text data-resource="tutorial.frame.commands.guidance" data-resource-slots="resource-slots-26"><a class="xref" href="../api/Zenith.NET.CommandBuffer.html#Zenith_NET_CommandBuffer_BeginRenderPass_System_ReadOnlySpan_Zenith_NET_ColorAttachment__System_Nullable_Zenith_NET_DepthStencilAttachment__"><code>BeginRenderPass</code></a> sets the viewport and scissor to cover the whole attachment. The viewport maps rendering coordinates to pixel positions; the scissor limits where pixels can be written.</doc-text>
+</p>
+<p>
+    <doc-text data-resource="tutorial.frame.commands.context" data-resource-slots="resource-slots-27">After <a class="xref" href="../api/Zenith.NET.CommandBuffer.html#Zenith_NET_CommandBuffer_EndRenderPass"><code>EndRenderPass</code></a>, the second transition prepares the drawable for presentation. <a class="xref" href="../api/Zenith.NET.CommandBuffer.html#Zenith_NET_CommandBuffer_Submit_System_ReadOnlySpan_Zenith_NET_TimelineValue__"><code>Submit()</code></a> ends recording and submits the command buffer; <a class="xref" href="../api/Zenith.NET.TimelineValue.html#Zenith_NET_TimelineValue_Wait"><code>Wait()</code></a> blocks until that submission completes. <a class="xref" href="../api/Zenith.NET.SwapChain.html#Zenith_NET_SwapChain_Present"><code>Present()</code></a> then requests display of the rendered image.</doc-text>
+</p>
+<h3 id="respond-to-resizing">
+    <doc-text data-resource="tutorial.resize.title">Resizing</doc-text>
+</h3>
+<p>
+    <doc-text data-resource="tutorial.resize.description" data-resource-slots="resource-slots-28">The swap chain must follow changes to the framebuffer&#39;s size. Register a <code>FramebufferResize</code> callback after the render callback and before <code>window.Run();</code>:</doc-text>
+</p>
+<pre><code class="lang-csharp">window.FramebufferResize += _ =&gt;
+{
+    width = (uint)window.FramebufferSize.X;
+    height = (uint)window.FramebufferSize.Y;
+
+    if (width is 0 || height is 0)
+    {
+        return;
+    }
+
+    swapChain.Resize(width, height);
+};
+</code></pre>
+<p>
+    <doc-text data-resource="tutorial.resize.details" data-resource-slots="resource-slots-29">Listen for <a href="https://github.com/dotnet/Silk.NET/blob/main/src/Windowing/Silk.NET.Windowing.Common/Interfaces/IView.cs"><doc-text data-resource="tutorial.resize.details.link">framebuffer-size changes</doc-text></a>, which are measured in pixels, rather than changes to the window&#39;s logical size. If minimizing the window sets either framebuffer dimension to zero, the resize callback leaves the swap chain unchanged. The render callback also returns while either dimension is zero, pausing rendering until the framebuffer has a usable size again.</doc-text>
+</p>
+<p>
+    <doc-text data-resource="tutorial.resize.guidance" data-resource-slots="resource-slots-30">The render callback waits for each submitted frame to finish before calling <a class="xref" href="../api/Zenith.NET.SwapChain.html#Zenith_NET_SwapChain_Present"><code>Present()</code></a>. The resize callback can therefore replace the swap-chain images without interrupting work from an earlier frame. The <a href="concepts/synchronization.html#cpu-and-gpu"><doc-text data-resource="tutorial.resize.guidance.link">Synchronization</doc-text></a> article explains these completion and resource-lifetime requirements in more detail.</doc-text>
+</p>
+<p>
+    <doc-text data-resource="tutorial.resize.context">Build and run the application again. The background should continue to fill the window when you resize it: each new render pass sets its viewport and scissor from the resized attachment. Keep the render callback in place; the triangle will be drawn inside this pass.</doc-text>
+</p>
+<p>
+    <a id="resources"></a>
+</p>
+<h2 id="6-give-the-gpu-three-vertices">
+    6. <doc-text data-resource="tutorial.geometry.title">Vertex data</doc-text>
+</h2>
+<p>
+    <doc-text data-resource="tutorial.geometry.description">Each of the triangle&#39;s three vertices has a position and a color. The GPU uses the positions to determine the triangle&#39;s shape and interpolates the colors across its surface.</doc-text>
+</p>
+<h3 id="define-a-vertex">
+    <doc-text data-resource="tutorial.geometry.format.title">Vertex representation</doc-text>
+</h3>
+<p>
+    <doc-text data-resource="tutorial.geometry.format.imports" data-resource-slots="resource-slots-31">Add these using directives at the top of <code>Program.cs</code> for the vector types and the struct layout attribute:</doc-text>
+</p>
+<pre><code class="lang-csharp">using System.Numerics;
+using System.Runtime.InteropServices;
+</code></pre>
+<p>
+    <doc-text data-resource="tutorial.geometry.format.description" data-resource-slots="resource-slots-33">Append the vertex declaration <strong><doc-text data-resource="tutorial.geometry.format.description.emphasis" data-resource-slots="resource-slots-32">at the end of <code>Program.cs</code>, after the cleanup statements</doc-text>
+    </strong>
+    :</doc-text>
+</p>
+<pre><code class="lang-csharp">[StructLayout(LayoutKind.Sequential)]
+file struct Vertex(Vector3 position, Vector4 color)
+{
+    public Vector3 Position = position;
+
+    public Vector4 Color = color;
+}
+</code></pre>
+<p>
+    <doc-text data-resource="tutorial.geometry.format.details" data-resource-slots="resource-slots-34"><code>file</code> limits the type to <code>Program.cs</code>, and <code>LayoutKind.Sequential</code> keeps its fields in declaration order. <code>Position</code> contains three 32-bit floats and starts at byte offset 0; <code>Color</code> contains four and starts at byte offset 12. Each vertex therefore occupies 28 bytes. The input layout will describe this arrangement so the GPU can read the fields correctly.</doc-text>
+</p>
+<h3 id="choose-the-corners">
+    <doc-text data-resource="tutorial.geometry.data.title">Vertex positions and colors</doc-text>
+</h3>
+<p>
+    <doc-text data-resource="tutorial.geometry.data.description" data-resource-slots="resource-slots-36">Add the vertex array <strong><doc-text data-resource="tutorial.geometry.data.description.emphasis" data-resource-slots="resource-slots-35">before <code>window.Render += _ =&gt;</code></doc-text>
+    </strong>
+    . Keep the subsequent resource initialization before this callback as well, in the order presented.</doc-text>
+</p>
+<pre><code class="lang-csharp">Vertex[] vertices =
+[
+    new(new(0.0f, 0.6f, 0.0f), new(1.0f, 0.2f, 0.15f, 1.0f)),
+    new(new(0.6f, -0.5f, 0.0f), new(0.15f, 0.85f, 0.35f, 1.0f)),
+    new(new(-0.6f, -0.5f, 0.0f), new(0.2f, 0.45f, 1.0f, 1.0f))
+];
+</code></pre>
+<p>
+    <doc-text data-resource="tutorial.geometry.data.details" data-resource-slots="resource-slots-37">Each entry constructs a <code>Vertex</code>; the two inner <code>new</code> expressions provide its <code>Vector3</code> position and <code>Vector4</code> color. The positions form the upper, lower-right, and lower-left corners. The vertex shader adds <code>w = 1</code> as the fourth position coordinate. With w equal to 1, x and y are also normalized device coordinates: -1 and +1 mark the image boundaries, and 0 marks the center. Their interpretation is independent of pixel dimensions.</doc-text>
+</p>
+<p>
+    <doc-text data-resource="tutorial.geometry.data.guidance">Each color has red, green, blue, and alpha components, with alpha set to 1. All three vertices have z = 0 and lie in the same plane.</doc-text>
+</p>
+<h3 id="allocate-a-buffer-and-upload-the-array">
+    <doc-text data-resource="tutorial.geometry.upload.title">Buffer allocation and upload</doc-text>
+</h3>
+<p>
+    <doc-text data-resource="tutorial.geometry.upload.imports" data-resource-slots="resource-slots-38">In <code>Program.cs</code>, add <code>using Buffer = <a class="xref" href="../api/Zenith.NET.Buffer.html">Zenith.NET.Buffer</a>;</code> to the using directives to distinguish the Zenith.NET buffer type from <code>System.Buffer</code>.</doc-text>
+</p>
+<p>
+    <doc-text data-resource="tutorial.geometry.upload.description" data-resource-slots="resource-slots-39">Store the vertices in a <a class="xref" href="../api/Zenith.NET.Buffer.html"><code>Buffer</code></a> so the GPU can read them during drawing. Add the allocation and upload immediately after the array:</doc-text>
+</p>
+<pre><code class="lang-csharp">Buffer vertexBuffer;
+
+unsafe
+{
+    vertexBuffer = context.CreateBuffer(new()
+    {
+        SizeInBytes = (uint)(sizeof(Vertex) * vertices.Length),
+        StrideInBytes = (uint)sizeof(Vertex),
+        Usages = BufferUsages.Vertex,
+        Residency = MemoryResidency.CpuWriteOnly
+    });
+
+    fixed (Vertex* pointer = vertices)
+    {
+        vertexBuffer.Upload(0, new()
+        {
+            Pointer = (nint)pointer,
+            SizeInBytes = (uint)(sizeof(Vertex) * vertices.Length)
+        });
+    }
+}
+</code></pre>
+<p>
+    <doc-text data-resource="tutorial.geometry.upload.details" data-resource-slots="resource-slots-40">The allocation size is <code>sizeof(Vertex) * vertices.Length</code>: three 28-byte vertices, or 84 bytes. <a class="xref" href="../api/Zenith.NET.BufferUsages.html#Zenith_NET_BufferUsages_Vertex"><code>BufferUsages.Vertex</code></a> declares vertex-input access, while <a class="xref" href="../api/Zenith.NET.MemoryResidency.html#Zenith_NET_MemoryResidency_CpuWriteOnly"><code>CpuWriteOnly</code></a> permits direct initialization by the CPU. The descriptor&#39;s stride records the element size. The input layout defined below specifies how vertex fetching interprets each attribute.</doc-text>
+</p>
+<p>
+    <doc-text data-resource="tutorial.geometry.upload.guidance" data-resource-slots="resource-slots-41">Allocation does not initialize the buffer&#39;s contents. <a class="xref" href="../api/Zenith.NET.Buffer.html#Zenith_NET_Buffer_Upload_System_UInt32_Zenith_NET_BufferData_"><code>Upload</code></a> copies the array to destination byte offset 0 using the source pointer and byte count supplied in the data description.</doc-text>
+</p>
+<p>
+    <doc-text data-resource="tutorial.geometry.upload.context" data-resource-slots="resource-slots-42"><code>fixed</code> prevents the garbage collector from moving the array while its address is in use. For this CPU-writable buffer, <a class="xref" href="../api/Zenith.NET.Buffer.html#Zenith_NET_Buffer_Upload_System_UInt32_Zenith_NET_BufferData_"><code>Upload</code></a> maps the memory, copies the bytes, and unmaps it before returning, so the array only needs to remain pinned during the call. Upload these vertices once during initialization, and keep the buffer alive until rendering has finished.</doc-text>
+</p>
+<p>
+    <doc-text data-resource="tutorial.geometry.upload.notes" data-resource-slots="resource-slots-43">Add <code>vertexBuffer.<a class="xref" href="../api/Zenith.NET.DisposableObject.html#Zenith_NET_DisposableObject_Dispose">Dispose</a>();</code> immediately before <code>swapChain.<a class="xref" href="../api/Zenith.NET.DisposableObject.html#Zenith_NET_DisposableObject_Dispose">Dispose</a>();</code> in the cleanup at the end of <code>Program.cs</code>. For larger static geometry, <a href="concepts/resource-management.html#memory-placement"><doc-text data-resource="tutorial.geometry.upload.notes.link">Resource Management</doc-text></a> discusses GPU-only storage and transfer uploads.</doc-text>
+</p>
+<p>
+    <a id="shader"></a>
+</p>
+<h2 id="7-write-the-two-shader-stages">
+    7. <doc-text data-resource="tutorial.shaders.title">Shader stages</doc-text>
+</h2>
+<p>
+    <doc-text data-resource="tutorial.shaders.description">Shaders are programs that run on the GPU. The vertex shader determines each vertex&#39;s position, and the fragment shader determines the color at each covered image location. Both stages will be written in one Slang file, with a separate entry point—the function where execution begins—for each stage.</doc-text>
+</p>
+<p>
+    <doc-text data-resource="tutorial.shaders.details" data-resource-slots="resource-slots-44">Create <code>Triangle.slang</code> with these input and output structures:</doc-text>
+</p>
+<pre><code class="lang-slang">struct VSInput
+{
+    float3 Position : POSITION0;
+
+    float4 Color : COLOR0;
+};
+
+struct FSInput
+{
+    float4 Position : SV_POSITION;
+
+    float4 Color : COLOR0;
+};
+</code></pre>
+<p>
+    <doc-text data-resource="tutorial.shaders.guidance" data-resource-slots="resource-slots-45"><code>VSInput</code> defines the vertex shader&#39;s inputs. <code>POSITION0</code> and <code>COLOR0</code> identify the attributes by semantic; the C# field names alone do not establish this mapping.</doc-text>
+</p>
+<p>
+    <doc-text data-resource="tutorial.shaders.context" data-resource-slots="resource-slots-46"><code>FSInput</code> connects the two shader stages. The vertex shader writes a clip-space position to <code>SV_POSITION</code>; the GPU uses this position to determine which part of the triangle is visible. The <code>COLOR0</code> field carries the vertex color, which is interpolated across the triangle before reaching the fragment shader. Its type and semantic must agree between the two stages.</doc-text>
+</p>
+<h3 id="position-each-vertex">
+    <doc-text data-resource="tutorial.shaders.vertex.title">Vertex shading</doc-text>
+</h3>
+<p>
+    <doc-text data-resource="tutorial.shaders.vertex.description" data-resource-slots="resource-slots-47">Append the vertex entry point to <code>Triangle.slang</code>:</doc-text>
+</p>
+<pre><code class="lang-slang">[shader(&quot;vertex&quot;)]
+FSInput VSMain(VSInput input)
+{
+    FSInput output;
+    output.Position = float4(input.Position, 1.0);
+    output.Color = input.Color;
+
+    return output;
+}
+</code></pre>
+<p>
+    <doc-text data-resource="tutorial.shaders.vertex.details" data-resource-slots="resource-slots-48">The GPU invokes this entry point for each input vertex. It adds the homogeneous coordinate <code>w = 1</code> and forwards the color. After vertex processing, position is divided by w. Since w is 1 here, x, y, and z are unchanged and may be interpreted directly as normalized device coordinates.</doc-text>
+</p>
+<h3 id="color-the-fragments">
+    <doc-text data-resource="tutorial.shaders.fragment.title">Fragment shading</doc-text>
+</h3>
+<p>
+    <doc-text data-resource="tutorial.shaders.fragment.description">Append the fragment entry point to the same file:</doc-text>
+</p>
+<pre><code class="lang-slang">[shader(&quot;fragment&quot;)]
+float4 FSMain(FSInput input) : SV_TARGET
+{
+    return input.Color;
+}
+</code></pre>
+<p>
+    <doc-text data-resource="tutorial.shaders.fragment.details" data-resource-slots="resource-slots-49">Rasterization determines where the triangle covers the image and generates fragments for those locations. Each fragment receives a color interpolated from the three vertex colors. <code>FSMain</code> returns this color, and <code>SV_TARGET</code> directs the result to the first color attachment.</doc-text>
+</p>
+<h3 id="compile-for-the-selected-backend">
+    <doc-text data-resource="tutorial.shaders.compilation.title">Compiling the shaders</doc-text>
+</h3>
+<p>
+    <doc-text data-resource="tutorial.shaders.compilation.description" data-resource-slots="resource-slots-50">For <code>Triangle.slang</code>, set the file property <strong><doc-text data-resource="tutorial.shaders.compilation.description.emphasis">Copy to Output Directory</doc-text></strong> to <strong><doc-text data-resource="tutorial.shaders.compilation.description.detail">Copy if newer</doc-text></strong>. The build will then copy the shader beside the executable.</doc-text>
+</p>
+<p>
+    <doc-text data-resource="tutorial.shaders.compilation.details" data-resource-slots="resource-slots-51">Return to <code>Program.cs</code> and add shader initialization after the vertex upload, before the render callback:</doc-text>
+</p>
+<pre><code class="lang-csharp">string shaderPath = Path.Combine(AppContext.BaseDirectory, &quot;Triangle.slang&quot;);
+
+Shader vertexShader = context.CreateShader(ZenithCompiler.CompileFromFile(context.GraphicsApi, shaderPath, &quot;VSMain&quot;));
+Shader fragmentShader = context.CreateShader(ZenithCompiler.CompileFromFile(context.GraphicsApi, shaderPath, &quot;FSMain&quot;));
+</code></pre>
+<p>
+    <doc-text data-resource="tutorial.shaders.compilation.guidance" data-resource-slots="resource-slots-52"><a class="xref" href="../api/Zenith.NET.ZenithCompiler.html"><code>ZenithCompiler</code></a> compiles the source for <code>context.<a class="xref" href="../api/Zenith.NET.GraphicsContext.html#Zenith_NET_GraphicsContext_GraphicsApi">GraphicsApi</a></code>, and <a class="xref" href="../api/Zenith.NET.GraphicsContext.html#Zenith_NET_GraphicsContext_CreateShader_Zenith_NET_ShaderDesc_"><code>CreateShader</code></a> creates a shader object from the compiled description. The entry-point names <code>VSMain</code> and <code>FSMain</code> select the two functions defined in the Slang file.</doc-text>
+</p>
+<p>
+    <doc-text data-resource="tutorial.shaders.compilation.context" data-resource-slots="resource-slots-53">Using <code>AppContext.BaseDirectory</code> loads the copied shader from the application&#39;s output directory, so launching the application from another working directory does not change where it looks for the file.</doc-text>
+</p>
+<p>
+    <a id="vertex-layout"></a>
+</p>
+<h2 id="8-describe-the-vertex-input-layout">
+    8. <doc-text data-resource="tutorial.input.title">Vertex input layout</doc-text>
+</h2>
+<p>
+    <doc-text data-resource="tutorial.input.description">The GPU needs to know where each vertex attribute, such as position or color, is stored. The input layout supplies its format and byte offset. It also sets the stride: the number of bytes from one vertex to the next. Add this code after creating the shaders:</doc-text>
+</p>
+<pre><code class="lang-csharp">InputLayout inputLayout = new();
+inputLayout.Add(new() { Format = ElementFormat.Float3, Semantic = ElementSemantic.Position });
+inputLayout.Add(new() { Format = ElementFormat.Float4, Semantic = ElementSemantic.Color });
+</code></pre>
+<p>
+    <doc-text data-resource="tutorial.input.details" data-resource-slots="resource-slots-54"><a class="xref" href="../api/Zenith.NET.InputLayout.html#Zenith_NET_InputLayout_Add_Zenith_NET_InputElement_"><code>InputLayout.Add</code></a> appends each attribute after the previous one and adds its size to the stride. The offsets come from the formats supplied here, rather than from inspection of the C# struct. For these two fields, the resulting layout is:</doc-text>
+</p>
+<table>
+    <thead>
+        <tr>
+            <th>
+                <doc-text data-resource="tutorial.input.table.headings.cField">C# field</doc-text>
+            </th>
+            <th>
+                <doc-text data-resource="tutorial.input.table.headings.byteOffset">Byte offset</doc-text>
+            </th>
+            <th>
+                <doc-text data-resource="tutorial.input.table.headings.format">Format</doc-text>
+            </th>
+            <th>
+                <doc-text data-resource="tutorial.input.table.headings.shaderInput">Shader input</doc-text>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <code>Vertex.Position</code>
+            </td>
+            <td>0</td>
+            <td>
+                <doc-text data-resource="tutorial.input.table.vertexPosition.format" data-resource-slots="resource-slots-55"><a class="xref" href="../api/Zenith.NET.ElementFormat.html#Zenith_NET_ElementFormat_Float3"><code>Float3</code></a> (12 bytes)</doc-text>
+            </td>
+            <td>
+                <code>POSITION0</code>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <code>Vertex.Color</code>
+            </td>
+            <td>12</td>
+            <td>
+                <doc-text data-resource="tutorial.input.table.vertexColor.format" data-resource-slots="resource-slots-56"><a class="xref" href="../api/Zenith.NET.ElementFormat.html#Zenith_NET_ElementFormat_Float4"><code>Float4</code></a> (16 bytes)</doc-text>
+            </td>
+            <td>
+                <code>COLOR0</code>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <doc-text data-resource="tutorial.input.table.nextVertex.cField">Next vertex</doc-text>
+            </td>
+            <td>28</td>
+            <td>
+                <doc-text data-resource="tutorial.input.table.nextVertex.format">Total stride: 28 bytes</doc-text>
+            </td>
+            <td>
+                <doc-text data-resource="tutorial.input.table.nextVertex.shaderInput">Next input record</doc-text>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>
+    <doc-text data-resource="tutorial.input.guidance" data-resource-slots="resource-slots-57">The default <a class="xref" href="../api/Zenith.NET.InputElement.html#Zenith_NET_InputElement_SemanticIndex"><code>SemanticIndex</code></a> is zero, matching <code>POSITION0</code> and <code>COLOR0</code> in the shader. Position and color are stored together in one vertex buffer, so the pipeline uses one input layout at slot 0. Keep this layout consistent with the C# struct if its field order or padding changes.</doc-text>
+</p>
+<p>
+    <a id="pipeline"></a>
+</p>
+<h2 id="9-connect-the-shaders-and-vertex-layout">
+    9. <doc-text data-resource="tutorial.pipeline.title">Graphics pipeline</doc-text>
+</h2>
+<p>
+    <doc-text data-resource="tutorial.pipeline.description" data-resource-slots="resource-slots-58">A <a class="xref" href="../api/Zenith.NET.GraphicsPipeline.html"><code>GraphicsPipeline</code></a> brings together the vertex layout, the two shaders, and the settings that determine how primitives are assembled and written to attachments.</doc-text>
+</p>
+<p>
+    <doc-text data-resource="tutorial.pipeline.details">The shaders process vertices and fragments. The other pipeline settings control primitive assembly, face culling, depth testing, and blending:</doc-text>
+</p>
+<ul>
+    <li>
+        <doc-text data-resource="tutorial.pipeline.item" data-resource-slots="resource-slots-59"><a class="xref" href="../api/Zenith.NET.PrimitiveTopology.html#Zenith_NET_PrimitiveTopology_TriangleList"><code>TriangleList</code></a> assembles each consecutive group of three vertices into a triangle.</doc-text>
+    </li>
+    <li>
+        <doc-text data-resource="tutorial.pipeline.guidance" data-resource-slots="resource-slots-60">The pipeline&#39;s color format must match the render-pass attachment, so it is taken from <code>swapChain.<a class="xref" href="../api/Zenith.NET.SwapChain.html#Zenith_NET_SwapChain_Desc">Desc</a>.<a class="xref" href="../api/Zenith.NET.SwapChainDesc.html#Zenith_NET_SwapChainDesc_Format">Format</a></code>. <a class="xref" href="../api/Zenith.NET.SampleCount.html#Zenith_NET_SampleCount_Count1"><code>Count1</code></a> specifies one sample per pixel.</doc-text>
+    </li>
+    <li>
+        <doc-text data-resource="tutorial.pipeline.context" data-resource-slots="resource-slots-61"><a class="xref" href="../api/Zenith.NET.RasterizerState.html#Zenith_NET_RasterizerState_CullNone"><code>CullNone()</code></a> disables face culling, so the triangle is drawn whether its vertices appear clockwise or counterclockwise.</doc-text>
+    </li>
+    <li>
+        <doc-text data-resource="tutorial.pipeline.notes" data-resource-slots="resource-slots-62"><a class="xref" href="../api/Zenith.NET.DepthStencilState.html#Zenith_NET_DepthStencilState_DepthNone"><code>DepthNone()</code></a> disables depth testing and depth writes, consistent with the absence of a depth attachment.</doc-text>
+    </li>
+    <li>
+        <doc-text data-resource="tutorial.pipeline.reference" data-resource-slots="resource-slots-63"><a class="xref" href="../api/Zenith.NET.BlendState.html#Zenith_NET_BlendState_Opaque"><code>Opaque()</code></a> disables blending. The fragment shader&#39;s output therefore replaces the background color inside the triangle.</doc-text>
+    </li>
+</ul>
+<p>
+    <doc-text data-resource="tutorial.pipeline.behavior">After the input layout, create the pipeline:</doc-text>
+</p>
+<pre><code class="lang-csharp">GraphicsPipeline pipeline = context.CreateGraphicsPipeline(new()
+{
+    VertexShader = vertexShader,
+    FragmentShader = fragmentShader,
+    InputLayouts = [inputLayout],
+    PrimitiveTopology = PrimitiveTopology.TriangleList,
+    AttachmentFormats = new()
+    {
+        ColorFormats = [swapChain.Desc.Format],
+        SampleCount = SampleCount.Count1
+    },
+    RenderState = new()
+    {
+        Rasterizer = RasterizerState.CullNone(),
+        DepthStencil = DepthStencilState.DepthNone(),
+        Blend = BlendState.Opaque()
+    }
+});
+
+vertexShader.Dispose();
+fragmentShader.Dispose();
+</code></pre>
+<p>
+    <doc-text data-resource="tutorial.pipeline.usage" data-resource-slots="resource-slots-64">Shader objects may be released after pipeline creation. Keep the pipeline alive while rendering, and add <code>pipeline.<a class="xref" href="../api/Zenith.NET.DisposableObject.html#Zenith_NET_DisposableObject_Dispose">Dispose</a>();</code> before <code>vertexBuffer.<a class="xref" href="../api/Zenith.NET.DisposableObject.html#Zenith_NET_DisposableObject_Dispose">Dispose</a>();</code> in the cleanup.</doc-text>
+</p>
+<p>
+    <a id="draw"></a>
+</p>
+<h2 id="10-draw-the-triangle-inside-the-pass">
+    10. <doc-text data-resource="tutorial.draw.title">Drawing commands</doc-text>
+</h2>
+<p>
+    <doc-text data-resource="tutorial.draw.description" data-resource-slots="resource-slots-65">In the <code>window.Render</code> callback, replace <code>// Add the triangle draw commands here later.</code> with the following commands, between <a class="xref" href="../api/Zenith.NET.CommandBuffer.html#Zenith_NET_CommandBuffer_BeginRenderPass_System_ReadOnlySpan_Zenith_NET_ColorAttachment__System_Nullable_Zenith_NET_DepthStencilAttachment__"><code>BeginRenderPass</code></a> and <a class="xref" href="../api/Zenith.NET.CommandBuffer.html#Zenith_NET_CommandBuffer_EndRenderPass"><code>EndRenderPass</code></a>:</doc-text>
+</p>
+<pre><code class="lang-csharp">commandBuffer.SetPipeline(pipeline);
+commandBuffer.SetVertexBuffer(vertexBuffer, 0, 0);
+
+commandBuffer.Draw(3, 1, 0, 0);
+</code></pre>
+<p>
+    <doc-text data-resource="tutorial.draw.details" data-resource-slots="resource-slots-66"><a class="xref" href="../api/Zenith.NET.CommandBuffer.html#Zenith_NET_CommandBuffer_SetPipeline_Zenith_NET_GraphicsPipeline_"><code>SetPipeline</code></a> selects the shaders and render state. It must precede vertex binding because the backend interprets that binding using the pipeline&#39;s input layout.</doc-text>
+</p>
+<p>
+    <doc-text data-resource="tutorial.draw.guidance" data-resource-slots="resource-slots-67"><code><a class="xref" href="../api/Zenith.NET.CommandBuffer.html#Zenith_NET_CommandBuffer_SetVertexBuffer_Zenith_NET_Buffer_System_UInt32_System_UInt32_">SetVertexBuffer</a>(vertexBuffer, 0, 0)</code> binds the uploaded vertex data at byte offset 0 to input slot 0, corresponding to the single entry in <a class="xref" href="../api/Zenith.NET.GraphicsPipelineDesc.html#Zenith_NET_GraphicsPipelineDesc_InputLayouts"><code>InputLayouts</code></a>.</doc-text>
+</p>
+<p>
+    <doc-text data-resource="tutorial.draw.context" data-resource-slots="resource-slots-68">The arguments to <a class="xref" href="../api/Zenith.NET.CommandBuffer.html#Zenith_NET_CommandBuffer_Draw_System_UInt32_System_UInt32_System_UInt32_System_UInt32_"><code>Draw</code></a> are:</doc-text>
+</p>
+<table>
+    <thead>
+        <tr>
+            <th>
+                <doc-text data-resource="tutorial.draw.table.headings.argument">Argument</doc-text>
+            </th>
+            <th>
+                <doc-text data-resource="tutorial.draw.table.headings.description">Value</doc-text>
+            </th>
+            <th>
+                <doc-text data-resource="tutorial.draw.table.headings.meaning">Meaning</doc-text>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <code>vertexCount</code>
+            </td>
+            <td>3</td>
+            <td>
+                <doc-text data-resource="tutorial.draw.table.vertexCount.meaning">Read three vertices.</doc-text>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <code>instanceCount</code>
+            </td>
+            <td>1</td>
+            <td>
+                <doc-text data-resource="tutorial.draw.table.instanceCount.meaning">Draw one copy of the triangle.</doc-text>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <code>firstVertex</code>
+            </td>
+            <td>0</td>
+            <td>
+                <doc-text data-resource="tutorial.draw.table.firstVertex.meaning">Start with the first vertex in the buffer.</doc-text>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <code>firstInstance</code>
+            </td>
+            <td>0</td>
+            <td>
+                <doc-text data-resource="tutorial.draw.table.firstInstance.meaning">Start instance numbering at zero.</doc-text>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>
+    <doc-text data-resource="tutorial.draw.notes" data-resource-slots="resource-slots-69">These calls record the draw commands. The existing <code><a class="xref" href="../api/Zenith.NET.CommandBuffer.html#Zenith_NET_CommandBuffer_Submit_System_ReadOnlySpan_Zenith_NET_TimelineValue__">Submit</a>().<a class="xref" href="../api/Zenith.NET.TimelineValue.html#Zenith_NET_TimelineValue_Wait">Wait</a>()</code> submits them and waits for the GPU to finish; <a class="xref" href="../api/Zenith.NET.SwapChain.html#Zenith_NET_SwapChain_Present"><code>Present()</code></a> then requests display of the completed image. Keep the clear operation at the start of the pass so the area outside the triangle has a defined background color.</doc-text>
+</p>
+<p>
+    <a id="run"></a>
+</p>
+<h2 id="11-run-resize-and-close">
+    11. <doc-text data-resource="tutorial.execution.title">Running the application</doc-text>
+</h2>
+<p>
+    <doc-text data-resource="tutorial.execution.description" data-resource-slots="resource-slots-70">Build and run the <code>FirstTriangle</code> project.</doc-text>
+</p>
+<p>
+    <doc-text data-resource="tutorial.execution.details">You should see a triangle on a dark background, with red at the top, green at the lower right, and blue at the lower left. Interpolation creates smooth transitions between the vertex colors across the triangle.</doc-text>
+</p>
+<p>
+    <doc-text data-resource="tutorial.execution.guidance">Resizing changes the image&#39;s pixel dimensions while the vertex coordinates stay the same. The viewport maps those coordinates to the new width and height, so the triangle stretches when the window&#39;s width-to-height ratio changes.</doc-text>
+</p>
+<h3 id="follow-the-lifetime-of-one-frame">
+    <doc-text data-resource="tutorial.lifecycle.title">Frame lifecycle and cleanup</doc-text>
+</h3>
+<p>
+    <doc-text data-resource="tutorial.lifecycle.description">Each frame follows this sequence:</doc-text>
+</p>
+<pre><code class="lang-text">Get the current drawable
+          ↓
+Transition to ColorAttachment
+          ↓
+Clear and draw the triangle
+          ↓
+Transition to Present
+          ↓
+Submit and wait
+          ↓
+Present
+</code></pre>
+<p>
+    <doc-text data-resource="tutorial.lifecycle.details" data-resource-slots="resource-slots-71">When the window closes, <code>Run</code> returns and execution continues to the cleanup code. Each frame has already waited for its submitted work to finish, so the resources used by those commands can now be released. The complete cleanup after <code>window.Run();</code> is:</doc-text>
+</p>
+<pre><code class="lang-csharp">pipeline.Dispose();
+vertexBuffer.Dispose();
+swapChain.Dispose();
+window.Dispose();
+
+context.Dispose();
+</code></pre>
+<p>
+    <doc-text data-resource="tutorial.lifecycle.guidance" data-resource-slots="resource-slots-72">Release the swap chain before destroying its native window, and release the context after its resources. Submitted command buffers are recycled by the queue, and the drawable is managed by the swap chain, so neither needs a separate <a class="xref" href="../api/Zenith.NET.DisposableObject.html#Zenith_NET_DisposableObject_Dispose"><code>Dispose()</code></a> call.</doc-text>
+</p>
+<h3 id="check-the-stage-that-failed">
+    <doc-text data-resource="tutorial.troubleshooting.title">Troubleshooting</doc-text>
+</h3>
+<p>
+    <doc-text data-resource="tutorial.troubleshooting.description">Use console diagnostics and the three checkpoints to identify the failing stage:</doc-text>
+</p>
+<table>
+    <thead>
+        <tr>
+            <th>
+                <doc-text data-resource="tutorial.troubleshooting.table.headings.symptom">Symptom</doc-text>
+            </th>
+            <th>
+                <doc-text data-resource="tutorial.troubleshooting.table.headings.check">Check</doc-text>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <doc-text data-resource="tutorial.troubleshooting.table.window.symptom">No window opens</doc-text>
+            </td>
+            <td>
+                <doc-text data-resource="tutorial.troubleshooting.table.window.check">Confirm the .NET project builds and the window-only step runs in a desktop session. On Linux, check that X11 or XWayland is available.</doc-text>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <doc-text data-resource="tutorial.troubleshooting.table.backend.symptom">Backend creation fails</doc-text>
+            </td>
+            <td>
+                <doc-text data-resource="tutorial.troubleshooting.table.backend.check">Check that the selected backend is supported by the device and installed graphics driver.</doc-text>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <doc-text data-resource="tutorial.troubleshooting.table.shaders.symptom">The clear-color step works, but shader loading fails</doc-text>
+            </td>
+            <td>
+                <doc-text data-resource="tutorial.troubleshooting.table.shaders.check" data-resource-slots="resource-slots-73">Check the copied <code>Triangle.slang</code>, entry-point spelling and the compiler&#39;s reported diagnostic.</doc-text>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <doc-text data-resource="tutorial.troubleshooting.table.drawing.symptom">The background appears but the triangle does not</doc-text>
+            </td>
+            <td>
+                <doc-text data-resource="tutorial.troubleshooting.table.drawing.check">Check the upload size, input layout, pipeline selection and the placement of the draw commands inside the render pass.</doc-text>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <doc-text data-resource="tutorial.troubleshooting.table.input.symptom">Vertex positions or colors are corrupted</doc-text>
+            </td>
+            <td>
+                <doc-text data-resource="tutorial.troubleshooting.table.input.check">Check the 28-byte stride and the position/color offsets of 0 and 12.</doc-text>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>
+    <doc-text data-resource="tutorial.troubleshooting.details" data-resource-slots="resource-slots-74">The <a href="https://github.com/qian-o/ZenithTutorials/blob/master/ZenithTutorials/Renderers/HelloTriangleRenderer.cs"><doc-text data-resource="tutorial.troubleshooting.details.link">sample renderer</doc-text></a> and <a href="https://github.com/qian-o/ZenithTutorials/blob/master/ZenithTutorials/Assets/Shaders/HelloTriangle.slang"><doc-text data-resource="tutorial.troubleshooting.details.detail">Slang shader</doc-text></a> provide a reference for the vertex data, input layout, and draw operation. That example separates windowing and submission into a shared host; this tutorial retains the application flow in <code>Program.cs</code>. <a href="samples.html#spinning-cube"><doc-text data-resource="tutorial.troubleshooting.details.context">Spinning Cube</doc-text></a> introduces indexed drawing, transformations, and depth testing.</doc-text>
+</p>
+
+</article>
+            </div>
+
+                <aside class="affix article-outline">
+                    <nav id="article-outline" data-resource-label="ui.outline.title" aria-label="On this page">
+                    </nav>
+                </aside>
+        </main>
+
+        <template id="resource-slots-0"><span data-slot="emphasis"><strong><doc-text data-resource="tutorial.requirements.description.emphasis">.NET 10 SDK</doc-text></strong></span><span data-slot="net10"><code>net10.0</code></span></template><template id="resource-slots-1"><span data-slot="cAMetalLayerCs"><a href="https://github.com/qian-o/Metal.NET/blob/master/Metal.NET/CoreAnimation/CAMetalLayer.cs">CAMetalLayer.cs</a></span></template><template id="resource-slots-2"><span data-slot="link"><a href="https://github.com/qian-o/ZenithTutorials/blob/master/ZenithTutorials/Renderers/HelloTriangleRenderer.cs"><doc-text data-resource="tutorial.requirements.context.link">Hello Triangle sample</doc-text></a></span><span data-slot="detail"><a href="https://github.com/qian-o/ZenithTutorials/blob/master/ZenithTutorials/App.cs"><doc-text data-resource="tutorial.requirements.context.detail">shared host</doc-text></a></span></template><template id="resource-slots-3"><span data-slot="firstTriangle"><code>FirstTriangle</code></span></template><template id="resource-slots-4"><span data-slot="zenithNET"><code>Zenith.NET</code></span><span data-slot="zenithNETCompiler"><code>Zenith.NET.Compiler</code></span></template><template id="resource-slots-5"><span data-slot="emphasis"><strong><doc-text data-resource="tutorial.project.context.emphasis">Allow unsafe code</doc-text></strong></span><span data-slot="allowUnsafeBlocks"><code>AllowUnsafeBlocks</code></span></template><template id="resource-slots-6"><span data-slot="cocoaHelperCs"><a href="https://github.com/qian-o/ZenithTutorials/blob/master/ZenithTutorials/CocoaHelper.cs">CocoaHelper.cs</a></span></template><template id="resource-slots-7"><span data-slot="programCs"><code>Program.cs</code></span><span data-slot="main"><code>Main</code></span></template><template id="resource-slots-8"><span data-slot="graphicsAPINone"><code>GraphicsAPI.None</code></span><span data-slot="initialize"><code>Initialize()</code></span><span data-slot="center"><code>Center()</code></span><span data-slot="run"><code>Run()</code></span><span data-slot="dispose"><code>Dispose()</code></span></template><template id="resource-slots-9"><span data-slot="graphicsContext"><a class="xref" href="../api/Zenith.NET.GraphicsContext.html"><code>GraphicsContext</code></a></span></template><template id="resource-slots-10"><span data-slot="programCs"><code>Program.cs</code></span></template><template id="resource-slots-11"><span data-slot="iWindowWindow"><code>IWindow window</code></span></template><template id="resource-slots-12"><span data-slot="emphasis"><strong><doc-text data-resource="tutorial.context.details.emphasis" data-resource-slots="resource-slots-11">after the using directives, before <code>IWindow window</code></doc-text>
+    </strong>
+    </span></template><template id="resource-slots-13"><span data-slot="validationMessage"><a class="xref" href="../api/Zenith.NET.GraphicsContext.html#Zenith_NET_GraphicsContext_ValidationMessage"><code>ValidationMessage</code></a></span></template><template id="resource-slots-14"><span data-slot="windowCenter"><code>window.Center()</code></span><span data-slot="windowRun"><code>window.Run()</code></span></template><template id="resource-slots-15"><span data-slot="emphasis"><strong><doc-text data-resource="tutorial.surface.description.emphasis" data-resource-slots="resource-slots-14">after <code>window.Center()</code> and before <code>window.Run()</code></doc-text>
+    </strong>
+    </span></template><template id="resource-slots-16"><span data-slot="surface"><a class="xref" href="../api/Zenith.NET.Surface.html"><code>Surface</code></a></span><span data-slot="framebufferSize"><code>FramebufferSize</code></span></template><template id="resource-slots-17"><span data-slot="swapChain"><a class="xref" href="../api/Zenith.NET.SwapChain.html"><code>SwapChain</code></a></span><span data-slot="drawable"><a class="xref" href="../api/Zenith.NET.SwapChain.html#Zenith_NET_SwapChain_Drawable"><code>Drawable</code></a></span><span data-slot="texture"><a class="xref" href="../api/Zenith.NET.Texture.html"><code>Texture</code></a></span><span data-slot="present"><a class="xref" href="../api/Zenith.NET.SwapChain.html#Zenith_NET_SwapChain_Present"><code>Present()</code></a></span></template><template id="resource-slots-18"><span data-slot="b8G8R8A8UNorm"><a class="xref" href="../api/Zenith.NET.PixelFormat.html#Zenith_NET_PixelFormat_B8G8R8A8UNorm"><code>B8G8R8A8UNorm</code></a></span><span data-slot="uNorm"><code>UNorm</code></span><span data-slot="swapChainDescFormat"><code>swapChain.<a class="xref" href="../api/Zenith.NET.SwapChain.html#Zenith_NET_SwapChain_Desc">Desc</a>.<a class="xref" href="../api/Zenith.NET.SwapChainDesc.html#Zenith_NET_SwapChainDesc_Format">Format</a></code></span></template><template id="resource-slots-19"><span data-slot="windowDispose"><code>window.Dispose();</code></span><span data-slot="programCs"><code>Program.cs</code></span></template><template id="resource-slots-20"><span data-slot="windowRun"><code>window.Run();</code></span></template><template id="resource-slots-21"><span data-slot="value"><code>_</code></span><span data-slot="emphasis"><strong><doc-text data-resource="tutorial.frame.details.emphasis" data-resource-slots="resource-slots-20">before <code>window.Run();</code></doc-text>
+    </strong>
+    </span></template><template id="resource-slots-22"><span data-slot="graphicsQueueCommandBuffer"><code><a class="xref" href="../api/Zenith.NET.GraphicsContext.html#Zenith_NET_GraphicsContext_GraphicsQueue">GraphicsQueue</a>.<a class="xref" href="../api/Zenith.NET.CommandQueue.html#Zenith_NET_CommandQueue_CommandBuffer">CommandBuffer</a>()</code></span></template><template id="resource-slots-23"><span data-slot="transition"><a class="xref" href="../api/Zenith.NET.CommandBuffer.html#Zenith_NET_CommandBuffer_Transition_Zenith_NET_Texture_Zenith_NET_TextureSubresource_Zenith_NET_TextureLayout_Zenith_NET_TextureLayout_"><code>Transition</code></a></span><span data-slot="default"><code>default</code></span><span data-slot="undefined"><a class="xref" href="../api/Zenith.NET.TextureLayout.html#Zenith_NET_TextureLayout_Undefined"><code>Undefined</code></a></span></template><template id="resource-slots-24"><span data-slot="colorAttachmentClear"><a class="xref" href="../api/Zenith.NET.ColorAttachment.html#Zenith_NET_ColorAttachment_Clear_Zenith_NET_Texture_System_Numerics_Vector4_"><code>ColorAttachment.Clear</code></a></span><span data-slot="beginRenderPass"><a class="xref" href="../api/Zenith.NET.CommandBuffer.html#Zenith_NET_CommandBuffer_BeginRenderPass_System_ReadOnlySpan_Zenith_NET_ColorAttachment__System_Nullable_Zenith_NET_DepthStencilAttachment__"><code>BeginRenderPass</code></a></span></template><template id="resource-slots-25"><span data-slot="null"><code>null</code></span></template><template id="resource-slots-26"><span data-slot="beginRenderPass"><a class="xref" href="../api/Zenith.NET.CommandBuffer.html#Zenith_NET_CommandBuffer_BeginRenderPass_System_ReadOnlySpan_Zenith_NET_ColorAttachment__System_Nullable_Zenith_NET_DepthStencilAttachment__"><code>BeginRenderPass</code></a></span></template><template id="resource-slots-27"><span data-slot="endRenderPass"><a class="xref" href="../api/Zenith.NET.CommandBuffer.html#Zenith_NET_CommandBuffer_EndRenderPass"><code>EndRenderPass</code></a></span><span data-slot="submit"><a class="xref" href="../api/Zenith.NET.CommandBuffer.html#Zenith_NET_CommandBuffer_Submit_System_ReadOnlySpan_Zenith_NET_TimelineValue__"><code>Submit()</code></a></span><span data-slot="wait"><a class="xref" href="../api/Zenith.NET.TimelineValue.html#Zenith_NET_TimelineValue_Wait"><code>Wait()</code></a></span><span data-slot="present"><a class="xref" href="../api/Zenith.NET.SwapChain.html#Zenith_NET_SwapChain_Present"><code>Present()</code></a></span></template><template id="resource-slots-28"><span data-slot="framebufferResize"><code>FramebufferResize</code></span><span data-slot="windowRun"><code>window.Run();</code></span></template><template id="resource-slots-29"><span data-slot="link"><a href="https://github.com/dotnet/Silk.NET/blob/main/src/Windowing/Silk.NET.Windowing.Common/Interfaces/IView.cs"><doc-text data-resource="tutorial.resize.details.link">framebuffer-size changes</doc-text></a></span></template><template id="resource-slots-30"><span data-slot="present"><a class="xref" href="../api/Zenith.NET.SwapChain.html#Zenith_NET_SwapChain_Present"><code>Present()</code></a></span><span data-slot="link"><a href="concepts/synchronization.html#cpu-and-gpu"><doc-text data-resource="tutorial.resize.guidance.link">Synchronization</doc-text></a></span></template><template id="resource-slots-31"><span data-slot="programCs"><code>Program.cs</code></span></template><template id="resource-slots-32"><span data-slot="programCs"><code>Program.cs</code></span></template><template id="resource-slots-33"><span data-slot="emphasis"><strong><doc-text data-resource="tutorial.geometry.format.description.emphasis" data-resource-slots="resource-slots-32">at the end of <code>Program.cs</code>, after the cleanup statements</doc-text>
+    </strong>
+    </span></template><template id="resource-slots-34"><span data-slot="file"><code>file</code></span><span data-slot="programCs"><code>Program.cs</code></span><span data-slot="layoutKindSequential"><code>LayoutKind.Sequential</code></span><span data-slot="position"><code>Position</code></span><span data-slot="color"><code>Color</code></span></template><template id="resource-slots-35"><span data-slot="windowRender"><code>window.Render += _ =&gt;</code></span></template><template id="resource-slots-36"><span data-slot="emphasis"><strong><doc-text data-resource="tutorial.geometry.data.description.emphasis" data-resource-slots="resource-slots-35">before <code>window.Render += _ =&gt;</code></doc-text>
+    </strong>
+    </span></template><template id="resource-slots-37"><span data-slot="vertex"><code>Vertex</code></span><span data-slot="new"><code>new</code></span><span data-slot="vector3"><code>Vector3</code></span><span data-slot="vector4"><code>Vector4</code></span><span data-slot="w"><code>w = 1</code></span></template><template id="resource-slots-38"><span data-slot="programCs"><code>Program.cs</code></span><span data-slot="bufferAlias"><code>using Buffer = <a class="xref" href="../api/Zenith.NET.Buffer.html">Zenith.NET.Buffer</a>;</code></span><span data-slot="systemBuffer"><code>System.Buffer</code></span></template><template id="resource-slots-39"><span data-slot="buffer"><a class="xref" href="../api/Zenith.NET.Buffer.html"><code>Buffer</code></a></span></template><template id="resource-slots-40"><span data-slot="sizeofVertexVerticesLength"><code>sizeof(Vertex) * vertices.Length</code></span><span data-slot="bufferUsagesVertex"><a class="xref" href="../api/Zenith.NET.BufferUsages.html#Zenith_NET_BufferUsages_Vertex"><code>BufferUsages.Vertex</code></a></span><span data-slot="cpuWriteOnly"><a class="xref" href="../api/Zenith.NET.MemoryResidency.html#Zenith_NET_MemoryResidency_CpuWriteOnly"><code>CpuWriteOnly</code></a></span></template><template id="resource-slots-41"><span data-slot="upload"><a class="xref" href="../api/Zenith.NET.Buffer.html#Zenith_NET_Buffer_Upload_System_UInt32_Zenith_NET_BufferData_"><code>Upload</code></a></span></template><template id="resource-slots-42"><span data-slot="fixed"><code>fixed</code></span><span data-slot="upload"><a class="xref" href="../api/Zenith.NET.Buffer.html#Zenith_NET_Buffer_Upload_System_UInt32_Zenith_NET_BufferData_"><code>Upload</code></a></span></template><template id="resource-slots-43"><span data-slot="vertexBufferDispose"><code>vertexBuffer.<a class="xref" href="../api/Zenith.NET.DisposableObject.html#Zenith_NET_DisposableObject_Dispose">Dispose</a>();</code></span><span data-slot="swapChainDispose"><code>swapChain.<a class="xref" href="../api/Zenith.NET.DisposableObject.html#Zenith_NET_DisposableObject_Dispose">Dispose</a>();</code></span><span data-slot="programCs"><code>Program.cs</code></span><span data-slot="link"><a href="concepts/resource-management.html#memory-placement"><doc-text data-resource="tutorial.geometry.upload.notes.link">Resource Management</doc-text></a></span></template><template id="resource-slots-44"><span data-slot="triangleSlang"><code>Triangle.slang</code></span></template><template id="resource-slots-45"><span data-slot="vSInput"><code>VSInput</code></span><span data-slot="pOSITION0"><code>POSITION0</code></span><span data-slot="cOLOR0"><code>COLOR0</code></span></template><template id="resource-slots-46"><span data-slot="fSInput"><code>FSInput</code></span><span data-slot="sVPOSITION"><code>SV_POSITION</code></span><span data-slot="cOLOR0"><code>COLOR0</code></span></template><template id="resource-slots-47"><span data-slot="triangleSlang"><code>Triangle.slang</code></span></template><template id="resource-slots-48"><span data-slot="w"><code>w = 1</code></span></template><template id="resource-slots-49"><span data-slot="fSMain"><code>FSMain</code></span><span data-slot="sVTARGET"><code>SV_TARGET</code></span></template><template id="resource-slots-50"><span data-slot="triangleSlang"><code>Triangle.slang</code></span><span data-slot="emphasis"><strong><doc-text data-resource="tutorial.shaders.compilation.description.emphasis">Copy to Output Directory</doc-text></strong></span><span data-slot="detail"><strong><doc-text data-resource="tutorial.shaders.compilation.description.detail">Copy if newer</doc-text></strong></span></template><template id="resource-slots-51"><span data-slot="programCs"><code>Program.cs</code></span></template><template id="resource-slots-52"><span data-slot="zenithCompiler"><a class="xref" href="../api/Zenith.NET.ZenithCompiler.html"><code>ZenithCompiler</code></a></span><span data-slot="createShader"><a class="xref" href="../api/Zenith.NET.GraphicsContext.html#Zenith_NET_GraphicsContext_CreateShader_Zenith_NET_ShaderDesc_"><code>CreateShader</code></a></span><span data-slot="contextGraphicsApi"><code>context.<a class="xref" href="../api/Zenith.NET.GraphicsContext.html#Zenith_NET_GraphicsContext_GraphicsApi">GraphicsApi</a></code></span><span data-slot="vSMain"><code>VSMain</code></span><span data-slot="fSMain"><code>FSMain</code></span></template><template id="resource-slots-53"><span data-slot="appContextBaseDirectory"><code>AppContext.BaseDirectory</code></span></template><template id="resource-slots-54"><span data-slot="inputLayoutAdd"><a class="xref" href="../api/Zenith.NET.InputLayout.html#Zenith_NET_InputLayout_Add_Zenith_NET_InputElement_"><code>InputLayout.Add</code></a></span></template><template id="resource-slots-55"><span data-slot="float3"><a class="xref" href="../api/Zenith.NET.ElementFormat.html#Zenith_NET_ElementFormat_Float3"><code>Float3</code></a></span></template><template id="resource-slots-56"><span data-slot="float4"><a class="xref" href="../api/Zenith.NET.ElementFormat.html#Zenith_NET_ElementFormat_Float4"><code>Float4</code></a></span></template><template id="resource-slots-57"><span data-slot="semanticIndex"><a class="xref" href="../api/Zenith.NET.InputElement.html#Zenith_NET_InputElement_SemanticIndex"><code>SemanticIndex</code></a></span><span data-slot="pOSITION0"><code>POSITION0</code></span><span data-slot="cOLOR0"><code>COLOR0</code></span></template><template id="resource-slots-58"><span data-slot="graphicsPipeline"><a class="xref" href="../api/Zenith.NET.GraphicsPipeline.html"><code>GraphicsPipeline</code></a></span></template><template id="resource-slots-59"><span data-slot="triangleList"><a class="xref" href="../api/Zenith.NET.PrimitiveTopology.html#Zenith_NET_PrimitiveTopology_TriangleList"><code>TriangleList</code></a></span></template><template id="resource-slots-60"><span data-slot="swapChainDescFormat"><code>swapChain.<a class="xref" href="../api/Zenith.NET.SwapChain.html#Zenith_NET_SwapChain_Desc">Desc</a>.<a class="xref" href="../api/Zenith.NET.SwapChainDesc.html#Zenith_NET_SwapChainDesc_Format">Format</a></code></span><span data-slot="count1"><a class="xref" href="../api/Zenith.NET.SampleCount.html#Zenith_NET_SampleCount_Count1"><code>Count1</code></a></span></template><template id="resource-slots-61"><span data-slot="cullNone"><a class="xref" href="../api/Zenith.NET.RasterizerState.html#Zenith_NET_RasterizerState_CullNone"><code>CullNone()</code></a></span></template><template id="resource-slots-62"><span data-slot="depthNone"><a class="xref" href="../api/Zenith.NET.DepthStencilState.html#Zenith_NET_DepthStencilState_DepthNone"><code>DepthNone()</code></a></span></template><template id="resource-slots-63"><span data-slot="opaque"><a class="xref" href="../api/Zenith.NET.BlendState.html#Zenith_NET_BlendState_Opaque"><code>Opaque()</code></a></span></template><template id="resource-slots-64"><span data-slot="pipelineDispose"><code>pipeline.<a class="xref" href="../api/Zenith.NET.DisposableObject.html#Zenith_NET_DisposableObject_Dispose">Dispose</a>();</code></span><span data-slot="vertexBufferDispose"><code>vertexBuffer.<a class="xref" href="../api/Zenith.NET.DisposableObject.html#Zenith_NET_DisposableObject_Dispose">Dispose</a>();</code></span></template><template id="resource-slots-65"><span data-slot="windowRender"><code>window.Render</code></span><span data-slot="addTheTriangleDrawCommandsHereLater"><code>// Add the triangle draw commands here later.</code></span><span data-slot="beginRenderPass"><a class="xref" href="../api/Zenith.NET.CommandBuffer.html#Zenith_NET_CommandBuffer_BeginRenderPass_System_ReadOnlySpan_Zenith_NET_ColorAttachment__System_Nullable_Zenith_NET_DepthStencilAttachment__"><code>BeginRenderPass</code></a></span><span data-slot="endRenderPass"><a class="xref" href="../api/Zenith.NET.CommandBuffer.html#Zenith_NET_CommandBuffer_EndRenderPass"><code>EndRenderPass</code></a></span></template><template id="resource-slots-66"><span data-slot="setPipeline"><a class="xref" href="../api/Zenith.NET.CommandBuffer.html#Zenith_NET_CommandBuffer_SetPipeline_Zenith_NET_GraphicsPipeline_"><code>SetPipeline</code></a></span></template><template id="resource-slots-67"><span data-slot="setVertexBufferVertexBuffer"><code><a class="xref" href="../api/Zenith.NET.CommandBuffer.html#Zenith_NET_CommandBuffer_SetVertexBuffer_Zenith_NET_Buffer_System_UInt32_System_UInt32_">SetVertexBuffer</a>(vertexBuffer, 0, 0)</code></span><span data-slot="inputLayouts"><a class="xref" href="../api/Zenith.NET.GraphicsPipelineDesc.html#Zenith_NET_GraphicsPipelineDesc_InputLayouts"><code>InputLayouts</code></a></span></template><template id="resource-slots-68"><span data-slot="draw"><a class="xref" href="../api/Zenith.NET.CommandBuffer.html#Zenith_NET_CommandBuffer_Draw_System_UInt32_System_UInt32_System_UInt32_System_UInt32_"><code>Draw</code></a></span></template><template id="resource-slots-69"><span data-slot="submitWait"><code><a class="xref" href="../api/Zenith.NET.CommandBuffer.html#Zenith_NET_CommandBuffer_Submit_System_ReadOnlySpan_Zenith_NET_TimelineValue__">Submit</a>().<a class="xref" href="../api/Zenith.NET.TimelineValue.html#Zenith_NET_TimelineValue_Wait">Wait</a>()</code></span><span data-slot="present"><a class="xref" href="../api/Zenith.NET.SwapChain.html#Zenith_NET_SwapChain_Present"><code>Present()</code></a></span></template><template id="resource-slots-70"><span data-slot="firstTriangle"><code>FirstTriangle</code></span></template><template id="resource-slots-71"><span data-slot="run"><code>Run</code></span><span data-slot="windowRun"><code>window.Run();</code></span></template><template id="resource-slots-72"><span data-slot="dispose"><a class="xref" href="../api/Zenith.NET.DisposableObject.html#Zenith_NET_DisposableObject_Dispose"><code>Dispose()</code></a></span></template><template id="resource-slots-73"><span data-slot="triangleSlang"><code>Triangle.slang</code></span></template><template id="resource-slots-74"><span data-slot="link"><a href="https://github.com/qian-o/ZenithTutorials/blob/master/ZenithTutorials/Renderers/HelloTriangleRenderer.cs"><doc-text data-resource="tutorial.troubleshooting.details.link">sample renderer</doc-text></a></span><span data-slot="detail"><a href="https://github.com/qian-o/ZenithTutorials/blob/master/ZenithTutorials/Assets/Shaders/HelloTriangle.slang"><doc-text data-resource="tutorial.troubleshooting.details.detail">Slang shader</doc-text></a></span><span data-slot="programCs"><code>Program.cs</code></span><span data-slot="context"><a href="samples.html#spinning-cube"><doc-text data-resource="tutorial.troubleshooting.details.context">Spinning Cube</doc-text></a></span></template>
+
+            <dialog class="site-search" id="search-dialog" aria-labelledby="search-title">
+                <h2 id="search-title" class="visually-hidden" data-resource="ui.search.title">Search documentation</h2>
+                <form class="search-input-row" role="search" id="site-search-form">
+                    <i class="bi bi-search" aria-hidden="true"></i>
+                    <input id="site-search-input" type="search" data-resource-placeholder="ui.search.placeholder" placeholder="What are you looking for?" autocomplete="off" data-resource-label="ui.search.title" aria-label="Search documentation" aria-describedby="search-status" autofocus>
+                    <button id="search-close" type="button" data-resource-label="ui.search.close" aria-label="Close search">Esc</button>
+                </form>
+                <div class="search-body">
+                    <p id="search-status" role="status" aria-live="polite" data-resource="ui.search.hint">Search tutorials, concepts, samples, and the API reference.</p>
+                    <div class="search-shortcuts" id="search-shortcuts">
+                        <a href="../learn/first-triangle.html" data-search-item>
+                            <span data-resource="tutorial.title">First Triangle</span>
+                            <small data-resource="ui.content.tutorial">Tutorial</small>
+                        </a>
+                        <a href="../learn/samples.html" data-search-item>
+                            <span data-resource="samples.title">Samples</span>
+                            <small data-resource="ui.content.source">Source code</small>
+                        </a>
+                        <a href="../api/index.html" data-search-item>
+                            <span data-resource="reference.title">API Reference</span>
+                            <small data-resource="ui.content.reference">Reference</small>
+                        </a>
+                    </div>
+                    <ul id="site-search-results"></ul>
+                    <button id="search-more" class="search-more" type="button" hidden data-resource="ui.search.more">Show more results</button>
+                </div>
+                <div class="search-footer">
+                    <span>
+                        <kbd>↑</kbd>
+                        <kbd>↓</kbd>
+                        <span data-resource="ui.action.navigate">Navigate</span>
+                    </span>
+                    <span>
+                        <kbd>Enter</kbd>
+                        <span data-resource="ui.action.open">Open</span>
+                    </span>
+                </div>
+            </dialog>
+
+    </body>
+</html>
