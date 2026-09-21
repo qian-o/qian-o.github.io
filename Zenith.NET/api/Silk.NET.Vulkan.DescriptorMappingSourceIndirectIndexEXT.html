@@ -1,624 +1,484 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-      <title>Struct DescriptorMappingSourceIndirectIndexEXT | Zenith.NET </title>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Struct DescriptorMappingSourceIndirectIndexEXT | Zenith.NET ">
-      
-      
-      <link rel="icon" href="../images/Zenith.NET.svg">
-      <link rel="stylesheet" href="../public/docfx.min.css">
-      <link rel="stylesheet" href="../public/main.css">
-      <meta name="docfx:navrel" content="../toc.html">
-      <meta name="docfx:tocrel" content="toc.html">
-      
-      <meta name="docfx:rel" content="../">
-      
-      
-      <meta name="docfx:docurl" content="https://github.com/qian-o/Zenith.NET/new/master/apiSpec/new?filename=Silk_NET_Vulkan_DescriptorMappingSourceIndirectIndexEXT.md&amp;value=---%0Auid%3A%20Silk.NET.Vulkan.DescriptorMappingSourceIndirectIndexEXT%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
-      <meta name="loc:inThisArticle" content="In this article">
-      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
-      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
-      <meta name="loc:tocFilter" content="Filter by title">
-      <meta name="loc:nextArticle" content="Next">
-      <meta name="loc:prevArticle" content="Previous">
-      <meta name="loc:themeLight" content="Light">
-      <meta name="loc:themeDark" content="Dark">
-      <meta name="loc:themeAuto" content="Auto">
-      <meta name="loc:changeTheme" content="Change theme">
-      <meta name="loc:copy" content="Copy">
-      <meta name="loc:downloadPdf" content="Download PDF">
+<html lang="en-US" data-bs-theme="dark">
+    <head>
+        <meta charset="utf-8">
+        <meta name="color-scheme" content="dark">
+        <title>DescriptorMappingSourceIndirectIndexEXT | Zenith.NET </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="title" content="DescriptorMappingSourceIndirectIndexEXT | Zenith.NET ">
 
-      <script type="module" src="./../public/docfx.min.js"></script>
+        <link rel="icon" href="../images/Zenith.NET.svg">
+        <link rel="stylesheet" href="../public/main.css">
+            <link rel="stylesheet" href="../public/api.css">
 
-      <script>
-        const theme = localStorage.getItem('theme') || 'auto'
-        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-      </script>
+        <meta name="site:root" content="../">
+            <meta name="site:api-toc" content="../api/toc.html">
 
-  </head>
+        <meta name="loc:copy" content="Copy">
 
-  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
-    <header class="bg-body border-bottom">
-      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
-        <div class="container-xxl flex-nowrap">
-          <a class="navbar-brand" href="../index.html">
-            <img id="logo" class="svg" src="../images/Zenith.NET-Logo.svg" alt="">
-            
-          </a>
-          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="bi bi-three-dots"></i>
-          </button>
-          <div class="collapse navbar-collapse" id="navpanel">
-            <div id="navbar">
-              <form class="search" role="search" id="search">
-                <i class="bi bi-search"></i>
-                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
-              </form>
-            </div>
-          </div>
-        </div>
-      </nav>
+        <script id="resource-state" type="application/json">{"sourceLanguage":"en-US","languages":[{"code":"de-DE","label":"Deutsch","available":true},{"code":"en-US","label":"English","available":true},{"code":"es-ES","label":"Español","available":true},{"code":"fr-FR","label":"Français","available":true},{"code":"ja-JP","label":"日本語","available":true},{"code":"ko-KR","label":"한국어","available":true},{"code":"pt-BR","label":"Português (Brasil)","available":true},{"code":"ru-RU","label":"Русский","available":true},{"code":"zh-CN","label":"简体中文","available":true},{"code":"zh-TW","label":"繁體中文","available":true}],"placeholders":{"concepts.execution.context.description":["graphicsContext"],"concepts.execution.context.details":["capabilities","detail","link","meshShadingSupported","rayTracingSupported"],"concepts.execution.context.details.detail":[],"concepts.execution.context.details.link":[],"concepts.execution.context.title":[],"concepts.execution.description":[],"concepts.execution.ownership.description":["dispose"],"concepts.execution.ownership.details":[],"concepts.execution.ownership.guidance":["link"],"concepts.execution.ownership.guidance.link":[],"concepts.execution.ownership.table.applicationResources.object":[],"concepts.execution.ownership.table.applicationResources.ownership":[],"concepts.execution.ownership.table.commandBuffers.object":[],"concepts.execution.ownership.table.commandBuffers.ownership":[],"concepts.execution.ownership.table.headings.object":[],"concepts.execution.ownership.table.headings.ownership":[],"concepts.execution.ownership.table.queues.object":[],"concepts.execution.ownership.table.queues.ownership":[],"concepts.execution.ownership.table.swapChainDrawable.ownership":[],"concepts.execution.ownership.title":[],"concepts.execution.pipelines.description":[],"concepts.execution.pipelines.details":[],"concepts.execution.pipelines.guidance":["detail","link"],"concepts.execution.pipelines.guidance.detail":[],"concepts.execution.pipelines.guidance.link":[],"concepts.execution.pipelines.title":[],"concepts.execution.queues.description":["graphicsQueue"],"concepts.execution.queues.details":[],"concepts.execution.queues.guidance":["link"],"concepts.execution.queues.guidance.link":[],"concepts.execution.queues.table.computeQueue.workToRecord":[],"concepts.execution.queues.table.graphicsQueue.workToRecord":[],"concepts.execution.queues.table.headings.queue":[],"concepts.execution.queues.table.headings.workToRecord":[],"concepts.execution.queues.table.transferQueue.workToRecord":[],"concepts.execution.queues.title":[],"concepts.execution.recording.context":["queueCommandBuffer"],"concepts.execution.recording.description":["commandBuffer","queueCommandBuffer","submit","timelineValue"],"concepts.execution.recording.details":["commandBuffer"],"concepts.execution.recording.guidance":["submit","wait"],"concepts.execution.recording.title":[],"concepts.execution.title":[],"concepts.platforms.description":[],"concepts.platforms.frame.context":["colorAttachment"],"concepts.platforms.frame.description":["graphicsContext","iZenithView","renderEventArgs","renderRequested","updateRequested"],"concepts.platforms.frame.details":["colorAttachment"],"concepts.platforms.frame.guidance":["iZenithView","usingZenithNET","view"],"concepts.platforms.frame.notes":["undefined"],"concepts.platforms.frame.reference":["zenithViewHelperDrawableFormat"],"concepts.platforms.frame.title":[],"concepts.platforms.integration.context":["extensionsCs","useZenithView"],"concepts.platforms.integration.description":[],"concepts.platforms.integration.details":["renderRequested"],"concepts.platforms.integration.guidance":["avaloniaPackage"],"concepts.platforms.integration.table.avalonia.integration":[],"concepts.platforms.integration.table.avalonia.presentation":["surfaceCs","writeableBitmap","zenithViewCs"],"concepts.platforms.integration.table.headings.integration":[],"concepts.platforms.integration.table.headings.presentation":[],"concepts.platforms.integration.table.maui.integration":[],"concepts.platforms.integration.table.maui.presentation":["link"],"concepts.platforms.integration.table.maui.presentation.link":[],"concepts.platforms.integration.table.uno.integration":[],"concepts.platforms.integration.table.uno.presentation":["writeableBitmap","zenithViewUnoCs"],"concepts.platforms.integration.table.winForms.integration":[],"concepts.platforms.integration.table.winForms.presentation":["hWND","zenithViewCs"],"concepts.platforms.integration.table.winUI.integration":[],"concepts.platforms.integration.table.winUI.presentation":["swapChainPanel","zenithViewWinUICs"],"concepts.platforms.integration.table.wpf.integration":[],"concepts.platforms.integration.table.wpf.presentation":["d3DImage","surfaceCs"],"concepts.platforms.integration.title":[],"concepts.platforms.lifecycle.context":["descFormat","descHeight","descSampleCount","descWidth"],"concepts.platforms.lifecycle.description":["swapChainDrawable"],"concepts.platforms.lifecycle.details":["swapChainRefresh","swapChainResize"],"concepts.platforms.lifecycle.guidance":["link"],"concepts.platforms.lifecycle.guidance.link":[],"concepts.platforms.lifecycle.title":[],"concepts.platforms.ownership.description":["graphicsContext"],"concepts.platforms.ownership.details":[],"concepts.platforms.ownership.guidance":["frameSchedulerCs"],"concepts.platforms.ownership.title":[],"concepts.platforms.surface.description":["link","surface","swapChain"],"concepts.platforms.surface.description.link":[],"concepts.platforms.surface.details":[],"concepts.platforms.surface.guidance":["appCs","surfaceWayland"],"concepts.platforms.surface.table.android.backend":[],"concepts.platforms.surface.table.apple.backend":[],"concepts.platforms.surface.table.headings.backend":[],"concepts.platforms.surface.table.headings.factory":[],"concepts.platforms.surface.table.headings.handles":[],"concepts.platforms.surface.table.wayland.backend":[],"concepts.platforms.surface.table.wayland.handles":[],"concepts.platforms.surface.table.win32.backend":[],"concepts.platforms.surface.table.xlib.backend":[],"concepts.platforms.surface.table.xlib.handles":[],"concepts.platforms.surface.title":[],"concepts.platforms.title":[],"concepts.resources.allocation.context":[],"concepts.resources.allocation.description":["heap"],"concepts.resources.allocation.details":["contextGetSizeAndAlignment"],"concepts.resources.allocation.guidance":[],"concepts.resources.allocation.title":[],"concepts.resources.bufferUsages.table.constant.role":[],"concepts.resources.bufferUsages.table.headings.role":[],"concepts.resources.bufferUsages.table.headings.usage":[],"concepts.resources.bufferUsages.table.index.role":[],"concepts.resources.bufferUsages.table.indirect.role":[],"concepts.resources.bufferUsages.table.none.role":[],"concepts.resources.bufferUsages.table.storageReadOnly.role":[],"concepts.resources.bufferUsages.table.storageReadWrite.role":[],"concepts.resources.bufferUsages.table.transferDst.role":[],"concepts.resources.bufferUsages.table.transferSrc.role":[],"concepts.resources.bufferUsages.table.vertex.role":[],"concepts.resources.bufferUsages.title":[],"concepts.resources.description":[],"concepts.resources.memory.context":["map","unmap"],"concepts.resources.memory.description":["bufferDesc","residency"],"concepts.resources.memory.details":["cpuWriteOnly"],"concepts.resources.memory.guidance":["textureDesc"],"concepts.resources.memory.table.cpuReadOnly.cPUAccess":[],"concepts.resources.memory.table.cpuReadOnly.typicalRole":[],"concepts.resources.memory.table.cpuWriteOnly.cPUAccess":[],"concepts.resources.memory.table.cpuWriteOnly.typicalRole":[],"concepts.resources.memory.table.gpuOnly.cPUAccess":[],"concepts.resources.memory.table.gpuOnly.typicalRole":[],"concepts.resources.memory.table.headings.cPUAccess":[],"concepts.resources.memory.table.headings.residency":[],"concepts.resources.memory.table.headings.typicalRole":[],"concepts.resources.memory.title":[],"concepts.resources.textureUsages.description":[],"concepts.resources.textureUsages.details":["link"],"concepts.resources.textureUsages.details.link":[],"concepts.resources.textureUsages.table.colorAttachment.role":[],"concepts.resources.textureUsages.table.depthStencilAttachment.role":[],"concepts.resources.textureUsages.table.headings.role":[],"concepts.resources.textureUsages.table.headings.usage":[],"concepts.resources.textureUsages.table.none.role":[],"concepts.resources.textureUsages.table.sampled.role":[],"concepts.resources.textureUsages.table.storage.role":[],"concepts.resources.textureUsages.table.transferDst.role":[],"concepts.resources.textureUsages.table.transferSrc.role":[],"concepts.resources.textureUsages.title":[],"concepts.resources.title":[],"concepts.resources.transfers.context":["wait"],"concepts.resources.transfers.description":[],"concepts.resources.transfers.details":[],"concepts.resources.transfers.guidance":["commandBufferDownload","commandBufferUpload"],"concepts.resources.transfers.item":[],"concepts.resources.transfers.notes":["link"],"concepts.resources.transfers.notes.link":[],"concepts.resources.transfers.table.bufferDownload.transfer":["cpuReadOnly"],"concepts.resources.transfers.table.bufferUpload.transfer":["cpuWriteOnly"],"concepts.resources.transfers.table.headings.method":[],"concepts.resources.transfers.table.headings.transfer":[],"concepts.resources.transfers.table.textureTransfers.method":["textureDownload","textureUpload"],"concepts.resources.transfers.table.textureTransfers.transfer":[],"concepts.resources.transfers.title":[],"concepts.resources.usages.description":["bufferDescUsages","bufferUsages","textureDescUsages","textureUsages","value"],"concepts.resources.usages.title":[],"concepts.resources.views.description":["bufferView","textureView"],"concepts.resources.views.details":["link"],"concepts.resources.views.details.link":[],"concepts.resources.views.title":[],"concepts.shaders.binding.context":["descriptorHandle","input","inputTextureSampledHandle","output","outputTextureStorageHandle"],"concepts.shaders.binding.description":["setConstantBuffer"],"concepts.shaders.binding.details":[],"concepts.shaders.binding.guidance":["bufferUsagesConstant","commandBuffer","computePipeline","constantBuffer"],"concepts.shaders.binding.notes":["resourceHandle"],"concepts.shaders.binding.reference":["link"],"concepts.shaders.binding.reference.link":[],"concepts.shaders.binding.table.bufferStorageReadOnlyHandle.access":["t"],"concepts.shaders.binding.table.bufferStorageReadWriteHandle.access":["t"],"concepts.shaders.binding.table.headings.access":[],"concepts.shaders.binding.table.headings.cHandle":[],"concepts.shaders.binding.table.headings.slangFieldType":[],"concepts.shaders.binding.table.samplerHandle.access":[],"concepts.shaders.binding.table.textureSampledHandle.access":[],"concepts.shaders.binding.table.textureStorageHandle.access":[],"concepts.shaders.binding.title":[],"concepts.shaders.compilation.description":["graphicsApi","shaderDesc","zenithCompiler"],"concepts.shaders.compilation.details":["context"],"concepts.shaders.compilation.guidance":["link","vSMain"],"concepts.shaders.compilation.guidance.link":[],"concepts.shaders.compilation.title":[],"concepts.shaders.description":[],"concepts.shaders.dispatch.description":["dispatch","numthreads"],"concepts.shaders.dispatch.details":["computeShaderRendererCs","dispatch","link","shaderDescThreadGroupSize"],"concepts.shaders.dispatch.details.link":[],"concepts.shaders.dispatch.title":[],"concepts.shaders.layout.context":["link","systemRuntimeInteropServices","zenithNET"],"concepts.shaders.layout.context.link":[],"concepts.shaders.layout.description":["float3","float4","inputLayout","inputLayoutAdd"],"concepts.shaders.layout.details":["float3","inputLayout"],"concepts.shaders.layout.guidance":[],"concepts.shaders.layout.notes":["computeShaderSlang"],"concepts.shaders.layout.reference":[],"concepts.shaders.layout.title":[],"concepts.shaders.matrices.description":["detail","link","matrix4x4","mulVectorMatrix"],"concepts.shaders.matrices.description.detail":[],"concepts.shaders.matrices.description.link":[],"concepts.shaders.matrices.details":[],"concepts.shaders.matrices.title":[],"concepts.shaders.title":[],"concepts.synchronization.backends.description":["barrier","transition"],"concepts.synchronization.backends.details":["link"],"concepts.synchronization.backends.details.link":[],"concepts.synchronization.backends.title":[],"concepts.synchronization.barriers.context":["barrierStagesAll"],"concepts.synchronization.barriers.description":[],"concepts.synchronization.barriers.details":[],"concepts.synchronization.barriers.guidance":["link"],"concepts.synchronization.barriers.guidance.link":[],"concepts.synchronization.barriers.title":[],"concepts.synchronization.dependencies.description":[],"concepts.synchronization.dependencies.details":[],"concepts.synchronization.dependencies.guidance":[],"concepts.synchronization.dependencies.table.cpuAccess.mechanism":["wait"],"concepts.synchronization.dependencies.table.cpuAccess.situation":[],"concepts.synchronization.dependencies.table.crossQueue.mechanism":["submit","timelineValue"],"concepts.synchronization.dependencies.table.crossQueue.situation":[],"concepts.synchronization.dependencies.table.headings.mechanism":[],"concepts.synchronization.dependencies.table.headings.situation":[],"concepts.synchronization.dependencies.table.layoutChange.mechanism":["commandBufferTransition"],"concepts.synchronization.dependencies.table.layoutChange.situation":[],"concepts.synchronization.dependencies.table.pipelineStages.mechanism":["commandBufferBarrier"],"concepts.synchronization.dependencies.table.pipelineStages.situation":[],"concepts.synchronization.dependencies.title":[],"concepts.synchronization.description":[],"concepts.synchronization.layouts.context":["undefined"],"concepts.synchronization.layouts.description":["storage","textureLayout"],"concepts.synchronization.layouts.details":["default","outputTexture","sampledStorage","storage"],"concepts.synchronization.layouts.guidance":["transition"],"concepts.synchronization.layouts.title":[],"concepts.synchronization.readback.description":["isCompleted"],"concepts.synchronization.readback.details":["commandBufferDownload","wait"],"concepts.synchronization.readback.guidance":["isCompleted","link"],"concepts.synchronization.readback.guidance.link":[],"concepts.synchronization.readback.title":[],"concepts.synchronization.reuse.description":[],"concepts.synchronization.reuse.details":["swapChainResize"],"concepts.synchronization.reuse.guidance":["swapChainPresent"],"concepts.synchronization.reuse.title":[],"concepts.synchronization.timelines.context":[],"concepts.synchronization.timelines.description":["submit","timelineValue","value"],"concepts.synchronization.timelines.details":["consumer","producer"],"concepts.synchronization.timelines.guidance":["consumed","producedWait"],"concepts.synchronization.timelines.notes":["queueTimelineSignal","signal","wait"],"concepts.synchronization.timelines.title":[],"concepts.synchronization.title":[],"home.actions.reference":[],"home.actions.tutorial":[],"home.entries.description":[],"home.entries.label":[],"home.entries.reference.action":[],"home.entries.reference.category":[],"home.entries.reference.description":[],"home.entries.reference.title":[],"home.entries.samples.action":[],"home.entries.samples.category":[],"home.entries.samples.description":[],"home.entries.samples.title":[],"home.entries.title":[],"home.entries.tutorial.action":[],"home.entries.tutorial.category":[],"home.entries.tutorial.description":[],"home.entries.tutorial.title":[],"home.introduction.accent":[],"home.introduction.description":[],"home.introduction.title":["accent","lineBreak"],"home.meta.description":[],"home.scene.description":[],"home.scene.label":[],"home.scene.surface":[],"home.scene.wireframe":[],"home.title":[],"learning.concepts.description":[],"learning.concepts.execution.description":[],"learning.concepts.platforms.description":[],"learning.concepts.resources.description":[],"learning.concepts.shaders.description":[],"learning.concepts.synchronization.description":[],"learning.concepts.title":[],"learning.description":[],"learning.entries.samples.action":[],"learning.entries.samples.description":[],"learning.entries.tutorial.action":[],"learning.entries.tutorial.description":[],"learning.meta.description":[],"learning.title":[],"reference.description":[],"reference.entries.commands.description":[],"reference.entries.commands.label":[],"reference.entries.context.description":[],"reference.entries.context.label":[],"reference.meta.description":[],"reference.navigation.core":[],"reference.title":[],"samples.computeShader.description":["assetsTexturesShokoPng"],"samples.computeShader.details":["computeShaderRendererCs","computeShaderSlang"],"samples.computeShader.title":[],"samples.cube.description":["d32FloatS8UInt"],"samples.cube.details":["spinningCubeRendererCs","spinningCubeSlang"],"samples.cube.title":[],"samples.description":["link"],"samples.description.link":[],"samples.execution.description":["link"],"samples.execution.description.link":[],"samples.execution.title":[],"samples.host.description":["appCs","iRendererCs"],"samples.host.details":["presentTextureSlang","texturePresenterCs"],"samples.host.title":[],"samples.indirectDrawing.description":[],"samples.indirectDrawing.details":["indirectDrawingRendererCs","indirectDrawingSlang"],"samples.indirectDrawing.title":[],"samples.meshShading.description":["contextCapabilitiesMeshShadingSupported"],"samples.meshShading.details":["meshShadingRendererCs","meshShadingSlang"],"samples.meshShading.title":[],"samples.rayTracing.description":["contextCapabilitiesRayTracingSupported"],"samples.rayTracing.details":["rayTracingRendererCs","rayTracingSlang"],"samples.rayTracing.title":[],"samples.title":[],"samples.triangle.description":[],"samples.triangle.details":["helloTriangleRendererCs","helloTriangleSlang","link"],"samples.triangle.details.link":[],"samples.triangle.title":[],"samples.workloads.description":["link"],"samples.workloads.description.link":[],"samples.workloads.details":["link"],"samples.workloads.details.link":[],"samples.workloads.table.cornellBox.example":["link"],"samples.workloads.table.cornellBox.example.link":[],"samples.workloads.table.cornellBox.whatItDemonstratesAndRequires":[],"samples.workloads.table.fluidTank.example":["link"],"samples.workloads.table.fluidTank.example.link":[],"samples.workloads.table.fluidTank.whatItDemonstratesAndRequires":[],"samples.workloads.table.headings.example":[],"samples.workloads.table.headings.whatItDemonstratesAndRequires":[],"samples.workloads.table.inkCanvas.example":["link"],"samples.workloads.table.inkCanvas.example.link":[],"samples.workloads.table.inkCanvas.whatItDemonstratesAndRequires":[],"samples.workloads.table.platformDetection.example":["link"],"samples.workloads.table.platformDetection.example.link":[],"samples.workloads.table.platformDetection.whatItDemonstratesAndRequires":[],"samples.workloads.title":[],"tutorial.context.description":["graphicsContext"],"tutorial.context.details":["emphasis"],"tutorial.context.details.emphasis":["iWindowWindow"],"tutorial.context.guidance":["validationMessage"],"tutorial.context.imports":["programCs"],"tutorial.context.title":[],"tutorial.description":[],"tutorial.details":[],"tutorial.draw.context":["draw"],"tutorial.draw.description":["addTheTriangleDrawCommandsHereLater","beginRenderPass","endRenderPass","windowRender"],"tutorial.draw.details":["setPipeline"],"tutorial.draw.guidance":["inputLayouts","setVertexBufferVertexBuffer"],"tutorial.draw.notes":["present","submitWait"],"tutorial.draw.table.firstInstance.meaning":[],"tutorial.draw.table.firstVertex.meaning":[],"tutorial.draw.table.headings.argument":[],"tutorial.draw.table.headings.description":[],"tutorial.draw.table.headings.meaning":[],"tutorial.draw.table.instanceCount.meaning":[],"tutorial.draw.table.vertexCount.meaning":[],"tutorial.draw.title":[],"tutorial.execution.description":["firstTriangle"],"tutorial.execution.details":[],"tutorial.execution.guidance":[],"tutorial.execution.title":[],"tutorial.frame.commands.context":["endRenderPass","present","submit","wait"],"tutorial.frame.commands.description":["beginRenderPass","colorAttachmentClear"],"tutorial.frame.commands.details":["null"],"tutorial.frame.commands.guidance":["beginRenderPass"],"tutorial.frame.commands.title":[],"tutorial.frame.description":[],"tutorial.frame.details":["emphasis","value"],"tutorial.frame.details.emphasis":["windowRun"],"tutorial.frame.target.description":["graphicsQueueCommandBuffer"],"tutorial.frame.target.details":["default","transition","undefined"],"tutorial.frame.target.guidance":[],"tutorial.frame.target.title":[],"tutorial.frame.title":[],"tutorial.geometry.data.description":["emphasis"],"tutorial.geometry.data.description.emphasis":["windowRender"],"tutorial.geometry.data.details":["new","vector3","vector4","vertex","w"],"tutorial.geometry.data.guidance":[],"tutorial.geometry.data.title":[],"tutorial.geometry.description":[],"tutorial.geometry.format.description":["emphasis"],"tutorial.geometry.format.description.emphasis":["programCs"],"tutorial.geometry.format.details":["color","file","layoutKindSequential","position","programCs"],"tutorial.geometry.format.imports":["programCs"],"tutorial.geometry.format.title":[],"tutorial.geometry.title":[],"tutorial.geometry.upload.context":["fixed","upload"],"tutorial.geometry.upload.description":["buffer"],"tutorial.geometry.upload.details":["bufferUsagesVertex","cpuWriteOnly","sizeofVertexVerticesLength"],"tutorial.geometry.upload.guidance":["upload"],"tutorial.geometry.upload.imports":["bufferAlias","programCs","systemBuffer"],"tutorial.geometry.upload.notes":["link","programCs","swapChainDispose","vertexBufferDispose"],"tutorial.geometry.upload.notes.link":[],"tutorial.geometry.upload.title":[],"tutorial.input.description":[],"tutorial.input.details":["inputLayoutAdd"],"tutorial.input.guidance":["cOLOR0","pOSITION0","semanticIndex"],"tutorial.input.table.headings.byteOffset":[],"tutorial.input.table.headings.cField":[],"tutorial.input.table.headings.format":[],"tutorial.input.table.headings.shaderInput":[],"tutorial.input.table.nextVertex.cField":[],"tutorial.input.table.nextVertex.format":[],"tutorial.input.table.nextVertex.shaderInput":[],"tutorial.input.table.vertexColor.format":["float4"],"tutorial.input.table.vertexPosition.format":["float3"],"tutorial.input.title":[],"tutorial.lifecycle.description":[],"tutorial.lifecycle.details":["run","windowRun"],"tutorial.lifecycle.guidance":["dispose"],"tutorial.lifecycle.title":[],"tutorial.pipeline.behavior":[],"tutorial.pipeline.context":["cullNone"],"tutorial.pipeline.description":["graphicsPipeline"],"tutorial.pipeline.details":[],"tutorial.pipeline.guidance":["count1","swapChainDescFormat"],"tutorial.pipeline.item":["triangleList"],"tutorial.pipeline.notes":["depthNone"],"tutorial.pipeline.reference":["opaque"],"tutorial.pipeline.title":[],"tutorial.pipeline.usage":["pipelineDispose","vertexBufferDispose"],"tutorial.presentation.title":[],"tutorial.project.context":["allowUnsafeBlocks","emphasis"],"tutorial.project.context.emphasis":[],"tutorial.project.description":["firstTriangle"],"tutorial.project.details":[],"tutorial.project.guidance":["zenithNET","zenithNETCompiler"],"tutorial.project.title":[],"tutorial.requirements.context":["detail","link"],"tutorial.requirements.context.detail":[],"tutorial.requirements.context.link":[],"tutorial.requirements.description":["emphasis","net10"],"tutorial.requirements.description.emphasis":[],"tutorial.requirements.guidance":["cAMetalLayerCs"],"tutorial.requirements.table.headings.graphicsBackend":[],"tutorial.requirements.table.headings.platform":[],"tutorial.requirements.table.linux.graphicsBackend":[],"tutorial.requirements.table.linux.platform":[],"tutorial.requirements.table.macOS.graphicsBackend":[],"tutorial.requirements.table.macOS.platform":[],"tutorial.requirements.table.windows.graphicsBackend":[],"tutorial.requirements.table.windows.platform":[],"tutorial.requirements.title":[],"tutorial.resize.context":[],"tutorial.resize.description":["framebufferResize","windowRun"],"tutorial.resize.details":["link"],"tutorial.resize.details.link":[],"tutorial.resize.guidance":["link","present"],"tutorial.resize.guidance.link":[],"tutorial.resize.title":[],"tutorial.shaders.compilation.context":["appContextBaseDirectory"],"tutorial.shaders.compilation.description":["detail","emphasis","triangleSlang"],"tutorial.shaders.compilation.description.detail":[],"tutorial.shaders.compilation.description.emphasis":[],"tutorial.shaders.compilation.details":["programCs"],"tutorial.shaders.compilation.guidance":["contextGraphicsApi","createShader","fSMain","vSMain","zenithCompiler"],"tutorial.shaders.compilation.title":[],"tutorial.shaders.context":["cOLOR0","fSInput","sVPOSITION"],"tutorial.shaders.description":[],"tutorial.shaders.details":["triangleSlang"],"tutorial.shaders.fragment.description":[],"tutorial.shaders.fragment.details":["fSMain","sVTARGET"],"tutorial.shaders.fragment.title":[],"tutorial.shaders.guidance":["cOLOR0","pOSITION0","vSInput"],"tutorial.shaders.title":[],"tutorial.shaders.vertex.description":["triangleSlang"],"tutorial.shaders.vertex.details":["w"],"tutorial.shaders.vertex.title":[],"tutorial.surface.description":["emphasis"],"tutorial.surface.description.emphasis":["windowCenter","windowRun"],"tutorial.surface.details":["framebufferSize","surface"],"tutorial.surface.guidance":[],"tutorial.surface.title":[],"tutorial.swapChain.context":["programCs","windowDispose"],"tutorial.swapChain.description":[],"tutorial.swapChain.details":["drawable","present","swapChain","texture"],"tutorial.swapChain.guidance":["b8G8R8A8UNorm","swapChainDescFormat","uNorm"],"tutorial.swapChain.title":[],"tutorial.title":[],"tutorial.troubleshooting.description":[],"tutorial.troubleshooting.details":["context","detail","link","programCs"],"tutorial.troubleshooting.details.context":[],"tutorial.troubleshooting.details.detail":[],"tutorial.troubleshooting.details.link":[],"tutorial.troubleshooting.table.backend.check":[],"tutorial.troubleshooting.table.backend.symptom":[],"tutorial.troubleshooting.table.drawing.check":[],"tutorial.troubleshooting.table.drawing.symptom":[],"tutorial.troubleshooting.table.headings.check":[],"tutorial.troubleshooting.table.headings.symptom":[],"tutorial.troubleshooting.table.input.check":[],"tutorial.troubleshooting.table.input.symptom":[],"tutorial.troubleshooting.table.shaders.check":["triangleSlang"],"tutorial.troubleshooting.table.shaders.symptom":[],"tutorial.troubleshooting.table.window.check":[],"tutorial.troubleshooting.table.window.symptom":[],"tutorial.troubleshooting.title":[],"tutorial.window.description":["cocoaHelperCs"],"tutorial.window.details":["main","programCs"],"tutorial.window.guidance":["center","dispose","graphicsAPINone","initialize","run"],"tutorial.window.notes":[],"tutorial.window.title":[],"ui.action.copy":[],"ui.action.navigate":[],"ui.action.open":[],"ui.action.source":[],"ui.api.browse":[],"ui.api.clearTypeSearch":[],"ui.api.findType":[],"ui.api.loadError":[],"ui.api.loadingNamespaces":[],"ui.api.loadingTypes":[],"ui.api.matchingTypes":[],"ui.api.namespace":[],"ui.api.namespaces":[],"ui.api.noNamespaceTypes":[],"ui.api.noTypes":[],"ui.api.types":[],"ui.content.reference":[],"ui.content.source":[],"ui.content.tutorial":[],"ui.contents.close":[],"ui.contents.open":[],"ui.contents.title":[],"ui.footer.caption":[],"ui.footer.label":[],"ui.language.label":[],"ui.language.unavailable":[],"ui.members.clear":[],"ui.members.close":[],"ui.members.empty":[],"ui.members.open":[],"ui.members.placeholder":[],"ui.members.search":[],"ui.members.title":[],"ui.members.undeclared":[],"ui.navigation.api":[],"ui.navigation.concepts":[],"ui.navigation.home":[],"ui.navigation.label":[],"ui.navigation.skip":[],"ui.navigation.toggle":[],"ui.outline.title":[],"ui.reference.assembly":[],"ui.reference.classes":[],"ui.reference.constructors":[],"ui.reference.declaration":[],"ui.reference.delegates":[],"ui.reference.derived":[],"ui.reference.enums":[],"ui.reference.events":[],"ui.reference.examples":[],"ui.reference.exceptions":[],"ui.reference.extensionMethods":[],"ui.reference.fields":[],"ui.reference.implementations":[],"ui.reference.implements":[],"ui.reference.inheritance":[],"ui.reference.inheritedMembers":[],"ui.reference.interfaces":[],"ui.reference.metadata":[],"ui.reference.methods":[],"ui.reference.namespace":[],"ui.reference.open":["name"],"ui.reference.operators":[],"ui.reference.parameters":[],"ui.reference.properties":[],"ui.reference.related":[],"ui.reference.relationships":[],"ui.reference.remarks":[],"ui.reference.returns":[],"ui.reference.structs":[],"ui.reference.typeParameters":[],"ui.reference.value":[],"ui.reference.values":[],"ui.search.close":[],"ui.search.empty":["query"],"ui.search.hint":[],"ui.search.loading":[],"ui.search.more":[],"ui.search.pending":[],"ui.search.placeholder":[],"ui.search.resultCount":["count"],"ui.search.title":[],"ui.search.unavailable":[]},"strings":{"concepts.execution.context.title":"Graphics context","concepts.execution.ownership.title":"Ownership and lifetime","concepts.execution.pipelines.title":"Pipeline state","concepts.execution.queues.title":"Queue selection","concepts.execution.recording.title":"Recording and submission","concepts.execution.title":"Execution Model","concepts.platforms.frame.title":"Rendering through a UI control","concepts.platforms.integration.title":"Framework and presentation path","concepts.platforms.lifecycle.title":"Swap-chain dimensions and lifetime","concepts.platforms.ownership.title":"Application and control ownership","concepts.platforms.surface.title":"Native presentation surfaces","concepts.platforms.title":"Platform Integration","concepts.resources.allocation.title":"Heap allocation","concepts.resources.bufferUsages.title":"Buffer usages","concepts.resources.memory.title":"CPU access and memory placement","concepts.resources.textureUsages.title":"Texture usages","concepts.resources.title":"Resource Management","concepts.resources.transfers.title":"Immediate and recorded transfers","concepts.resources.usages.title":"Resource usages","concepts.resources.views.title":"Views and backing resources","concepts.shaders.binding.title":"Constant buffers and resource handles","concepts.shaders.compilation.title":"Shader compilation","concepts.shaders.dispatch.title":"Thread groups","concepts.shaders.layout.title":"Data layout","concepts.shaders.matrices.title":"Matrix conventions","concepts.shaders.title":"Shader Data and Binding","concepts.synchronization.backends.title":"Backend behavior","concepts.synchronization.barriers.title":"Pipeline barriers","concepts.synchronization.dependencies.title":"Access dependencies","concepts.synchronization.layouts.title":"Texture layouts","concepts.synchronization.readback.title":"Readback completion","concepts.synchronization.reuse.title":"Resource reuse","concepts.synchronization.timelines.title":"Timelines and queue dependencies","concepts.synchronization.title":"Synchronization","home.entries.reference.title":"API Reference","home.entries.samples.title":"Samples","home.entries.title":"Documentation","home.entries.tutorial.title":"First Triangle","home.introduction.title":"Cross-platform graphics{lineBreak}{accent}","home.title":"Modern RHI for .NET","learning.concepts.title":"Core concepts","learning.title":"Learn","reference.title":"API Reference","samples.computeShader.title":"Compute Shader","samples.cube.title":"Spinning Cube","samples.execution.title":"Running the examples","samples.host.title":"Host and presentation","samples.indirectDrawing.title":"Indirect Drawing","samples.meshShading.title":"Mesh Shading","samples.rayTracing.title":"Ray Tracing","samples.title":"Samples","samples.triangle.title":"Hello Triangle","samples.workloads.title":"Larger applications","tutorial.context.title":"Graphics context","tutorial.draw.title":"Drawing commands","tutorial.execution.title":"Running the application","tutorial.frame.commands.title":"Clear, submission, and presentation","tutorial.frame.target.title":"Drawable preparation","tutorial.frame.title":"The first frame","tutorial.geometry.data.title":"Vertex positions and colors","tutorial.geometry.format.title":"Vertex representation","tutorial.geometry.title":"Vertex data","tutorial.geometry.upload.title":"Buffer allocation and upload","tutorial.input.title":"Vertex input layout","tutorial.lifecycle.title":"Frame lifecycle and cleanup","tutorial.pipeline.title":"Graphics pipeline","tutorial.presentation.title":"Graphics context and presentation","tutorial.project.title":"Project setup","tutorial.requirements.title":"Prerequisites","tutorial.resize.title":"Resizing","tutorial.shaders.compilation.title":"Compiling the shaders","tutorial.shaders.fragment.title":"Fragment shading","tutorial.shaders.title":"Shader stages","tutorial.shaders.vertex.title":"Vertex shading","tutorial.surface.title":"Native surface","tutorial.swapChain.title":"Swap chain","tutorial.title":"First Triangle","tutorial.troubleshooting.title":"Troubleshooting","tutorial.window.title":"Window creation","ui.action.copy":"Copy","ui.action.navigate":"Navigate","ui.action.open":"Open","ui.action.source":"View source","ui.api.browse":"Browse namespaces and types.","ui.api.clearTypeSearch":"Clear type search","ui.api.findType":"Find a type","ui.api.loadError":"Could not load types. Reload this page to try again.","ui.api.loadingNamespaces":"Loading namespaces…","ui.api.loadingTypes":"Loading types…","ui.api.matchingTypes":"Matching types","ui.api.namespace":"Namespace","ui.api.namespaces":"Namespaces","ui.api.noNamespaceTypes":"No types in this namespace.","ui.api.noTypes":"No matching types.","ui.api.types":"Types","ui.content.reference":"Reference","ui.content.source":"Source code","ui.content.tutorial":"Tutorial","ui.contents.close":"Close contents","ui.contents.open":"Open contents","ui.contents.title":"Contents","ui.footer.caption":"Modern RHI for .NET","ui.footer.label":"Footer","ui.language.label":"Language","ui.language.unavailable":"Not translated","ui.members.clear":"Clear member search","ui.members.close":"Close member finder","ui.members.empty":"No matching members.","ui.members.open":"Go to member","ui.members.placeholder":"Name or signature…","ui.members.search":"Search members","ui.members.title":"Find a member","ui.members.undeclared":"This type has no declared members.","ui.navigation.api":"API","ui.navigation.concepts":"Concepts","ui.navigation.home":"Home","ui.navigation.label":"Main navigation","ui.navigation.skip":"Skip to content","ui.navigation.toggle":"Toggle navigation","ui.outline.title":"On this page","ui.reference.assembly":"Assembly","ui.reference.classes":"Classes","ui.reference.constructors":"Constructors","ui.reference.declaration":"C# type declaration","ui.reference.delegates":"Delegates","ui.reference.derived":"Derived types","ui.reference.enums":"Enums","ui.reference.events":"Events","ui.reference.examples":"Examples","ui.reference.exceptions":"Exceptions","ui.reference.extensionMethods":"Extension methods","ui.reference.fields":"Fields","ui.reference.implementations":"Explicit interface implementations","ui.reference.implements":"Implements","ui.reference.inheritance":"Inheritance","ui.reference.inheritedMembers":"Inherited members","ui.reference.interfaces":"Interfaces","ui.reference.metadata":"Type metadata","ui.reference.methods":"Methods","ui.reference.namespace":"Namespace","ui.reference.open":"Open reference for {name}","ui.reference.operators":"Operators","ui.reference.parameters":"Parameters","ui.reference.properties":"Properties","ui.reference.related":"See also","ui.reference.relationships":"Inheritance and metadata","ui.reference.remarks":"Remarks","ui.reference.returns":"Returns","ui.reference.structs":"Structs","ui.reference.typeParameters":"Type parameters","ui.reference.value":"Value","ui.reference.values":"Values","ui.search.close":"Close search","ui.search.empty":"No results for “{query}”.","ui.search.hint":"Search tutorials, concepts, samples, and the API reference.","ui.search.loading":"Loading search…","ui.search.more":"Show more results","ui.search.pending":"Searching…","ui.search.placeholder":"What are you looking for?","ui.search.resultCount":"Results: {count}","ui.search.title":"Search documentation","ui.search.unavailable":"Search is unavailable. You can still open the pages below."}}</script>
+        <script type="module" src="../public/docfx.min.js"></script>
+
+        <script>
+            // Keep DocFX initialization aligned with the fixed dark page, including old saved preferences.
+            localStorage.setItem('theme', 'dark')
+        </script>
+    </head>
+
+    <body class="tex2jax_ignore zenith-theme" data-layout="" data-yaml-mime="ManagedReference" data-page-kind="" data-section="api">
+        <header class="site-header">
+            <nav class="site-nav container-xxl" data-resource-label="ui.navigation.label" aria-label="Main navigation">
+                <a class="skip-link visually-hidden-focusable" href="#main-content" data-resource="ui.navigation.skip">Skip to content</a>
+                <a class="navbar-brand" data-resource-label="ui.navigation.home" aria-label="Home" href="../index.html">
+                    <img id="logo" src="../images/Zenith.NET-Logo.svg" width="252" height="64" alt="">
+                </a>
+                <div id="site-menu" class="site-menu">
+                    <div id="primary-navigation"></div>
+                        <div class="api-menu-member">
+                            <button class="api-member-launcher" type="button" data-member-find aria-haspopup="dialog" aria-controls="api-member-dialog" aria-keyshortcuts="Alt+M" hidden>
+                                <i class="bi bi-list-ul" aria-hidden="true"></i>
+                                <span data-resource="ui.members.title">Find a member</span>
+                                <kbd data-member-shortcut>Alt M</kbd>
+                            </button>
+                        </div>
+                </div>
+                <div class="site-actions">
+                    <details class="language-menu" id="language-menu">
+                        <summary data-resource-label="ui.language.label" data-resource-title="ui.language.label" aria-label="Language" title="Language">
+                            <i class="bi bi-translate" aria-hidden="true"></i>
+                        </summary>
+                        <nav class="language-options" data-resource-label="ui.language.label" aria-label="Language">
+                                    <a href="?lang=de-DE" lang="de-DE" hreflang="de-DE" data-language-code="de-DE">Deutsch</a>
+                                    <a href="?lang=en-US" lang="en-US" hreflang="en-US" data-language-code="en-US">English</a>
+                                    <a href="?lang=es-ES" lang="es-ES" hreflang="es-ES" data-language-code="es-ES">Espa&#241;ol</a>
+                                    <a href="?lang=fr-FR" lang="fr-FR" hreflang="fr-FR" data-language-code="fr-FR">Fran&#231;ais</a>
+                                    <a href="?lang=ja-JP" lang="ja-JP" hreflang="ja-JP" data-language-code="ja-JP">日本語</a>
+                                    <a href="?lang=ko-KR" lang="ko-KR" hreflang="ko-KR" data-language-code="ko-KR">한국어</a>
+                                    <a href="?lang=pt-BR" lang="pt-BR" hreflang="pt-BR" data-language-code="pt-BR">Portugu&#234;s (Brasil)</a>
+                                    <a href="?lang=ru-RU" lang="ru-RU" hreflang="ru-RU" data-language-code="ru-RU">Русский</a>
+                                    <a href="?lang=zh-CN" lang="zh-CN" hreflang="zh-CN" data-language-code="zh-CN">简体中文</a>
+                                    <a href="?lang=zh-TW" lang="zh-TW" hreflang="zh-TW" data-language-code="zh-TW">繁體中文</a>
+                        </nav>
+                    </details>
+                        <button class="search-launcher" id="search-open" type="button" data-resource-label="ui.search.title" aria-label="Search documentation" aria-haspopup="dialog" aria-controls="search-dialog">
+                            <i class="bi bi-search" aria-hidden="true"></i>
+                        </button>
+                    <a class="source-link" href="https://github.com/qian-o/Zenith.NET" aria-label="GitHub">
+                        <i class="bi bi-github" aria-hidden="true"></i>
+                    </a>
+                    <button class="menu-toggle" id="menu-toggle" type="button" data-resource-label="ui.navigation.toggle" aria-label="Toggle navigation" aria-controls="site-menu" aria-expanded="false">
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </nav>
+        </header>
+
+        <main class="container-xxl">
+                <div class="toc-offcanvas">
+                    <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel" data-bs-scroll="true">
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="tocOffcanvasLabel" data-resource="ui.contents.title">Contents</h5>
+                            <button type="button" class="contents-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" data-resource-label="ui.contents.close" aria-label="Close contents">
+                                <i class="bi bi-x-lg" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                        <div class="offcanvas-body">
+                                <nav class="api-browser" id="api-browser" data-resource-label="ui.api.types" aria-label="Types">
+                                    <div class="api-browser-controls">
+                                        <div class="api-namespace-picker">
+                                            <label class="api-namespace-label" for="api-namespace" data-resource="ui.api.namespace">Namespace</label>
+                                            <span id="api-namespace-name" aria-hidden="true" data-resource="ui.api.loadingNamespaces">Loading namespaces…</span>
+                                            <select id="api-namespace" data-resource-label="ui.api.namespace" aria-label="Namespace" disabled>
+                                                <option data-resource="ui.api.loadingNamespaces">Loading namespaces…</option>
+                                            </select>
+                                            <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="api-type-search">
+                                            <i class="bi bi-search" aria-hidden="true"></i>
+                                            <input id="api-type-filter" type="search" data-resource-label="ui.api.findType" aria-label="Find a type" aria-controls="api-type-list" data-resource-placeholder="ui.api.findType" placeholder="Find a type" autocomplete="off">
+                                            <button id="api-type-clear" type="button" data-resource-label="ui.api.clearTypeSearch" aria-label="Clear type search" hidden>
+                                                <i class="bi bi-x-lg" aria-hidden="true"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="api-browser-caption" id="api-type-scope" data-resource="ui.api.types">Types</div>
+                                    <div class="api-type-scroll">
+                                        <ul id="api-type-list"></ul>
+                                        <p class="api-browser-status" id="api-browser-status" role="status" data-resource="ui.api.loadingTypes">Loading types…</p>
+                                    </div>
+                                        <div class="api-member-access">
+                                            <button class="api-member-launcher" type="button" data-member-find aria-haspopup="dialog" aria-controls="api-member-dialog" aria-keyshortcuts="Alt+M" hidden>
+                                                <i class="bi bi-list-ul" aria-hidden="true"></i>
+                                                <span data-resource="ui.members.title">Find a member</span>
+                                                <kbd data-member-shortcut>Alt M</kbd>
+                                            </button>
+                                        </div>
+                                </nav>
+                        </div>
+                    </div>
+                </div>
+
+            <div class="content">
+                    <div class="api-mobile-tools">
+                    <button class="contents-toggle" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" data-resource-label="ui.contents.open" aria-label="Open contents">
+                        <i class="bi bi-list" aria-hidden="true"></i>
+                        <span data-resource="ui.contents.title">Contents</span>
+                    </button>
+                        <button class="api-member-launcher" type="button" data-member-find aria-haspopup="dialog" aria-controls="api-member-dialog" aria-keyshortcuts="Alt+M" hidden>
+                            <i class="bi bi-list-ul" aria-hidden="true"></i>
+                            <span data-resource="ui.members.title">Find a member</span>
+                            <kbd data-member-shortcut>Alt M</kbd>
+                        </button>
+                    </div>
+
+                <article id="main-content" tabindex="-1" data-uid="Silk.NET.Vulkan.DescriptorMappingSourceIndirectIndexEXT">
+                    <div class="api-reference">
+    <header class="api-heading">
+        <h1 id="Silk_NET_Vulkan_DescriptorMappingSourceIndirectIndexEXT" data-uid="Silk.NET.Vulkan.DescriptorMappingSourceIndirectIndexEXT">DescriptorMappingSourceIndirectIndexEXT</h1>
     </header>
-
-    <main class="container-xxl">
-      <div class="toc-offcanvas">
-        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
-          </div>
-          <div class="offcanvas-body">
-            <nav class="toc" id="toc"></nav>
-          </div>
-        </div>
-      </div>
-
-      <div class="content">
-        <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
-            <i class="bi bi-list"></i>
-          </button>
-
-          <nav id="breadcrumb"></nav>
-        </div>
-
-        <article data-uid="Silk.NET.Vulkan.DescriptorMappingSourceIndirectIndexEXT">
-
-
-
-  <h1 id="Silk_NET_Vulkan_DescriptorMappingSourceIndirectIndexEXT" data-uid="Silk.NET.Vulkan.DescriptorMappingSourceIndirectIndexEXT" class="text-break">
-Struct DescriptorMappingSourceIndirectIndexEXT  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET.Vulkan/ExtDescriptorHeap.cs/#L1077"><i class="bi bi-code-slash"></i></a>
-  </h1>
-
-  <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="Silk.NET.Vulkan.html">Silk.NET.Vulkan</a></dd></dl>
-  <dl><dt>Assembly</dt><dd>Zenith.NET.Vulkan.dll</dd></dl>
-  </div>
-
-  <div class="markdown summary"></div>
-  <div class="markdown conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[NativeName(&quot;Name&quot;, &quot;VkDescriptorMappingSourceIndirectIndexEXT&quot;)]
+        <section class="api-declaration" data-resource-label="ui.reference.declaration" aria-label="C# type declaration">
+                <a class="api-source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET.Vulkan/ExtDescriptorHeap.cs/#L1077" target="_blank" rel="noopener noreferrer" data-resource-title="ui.action.source" data-resource-label="ui.action.source" title="View source" aria-label="View source">
+                    <i class="bi bi-code-slash" aria-hidden="true"></i>
+                </a>
+                <pre><code class="lang-csharp" data-api-symbol="DescriptorMappingSourceIndirectIndexEXT" data-api-kind="struct">[NativeName(&quot;Name&quot;, &quot;VkDescriptorMappingSourceIndirectIndexEXT&quot;)]
 public struct DescriptorMappingSourceIndirectIndexEXT</code></pre>
-  </div>
-
-
-
-
-
-
-
-  <dl class="typelist inheritedMembers">
-    <dt>Inherited Members</dt>
-    <dd>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.equals">ValueType.Equals(object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode">ValueType.GetHashCode()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.tostring">ValueType.ToString()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
-    </div>
-  </dd></dl>
-
-
-
-
-
-
-  <h2 class="section" id="constructors">Constructors
-</h2>
-
-
-  <a id="Silk_NET_Vulkan_DescriptorMappingSourceIndirectIndexEXT__ctor_" data-uid="Silk.NET.Vulkan.DescriptorMappingSourceIndirectIndexEXT.#ctor*"></a>
-
-  <h3 id="Silk_NET_Vulkan_DescriptorMappingSourceIndirectIndexEXT__ctor_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Nullable_System_UInt32__Silk_NET_Vulkan_SamplerCreateInfo__System_Nullable_Silk_NET_Core_Bool32__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Nullable_System_UInt32__" data-uid="Silk.NET.Vulkan.DescriptorMappingSourceIndirectIndexEXT.#ctor(System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Nullable{System.UInt32},Silk.NET.Vulkan.SamplerCreateInfo*,System.Nullable{Silk.NET.Core.Bool32},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Nullable{System.UInt32})">
-  DescriptorMappingSourceIndirectIndexEXT(uint?, uint?, uint?, uint?, uint?, SamplerCreateInfo*, Bool32?, uint?, uint?, uint?, uint?, uint?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET.Vulkan/ExtDescriptorHeap.cs/#L1080"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DescriptorMappingSourceIndirectIndexEXT(uint? heapOffset = null, uint? pushOffset = null, uint? addressOffset = null, uint? heapIndexStride = null, uint? heapArrayStride = null, SamplerCreateInfo* pEmbeddedSampler = null, Bool32? useCombinedImageSamplerIndex = null, uint? samplerHeapOffset = null, uint? samplerPushOffset = null, uint? samplerAddressOffset = null, uint? samplerHeapIndexStride = null, uint? samplerHeapArrayStride = null)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>heapOffset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</dt>
-    <dd></dd>
-    <dt><code>pushOffset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</dt>
-    <dd></dd>
-    <dt><code>addressOffset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</dt>
-    <dd></dd>
-    <dt><code>heapIndexStride</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</dt>
-    <dd></dd>
-    <dt><code>heapArrayStride</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</dt>
-    <dd></dd>
-    <dt><code>pEmbeddedSampler</code> <span class="xref">SamplerCreateInfo</span>*</dt>
-    <dd></dd>
-    <dt><code>useCombinedImageSamplerIndex</code> <span class="xref">Bool32</span>?</dt>
-    <dd></dd>
-    <dt><code>samplerHeapOffset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</dt>
-    <dd></dd>
-    <dt><code>samplerPushOffset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</dt>
-    <dd></dd>
-    <dt><code>samplerAddressOffset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</dt>
-    <dd></dd>
-    <dt><code>samplerHeapIndexStride</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</dt>
-    <dd></dd>
-    <dt><code>samplerHeapArrayStride</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <h2 class="section" id="fields">Fields
-</h2>
-
-
-
-  <h3 id="Silk_NET_Vulkan_DescriptorMappingSourceIndirectIndexEXT_AddressOffset" data-uid="Silk.NET.Vulkan.DescriptorMappingSourceIndirectIndexEXT.AddressOffset">
-  AddressOffset
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET.Vulkan/ExtDescriptorHeap.cs/#L1157"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[NativeName(&quot;Type&quot;, &quot;uint32_t&quot;)]
+                <span class="api-signature-references" hidden>
+                </span>
+        </section>
+        <details class="api-relationships">
+            <summary data-resource="ui.reference.relationships">Inheritance and metadata</summary>
+            <div class="api-relationships-body">
+                <dl class="api-metadata">
+                        <div>
+                            <dt data-resource="ui.reference.namespace">Namespace</dt>
+                            <dd><a class="xref" href="Silk.NET.Vulkan.html">Silk.NET.Vulkan</a></dd>
+                        </div>
+                        <div>
+                            <dt data-resource="ui.reference.assembly">Assembly</dt>
+                            <dd>Zenith.NET.Vulkan.dll</dd>
+                        </div>
+                </dl>
+                    <div class="api-relation">
+                        <h4 data-resource="ui.reference.inheritedMembers">Inherited members</h4>
+                        <ul>
+                                <li>
+                                        <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.equals">ValueType.Equals(object)</a>
+                                </li>
+                                <li>
+                                        <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode">ValueType.GetHashCode()</a>
+                                </li>
+                                <li>
+                                        <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.tostring">ValueType.ToString()</a>
+                                </li>
+                                <li>
+                                        <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+                                </li>
+                                <li>
+                                        <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+                                </li>
+                                <li>
+                                        <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+                                </li>
+                        </ul>
+                    </div>
+            </div>
+        </details>
+                <section class="api-group" aria-labelledby="constructors">
+                    <div class="api-group-heading">
+                        <h2 id="constructors" data-resource="ui.reference.constructors">Constructors</h2>
+                    </div>
+                    <div class="api-members">
+                                <a id="Silk_NET_Vulkan_DescriptorMappingSourceIndirectIndexEXT__ctor_" data-uid="Silk.NET.Vulkan.DescriptorMappingSourceIndirectIndexEXT.#ctor*"></a>
+                            <section class="api-member" aria-labelledby="Silk_NET_Vulkan_DescriptorMappingSourceIndirectIndexEXT__ctor_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Nullable_System_UInt32__Silk_NET_Vulkan_SamplerCreateInfo__System_Nullable_Silk_NET_Core_Bool32__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Nullable_System_UInt32__">
+                                <div class="api-member-heading">
+                                    <h3 id="Silk_NET_Vulkan_DescriptorMappingSourceIndirectIndexEXT__ctor_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Nullable_System_UInt32__Silk_NET_Vulkan_SamplerCreateInfo__System_Nullable_Silk_NET_Core_Bool32__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Nullable_System_UInt32__" data-uid="Silk.NET.Vulkan.DescriptorMappingSourceIndirectIndexEXT.#ctor(System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Nullable{System.UInt32},Silk.NET.Vulkan.SamplerCreateInfo*,System.Nullable{Silk.NET.Core.Bool32},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Nullable{System.UInt32})">DescriptorMappingSourceIndirectIndexEXT(uint?, uint?, uint?, uint?, uint?, SamplerCreateInfo*, Bool32?, uint?, uint?, uint?, uint?, uint?)</h3>
+                                        <a class="api-source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET.Vulkan/ExtDescriptorHeap.cs/#L1080" target="_blank" rel="noopener noreferrer" data-resource-title="ui.action.source" data-resource-label="ui.action.source" title="View source" aria-label="View source">
+                                            <i class="bi bi-code-slash" aria-hidden="true"></i>
+                                        </a>
+                                </div>
+                                    <pre><code class="lang-csharp" data-api-symbol="DescriptorMappingSourceIndirectIndexEXT(uint?, uint?, uint?, uint?, uint?, SamplerCreateInfo*, Bool32?, uint?, uint?, uint?, uint?, uint?)" data-api-kind="constructor">public DescriptorMappingSourceIndirectIndexEXT(uint? heapOffset = null, uint? pushOffset = null, uint? addressOffset = null, uint? heapIndexStride = null, uint? heapArrayStride = null, SamplerCreateInfo* pEmbeddedSampler = null, Bool32? useCombinedImageSamplerIndex = null, uint? samplerHeapOffset = null, uint? samplerPushOffset = null, uint? samplerAddressOffset = null, uint? samplerHeapIndexStride = null, uint? samplerHeapArrayStride = null)</code></pre>
+                                    <span class="api-signature-references" hidden>
+                                            <span data-signature-parameter="heapOffset"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</span>
+                                            <span data-signature-parameter="pushOffset"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</span>
+                                            <span data-signature-parameter="addressOffset"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</span>
+                                            <span data-signature-parameter="heapIndexStride"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</span>
+                                            <span data-signature-parameter="heapArrayStride"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</span>
+                                            <span data-signature-parameter="pEmbeddedSampler"><span class="xref">SamplerCreateInfo</span>*</span>
+                                            <span data-signature-parameter="useCombinedImageSamplerIndex"><span class="xref">Bool32</span>?</span>
+                                            <span data-signature-parameter="samplerHeapOffset"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</span>
+                                            <span data-signature-parameter="samplerPushOffset"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</span>
+                                            <span data-signature-parameter="samplerAddressOffset"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</span>
+                                            <span data-signature-parameter="samplerHeapIndexStride"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</span>
+                                            <span data-signature-parameter="samplerHeapArrayStride"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</span>
+                                    </span>
+                            </section>
+                    </div>
+                </section>
+                <section class="api-group" aria-labelledby="fields">
+                    <div class="api-group-heading">
+                        <h2 id="fields" data-resource="ui.reference.fields">Fields</h2>
+                    </div>
+                    <div class="api-members">
+                            <section class="api-member" aria-labelledby="Silk_NET_Vulkan_DescriptorMappingSourceIndirectIndexEXT_AddressOffset">
+                                <div class="api-member-heading">
+                                    <h3 id="Silk_NET_Vulkan_DescriptorMappingSourceIndirectIndexEXT_AddressOffset" data-uid="Silk.NET.Vulkan.DescriptorMappingSourceIndirectIndexEXT.AddressOffset">AddressOffset</h3>
+                                        <a class="api-source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET.Vulkan/ExtDescriptorHeap.cs/#L1157" target="_blank" rel="noopener noreferrer" data-resource-title="ui.action.source" data-resource-label="ui.action.source" title="View source" aria-label="View source">
+                                            <i class="bi bi-code-slash" aria-hidden="true"></i>
+                                        </a>
+                                </div>
+                                    <pre><code class="lang-csharp" data-api-symbol="AddressOffset" data-api-kind="field">[NativeName(&quot;Type&quot;, &quot;uint32_t&quot;)]
 [NativeName(&quot;Type.Name&quot;, &quot;uint32_t&quot;)]
 [NativeName(&quot;Name&quot;, &quot;addressOffset&quot;)]
 public uint AddressOffset</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <h3 id="Silk_NET_Vulkan_DescriptorMappingSourceIndirectIndexEXT_HeapArrayStride" data-uid="Silk.NET.Vulkan.DescriptorMappingSourceIndirectIndexEXT.HeapArrayStride">
-  HeapArrayStride
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET.Vulkan/ExtDescriptorHeap.cs/#L1167"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[NativeName(&quot;Type&quot;, &quot;uint32_t&quot;)]
+                                    <span class="api-signature-references" hidden>
+                                            <span data-signature-value><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></span>
+                                    </span>
+                            </section>
+                            <section class="api-member" aria-labelledby="Silk_NET_Vulkan_DescriptorMappingSourceIndirectIndexEXT_HeapArrayStride">
+                                <div class="api-member-heading">
+                                    <h3 id="Silk_NET_Vulkan_DescriptorMappingSourceIndirectIndexEXT_HeapArrayStride" data-uid="Silk.NET.Vulkan.DescriptorMappingSourceIndirectIndexEXT.HeapArrayStride">HeapArrayStride</h3>
+                                        <a class="api-source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET.Vulkan/ExtDescriptorHeap.cs/#L1167" target="_blank" rel="noopener noreferrer" data-resource-title="ui.action.source" data-resource-label="ui.action.source" title="View source" aria-label="View source">
+                                            <i class="bi bi-code-slash" aria-hidden="true"></i>
+                                        </a>
+                                </div>
+                                    <pre><code class="lang-csharp" data-api-symbol="HeapArrayStride" data-api-kind="field">[NativeName(&quot;Type&quot;, &quot;uint32_t&quot;)]
 [NativeName(&quot;Type.Name&quot;, &quot;uint32_t&quot;)]
 [NativeName(&quot;Name&quot;, &quot;heapArrayStride&quot;)]
 public uint HeapArrayStride</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <h3 id="Silk_NET_Vulkan_DescriptorMappingSourceIndirectIndexEXT_HeapIndexStride" data-uid="Silk.NET.Vulkan.DescriptorMappingSourceIndirectIndexEXT.HeapIndexStride">
-  HeapIndexStride
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET.Vulkan/ExtDescriptorHeap.cs/#L1162"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[NativeName(&quot;Type&quot;, &quot;uint32_t&quot;)]
+                                    <span class="api-signature-references" hidden>
+                                            <span data-signature-value><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></span>
+                                    </span>
+                            </section>
+                            <section class="api-member" aria-labelledby="Silk_NET_Vulkan_DescriptorMappingSourceIndirectIndexEXT_HeapIndexStride">
+                                <div class="api-member-heading">
+                                    <h3 id="Silk_NET_Vulkan_DescriptorMappingSourceIndirectIndexEXT_HeapIndexStride" data-uid="Silk.NET.Vulkan.DescriptorMappingSourceIndirectIndexEXT.HeapIndexStride">HeapIndexStride</h3>
+                                        <a class="api-source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET.Vulkan/ExtDescriptorHeap.cs/#L1162" target="_blank" rel="noopener noreferrer" data-resource-title="ui.action.source" data-resource-label="ui.action.source" title="View source" aria-label="View source">
+                                            <i class="bi bi-code-slash" aria-hidden="true"></i>
+                                        </a>
+                                </div>
+                                    <pre><code class="lang-csharp" data-api-symbol="HeapIndexStride" data-api-kind="field">[NativeName(&quot;Type&quot;, &quot;uint32_t&quot;)]
 [NativeName(&quot;Type.Name&quot;, &quot;uint32_t&quot;)]
 [NativeName(&quot;Name&quot;, &quot;heapIndexStride&quot;)]
 public uint HeapIndexStride</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <h3 id="Silk_NET_Vulkan_DescriptorMappingSourceIndirectIndexEXT_HeapOffset" data-uid="Silk.NET.Vulkan.DescriptorMappingSourceIndirectIndexEXT.HeapOffset">
-  HeapOffset
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET.Vulkan/ExtDescriptorHeap.cs/#L1147"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[NativeName(&quot;Type&quot;, &quot;uint32_t&quot;)]
+                                    <span class="api-signature-references" hidden>
+                                            <span data-signature-value><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></span>
+                                    </span>
+                            </section>
+                            <section class="api-member" aria-labelledby="Silk_NET_Vulkan_DescriptorMappingSourceIndirectIndexEXT_HeapOffset">
+                                <div class="api-member-heading">
+                                    <h3 id="Silk_NET_Vulkan_DescriptorMappingSourceIndirectIndexEXT_HeapOffset" data-uid="Silk.NET.Vulkan.DescriptorMappingSourceIndirectIndexEXT.HeapOffset">HeapOffset</h3>
+                                        <a class="api-source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET.Vulkan/ExtDescriptorHeap.cs/#L1147" target="_blank" rel="noopener noreferrer" data-resource-title="ui.action.source" data-resource-label="ui.action.source" title="View source" aria-label="View source">
+                                            <i class="bi bi-code-slash" aria-hidden="true"></i>
+                                        </a>
+                                </div>
+                                    <pre><code class="lang-csharp" data-api-symbol="HeapOffset" data-api-kind="field">[NativeName(&quot;Type&quot;, &quot;uint32_t&quot;)]
 [NativeName(&quot;Type.Name&quot;, &quot;uint32_t&quot;)]
 [NativeName(&quot;Name&quot;, &quot;heapOffset&quot;)]
 public uint HeapOffset</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <h3 id="Silk_NET_Vulkan_DescriptorMappingSourceIndirectIndexEXT_PEmbeddedSampler" data-uid="Silk.NET.Vulkan.DescriptorMappingSourceIndirectIndexEXT.PEmbeddedSampler">
-  PEmbeddedSampler
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET.Vulkan/ExtDescriptorHeap.cs/#L1172"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[NativeName(&quot;Type&quot;, &quot;VkSamplerCreateInfo*&quot;)]
+                                    <span class="api-signature-references" hidden>
+                                            <span data-signature-value><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></span>
+                                    </span>
+                            </section>
+                            <section class="api-member" aria-labelledby="Silk_NET_Vulkan_DescriptorMappingSourceIndirectIndexEXT_PEmbeddedSampler">
+                                <div class="api-member-heading">
+                                    <h3 id="Silk_NET_Vulkan_DescriptorMappingSourceIndirectIndexEXT_PEmbeddedSampler" data-uid="Silk.NET.Vulkan.DescriptorMappingSourceIndirectIndexEXT.PEmbeddedSampler">PEmbeddedSampler</h3>
+                                        <a class="api-source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET.Vulkan/ExtDescriptorHeap.cs/#L1172" target="_blank" rel="noopener noreferrer" data-resource-title="ui.action.source" data-resource-label="ui.action.source" title="View source" aria-label="View source">
+                                            <i class="bi bi-code-slash" aria-hidden="true"></i>
+                                        </a>
+                                </div>
+                                    <pre><code class="lang-csharp" data-api-symbol="PEmbeddedSampler" data-api-kind="field">[NativeName(&quot;Type&quot;, &quot;VkSamplerCreateInfo*&quot;)]
 [NativeName(&quot;Type.Name&quot;, &quot;VkSamplerCreateInfo&quot;)]
 [NativeName(&quot;Name&quot;, &quot;pEmbeddedSampler&quot;)]
 public SamplerCreateInfo* PEmbeddedSampler</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><span class="xref">SamplerCreateInfo</span>*</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <h3 id="Silk_NET_Vulkan_DescriptorMappingSourceIndirectIndexEXT_PushOffset" data-uid="Silk.NET.Vulkan.DescriptorMappingSourceIndirectIndexEXT.PushOffset">
-  PushOffset
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET.Vulkan/ExtDescriptorHeap.cs/#L1152"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[NativeName(&quot;Type&quot;, &quot;uint32_t&quot;)]
+                                    <span class="api-signature-references" hidden>
+                                            <span data-signature-value><span class="xref">SamplerCreateInfo</span>*</span>
+                                    </span>
+                            </section>
+                            <section class="api-member" aria-labelledby="Silk_NET_Vulkan_DescriptorMappingSourceIndirectIndexEXT_PushOffset">
+                                <div class="api-member-heading">
+                                    <h3 id="Silk_NET_Vulkan_DescriptorMappingSourceIndirectIndexEXT_PushOffset" data-uid="Silk.NET.Vulkan.DescriptorMappingSourceIndirectIndexEXT.PushOffset">PushOffset</h3>
+                                        <a class="api-source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET.Vulkan/ExtDescriptorHeap.cs/#L1152" target="_blank" rel="noopener noreferrer" data-resource-title="ui.action.source" data-resource-label="ui.action.source" title="View source" aria-label="View source">
+                                            <i class="bi bi-code-slash" aria-hidden="true"></i>
+                                        </a>
+                                </div>
+                                    <pre><code class="lang-csharp" data-api-symbol="PushOffset" data-api-kind="field">[NativeName(&quot;Type&quot;, &quot;uint32_t&quot;)]
 [NativeName(&quot;Type.Name&quot;, &quot;uint32_t&quot;)]
 [NativeName(&quot;Name&quot;, &quot;pushOffset&quot;)]
 public uint PushOffset</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <h3 id="Silk_NET_Vulkan_DescriptorMappingSourceIndirectIndexEXT_SamplerAddressOffset" data-uid="Silk.NET.Vulkan.DescriptorMappingSourceIndirectIndexEXT.SamplerAddressOffset">
-  SamplerAddressOffset
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET.Vulkan/ExtDescriptorHeap.cs/#L1192"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[NativeName(&quot;Type&quot;, &quot;uint32_t&quot;)]
+                                    <span class="api-signature-references" hidden>
+                                            <span data-signature-value><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></span>
+                                    </span>
+                            </section>
+                            <section class="api-member" aria-labelledby="Silk_NET_Vulkan_DescriptorMappingSourceIndirectIndexEXT_SamplerAddressOffset">
+                                <div class="api-member-heading">
+                                    <h3 id="Silk_NET_Vulkan_DescriptorMappingSourceIndirectIndexEXT_SamplerAddressOffset" data-uid="Silk.NET.Vulkan.DescriptorMappingSourceIndirectIndexEXT.SamplerAddressOffset">SamplerAddressOffset</h3>
+                                        <a class="api-source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET.Vulkan/ExtDescriptorHeap.cs/#L1192" target="_blank" rel="noopener noreferrer" data-resource-title="ui.action.source" data-resource-label="ui.action.source" title="View source" aria-label="View source">
+                                            <i class="bi bi-code-slash" aria-hidden="true"></i>
+                                        </a>
+                                </div>
+                                    <pre><code class="lang-csharp" data-api-symbol="SamplerAddressOffset" data-api-kind="field">[NativeName(&quot;Type&quot;, &quot;uint32_t&quot;)]
 [NativeName(&quot;Type.Name&quot;, &quot;uint32_t&quot;)]
 [NativeName(&quot;Name&quot;, &quot;samplerAddressOffset&quot;)]
 public uint SamplerAddressOffset</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <h3 id="Silk_NET_Vulkan_DescriptorMappingSourceIndirectIndexEXT_SamplerHeapArrayStride" data-uid="Silk.NET.Vulkan.DescriptorMappingSourceIndirectIndexEXT.SamplerHeapArrayStride">
-  SamplerHeapArrayStride
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET.Vulkan/ExtDescriptorHeap.cs/#L1202"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[NativeName(&quot;Type&quot;, &quot;uint32_t&quot;)]
+                                    <span class="api-signature-references" hidden>
+                                            <span data-signature-value><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></span>
+                                    </span>
+                            </section>
+                            <section class="api-member" aria-labelledby="Silk_NET_Vulkan_DescriptorMappingSourceIndirectIndexEXT_SamplerHeapArrayStride">
+                                <div class="api-member-heading">
+                                    <h3 id="Silk_NET_Vulkan_DescriptorMappingSourceIndirectIndexEXT_SamplerHeapArrayStride" data-uid="Silk.NET.Vulkan.DescriptorMappingSourceIndirectIndexEXT.SamplerHeapArrayStride">SamplerHeapArrayStride</h3>
+                                        <a class="api-source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET.Vulkan/ExtDescriptorHeap.cs/#L1202" target="_blank" rel="noopener noreferrer" data-resource-title="ui.action.source" data-resource-label="ui.action.source" title="View source" aria-label="View source">
+                                            <i class="bi bi-code-slash" aria-hidden="true"></i>
+                                        </a>
+                                </div>
+                                    <pre><code class="lang-csharp" data-api-symbol="SamplerHeapArrayStride" data-api-kind="field">[NativeName(&quot;Type&quot;, &quot;uint32_t&quot;)]
 [NativeName(&quot;Type.Name&quot;, &quot;uint32_t&quot;)]
 [NativeName(&quot;Name&quot;, &quot;samplerHeapArrayStride&quot;)]
 public uint SamplerHeapArrayStride</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <h3 id="Silk_NET_Vulkan_DescriptorMappingSourceIndirectIndexEXT_SamplerHeapIndexStride" data-uid="Silk.NET.Vulkan.DescriptorMappingSourceIndirectIndexEXT.SamplerHeapIndexStride">
-  SamplerHeapIndexStride
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET.Vulkan/ExtDescriptorHeap.cs/#L1197"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[NativeName(&quot;Type&quot;, &quot;uint32_t&quot;)]
+                                    <span class="api-signature-references" hidden>
+                                            <span data-signature-value><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></span>
+                                    </span>
+                            </section>
+                            <section class="api-member" aria-labelledby="Silk_NET_Vulkan_DescriptorMappingSourceIndirectIndexEXT_SamplerHeapIndexStride">
+                                <div class="api-member-heading">
+                                    <h3 id="Silk_NET_Vulkan_DescriptorMappingSourceIndirectIndexEXT_SamplerHeapIndexStride" data-uid="Silk.NET.Vulkan.DescriptorMappingSourceIndirectIndexEXT.SamplerHeapIndexStride">SamplerHeapIndexStride</h3>
+                                        <a class="api-source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET.Vulkan/ExtDescriptorHeap.cs/#L1197" target="_blank" rel="noopener noreferrer" data-resource-title="ui.action.source" data-resource-label="ui.action.source" title="View source" aria-label="View source">
+                                            <i class="bi bi-code-slash" aria-hidden="true"></i>
+                                        </a>
+                                </div>
+                                    <pre><code class="lang-csharp" data-api-symbol="SamplerHeapIndexStride" data-api-kind="field">[NativeName(&quot;Type&quot;, &quot;uint32_t&quot;)]
 [NativeName(&quot;Type.Name&quot;, &quot;uint32_t&quot;)]
 [NativeName(&quot;Name&quot;, &quot;samplerHeapIndexStride&quot;)]
 public uint SamplerHeapIndexStride</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <h3 id="Silk_NET_Vulkan_DescriptorMappingSourceIndirectIndexEXT_SamplerHeapOffset" data-uid="Silk.NET.Vulkan.DescriptorMappingSourceIndirectIndexEXT.SamplerHeapOffset">
-  SamplerHeapOffset
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET.Vulkan/ExtDescriptorHeap.cs/#L1182"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[NativeName(&quot;Type&quot;, &quot;uint32_t&quot;)]
+                                    <span class="api-signature-references" hidden>
+                                            <span data-signature-value><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></span>
+                                    </span>
+                            </section>
+                            <section class="api-member" aria-labelledby="Silk_NET_Vulkan_DescriptorMappingSourceIndirectIndexEXT_SamplerHeapOffset">
+                                <div class="api-member-heading">
+                                    <h3 id="Silk_NET_Vulkan_DescriptorMappingSourceIndirectIndexEXT_SamplerHeapOffset" data-uid="Silk.NET.Vulkan.DescriptorMappingSourceIndirectIndexEXT.SamplerHeapOffset">SamplerHeapOffset</h3>
+                                        <a class="api-source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET.Vulkan/ExtDescriptorHeap.cs/#L1182" target="_blank" rel="noopener noreferrer" data-resource-title="ui.action.source" data-resource-label="ui.action.source" title="View source" aria-label="View source">
+                                            <i class="bi bi-code-slash" aria-hidden="true"></i>
+                                        </a>
+                                </div>
+                                    <pre><code class="lang-csharp" data-api-symbol="SamplerHeapOffset" data-api-kind="field">[NativeName(&quot;Type&quot;, &quot;uint32_t&quot;)]
 [NativeName(&quot;Type.Name&quot;, &quot;uint32_t&quot;)]
 [NativeName(&quot;Name&quot;, &quot;samplerHeapOffset&quot;)]
 public uint SamplerHeapOffset</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <h3 id="Silk_NET_Vulkan_DescriptorMappingSourceIndirectIndexEXT_SamplerPushOffset" data-uid="Silk.NET.Vulkan.DescriptorMappingSourceIndirectIndexEXT.SamplerPushOffset">
-  SamplerPushOffset
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET.Vulkan/ExtDescriptorHeap.cs/#L1187"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[NativeName(&quot;Type&quot;, &quot;uint32_t&quot;)]
+                                    <span class="api-signature-references" hidden>
+                                            <span data-signature-value><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></span>
+                                    </span>
+                            </section>
+                            <section class="api-member" aria-labelledby="Silk_NET_Vulkan_DescriptorMappingSourceIndirectIndexEXT_SamplerPushOffset">
+                                <div class="api-member-heading">
+                                    <h3 id="Silk_NET_Vulkan_DescriptorMappingSourceIndirectIndexEXT_SamplerPushOffset" data-uid="Silk.NET.Vulkan.DescriptorMappingSourceIndirectIndexEXT.SamplerPushOffset">SamplerPushOffset</h3>
+                                        <a class="api-source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET.Vulkan/ExtDescriptorHeap.cs/#L1187" target="_blank" rel="noopener noreferrer" data-resource-title="ui.action.source" data-resource-label="ui.action.source" title="View source" aria-label="View source">
+                                            <i class="bi bi-code-slash" aria-hidden="true"></i>
+                                        </a>
+                                </div>
+                                    <pre><code class="lang-csharp" data-api-symbol="SamplerPushOffset" data-api-kind="field">[NativeName(&quot;Type&quot;, &quot;uint32_t&quot;)]
 [NativeName(&quot;Type.Name&quot;, &quot;uint32_t&quot;)]
 [NativeName(&quot;Name&quot;, &quot;samplerPushOffset&quot;)]
 public uint SamplerPushOffset</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <h3 id="Silk_NET_Vulkan_DescriptorMappingSourceIndirectIndexEXT_UseCombinedImageSamplerIndex" data-uid="Silk.NET.Vulkan.DescriptorMappingSourceIndirectIndexEXT.UseCombinedImageSamplerIndex">
-  UseCombinedImageSamplerIndex
-  <a class="header-action link-secondary" title="View source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET.Vulkan/ExtDescriptorHeap.cs/#L1177"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[NativeName(&quot;Type&quot;, &quot;VkBool32&quot;)]
+                                    <span class="api-signature-references" hidden>
+                                            <span data-signature-value><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></span>
+                                    </span>
+                            </section>
+                            <section class="api-member" aria-labelledby="Silk_NET_Vulkan_DescriptorMappingSourceIndirectIndexEXT_UseCombinedImageSamplerIndex">
+                                <div class="api-member-heading">
+                                    <h3 id="Silk_NET_Vulkan_DescriptorMappingSourceIndirectIndexEXT_UseCombinedImageSamplerIndex" data-uid="Silk.NET.Vulkan.DescriptorMappingSourceIndirectIndexEXT.UseCombinedImageSamplerIndex">UseCombinedImageSamplerIndex</h3>
+                                        <a class="api-source" href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET.Vulkan/ExtDescriptorHeap.cs/#L1177" target="_blank" rel="noopener noreferrer" data-resource-title="ui.action.source" data-resource-label="ui.action.source" title="View source" aria-label="View source">
+                                            <i class="bi bi-code-slash" aria-hidden="true"></i>
+                                        </a>
+                                </div>
+                                    <pre><code class="lang-csharp" data-api-symbol="UseCombinedImageSamplerIndex" data-api-kind="field">[NativeName(&quot;Type&quot;, &quot;VkBool32&quot;)]
 [NativeName(&quot;Type.Name&quot;, &quot;VkBool32&quot;)]
 [NativeName(&quot;Name&quot;, &quot;useCombinedImageSamplerIndex&quot;)]
 public Bool32 UseCombinedImageSamplerIndex</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><span class="xref">Bool32</span></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
+                                    <span class="api-signature-references" hidden>
+                                            <span data-signature-value><span class="xref">Bool32</span></span>
+                                    </span>
+                            </section>
+                    </div>
+                </section>
+</div>
 </article>
+            </div>
 
-        <div class="contribution d-print-none">
-          <a href="https://github.com/qian-o/Zenith.NET/blob/master/sources/Zenith.NET.Vulkan/ExtDescriptorHeap.cs/#L1077" class="edit-link">Edit this page</a>
-        </div>
+        </main>
 
+        
 
-      </div>
+            <dialog class="site-search api-member-finder" id="api-member-dialog" aria-labelledby="api-member-title" aria-describedby="api-member-context">
+                <header class="api-finder-heading">
+                    <div>
+                        <h2 id="api-member-title" data-resource="ui.members.title">Find a member</h2>
+                        <p class="text-break" id="api-member-context">Silk.NET.Vulkan.DescriptorMappingSourceIndirectIndexEXT</p>
+                    </div>
+                    <button id="api-member-close" type="button" data-resource-label="ui.members.close" aria-label="Close member finder">Esc</button>
+                </header>
+                <form class="api-member-filter" id="api-member-form" role="search">
+                    <i class="bi bi-search" aria-hidden="true"></i>
+                    <input id="api-member-query" type="search" data-resource-label="ui.members.search" aria-label="Search members" data-resource-placeholder="ui.members.placeholder" placeholder="Name or signature…" autocomplete="off" aria-controls="api-member-results" autofocus>
+                    <button id="api-member-clear" type="button" data-resource-label="ui.members.clear" aria-label="Clear member search" hidden>
+                        <i class="bi bi-x-lg" aria-hidden="true"></i>
+                    </button>
+                </form>
+                <div class="search-body">
+                    <div id="api-member-results"></div>
+                    <p id="api-member-empty" class="api-finder-empty" role="status" hidden data-resource="ui.members.empty">No matching members.</p>
+                </div>
+                <div class="search-footer">
+                    <span>
+                        <kbd>↑</kbd>
+                        <kbd>↓</kbd>
+                        <span data-resource="ui.action.navigate">Navigate</span>
+                    </span>
+                    <span>
+                        <kbd>Enter</kbd>
+                        <span data-resource="ui.members.open">Go to member</span>
+                    </span>
+                </div>
+            </dialog>
+            <dialog class="site-search" id="search-dialog" aria-labelledby="search-title">
+                <h2 id="search-title" class="visually-hidden" data-resource="ui.search.title">Search documentation</h2>
+                <form class="search-input-row" role="search" id="site-search-form">
+                    <i class="bi bi-search" aria-hidden="true"></i>
+                    <input id="site-search-input" type="search" data-resource-placeholder="ui.search.placeholder" placeholder="What are you looking for?" autocomplete="off" data-resource-label="ui.search.title" aria-label="Search documentation" aria-describedby="search-status" autofocus>
+                    <button id="search-close" type="button" data-resource-label="ui.search.close" aria-label="Close search">Esc</button>
+                </form>
+                <div class="search-body">
+                    <p id="search-status" role="status" aria-live="polite" data-resource="ui.search.hint">Search tutorials, concepts, samples, and the API reference.</p>
+                    <div class="search-shortcuts" id="search-shortcuts">
+                        <a href="../learn/first-triangle.html" data-search-item>
+                            <span data-resource="tutorial.title">First Triangle</span>
+                            <small data-resource="ui.content.tutorial">Tutorial</small>
+                        </a>
+                        <a href="../learn/samples.html" data-search-item>
+                            <span data-resource="samples.title">Samples</span>
+                            <small data-resource="ui.content.source">Source code</small>
+                        </a>
+                        <a href="../api/index.html" data-search-item>
+                            <span data-resource="reference.title">API Reference</span>
+                            <small data-resource="ui.content.reference">Reference</small>
+                        </a>
+                    </div>
+                    <ul id="site-search-results"></ul>
+                    <button id="search-more" class="search-more" type="button" hidden data-resource="ui.search.more">Show more results</button>
+                </div>
+                <div class="search-footer">
+                    <span>
+                        <kbd>↑</kbd>
+                        <kbd>↓</kbd>
+                        <span data-resource="ui.action.navigate">Navigate</span>
+                    </span>
+                    <span>
+                        <kbd>Enter</kbd>
+                        <span data-resource="ui.action.open">Open</span>
+                    </span>
+                </div>
+            </dialog>
 
-      <div class="affix">
-        <nav id="affix"></nav>
-      </div>
-    </main>
-
-    <div class="container-xxl search-results" id="search-results"></div>
-
-    <footer class="border-top text-secondary">
-      <div class="container-xxl">
-        <div class="flex-fill">
-          Zenith.NET is a modern rendering hardware interface for .NET.
-        </div>
-      </div>
-    </footer>
-  </body>
+    </body>
 </html>

@@ -5796,6 +5796,12 @@ references:
   commentId: N:Zenith.NET.Extensions.ImGui
   fullName: Zenith.NET.Extensions.ImGui
   nameWithType: Zenith.NET.Extensions.ImGui
+- uid: Zenith.NET.Extensions.ImGui.Extensions
+  name: Extensions
+  href: api/Zenith.NET.Extensions.ImGui.Extensions.html
+  commentId: T:Zenith.NET.Extensions.ImGui.Extensions
+  fullName: Zenith.NET.Extensions.ImGui.Extensions
+  nameWithType: Extensions
 - uid: Zenith.NET.Extensions.ImGui.IImGuiPlatformBindings
   name: IImGuiPlatformBindings
   href: api/Zenith.NET.Extensions.ImGui.IImGuiPlatformBindings.html
@@ -5900,25 +5906,6 @@ references:
   fullName.vb: Zenith.NET.Extensions.ImGui.ImGuiController.New
   nameWithType: ImGuiController.ImGuiController
   nameWithType.vb: ImGuiController.New
-- uid: Zenith.NET.Extensions.ImGui.ImGuiController.Binding(Zenith.NET.Texture)
-  name: Binding(Texture)
-  href: api/Zenith.NET.Extensions.ImGui.ImGuiController.html#Zenith_NET_Extensions_ImGui_ImGuiController_Binding_Zenith_NET_Texture_
-  commentId: M:Zenith.NET.Extensions.ImGui.ImGuiController.Binding(Zenith.NET.Texture)
-  fullName: Zenith.NET.Extensions.ImGui.ImGuiController.Binding(Zenith.NET.Texture)
-  nameWithType: ImGuiController.Binding(Texture)
-- uid: Zenith.NET.Extensions.ImGui.ImGuiController.Binding(Zenith.NET.TextureView)
-  name: Binding(TextureView)
-  href: api/Zenith.NET.Extensions.ImGui.ImGuiController.html#Zenith_NET_Extensions_ImGui_ImGuiController_Binding_Zenith_NET_TextureView_
-  commentId: M:Zenith.NET.Extensions.ImGui.ImGuiController.Binding(Zenith.NET.TextureView)
-  fullName: Zenith.NET.Extensions.ImGui.ImGuiController.Binding(Zenith.NET.TextureView)
-  nameWithType: ImGuiController.Binding(TextureView)
-- uid: Zenith.NET.Extensions.ImGui.ImGuiController.Binding*
-  name: Binding
-  href: api/Zenith.NET.Extensions.ImGui.ImGuiController.html#Zenith_NET_Extensions_ImGui_ImGuiController_Binding_
-  commentId: Overload:Zenith.NET.Extensions.ImGui.ImGuiController.Binding
-  isSpec: "True"
-  fullName: Zenith.NET.Extensions.ImGui.ImGuiController.Binding
-  nameWithType: ImGuiController.Binding
 - uid: Zenith.NET.Extensions.ImGui.ImGuiController.Context
   name: Context
   href: api/Zenith.NET.Extensions.ImGui.ImGuiController.html#Zenith_NET_Extensions_ImGui_ImGuiController_Context
@@ -6215,6 +6202,294 @@ references:
   commentId: F:Zenith.NET.Extensions.Skia.SKTextureDesc.Width
   fullName: Zenith.NET.Extensions.Skia.SKTextureDesc.Width
   nameWithType: SKTextureDesc.Width
+- uid: Zenith.NET.Extensions.Upscaling
+  name: Zenith.NET.Extensions.Upscaling
+  href: api/Zenith.NET.Extensions.Upscaling.html
+  commentId: N:Zenith.NET.Extensions.Upscaling
+  fullName: Zenith.NET.Extensions.Upscaling
+  nameWithType: Zenith.NET.Extensions.Upscaling
+- uid: Zenith.NET.Extensions.Upscaling.Extensions
+  name: Extensions
+  href: api/Zenith.NET.Extensions.Upscaling.Extensions.html
+  commentId: T:Zenith.NET.Extensions.Upscaling.Extensions
+  fullName: Zenith.NET.Extensions.Upscaling.Extensions
+  nameWithType: Extensions
+- uid: Zenith.NET.Extensions.Upscaling.SpatialUpscaler
+  name: SpatialUpscaler
+  href: api/Zenith.NET.Extensions.Upscaling.SpatialUpscaler.html
+  commentId: T:Zenith.NET.Extensions.Upscaling.SpatialUpscaler
+  fullName: Zenith.NET.Extensions.Upscaling.SpatialUpscaler
+  nameWithType: SpatialUpscaler
+- uid: Zenith.NET.Extensions.Upscaling.SpatialUpscaler.Desc
+  name: Desc
+  href: api/Zenith.NET.Extensions.Upscaling.SpatialUpscaler.html#Zenith_NET_Extensions_Upscaling_SpatialUpscaler_Desc
+  commentId: P:Zenith.NET.Extensions.Upscaling.SpatialUpscaler.Desc
+  fullName: Zenith.NET.Extensions.Upscaling.SpatialUpscaler.Desc
+  nameWithType: SpatialUpscaler.Desc
+- uid: Zenith.NET.Extensions.Upscaling.SpatialUpscaler.Desc*
+  name: Desc
+  href: api/Zenith.NET.Extensions.Upscaling.SpatialUpscaler.html#Zenith_NET_Extensions_Upscaling_SpatialUpscaler_Desc_
+  commentId: Overload:Zenith.NET.Extensions.Upscaling.SpatialUpscaler.Desc
+  isSpec: "True"
+  fullName: Zenith.NET.Extensions.Upscaling.SpatialUpscaler.Desc
+  nameWithType: SpatialUpscaler.Desc
+- uid: Zenith.NET.Extensions.Upscaling.SpatialUpscaler.Destroy
+  name: Destroy()
+  href: api/Zenith.NET.Extensions.Upscaling.SpatialUpscaler.html#Zenith_NET_Extensions_Upscaling_SpatialUpscaler_Destroy
+  commentId: M:Zenith.NET.Extensions.Upscaling.SpatialUpscaler.Destroy
+  fullName: Zenith.NET.Extensions.Upscaling.SpatialUpscaler.Destroy()
+  nameWithType: SpatialUpscaler.Destroy()
+- uid: Zenith.NET.Extensions.Upscaling.SpatialUpscaler.Destroy*
+  name: Destroy
+  href: api/Zenith.NET.Extensions.Upscaling.SpatialUpscaler.html#Zenith_NET_Extensions_Upscaling_SpatialUpscaler_Destroy_
+  commentId: Overload:Zenith.NET.Extensions.Upscaling.SpatialUpscaler.Destroy
+  isSpec: "True"
+  fullName: Zenith.NET.Extensions.Upscaling.SpatialUpscaler.Destroy
+  nameWithType: SpatialUpscaler.Destroy
+- uid: Zenith.NET.Extensions.Upscaling.SpatialUpscaler.Dispatch(Zenith.NET.CommandBuffer,Zenith.NET.Extensions.Upscaling.SpatialUpscalerArgs)
+  name: Dispatch(CommandBuffer, SpatialUpscalerArgs)
+  href: api/Zenith.NET.Extensions.Upscaling.SpatialUpscaler.html#Zenith_NET_Extensions_Upscaling_SpatialUpscaler_Dispatch_Zenith_NET_CommandBuffer_Zenith_NET_Extensions_Upscaling_SpatialUpscalerArgs_
+  commentId: M:Zenith.NET.Extensions.Upscaling.SpatialUpscaler.Dispatch(Zenith.NET.CommandBuffer,Zenith.NET.Extensions.Upscaling.SpatialUpscalerArgs)
+  fullName: Zenith.NET.Extensions.Upscaling.SpatialUpscaler.Dispatch(Zenith.NET.CommandBuffer, Zenith.NET.Extensions.Upscaling.SpatialUpscalerArgs)
+  nameWithType: SpatialUpscaler.Dispatch(CommandBuffer, SpatialUpscalerArgs)
+- uid: Zenith.NET.Extensions.Upscaling.SpatialUpscaler.Dispatch*
+  name: Dispatch
+  href: api/Zenith.NET.Extensions.Upscaling.SpatialUpscaler.html#Zenith_NET_Extensions_Upscaling_SpatialUpscaler_Dispatch_
+  commentId: Overload:Zenith.NET.Extensions.Upscaling.SpatialUpscaler.Dispatch
+  isSpec: "True"
+  fullName: Zenith.NET.Extensions.Upscaling.SpatialUpscaler.Dispatch
+  nameWithType: SpatialUpscaler.Dispatch
+- uid: Zenith.NET.Extensions.Upscaling.SpatialUpscalerArgs
+  name: SpatialUpscalerArgs
+  href: api/Zenith.NET.Extensions.Upscaling.SpatialUpscalerArgs.html
+  commentId: T:Zenith.NET.Extensions.Upscaling.SpatialUpscalerArgs
+  fullName: Zenith.NET.Extensions.Upscaling.SpatialUpscalerArgs
+  nameWithType: SpatialUpscalerArgs
+- uid: Zenith.NET.Extensions.Upscaling.SpatialUpscalerArgs.Input
+  name: Input
+  href: api/Zenith.NET.Extensions.Upscaling.SpatialUpscalerArgs.html#Zenith_NET_Extensions_Upscaling_SpatialUpscalerArgs_Input
+  commentId: F:Zenith.NET.Extensions.Upscaling.SpatialUpscalerArgs.Input
+  fullName: Zenith.NET.Extensions.Upscaling.SpatialUpscalerArgs.Input
+  nameWithType: SpatialUpscalerArgs.Input
+- uid: Zenith.NET.Extensions.Upscaling.SpatialUpscalerArgs.Output
+  name: Output
+  href: api/Zenith.NET.Extensions.Upscaling.SpatialUpscalerArgs.html#Zenith_NET_Extensions_Upscaling_SpatialUpscalerArgs_Output
+  commentId: F:Zenith.NET.Extensions.Upscaling.SpatialUpscalerArgs.Output
+  fullName: Zenith.NET.Extensions.Upscaling.SpatialUpscalerArgs.Output
+  nameWithType: SpatialUpscalerArgs.Output
+- uid: Zenith.NET.Extensions.Upscaling.SpatialUpscalerDesc
+  name: SpatialUpscalerDesc
+  href: api/Zenith.NET.Extensions.Upscaling.SpatialUpscalerDesc.html
+  commentId: T:Zenith.NET.Extensions.Upscaling.SpatialUpscalerDesc
+  fullName: Zenith.NET.Extensions.Upscaling.SpatialUpscalerDesc
+  nameWithType: SpatialUpscalerDesc
+- uid: Zenith.NET.Extensions.Upscaling.SpatialUpscalerDesc.InputHeight
+  name: InputHeight
+  href: api/Zenith.NET.Extensions.Upscaling.SpatialUpscalerDesc.html#Zenith_NET_Extensions_Upscaling_SpatialUpscalerDesc_InputHeight
+  commentId: F:Zenith.NET.Extensions.Upscaling.SpatialUpscalerDesc.InputHeight
+  fullName: Zenith.NET.Extensions.Upscaling.SpatialUpscalerDesc.InputHeight
+  nameWithType: SpatialUpscalerDesc.InputHeight
+- uid: Zenith.NET.Extensions.Upscaling.SpatialUpscalerDesc.InputWidth
+  name: InputWidth
+  href: api/Zenith.NET.Extensions.Upscaling.SpatialUpscalerDesc.html#Zenith_NET_Extensions_Upscaling_SpatialUpscalerDesc_InputWidth
+  commentId: F:Zenith.NET.Extensions.Upscaling.SpatialUpscalerDesc.InputWidth
+  fullName: Zenith.NET.Extensions.Upscaling.SpatialUpscalerDesc.InputWidth
+  nameWithType: SpatialUpscalerDesc.InputWidth
+- uid: Zenith.NET.Extensions.Upscaling.SpatialUpscalerDesc.OutputHeight
+  name: OutputHeight
+  href: api/Zenith.NET.Extensions.Upscaling.SpatialUpscalerDesc.html#Zenith_NET_Extensions_Upscaling_SpatialUpscalerDesc_OutputHeight
+  commentId: F:Zenith.NET.Extensions.Upscaling.SpatialUpscalerDesc.OutputHeight
+  fullName: Zenith.NET.Extensions.Upscaling.SpatialUpscalerDesc.OutputHeight
+  nameWithType: SpatialUpscalerDesc.OutputHeight
+- uid: Zenith.NET.Extensions.Upscaling.SpatialUpscalerDesc.OutputWidth
+  name: OutputWidth
+  href: api/Zenith.NET.Extensions.Upscaling.SpatialUpscalerDesc.html#Zenith_NET_Extensions_Upscaling_SpatialUpscalerDesc_OutputWidth
+  commentId: F:Zenith.NET.Extensions.Upscaling.SpatialUpscalerDesc.OutputWidth
+  fullName: Zenith.NET.Extensions.Upscaling.SpatialUpscalerDesc.OutputWidth
+  nameWithType: SpatialUpscalerDesc.OutputWidth
+- uid: Zenith.NET.Extensions.Upscaling.TemporalUpscaler
+  name: TemporalUpscaler
+  href: api/Zenith.NET.Extensions.Upscaling.TemporalUpscaler.html
+  commentId: T:Zenith.NET.Extensions.Upscaling.TemporalUpscaler
+  fullName: Zenith.NET.Extensions.Upscaling.TemporalUpscaler
+  nameWithType: TemporalUpscaler
+- uid: Zenith.NET.Extensions.Upscaling.TemporalUpscaler.Desc
+  name: Desc
+  href: api/Zenith.NET.Extensions.Upscaling.TemporalUpscaler.html#Zenith_NET_Extensions_Upscaling_TemporalUpscaler_Desc
+  commentId: P:Zenith.NET.Extensions.Upscaling.TemporalUpscaler.Desc
+  fullName: Zenith.NET.Extensions.Upscaling.TemporalUpscaler.Desc
+  nameWithType: TemporalUpscaler.Desc
+- uid: Zenith.NET.Extensions.Upscaling.TemporalUpscaler.Desc*
+  name: Desc
+  href: api/Zenith.NET.Extensions.Upscaling.TemporalUpscaler.html#Zenith_NET_Extensions_Upscaling_TemporalUpscaler_Desc_
+  commentId: Overload:Zenith.NET.Extensions.Upscaling.TemporalUpscaler.Desc
+  isSpec: "True"
+  fullName: Zenith.NET.Extensions.Upscaling.TemporalUpscaler.Desc
+  nameWithType: TemporalUpscaler.Desc
+- uid: Zenith.NET.Extensions.Upscaling.TemporalUpscaler.Destroy
+  name: Destroy()
+  href: api/Zenith.NET.Extensions.Upscaling.TemporalUpscaler.html#Zenith_NET_Extensions_Upscaling_TemporalUpscaler_Destroy
+  commentId: M:Zenith.NET.Extensions.Upscaling.TemporalUpscaler.Destroy
+  fullName: Zenith.NET.Extensions.Upscaling.TemporalUpscaler.Destroy()
+  nameWithType: TemporalUpscaler.Destroy()
+- uid: Zenith.NET.Extensions.Upscaling.TemporalUpscaler.Destroy*
+  name: Destroy
+  href: api/Zenith.NET.Extensions.Upscaling.TemporalUpscaler.html#Zenith_NET_Extensions_Upscaling_TemporalUpscaler_Destroy_
+  commentId: Overload:Zenith.NET.Extensions.Upscaling.TemporalUpscaler.Destroy
+  isSpec: "True"
+  fullName: Zenith.NET.Extensions.Upscaling.TemporalUpscaler.Destroy
+  nameWithType: TemporalUpscaler.Destroy
+- uid: Zenith.NET.Extensions.Upscaling.TemporalUpscaler.Dispatch(Zenith.NET.CommandBuffer,Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs)
+  name: Dispatch(CommandBuffer, TemporalUpscalerArgs)
+  href: api/Zenith.NET.Extensions.Upscaling.TemporalUpscaler.html#Zenith_NET_Extensions_Upscaling_TemporalUpscaler_Dispatch_Zenith_NET_CommandBuffer_Zenith_NET_Extensions_Upscaling_TemporalUpscalerArgs_
+  commentId: M:Zenith.NET.Extensions.Upscaling.TemporalUpscaler.Dispatch(Zenith.NET.CommandBuffer,Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs)
+  fullName: Zenith.NET.Extensions.Upscaling.TemporalUpscaler.Dispatch(Zenith.NET.CommandBuffer, Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs)
+  nameWithType: TemporalUpscaler.Dispatch(CommandBuffer, TemporalUpscalerArgs)
+- uid: Zenith.NET.Extensions.Upscaling.TemporalUpscaler.Dispatch*
+  name: Dispatch
+  href: api/Zenith.NET.Extensions.Upscaling.TemporalUpscaler.html#Zenith_NET_Extensions_Upscaling_TemporalUpscaler_Dispatch_
+  commentId: Overload:Zenith.NET.Extensions.Upscaling.TemporalUpscaler.Dispatch
+  isSpec: "True"
+  fullName: Zenith.NET.Extensions.Upscaling.TemporalUpscaler.Dispatch
+  nameWithType: TemporalUpscaler.Dispatch
+- uid: Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs
+  name: TemporalUpscalerArgs
+  href: api/Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs.html
+  commentId: T:Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs
+  fullName: Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs
+  nameWithType: TemporalUpscalerArgs
+- uid: Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs.CameraFovAngleHor
+  name: CameraFovAngleHor
+  href: api/Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs.html#Zenith_NET_Extensions_Upscaling_TemporalUpscalerArgs_CameraFovAngleHor
+  commentId: F:Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs.CameraFovAngleHor
+  fullName: Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs.CameraFovAngleHor
+  nameWithType: TemporalUpscalerArgs.CameraFovAngleHor
+- uid: Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs.ClipToPrevClip
+  name: ClipToPrevClip
+  href: api/Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs.html#Zenith_NET_Extensions_Upscaling_TemporalUpscalerArgs_ClipToPrevClip
+  commentId: F:Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs.ClipToPrevClip
+  fullName: Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs.ClipToPrevClip
+  nameWithType: TemporalUpscalerArgs.ClipToPrevClip
+- uid: Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs.Depth
+  name: Depth
+  href: api/Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs.html#Zenith_NET_Extensions_Upscaling_TemporalUpscalerArgs_Depth
+  commentId: F:Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs.Depth
+  fullName: Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs.Depth
+  nameWithType: TemporalUpscalerArgs.Depth
+- uid: Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs.Input
+  name: Input
+  href: api/Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs.html#Zenith_NET_Extensions_Upscaling_TemporalUpscalerArgs_Input
+  commentId: F:Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs.Input
+  fullName: Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs.Input
+  nameWithType: TemporalUpscalerArgs.Input
+- uid: Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs.JitterOffsetX
+  name: JitterOffsetX
+  href: api/Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs.html#Zenith_NET_Extensions_Upscaling_TemporalUpscalerArgs_JitterOffsetX
+  commentId: F:Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs.JitterOffsetX
+  fullName: Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs.JitterOffsetX
+  nameWithType: TemporalUpscalerArgs.JitterOffsetX
+- uid: Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs.JitterOffsetY
+  name: JitterOffsetY
+  href: api/Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs.html#Zenith_NET_Extensions_Upscaling_TemporalUpscalerArgs_JitterOffsetY
+  commentId: F:Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs.JitterOffsetY
+  fullName: Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs.JitterOffsetY
+  nameWithType: TemporalUpscalerArgs.JitterOffsetY
+- uid: Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs.MinLerpContribution
+  name: MinLerpContribution
+  href: api/Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs.html#Zenith_NET_Extensions_Upscaling_TemporalUpscalerArgs_MinLerpContribution
+  commentId: F:Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs.MinLerpContribution
+  fullName: Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs.MinLerpContribution
+  nameWithType: TemporalUpscalerArgs.MinLerpContribution
+- uid: Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs.MotionVectors
+  name: MotionVectors
+  href: api/Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs.html#Zenith_NET_Extensions_Upscaling_TemporalUpscalerArgs_MotionVectors
+  commentId: F:Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs.MotionVectors
+  fullName: Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs.MotionVectors
+  nameWithType: TemporalUpscalerArgs.MotionVectors
+- uid: Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs.OpaqueInput
+  name: OpaqueInput
+  href: api/Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs.html#Zenith_NET_Extensions_Upscaling_TemporalUpscalerArgs_OpaqueInput
+  commentId: F:Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs.OpaqueInput
+  fullName: Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs.OpaqueInput
+  nameWithType: TemporalUpscalerArgs.OpaqueInput
+- uid: Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs.Output
+  name: Output
+  href: api/Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs.html#Zenith_NET_Extensions_Upscaling_TemporalUpscalerArgs_Output
+  commentId: F:Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs.Output
+  fullName: Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs.Output
+  nameWithType: TemporalUpscalerArgs.Output
+- uid: Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs.PreExposure
+  name: PreExposure
+  href: api/Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs.html#Zenith_NET_Extensions_Upscaling_TemporalUpscalerArgs_PreExposure
+  commentId: F:Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs.PreExposure
+  fullName: Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs.PreExposure
+  nameWithType: TemporalUpscalerArgs.PreExposure
+- uid: Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs.Reset
+  name: Reset
+  href: api/Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs.html#Zenith_NET_Extensions_Upscaling_TemporalUpscalerArgs_Reset
+  commentId: F:Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs.Reset
+  fullName: Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs.Reset
+  nameWithType: TemporalUpscalerArgs.Reset
+- uid: Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs.SameCamera
+  name: SameCamera
+  href: api/Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs.html#Zenith_NET_Extensions_Upscaling_TemporalUpscalerArgs_SameCamera
+  commentId: F:Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs.SameCamera
+  fullName: Zenith.NET.Extensions.Upscaling.TemporalUpscalerArgs.SameCamera
+  nameWithType: TemporalUpscalerArgs.SameCamera
+- uid: Zenith.NET.Extensions.Upscaling.TemporalUpscalerDesc
+  name: TemporalUpscalerDesc
+  href: api/Zenith.NET.Extensions.Upscaling.TemporalUpscalerDesc.html
+  commentId: T:Zenith.NET.Extensions.Upscaling.TemporalUpscalerDesc
+  fullName: Zenith.NET.Extensions.Upscaling.TemporalUpscalerDesc
+  nameWithType: TemporalUpscalerDesc
+- uid: Zenith.NET.Extensions.Upscaling.TemporalUpscalerDesc.InputHeight
+  name: InputHeight
+  href: api/Zenith.NET.Extensions.Upscaling.TemporalUpscalerDesc.html#Zenith_NET_Extensions_Upscaling_TemporalUpscalerDesc_InputHeight
+  commentId: F:Zenith.NET.Extensions.Upscaling.TemporalUpscalerDesc.InputHeight
+  fullName: Zenith.NET.Extensions.Upscaling.TemporalUpscalerDesc.InputHeight
+  nameWithType: TemporalUpscalerDesc.InputHeight
+- uid: Zenith.NET.Extensions.Upscaling.TemporalUpscalerDesc.InputWidth
+  name: InputWidth
+  href: api/Zenith.NET.Extensions.Upscaling.TemporalUpscalerDesc.html#Zenith_NET_Extensions_Upscaling_TemporalUpscalerDesc_InputWidth
+  commentId: F:Zenith.NET.Extensions.Upscaling.TemporalUpscalerDesc.InputWidth
+  fullName: Zenith.NET.Extensions.Upscaling.TemporalUpscalerDesc.InputWidth
+  nameWithType: TemporalUpscalerDesc.InputWidth
+- uid: Zenith.NET.Extensions.Upscaling.TemporalUpscalerDesc.Mode
+  name: Mode
+  href: api/Zenith.NET.Extensions.Upscaling.TemporalUpscalerDesc.html#Zenith_NET_Extensions_Upscaling_TemporalUpscalerDesc_Mode
+  commentId: F:Zenith.NET.Extensions.Upscaling.TemporalUpscalerDesc.Mode
+  fullName: Zenith.NET.Extensions.Upscaling.TemporalUpscalerDesc.Mode
+  nameWithType: TemporalUpscalerDesc.Mode
+- uid: Zenith.NET.Extensions.Upscaling.TemporalUpscalerDesc.OutputHeight
+  name: OutputHeight
+  href: api/Zenith.NET.Extensions.Upscaling.TemporalUpscalerDesc.html#Zenith_NET_Extensions_Upscaling_TemporalUpscalerDesc_OutputHeight
+  commentId: F:Zenith.NET.Extensions.Upscaling.TemporalUpscalerDesc.OutputHeight
+  fullName: Zenith.NET.Extensions.Upscaling.TemporalUpscalerDesc.OutputHeight
+  nameWithType: TemporalUpscalerDesc.OutputHeight
+- uid: Zenith.NET.Extensions.Upscaling.TemporalUpscalerDesc.OutputWidth
+  name: OutputWidth
+  href: api/Zenith.NET.Extensions.Upscaling.TemporalUpscalerDesc.html#Zenith_NET_Extensions_Upscaling_TemporalUpscalerDesc_OutputWidth
+  commentId: F:Zenith.NET.Extensions.Upscaling.TemporalUpscalerDesc.OutputWidth
+  fullName: Zenith.NET.Extensions.Upscaling.TemporalUpscalerDesc.OutputWidth
+  nameWithType: TemporalUpscalerDesc.OutputWidth
+- uid: Zenith.NET.Extensions.Upscaling.TemporalUpscalerMode
+  name: TemporalUpscalerMode
+  href: api/Zenith.NET.Extensions.Upscaling.TemporalUpscalerMode.html
+  commentId: T:Zenith.NET.Extensions.Upscaling.TemporalUpscalerMode
+  fullName: Zenith.NET.Extensions.Upscaling.TemporalUpscalerMode
+  nameWithType: TemporalUpscalerMode
+- uid: Zenith.NET.Extensions.Upscaling.TemporalUpscalerMode.Quality
+  name: Quality
+  href: api/Zenith.NET.Extensions.Upscaling.TemporalUpscalerMode.html#Zenith_NET_Extensions_Upscaling_TemporalUpscalerMode_Quality
+  commentId: F:Zenith.NET.Extensions.Upscaling.TemporalUpscalerMode.Quality
+  fullName: Zenith.NET.Extensions.Upscaling.TemporalUpscalerMode.Quality
+  nameWithType: TemporalUpscalerMode.Quality
+- uid: Zenith.NET.Extensions.Upscaling.TemporalUpscalerMode.Speed
+  name: Speed
+  href: api/Zenith.NET.Extensions.Upscaling.TemporalUpscalerMode.html#Zenith_NET_Extensions_Upscaling_TemporalUpscalerMode_Speed
+  commentId: F:Zenith.NET.Extensions.Upscaling.TemporalUpscalerMode.Speed
+  fullName: Zenith.NET.Extensions.Upscaling.TemporalUpscalerMode.Speed
+  nameWithType: TemporalUpscalerMode.Speed
 - uid: Zenith.NET.Extent3D
   name: Extent3D
   href: api/Zenith.NET.Extent3D.html
@@ -7532,42 +7807,42 @@ references:
   commentId: F:Zenith.NET.NativeObjectType.D3D12Device
   fullName: Zenith.NET.NativeObjectType.D3D12Device
   nameWithType: NativeObjectType.D3D12Device
-- uid: Zenith.NET.NativeObjectType.D3D12Fence
-  name: D3D12Fence
-  href: api/Zenith.NET.NativeObjectType.html#Zenith_NET_NativeObjectType_D3D12Fence
-  commentId: F:Zenith.NET.NativeObjectType.D3D12Fence
-  fullName: Zenith.NET.NativeObjectType.D3D12Fence
-  nameWithType: NativeObjectType.D3D12Fence
 - uid: Zenith.NET.NativeObjectType.D3D12GpuVirtualAddress
   name: D3D12GpuVirtualAddress
   href: api/Zenith.NET.NativeObjectType.html#Zenith_NET_NativeObjectType_D3D12GpuVirtualAddress
   commentId: F:Zenith.NET.NativeObjectType.D3D12GpuVirtualAddress
   fullName: Zenith.NET.NativeObjectType.D3D12GpuVirtualAddress
   nameWithType: NativeObjectType.D3D12GpuVirtualAddress
-- uid: Zenith.NET.NativeObjectType.D3D12GraphicsCommandList
-  name: D3D12GraphicsCommandList
-  href: api/Zenith.NET.NativeObjectType.html#Zenith_NET_NativeObjectType_D3D12GraphicsCommandList
-  commentId: F:Zenith.NET.NativeObjectType.D3D12GraphicsCommandList
-  fullName: Zenith.NET.NativeObjectType.D3D12GraphicsCommandList
-  nameWithType: NativeObjectType.D3D12GraphicsCommandList
 - uid: Zenith.NET.NativeObjectType.D3D12Resource
   name: D3D12Resource
   href: api/Zenith.NET.NativeObjectType.html#Zenith_NET_NativeObjectType_D3D12Resource
   commentId: F:Zenith.NET.NativeObjectType.D3D12Resource
   fullName: Zenith.NET.NativeObjectType.D3D12Resource
   nameWithType: NativeObjectType.D3D12Resource
+- uid: Zenith.NET.NativeObjectType.MTL4CommandQueue
+  name: MTL4CommandQueue
+  href: api/Zenith.NET.NativeObjectType.html#Zenith_NET_NativeObjectType_MTL4CommandQueue
+  commentId: F:Zenith.NET.NativeObjectType.MTL4CommandQueue
+  fullName: Zenith.NET.NativeObjectType.MTL4CommandQueue
+  nameWithType: NativeObjectType.MTL4CommandQueue
+- uid: Zenith.NET.NativeObjectType.MTLAccelerationStructure
+  name: MTLAccelerationStructure
+  href: api/Zenith.NET.NativeObjectType.html#Zenith_NET_NativeObjectType_MTLAccelerationStructure
+  commentId: F:Zenith.NET.NativeObjectType.MTLAccelerationStructure
+  fullName: Zenith.NET.NativeObjectType.MTLAccelerationStructure
+  nameWithType: NativeObjectType.MTLAccelerationStructure
+- uid: Zenith.NET.NativeObjectType.MTLBuffer
+  name: MTLBuffer
+  href: api/Zenith.NET.NativeObjectType.html#Zenith_NET_NativeObjectType_MTLBuffer
+  commentId: F:Zenith.NET.NativeObjectType.MTLBuffer
+  fullName: Zenith.NET.NativeObjectType.MTLBuffer
+  nameWithType: NativeObjectType.MTLBuffer
 - uid: Zenith.NET.NativeObjectType.MTLDevice
   name: MTLDevice
   href: api/Zenith.NET.NativeObjectType.html#Zenith_NET_NativeObjectType_MTLDevice
   commentId: F:Zenith.NET.NativeObjectType.MTLDevice
   fullName: Zenith.NET.NativeObjectType.MTLDevice
   nameWithType: NativeObjectType.MTLDevice
-- uid: Zenith.NET.NativeObjectType.MTLSharedEvent
-  name: MTLSharedEvent
-  href: api/Zenith.NET.NativeObjectType.html#Zenith_NET_NativeObjectType_MTLSharedEvent
-  commentId: F:Zenith.NET.NativeObjectType.MTLSharedEvent
-  fullName: Zenith.NET.NativeObjectType.MTLSharedEvent
-  nameWithType: NativeObjectType.MTLSharedEvent
 - uid: Zenith.NET.NativeObjectType.MTLTexture
   name: MTLTexture
   href: api/Zenith.NET.NativeObjectType.html#Zenith_NET_NativeObjectType_MTLTexture
@@ -7586,12 +7861,6 @@ references:
   commentId: F:Zenith.NET.NativeObjectType.VulkanBuffer
   fullName: Zenith.NET.NativeObjectType.VulkanBuffer
   nameWithType: NativeObjectType.VulkanBuffer
-- uid: Zenith.NET.NativeObjectType.VulkanCommandBuffer
-  name: VulkanCommandBuffer
-  href: api/Zenith.NET.NativeObjectType.html#Zenith_NET_NativeObjectType_VulkanCommandBuffer
-  commentId: F:Zenith.NET.NativeObjectType.VulkanCommandBuffer
-  fullName: Zenith.NET.NativeObjectType.VulkanCommandBuffer
-  nameWithType: NativeObjectType.VulkanCommandBuffer
 - uid: Zenith.NET.NativeObjectType.VulkanDevice
   name: VulkanDevice
   href: api/Zenith.NET.NativeObjectType.html#Zenith_NET_NativeObjectType_VulkanDevice
@@ -7658,12 +7927,6 @@ references:
   commentId: F:Zenith.NET.NativeObjectType.VulkanQueueFamilyIndex
   fullName: Zenith.NET.NativeObjectType.VulkanQueueFamilyIndex
   nameWithType: NativeObjectType.VulkanQueueFamilyIndex
-- uid: Zenith.NET.NativeObjectType.VulkanSemaphore
-  name: VulkanSemaphore
-  href: api/Zenith.NET.NativeObjectType.html#Zenith_NET_NativeObjectType_VulkanSemaphore
-  commentId: F:Zenith.NET.NativeObjectType.VulkanSemaphore
-  fullName: Zenith.NET.NativeObjectType.VulkanSemaphore
-  nameWithType: NativeObjectType.VulkanSemaphore
 - uid: Zenith.NET.NativeTextureType
   name: NativeTextureType
   href: api/Zenith.NET.NativeTextureType.html
